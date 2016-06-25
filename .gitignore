@@ -214,3 +214,6 @@ Thumbs.db
 
 #bitrise
 .bitrise*
+
+[Ll]ocal/
+[Pp]rivateKeys.cs
