@@ -1,8 +1,8 @@
-﻿namespace XWeather
+﻿namespace XWeather.Domain
 {
 	public class Astronomy : WuObject
 	{
-		public override string WuApiKey => "astronomy";
+		public override string WuKey => "astronomy";
 
 		public MoonPhase moon_phase { get; set; }
 		public AstronomyPhase sun_phase { get; set; }

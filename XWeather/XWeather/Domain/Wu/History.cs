@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace XWeather
+namespace XWeather.Domain
 {
 	public class History : WuObject
 	{
-		public override string WuApiKey => "history";
+		public override string WuKey => "history";
 
 		public HistoryDetail history { get; set; }
 

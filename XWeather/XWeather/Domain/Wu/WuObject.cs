@@ -1,8 +1,8 @@
-﻿namespace XWeather
+﻿namespace XWeather.Domain
 {
 	public abstract class WuObject
 	{
-		public abstract string WuApiKey { get; }
+		public abstract string WuKey { get; }
 
 		public WuObjectDetail response { get; set; }
 	}

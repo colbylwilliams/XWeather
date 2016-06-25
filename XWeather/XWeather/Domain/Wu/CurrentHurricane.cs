@@ -1,5 +1,4 @@
-﻿using System;
-namespace XWeather
+﻿namespace XWeather.Domain
 {
 	public class CurrentHurricane
 	{

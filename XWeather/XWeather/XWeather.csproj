@@ -30,7 +30,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Bootstrap.cs" />
-    <Compile Include="ApiKeys.cs" />
     <Compile Include="Domain\Wu\Alerts.cs" />
     <Compile Include="Domain\Wu\Almanac.cs" />
     <Compile Include="Domain\Wu\Astronomy.cs" />
@@ -48,6 +47,8 @@
     <Compile Include="Domain\Wu\WuObject.cs" />
     <Compile Include="Clients\AzureClient.cs" />
     <Compile Include="Clients\WuClient.cs" />
+    <Compile Include="Constants\ApiKeys.cs" />
+    <Compile Include="Constants\PrivateKeys.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -73,6 +74,7 @@
     <Folder Include="Domain\" />
     <Folder Include="Domain\Wu\" />
     <Folder Include="Clients\" />
+    <Folder Include="Constants\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

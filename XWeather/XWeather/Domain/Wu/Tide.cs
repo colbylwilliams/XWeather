@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace XWeather
+namespace XWeather.Domain
 {
 	public class Tide : WuObject
 	{
-		public override string WuApiKey => "tide";
+		public override string WuKey => "tide";
 
 		public TideDetail tide { get; set; }
 

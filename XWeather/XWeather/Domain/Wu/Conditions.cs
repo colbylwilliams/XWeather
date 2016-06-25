@@ -1,8 +1,8 @@
-﻿namespace XWeather
+﻿namespace XWeather.Domain
 {
 	public class Conditions : WuObject
 	{
-		public override string WuApiKey => "conditions";
+		public override string WuKey => "conditions";
 
 		public CurrentObservation current_observation { get; set; }
 	}

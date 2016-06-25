@@ -1,8 +1,8 @@
-﻿namespace XWeather
+﻿namespace XWeather.Domain
 {
 	public class Almanac : WuObject
 	{
-		public override string WuApiKey => "almanac";
+		public override string WuKey => "almanac";
 
 		public AlmanacDetail almanac { get; set; }
 

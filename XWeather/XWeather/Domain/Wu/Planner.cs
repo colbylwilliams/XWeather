@@ -1,8 +1,8 @@
-﻿namespace XWeather
+﻿namespace XWeather.Domain
 {
 	public class Planner : WuObject
 	{
-		public override string WuApiKey => "planner";
+		public override string WuKey => "planner";
 
 		public Trip trip { get; set; }
 	}

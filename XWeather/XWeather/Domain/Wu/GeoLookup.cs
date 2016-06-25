@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace XWeather
+namespace XWeather.Domain
 {
 	public class GeoLookup : WuObject
 	{
-		public override string WuApiKey => "geolookup";
+		public override string WuKey => "geolookup";
 
 		public GeoLookupLocation location { get; set; }
 	}

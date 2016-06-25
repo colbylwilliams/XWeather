@@ -1,8 +1,8 @@
-﻿namespace XWeather
+﻿namespace XWeather.Domain
 {
 	public class Satellite : WuObject
 	{
-		public override string WuApiKey => "satellite";
+		public override string WuKey => "satellite";
 
 		public SatelliteDetail satellite { get; set; }
 

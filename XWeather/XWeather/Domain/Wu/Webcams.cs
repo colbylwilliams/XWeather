@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace XWeather
+namespace XWeather.Domain
 {
 	public class Webcams : WuObject
 	{
-		public override string WuApiKey => "webcams";
+		public override string WuKey => "webcams";
 
 		public List<Webcam> webcams { get; set; }
 	}

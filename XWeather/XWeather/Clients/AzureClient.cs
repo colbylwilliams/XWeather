@@ -1,13 +1,15 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
 
-namespace XWeather
+using XWeather.Constants;
+
+namespace XWeather.Clients
 {
 	public class AzureClient
 	{
 		public static MobileServiceClient MobileService = new MobileServiceClient (ApiKeys.AzureWebsite);
 
 
-		public void Init()
+		public void Init ()
 		{
 			//await MobileService.GetTable<TodoItem> ().InsertAsync (item);
 		}
