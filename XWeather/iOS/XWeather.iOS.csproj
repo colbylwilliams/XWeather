@@ -159,6 +159,7 @@
     </Compile>
     <Compile Include="Bootstrap.cs" />
   </ItemGroup>
+  <Import Project="..\Unified\XWeather.Unified.projitems" Label="Shared" Condition="Exists('..\Unified\XWeather.Unified.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
 </Project>

@@ -1,13 +1,11 @@
-﻿using Foundation;
-using UIKit;
+﻿using AppKit;
+using Foundation;
 
-namespace XWeather.iOS
+namespace XWeather.macOS
 {
 	[Register ("AppDelegate")]
-	public class AppDelegate : UIApplicationDelegate
+	public class AppDelegate : NSApplicationDelegate
 	{
-		public override UIWindow Window { get; set; }
-
 		public AppDelegate ()
 		{
 			#region Configure HockeyApp
@@ -29,15 +27,14 @@ namespace XWeather.iOS
 			//InitData ();
 		}
 
-		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
+		public override void DidFinishLaunching (NSNotification notification)
 		{
+			// Insert code here to initialize your application
+		}
 
-			// Code to start the Xamarin Test Cloud Agent
-#if ENABLE_TEST_CLOUD
-			Xamarin.Calabash.Start ();
-#endif
-
-			return true;
+		public override void WillTerminate (NSNotification notification)
+		{
+			// Insert code here to tear down your application
 		}
 	}
 }

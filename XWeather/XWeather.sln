@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWeather", "XWeather\XWeath
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWeather.UITests", "UITests\XWeather.UITests.csproj", "{15ED7D76-DC89-4BE7-AF33-D5224EA24531}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWeather.macOS", "macOS\XWeather.macOS.csproj", "{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XWeather.Unified", "Unified\XWeather.Unified.shproj", "{8226D00B-19CF-4B54-945C-B13C1AE855A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,5 +71,17 @@ Global
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Release|iPhone.Build.0 = Release|Any CPU
+		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

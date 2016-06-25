@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{8226D00B-19CF-4B54-945C-B13C1AE855A1}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>XWeather.Unified</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Bootstrap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\Colors.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\CollectionExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\DateExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ImageExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\NullableExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\UnifiedExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\StoryboardExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Settings\SettingAccessors.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Settings\SettingUtilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Constants\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Extensions\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Utilities\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Settings\" />
+  </ItemGroup>
+</Project>

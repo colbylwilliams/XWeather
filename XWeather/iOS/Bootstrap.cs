@@ -4,13 +4,13 @@
 	{
 		public static void Run ()
 		{
-			XWeather.Bootstrap.Run ();
+			//XWeather.Bootstrap.Run ();
 
-			ServiceStack.IosPclExportClient.Configure ();
+			//ServiceStack.IosPclExportClient.Configure ();
 
-			ServiceStack.JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new ModernHttpClient.NativeMessageHandler ();
+			//ServiceStack.JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new ModernHttpClient.NativeMessageHandler ();
 
-			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init ();
+			//Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init ();
 		}
 	}
 }
