@@ -1,10 +1,12 @@
-﻿using System;
+﻿using XWeather.Constants;
+
 namespace XWeather
 {
-	public class Bootstrap
+	public static class Bootstrap
 	{
-		public Bootstrap ()
+		public static void Run ()
 		{
+			ServiceStack.Licensing.RegisterLicense (PrivateKeys.ServiceStackKey);
 		}
 	}
 }

@@ -120,34 +120,34 @@
 		public string country { get; set; }
 		public string country_iso3166 { get; set; }
 
-		public string lat { get; set; }
-		public string lon { get; set; }
+		public double lat { get; set; }
+		public double lon { get; set; }
 
-		public string latitude { get; set; }
-		public string longitude { get; set; }
+		public double latitude { get; set; }
+		public double longitude { get; set; }
 
-		public double Latitude => double.Parse (lat ?? latitude ?? "0");
-		public double Longitude => double.Parse (lon ?? longitude ?? "0");
+		public double LatitudeValue => NumberExtensions.GetBestValue (lat, latitude);
+		public double LongitudeValue => NumberExtensions.GetBestValue (lon, longitude);
 	}
 
 
 	public class Temperature
 	{
-		public string fahrenheit { get; set; }
-		public string celsius { get; set; }
+		public double fahrenheit { get; set; }
+		public double celsius { get; set; }
 
-		public string F { get; set; }
-		public string C { get; set; }
+		public double F { get; set; }
+		public double C { get; set; }
 
-		public string Fahrenheit => fahrenheit ?? F;
-		public string Celsius => celsius ?? C;
+		public double FahrenheitValue => NumberExtensions.GetBestValue (fahrenheit, F);
+		public double CelsiusValue => NumberExtensions.GetBestValue (celsius, C);
 	}
 
 
 	public class Measurement
 	{
-		public string english { get; set; }
-		public string metric { get; set; }
+		public double english { get; set; }
+		public double metric { get; set; }
 	}
 
 

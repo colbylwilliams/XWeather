@@ -1,12 +1,16 @@
-﻿using Microsoft.WindowsAzure.MobileServices;
-
-namespace XWeather.Droid
+﻿namespace XWeather.Droid
 {
 	public static class Bootstrap
 	{
 		public static void Run ()
 		{
-			CurrentPlatform.Init ();
+			XWeather.Bootstrap.Run ();
+
+			ServiceStack.AndroidPclExportClient.Configure ();
+
+			ServiceStack.JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new ModernHttpClient.NativeMessageHandler ();
+
+			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init ();
 		}
 	}
 }

@@ -8,9 +8,9 @@ namespace XWeather.Domain
 
 		public TideDetail tide { get; set; }
 
-		public List<TideInfo> tideInfo => tide?.tideInfo;
-		public List<TideSummary> tideSummary => tide?.tideSummary;
-		public List<TideStat> tideSummaryStats => tide?.tideSummaryStats;
+		public List<TideInfo> TideInfo => tide?.tideInfo;
+		public List<TideSummary> TideSummary => tide?.tideSummary;
+		public List<TideStat> TideSummaryStats => tide?.tideSummaryStats;
 	}
 
 

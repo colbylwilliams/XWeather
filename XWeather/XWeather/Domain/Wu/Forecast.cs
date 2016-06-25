@@ -8,8 +8,8 @@ namespace XWeather.Domain
 
 		public ForecastDetail forecast { get; set; }
 
-		public TxtForecast txt_forecast => forecast?.txt_forecast;
-		public SimpleForecast simpleforecast => forecast?.simpleforecast;
+		public TxtForecast TextForecast => forecast?.txt_forecast;
+		public SimpleForecast Simpleforecast => forecast?.simpleforecast;
 	}
 
 
