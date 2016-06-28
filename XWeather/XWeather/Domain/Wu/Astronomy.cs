@@ -1,4 +1,5 @@
-﻿namespace XWeather.Domain
+﻿using System;
+namespace XWeather.Domain
 {
 	public class Astronomy : WuObject
 	{
@@ -30,7 +31,9 @@
 
 	public class AstronomyTime
 	{
-		public string hour { get; set; }
-		public string minute { get; set; }
+		public double hour { get; set; }
+		public double minute { get; set; }
+
+		public DateTime LocalDateTime => DateTime.Today.AddHours (hour).AddMinutes (minute);
 	}
 }

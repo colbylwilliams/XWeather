@@ -9,7 +9,6 @@ namespace SettingsStudio
 	public static partial class Settings
 	{
 
-
 		#region Visible Settings
 
 
@@ -32,6 +31,11 @@ namespace SettingsStudio
 
 		#region Hidden Settings
 
+
+		public static string LocationsJson {
+			get { return StringForKey (SettingsKeys.ss_string_locations_json); }
+			set { SetSetting (SettingsKeys.ss_string_locations_json, value); }
+		}
 
 
 		#endregion

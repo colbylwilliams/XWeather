@@ -29,6 +29,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
+    <XamarinInspectorDisabled>True</XamarinInspectorDisabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>pdbonly</DebugType>
@@ -140,6 +141,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="ViewControllers\" />
+    <Folder Include="ViewControllers\TableViewControllers\" />
+    <Folder Include="ViewControllers\TableViewControllers\TableViewCells\" />
+    <Folder Include="ViewControllers\TableViewControllers\TableViewHeaders\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -153,11 +158,65 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Bootstrap.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\DailyTvCell.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\DailyTvCell.designer.cs">
+      <DependentUpon>DailyTvCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\DetailsTvCell.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\DetailsTvCell.designer.cs">
+      <DependentUpon>DetailsTvCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\HourlyTvCell.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\HourlyTvCell.designer.cs">
+      <DependentUpon>HourlyTvCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationResultTvCell.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationResultTvCell.designer.cs">
+      <DependentUpon>LocationResultTvCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationSearchTvCell.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationSearchTvCell.designer.cs">
+      <DependentUpon>LocationSearchTvCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationTvCell.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationTvCell.designer.cs">
+      <DependentUpon>LocationTvCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\TableViewControllers\DailyTvc.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\DailyTvc.designer.cs">
+      <DependentUpon>DailyTvc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\TableViewControllers\DetailsTvc.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\DetailsTvc.designer.cs">
+      <DependentUpon>DetailsTvc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\TableViewControllers\HourlyTvc.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\HourlyTvc.designer.cs">
+      <DependentUpon>HourlyTvc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\TableViewControllers\LocationResultTvc.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\LocationResultTvc.designer.cs">
+      <DependentUpon>LocationResultTvc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\TableViewControllers\LocationSearchTvc.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\LocationSearchTvc.designer.cs">
+      <DependentUpon>LocationSearchTvc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\TableViewControllers\LocationTvc.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\LocationTvc.designer.cs">
+      <DependentUpon>LocationTvc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\TableViewControllers\BaseTvc.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\BaseTvCell.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DailyTvHeader.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\HourlyTvHeader.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DetailsTvHeader.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\BaseTvHeader.cs" />
+    <Compile Include="ViewControllers\WeatherPvc.cs" />
+    <Compile Include="ViewControllers\WeatherPvc.designer.cs">
+      <DependentUpon>WeatherPvc.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="..\Unified\XWeather.Unified.projitems" Label="Shared" Condition="Exists('..\Unified\XWeather.Unified.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

@@ -17,7 +17,7 @@
 	}
 
 
-	public class ObservationLocation : WuLocation
+	public class ObservationLocation : GeoLocation
 	{
 		public string full { get; set; }
 		public string elevation { get; set; }

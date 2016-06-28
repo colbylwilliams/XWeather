@@ -23,7 +23,6 @@ namespace XWeather.Unified
 		public static NSViewController InstantiateViewController (this NSStoryboard storyboard, string name)
 			=> storyboard.InstantiateControllerWithIdentifier (name) as NSViewController;
 
-
 #endif
 	}
 }

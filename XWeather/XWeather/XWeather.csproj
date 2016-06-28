@@ -54,6 +54,11 @@
     <Compile Include="Domain\Wu\WuWeather.cs" />
     <Compile Include="Domain\Wu\Extensions\NumberExtensions.cs" />
     <Compile Include="Settings\SettingKeys.cs" />
+    <Compile Include="Domain\Wu\WuLocation.cs" />
+    <Compile Include="Constants\TestData.cs" />
+    <Compile Include="Extensions\DateExtensions.cs" />
+    <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="Extensions\ColorExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -94,6 +99,7 @@
     <Folder Include="Constants\" />
     <Folder Include="Domain\Wu\Extensions\" />
     <Folder Include="Settings\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

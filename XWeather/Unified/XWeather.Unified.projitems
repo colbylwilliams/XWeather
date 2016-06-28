@@ -19,6 +19,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StoryboardExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Settings\SettingAccessors.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Settings\SettingUtilities.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ColorExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\AttributedStringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Constants\" />

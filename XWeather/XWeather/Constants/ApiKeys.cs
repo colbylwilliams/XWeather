@@ -8,7 +8,7 @@
 
 		public static string WuApiKeyedPath => $"{WuApiBasePath}/{PrivateKeys.WuApiKey}";
 
-		public static string WuApiKeyedQueryFmt => $"{WuApiKeyedPath}/{{0}}/q/{{1}}.json";
+		public static string WuApiKeyedQueryFmt => $"{WuApiKeyedPath}/{{0}}{{1}}.json";
 
 		public const string WuAcQueryFmt = "http://autocomplete.wunderground.com/aq?query={0}";
 	}

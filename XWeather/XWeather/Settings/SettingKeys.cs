@@ -35,6 +35,8 @@ namespace SettingsStudio
 		#region Hidden Settings
 
 
+		public const string ss_string_locations_json = "ss_string_locations_json";
+
 
 		#endregion
 	}

@@ -5,17 +5,53 @@ using ServiceStack;
 
 using XWeather.Domain;
 using XWeather.Constants;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace XWeather.Clients
 {
-	public static class WuClient
+	public class WuClient
 	{
-		static JsonServiceClient _client;
+		static WuClient _shared;
 
-		static JsonServiceClient client => _client ?? (_client = new JsonServiceClient ());
+		public static WuClient Shared => _shared ?? (_shared = new WuClient ());
 
 
-		public static Task<T> GetAsync<T> (string location)
+		public WuLocation Current { get; set; }
+
+		public List<WuLocation> Locations { get; set; } = new List<WuLocation> ();
+
+
+		JsonServiceClient _client;
+
+		JsonServiceClient client => _client ?? (_client = new JsonServiceClient ());
+
+
+		public async Task GetLocations (string json)
+		{
+			var locations = json.FromJson<List<WuAcLocation>> ();
+
+			var tasks = locations.Select (l => GetWuLocation (l)).ToArray ();
+
+			var wuLocations = await Task.WhenAll (tasks);
+
+			Locations = new List<WuLocation> (wuLocations);
+		}
+
+
+		async Task<WuLocation> GetWuLocation (WuAcLocation acLocation)
+		{
+			var location = new WuLocation (acLocation);
+
+			location.Weather = await GetAsync<WuWeather> (acLocation.l);
+
+			location.Updated = DateTime.UtcNow;
+
+			return location;
+		}
+
+
+		public Task<T> GetAsync<T> (string location)
 			where T : WuObject, new()
 		{
 			try {

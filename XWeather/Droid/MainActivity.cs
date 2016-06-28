@@ -24,15 +24,15 @@ namespace XWeather.Droid
 
 			Button button = FindViewById<Button> (Resource.Id.myButton);
 
-			button.Click += delegate {
+			//button.Click += delegate {
 
-				Task.Run (async () => {
+			//Task.Run (async () => {
 
-					var weather = await WuClient.GetAsync<WuWeather> ("zmw:94125.1.99999");
+			//var weather = await WuClient.GetAsync<WuWeather> ("zmw:94125.1.99999");
 
-					System.Diagnostics.Debug.WriteLine (weather.SerializeToString ());
-				});
-			};
+			//System.Diagnostics.Debug.WriteLine (weather.SerializeToString ());
+			//});
+			//};
 		}
 	}
 }

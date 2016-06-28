@@ -11,7 +11,7 @@ namespace XWeather.Clients
 
 		public void Init ()
 		{
-			//await MobileService.GetTable<TodoItem> ().InsertAsync (item);
+			// await MobileService.GetTable<TodoItem> ().InsertAsync (item);
 		}
 	}
 }

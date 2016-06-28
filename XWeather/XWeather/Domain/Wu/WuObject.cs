@@ -113,7 +113,7 @@
 	}
 
 
-	public class WuLocation
+	public class GeoLocation
 	{
 		public string city { get; set; }
 		public string state { get; set; }

@@ -1,9 +1,13 @@
 ﻿using Foundation;
 
 #if __IOS__
+
 using NSImage = UIKit.UIImage;
+
 #else
+
 using AppKit;
+
 #endif
 
 namespace XWeather.Unified

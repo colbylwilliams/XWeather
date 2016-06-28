@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 using ServiceStack;
 
@@ -15,7 +17,7 @@ namespace XWeather.Clients
 		static JsonServiceClient client => _client ?? (_client = new JsonServiceClient ());
 
 
-		public static Task<WuAcResults> GetAsync (string searchString, bool cancel = false)
+		public static async Task<List<WuAcLocation>> GetAsync (string searchString, bool cancel = false)
 		{
 			if (cancel) {
 
@@ -32,16 +34,21 @@ namespace XWeather.Clients
 
 			try {
 
-				return client?.GetAsync<WuAcResults> (ApiKeys.WuAcQueryFmt.Fmt (searchString));
+				var results = await client?.GetAsync<WuAcResults> (ApiKeys.WuAcQueryFmt.Fmt (searchString));
+
+				// filter out the bs
+				return results.Results.Where (r => r.type.EqualsIgnoreCase ("city") && !r.c.EqualsIgnoreCase ("(null)")).ToList ();
 
 			} catch (WebServiceException webEx) {
 
 				System.Diagnostics.Debug.WriteLine ($"Exception processing Weather Underground Auto Complete request\n{webEx.Message}");
+				return new List<WuAcLocation> ();
 				throw;
 
 			} catch (Exception ex) {
 
 				System.Diagnostics.Debug.WriteLine ($"Exception processing Weather Underground Auto Complete request\n{ex.Message}");
+				return new List<WuAcLocation> ();
 				throw;
 			}
 		}

@@ -10,7 +10,7 @@ namespace XWeather.Domain
 	}
 
 
-	public class WeatherStation : WuLocation
+	public class WeatherStation : GeoLocation
 	{
 		public string icao { get; set; }
 	}
@@ -44,7 +44,7 @@ namespace XWeather.Domain
 	}
 
 
-	public class GeoLookupLocation : WuLocation
+	public class GeoLookupLocation : GeoLocation
 	{
 		public string type { get; set; }
 		public string country_name { get; set; }
