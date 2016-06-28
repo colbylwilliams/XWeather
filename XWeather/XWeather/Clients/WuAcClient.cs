@@ -42,13 +42,13 @@ namespace XWeather.Clients
 			} catch (WebServiceException webEx) {
 
 				System.Diagnostics.Debug.WriteLine ($"Exception processing Weather Underground Auto Complete request\n{webEx.Message}");
-				return new List<WuAcLocation> ();
+				// return new List<WuAcLocation> ();
 				throw;
 
 			} catch (Exception ex) {
 
 				System.Diagnostics.Debug.WriteLine ($"Exception processing Weather Underground Auto Complete request\n{ex.Message}");
-				return new List<WuAcLocation> ();
+				// return new List<WuAcLocation> ();
 				throw;
 			}
 		}

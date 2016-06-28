@@ -70,7 +70,6 @@ namespace XWeather.iOS
 		void initControllers ()
 		{
 			Controllers = new List<UITableViewController> { Storyboard.Instantiate<DailyTvc> (), Storyboard.Instantiate<HourlyTvc> (), Storyboard.Instantiate<DetailsTvc> () };
-			//Controllers = new List<UIViewController> { Storyboard.Instantiate<DailyTvc> (), Storyboard.Instantiate<HourlyTvc> (), Storyboard.Instantiate<DetailsTvc> () };
 
 			GetNextViewController += (pvc, rvc) => rvc.Equals (Controllers [0]) ? Controllers [1] : rvc.Equals (Controllers [1]) ? Controllers [2] : null;
 
@@ -103,7 +102,9 @@ namespace XWeather.iOS
 
 				await WuClient.Shared.GetLocations (TestData.LocationsJson);
 
-				WuClient.Shared.Current = WuClient.Shared.Locations [1];
+				var i = new Random ().Next (4);
+
+				WuClient.Shared.Current = WuClient.Shared.Locations [i];
 
 				BeginInvokeOnMainThread (() => {
 
@@ -121,8 +122,8 @@ namespace XWeather.iOS
 
 			foreach (var controller in Controllers)
 				controller?.TableView?.ReloadData ();
-
 		}
+
 
 		public override UIStatusBarStyle PreferredStatusBarStyle () => UIStatusBarStyle.LightContent;
 	}

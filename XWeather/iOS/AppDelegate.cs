@@ -1,10 +1,6 @@
 ﻿using Foundation;
 using UIKit;
 
-using HockeyApp.iOS;
-
-using XWeather.Constants;
-
 namespace XWeather.iOS
 {
 	[Register ("AppDelegate")]

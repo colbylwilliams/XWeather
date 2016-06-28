@@ -47,7 +47,7 @@ namespace XWeather
 
 			int index = 0;
 
-			if (current.IsOutside (sunriseStart, sunriseEnd)) {
+			if (current.IsOutside (sunriseStart, sunsetEnd)) {
 				// night (before sunrise or after sunset)
 
 				index = 0;

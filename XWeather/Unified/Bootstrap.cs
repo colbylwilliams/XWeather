@@ -14,6 +14,7 @@ using SettingsStudio;
 using ServiceStack;
 
 using ModernHttpClient;
+
 using XWeather.Constants;
 
 namespace XWeather.Unified
@@ -36,6 +37,7 @@ namespace XWeather.Unified
 
 		static void configureHockeyApp ()
 		{
+#if __IOS__
 			var manager = BITHockeyManager.SharedHockeyManager;
 
 			manager.Configure (PrivateKeys.HockeyApiKey_iOS);
@@ -43,6 +45,7 @@ namespace XWeather.Unified
 			manager.DisableUpdateManager = true;
 
 			manager.StartManager ();
+#endif
 		}
 	}
 }

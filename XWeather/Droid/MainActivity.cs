@@ -1,5 +1,4 @@
 ﻿using Android.App;
-using Android.Widget;
 using Android.OS;
 
 namespace XWeather.Droid
@@ -14,8 +13,6 @@ namespace XWeather.Droid
 			Bootstrap.Run (this, Application);
 
 			SetContentView (Resource.Layout.Main);
-
-			Button button = FindViewById<Button> (Resource.Id.myButton);
 		}
 	}
 }

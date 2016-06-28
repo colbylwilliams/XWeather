@@ -42,6 +42,21 @@ namespace XWeather.iOS
 		}
 
 
+		public override void WillDisplayFooterView (UITableView tableView, UIView footerView, nint section)
+		{
+			var footer = footerView as UITableViewHeaderFooterView;
+
+			if (footer?.ContentView != null)
+				footer.ContentView.BackgroundColor = UIColor.Clear;
+
+			if (footer?.BackgroundView != null)
+				footer.BackgroundView.BackgroundColor = UIColor.Clear;
+
+			if (footer?.TextLabel != null)
+				footer.TextLabel.TextColor = UIColor.White;
+		}
+
+
 		public override UIStatusBarStyle PreferredStatusBarStyle () => UIStatusBarStyle.LightContent;
 
 

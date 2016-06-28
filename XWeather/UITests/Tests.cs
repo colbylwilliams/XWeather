@@ -14,10 +14,12 @@ namespace XWeather.UITests
 		IApp app;
 		Platform platform;
 
+
 		public Tests (Platform platform)
 		{
 			this.platform = platform;
 		}
+
 
 		[SetUp]
 		public void BeforeEachTest ()
@@ -25,18 +27,13 @@ namespace XWeather.UITests
 			app = AppInitializer.StartApp (platform);
 		}
 
+
 		[Test]
-		public void ClickingButtonTwiceShouldChangeItsLabel ()
+		public void AppLoadsWeatherData ()
 		{
-			Func<AppQuery, AppQuery> button = c => c.Button ("myButton");
+			app.WaitForElement (x => x.Text ("Wednesday"), "Timed out waiting for weather data from Weather Underground");
 
-			app.Tap (button);
-			app.Tap (button);
-			AppResult [] results = app.Query (button);
-			app.Screenshot ("Button clicked twice.");
-
-			Assert.AreEqual ("2 clicks!", results [0].Text ?? results [0].Label);
+			app.Screenshot ("Weather Data Loaded");
 		}
 	}
 }
-
