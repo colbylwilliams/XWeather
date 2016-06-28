@@ -1,6 +1,10 @@
 ﻿using Foundation;
 using UIKit;
 
+using HockeyApp.iOS;
+
+using XWeather.Constants;
+
 namespace XWeather.iOS
 {
 	[Register ("AppDelegate")]
@@ -10,18 +14,6 @@ namespace XWeather.iOS
 
 		public AppDelegate ()
 		{
-			#region Configure HockeyApp
-
-			//var manager = BITHockeyManager.SharedHockeyManager;
-
-			//manager.Configure (AppKeys.HockeyAppKeyiOS);
-
-			//manager.DisableUpdateManager = true;
-
-			//manager.StartManager ();
-
-			#endregion
-
 			Unified.Bootstrap.Run ();
 		}
 

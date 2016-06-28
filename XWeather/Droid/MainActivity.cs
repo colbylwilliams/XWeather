@@ -1,13 +1,6 @@
-﻿using System.Threading.Tasks;
-
-using Android.App;
+﻿using Android.App;
 using Android.Widget;
 using Android.OS;
-
-using ServiceStack;
-
-using XWeather.Clients;
-using XWeather.Domain;
 
 namespace XWeather.Droid
 {
@@ -18,7 +11,7 @@ namespace XWeather.Droid
 		{
 			base.OnCreate (savedInstanceState);
 
-			Bootstrap.Run ();
+			Bootstrap.Run (this, Application);
 
 			SetContentView (Resource.Layout.Main);
 

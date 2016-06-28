@@ -1,5 +1,6 @@
 ﻿#if __IOS__
 
+using HockeyApp.iOS;
 using PclExportClient = ServiceStack.IosPclExportClient;
 
 #else
@@ -13,6 +14,7 @@ using SettingsStudio;
 using ServiceStack;
 
 using ModernHttpClient;
+using XWeather.Constants;
 
 namespace XWeather.Unified
 {
@@ -20,6 +22,8 @@ namespace XWeather.Unified
 	{
 		public static void Run ()
 		{
+			configureHockeyApp ();
+
 			XWeather.Bootstrap.Run ();
 
 			PclExportClient.Configure ();
@@ -27,10 +31,18 @@ namespace XWeather.Unified
 			JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new NativeMessageHandler ();
 
 			Settings.RegisterDefaultSettings ();
+		}
 
-#if __IOS__
-			//Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init ();
-#endif
+
+		static void configureHockeyApp ()
+		{
+			var manager = BITHockeyManager.SharedHockeyManager;
+
+			manager.Configure (PrivateKeys.HockeyApiKey_iOS);
+
+			manager.DisableUpdateManager = true;
+
+			manager.StartManager ();
 		}
 	}
 }
