@@ -23,16 +23,6 @@ namespace XWeather.Droid
 			SetContentView (Resource.Layout.Main);
 
 			Button button = FindViewById<Button> (Resource.Id.myButton);
-
-			//button.Click += delegate {
-
-			//Task.Run (async () => {
-
-			//var weather = await WuClient.GetAsync<WuWeather> ("zmw:94125.1.99999");
-
-			//System.Diagnostics.Debug.WriteLine (weather.SerializeToString ());
-			//});
-			//};
 		}
 	}
 }

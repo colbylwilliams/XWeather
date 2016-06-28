@@ -23,7 +23,7 @@ namespace XWeather.iOS
 		{
 			var cell = DequeCell (tableView, indexPath);
 
-
+			cell.SetData ("Label", "Value");
 
 			return cell;
 		}

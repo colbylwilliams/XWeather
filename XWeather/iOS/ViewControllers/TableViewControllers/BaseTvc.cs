@@ -1,6 +1,8 @@
 ﻿using System;
+
 using Foundation;
 using UIKit;
+
 using XWeather.Clients;
 
 namespace XWeather.iOS

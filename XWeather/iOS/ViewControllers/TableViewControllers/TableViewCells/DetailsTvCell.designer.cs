@@ -12,9 +12,23 @@ namespace XWeather.iOS
 	[Register ("DetailsTvCell")]
 	partial class DetailsTvCell
 	{
+		[Outlet]
+		UIKit.UILabel itemLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel valueLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (itemLabel != null) {
+				itemLabel.Dispose ();
+				itemLabel = null;
+			}
+
+			if (valueLabel != null) {
+				valueLabel.Dispose ();
+				valueLabel = null;
+			}
 		}
 	}
 }

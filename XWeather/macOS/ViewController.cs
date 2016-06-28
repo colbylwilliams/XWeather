@@ -7,9 +7,7 @@ namespace XWeather.macOS
 {
 	public partial class ViewController : NSViewController
 	{
-		public ViewController (IntPtr handle) : base (handle)
-		{
-		}
+		public ViewController (IntPtr handle) : base (handle) { }
 
 		public override void ViewDidLoad ()
 		{

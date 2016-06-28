@@ -27,10 +27,9 @@ namespace XWeather.iOS
 		{
 			var cell = DequeCell (tableView, indexPath);
 
-			var hourly = Forecasts [indexPath.Row];
+			var forecast = Forecasts [indexPath.Row];
 
-			cell.TextLabel.Text = hourly.FCTTIME.civil;
-			cell.DetailTextLabel.Text = $"{hourly.temp.english}°";
+			cell.SetData (forecast);
 
 			return cell;
 		}

@@ -12,9 +12,31 @@ namespace XWeather.iOS
 	[Register ("HourlyTvCell")]
 	partial class HourlyTvCell
 	{
+		[Outlet]
+		UIKit.UILabel hourLabel { get; set; }
+
+		[Outlet]
+		UIKit.UIImageView iconImageView { get; set; }
+
+		[Outlet]
+		UIKit.UILabel tempLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (hourLabel != null) {
+				hourLabel.Dispose ();
+				hourLabel = null;
+			}
+
+			if (tempLabel != null) {
+				tempLabel.Dispose ();
+				tempLabel = null;
+			}
+
+			if (iconImageView != null) {
+				iconImageView.Dispose ();
+				iconImageView = null;
+			}
 		}
 	}
 }
