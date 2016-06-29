@@ -24,6 +24,8 @@ namespace XWeather.iOS
 		{
 			base.ViewDidLoad ();
 
+			initEmptyView ();
+
 			initToolbar ();
 
 			initControllers ();
@@ -35,35 +37,6 @@ namespace XWeather.iOS
 			base.ViewWillAppear (animated);
 
 			reloadData ();
-		}
-
-
-		void updateBackground ()
-		{
-			/* c0lby: Set the weather's conditional 'overlays' as the layers content prop by
-			 * supplying a delegate for the layer or subclassing.  This will improve performance */
-
-			var location = WuClient.Shared.Current;
-
-			if (location == null) return;
-
-			var layer = View.Layer.Sublayers [0] as CAGradientLayer;
-
-			if (layer == null) {
-				layer = new CAGradientLayer ();
-				layer.Frame = View.Bounds;
-				View.Layer.InsertSublayer (layer, 0);
-			}
-
-			var gradients = location.GetTimeOfDayGradient ();
-
-			if (layer?.Colors?.Length > 0 && layer.Colors [0] == gradients.Item1 [0] && layer.Colors [1] == gradients.Item1 [1])
-				return;
-
-			CATransaction.Begin ();
-			CATransaction.AnimationDuration = 1.5;
-			layer.Colors = gradients.Item1;
-			CATransaction.Commit ();
 		}
 
 
@@ -94,6 +67,31 @@ namespace XWeather.iOS
 		}
 
 
+		void initEmptyView ()
+		{
+			emptyView.TranslatesAutoresizingMaskIntoConstraints = false;
+
+			View.AddSubview (emptyView);
+
+			View.AddConstraints (NSLayoutConstraint.FromVisualFormat (@"H:|[emptyView]|", 0, "emptyView", emptyView));
+			View.AddConstraints (NSLayoutConstraint.FromVisualFormat (@"V:|[emptyView]|", 0, "emptyView", emptyView));
+		}
+
+
+		void removeEmptyView ()
+		{
+			if (emptyView.IsDescendantOfView (View)) {
+
+				loadingIndicatorView.StopAnimating ();
+
+				updateBackground ();
+
+				UIView.Animate (0.5, () => emptyView.Alpha = 0, () => emptyView.RemoveFromSuperview ());
+			}
+		}
+
+
+
 		void getData ()
 		{
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
@@ -102,9 +100,9 @@ namespace XWeather.iOS
 
 				await WuClient.Shared.GetLocations (TestData.LocationsJson);
 
-				var i = new Random ().Next (4);
+				//var i = new Random ().Next (4);
 
-				WuClient.Shared.Current = WuClient.Shared.Locations [i];
+				WuClient.Shared.Current = WuClient.Shared.Locations [0];
 
 				BeginInvokeOnMainThread (() => {
 
@@ -118,10 +116,39 @@ namespace XWeather.iOS
 
 		void reloadData ()
 		{
-			updateBackground ();
+			if (WuClient.Shared.HasCurrent) removeEmptyView ();
 
 			foreach (var controller in Controllers)
 				controller?.TableView?.ReloadData ();
+		}
+
+
+		void updateBackground ()
+		{
+			/* c0lby: Set the weather's conditional 'overlays' as the layers content prop by
+			 * supplying a delegate for the layer or subclassing.  This will improve performance */
+
+			var location = WuClient.Shared.Current;
+
+			if (location == null) return;
+
+			var layer = View.Layer.Sublayers [0] as CAGradientLayer;
+
+			if (layer == null) {
+				layer = new CAGradientLayer ();
+				layer.Frame = View.Bounds;
+				View.Layer.InsertSublayer (layer, 0);
+			}
+
+			var gradients = location.GetTimeOfDayGradient ();
+
+			if (layer?.Colors?.Length > 0 && layer.Colors [0] == gradients.Item1 [0] && layer.Colors [1] == gradients.Item1 [1])
+				return;
+
+			CATransaction.Begin ();
+			CATransaction.AnimationDuration = 1.5;
+			layer.Colors = gradients.Item1;
+			CATransaction.Commit ();
 		}
 
 

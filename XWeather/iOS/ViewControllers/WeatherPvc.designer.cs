@@ -13,6 +13,15 @@ namespace XWeather.iOS
 	partial class WeatherPvc
 	{
 		[Outlet]
+		UIKit.UIView emptyView { get; set; }
+
+		[Outlet]
+		UIKit.UIView loadingContainerView { get; set; }
+
+		[Outlet]
+		UIKit.UIActivityIndicatorView loadingIndicatorView { get; set; }
+
+		[Outlet]
 		UIKit.UIPageControl pageIndicator { get; set; }
 
 		[Outlet]
@@ -20,14 +29,29 @@ namespace XWeather.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (pageIndicator != null) {
+				pageIndicator.Dispose ();
+				pageIndicator = null;
+			}
+
 			if (toolbarView != null) {
 				toolbarView.Dispose ();
 				toolbarView = null;
 			}
 
-			if (pageIndicator != null) {
-				pageIndicator.Dispose ();
-				pageIndicator = null;
+			if (emptyView != null) {
+				emptyView.Dispose ();
+				emptyView = null;
+			}
+
+			if (loadingContainerView != null) {
+				loadingContainerView.Dispose ();
+				loadingContainerView = null;
+			}
+
+			if (loadingIndicatorView != null) {
+				loadingIndicatorView.Dispose ();
+				loadingIndicatorView = null;
 			}
 		}
 	}

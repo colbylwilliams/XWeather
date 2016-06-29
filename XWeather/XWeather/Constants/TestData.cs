@@ -58,6 +58,8 @@ namespace XWeather
 			lon = "-84.395988"
 		};
 
-		public static string LocationsJson => (new List<WuAcLocation> { sanfrancisco, boulder, tulsa, atlanta }).SerializeToString ();
+		public static string LocationsJson => (new List<WuAcLocation> { atlanta }).ToJson ();
+
+		//public static string LocationsJson => (new List<WuAcLocation> { sanfrancisco, boulder, tulsa, atlanta }).ToJson ();
 	}
 }

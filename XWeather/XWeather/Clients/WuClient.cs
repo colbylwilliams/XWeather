@@ -21,6 +21,7 @@ namespace XWeather.Clients
 
 		public List<WuLocation> Locations { get; set; } = new List<WuLocation> ();
 
+		public bool HasCurrent => Current != null;
 
 		JsonServiceClient _client;
 
@@ -44,6 +45,8 @@ namespace XWeather.Clients
 			var location = new WuLocation (acLocation);
 
 			location.Weather = await GetAsync<WuWeather> (acLocation.l);
+
+			System.Diagnostics.Debug.WriteLine (location.Weather.ToJson ());
 
 			location.Updated = DateTime.UtcNow;
 

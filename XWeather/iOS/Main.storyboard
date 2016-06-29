@@ -103,7 +103,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g46-49-RpO" id="fBS-Ev-J2p">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -132,7 +132,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bdX-4p-XJe" id="QAq-AN-bIs">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZt-O3-zT7">
@@ -342,6 +342,9 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ocO-0l-bED"/>
                     <connections>
+                        <outlet property="emptyView" destination="myK-He-A9t" id="3GQ-qT-2zM"/>
+                        <outlet property="loadingContainerView" destination="lMR-Fr-j89" id="waj-me-Tgj"/>
+                        <outlet property="loadingIndicatorView" destination="JMW-Zf-0Wv" id="D3f-YA-nMq"/>
                         <outlet property="pageIndicator" destination="s3a-fc-dw1" id="kCQ-gS-QT0"/>
                         <outlet property="toolbarView" destination="u3r-48-Uw1" id="3iV-Ra-w5v"/>
                     </connections>
@@ -378,6 +381,33 @@
                         <constraint firstItem="s3a-fc-dw1" firstAttribute="centerX" secondItem="u3r-48-Uw1" secondAttribute="centerX" id="n7G-FN-gOV"/>
                         <constraint firstItem="XSw-6N-8Ec" firstAttribute="centerY" secondItem="u3r-48-Uw1" secondAttribute="centerY" id="sBe-HS-Pgc"/>
                         <constraint firstAttribute="trailing" secondItem="XSw-6N-8Ec" secondAttribute="trailing" constant="22" id="wYY-Zb-JcX"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="myK-He-A9t">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMR-Fr-j89">
+                            <rect key="frame" x="90" y="34" width="60" height="60"/>
+                            <subviews>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="JMW-Zf-0Wv">
+                                    <rect key="frame" x="12" y="11" width="37" height="37"/>
+                                    <color key="color" red="0.98823529480000005" green="0.066666670139999995" blue="0.24705882370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </activityIndicatorView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="Qvw-Cl-aRc"/>
+                                <constraint firstItem="JMW-Zf-0Wv" firstAttribute="centerY" secondItem="lMR-Fr-j89" secondAttribute="centerY" id="bkM-2n-GOW"/>
+                                <constraint firstAttribute="height" constant="60" id="lY8-vI-yGr"/>
+                                <constraint firstItem="JMW-Zf-0Wv" firstAttribute="centerX" secondItem="lMR-Fr-j89" secondAttribute="centerX" id="r6P-fH-a2d"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="lMR-Fr-j89" firstAttribute="centerY" secondItem="myK-He-A9t" secondAttribute="centerY" id="bS3-PU-p0V"/>
+                        <constraint firstItem="lMR-Fr-j89" firstAttribute="centerX" secondItem="myK-He-A9t" secondAttribute="centerX" id="tHE-bT-Dsa"/>
                     </constraints>
                 </view>
             </objects>

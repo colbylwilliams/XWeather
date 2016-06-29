@@ -4,7 +4,8 @@ namespace XWeather.Domain
 {
 	public class WuWeather : WuObject
 	{
-		public override string WuKey => "conditions/forecast10day/hourly10day/astronomy/tide/rawtide";
+		//public override string WuKey => "conditions/forecast10day/hourly10day/astronomy/tide/rawtide";
+		public override string WuKey => "conditions/forecast10day/hourly/astronomy";
 
 
 		// Conditions
@@ -18,7 +19,7 @@ namespace XWeather.Domain
 		public SimpleForecast Simpleforecast => forecast?.simpleforecast;
 
 
-		// HourlyTenDay
+		// Hourly / HourlyTenDay
 		public List<HourlyForecast> hourly_forecast { get; set; }
 
 
@@ -27,19 +28,18 @@ namespace XWeather.Domain
 		public AstronomyPhase sun_phase { get; set; }
 
 
-		// Tide
-		public TideDetail tide { get; set; }
+		//// Tide
+		//public TideDetail tide { get; set; }
 
-		public List<TideInfo> TideInfo => tide?.tideInfo;
-		public List<TideSummary> TideSummary => tide?.tideSummary;
-		public List<TideStat> TideSummaryStats => tide?.tideSummaryStats;
+		//public List<TideInfo> TideInfo => tide?.tideInfo;
+		//public List<TideSummary> TideSummary => tide?.tideSummary;
+		//public List<TideStat> TideSummaryStats => tide?.tideSummaryStats;
 
-		// RawTide
-		public RawTideDetail rawtide { get; set; }
+		//// RawTide
+		//public RawTideDetail rawtide { get; set; }
 
-		public List<TideInfo> RawTideInfo => rawtide?.tideInfo;
-		public List<RawTideOb> RawTideObs => rawtide?.rawTideObs;
-		public List<TideStat> RawTideStats => rawtide?.rawTideStats;
-
+		//public List<TideInfo> RawTideInfo => rawtide?.tideInfo;
+		//public List<RawTideOb> RawTideObs => rawtide?.rawTideObs;
+		//public List<TideStat> RawTideStats => rawtide?.rawTideStats;
 	}
 }

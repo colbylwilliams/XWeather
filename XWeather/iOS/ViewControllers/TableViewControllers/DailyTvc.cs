@@ -36,11 +36,5 @@ namespace XWeather.iOS
 
 
 		public override string TitleForHeader (UITableView tableView, nint section) => Location?.Location?.name;
-
-
-		public override nfloat GetHeightForHeader (UITableView tableView, nint section) => 200;
-
-
-		public override nfloat GetHeightForFooter (UITableView tableView, nint section) => 44;
 	}
 }
