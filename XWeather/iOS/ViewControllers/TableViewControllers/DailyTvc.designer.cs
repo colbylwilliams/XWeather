@@ -12,9 +12,15 @@ namespace XWeather.iOS
 	[Register ("DailyTvc")]
 	partial class DailyTvc
 	{
+		[Outlet]
+		XWeather.iOS.DailyTvHeader tableHeader { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (tableHeader != null) {
+				tableHeader.Dispose ();
+				tableHeader = null;
+			}
 		}
 	}
 }

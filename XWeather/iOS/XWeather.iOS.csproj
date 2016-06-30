@@ -226,6 +226,14 @@
     <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\HourlyTvHeader.designer.cs">
       <DependentUpon>HourlyTvHeader.cs</DependentUpon>
     </Compile>
+    <Compile Include="DailyTvHeader.cs" />
+    <Compile Include="DailyTvHeader.designer.cs">
+      <DependentUpon>DailyTvHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailsTvHeader.cs" />
+    <Compile Include="DetailsTvHeader.designer.cs">
+      <DependentUpon>DetailsTvHeader.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="..\Unified\XWeather.Unified.projitems" Label="Shared" Condition="Exists('..\Unified\XWeather.Unified.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

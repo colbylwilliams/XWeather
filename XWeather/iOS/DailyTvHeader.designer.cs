@@ -9,17 +9,25 @@ using System.CodeDom.Compiler;
 
 namespace XWeather.iOS
 {
-	[Register ("DetailsTvc")]
-	partial class DetailsTvc
+	[Register ("DailyTvHeader")]
+	partial class DailyTvHeader
 	{
 		[Outlet]
-		XWeather.iOS.DetailsTvHeader tableHeader { get; set; }
+		UIKit.UILabel locationLabel { get; set; }
+
+		[Outlet]
+		UIKit.UIImageView wuIcon { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (tableHeader != null) {
-				tableHeader.Dispose ();
-				tableHeader = null;
+			if (locationLabel != null) {
+				locationLabel.Dispose ();
+				locationLabel = null;
+			}
+
+			if (wuIcon != null) {
+				wuIcon.Dispose ();
+				wuIcon = null;
 			}
 		}
 	}
