@@ -12,9 +12,15 @@ namespace XWeather.iOS
 	[Register ("HourlyTvc")]
 	partial class HourlyTvc
 	{
+		[Outlet]
+		XWeather.iOS.HourlyTvHeader tableHeader { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (tableHeader != null) {
+				tableHeader.Dispose ();
+				tableHeader = null;
+			}
 		}
 	}
 }

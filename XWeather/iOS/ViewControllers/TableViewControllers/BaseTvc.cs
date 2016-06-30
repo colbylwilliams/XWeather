@@ -14,9 +14,9 @@ namespace XWeather.iOS
 
 		nfloat headerHeight = headerBase;
 
-		static nfloat headerBase = 200;
+		static nfloat headerBase = 280;
 
-		static nfloat footerBase = 40;
+		static nfloat footerBase = 44;
 
 
 		public WuLocation Location => WuClient.Shared.Current;

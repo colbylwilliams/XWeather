@@ -35,6 +35,8 @@ namespace XWeather.iOS
 		}
 
 
-		public override string TitleForHeader (UITableView tableView, nint section) => Location?.Location?.name;
+		public override UIView GetViewForHeader (UITableView tableView, nint section) => tableHeader;
+
+		//public override string TitleForHeader (UITableView tableView, nint section) => Location?.Location?.name;
 	}
 }

@@ -217,13 +217,14 @@
     </Compile>
     <Compile Include="ViewControllers\TableViewControllers\BaseTvc.cs" />
     <Compile Include="ViewControllers\TableViewControllers\TableViewCells\BaseTvCell.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DailyTvHeader.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\HourlyTvHeader.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DetailsTvHeader.cs" />
     <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\BaseTvHeader.cs" />
     <Compile Include="ViewControllers\WeatherPvc.cs" />
     <Compile Include="ViewControllers\WeatherPvc.designer.cs">
       <DependentUpon>WeatherPvc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\HourlyTvHeader.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\HourlyTvHeader.designer.cs">
+      <DependentUpon>HourlyTvHeader.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="..\Unified\XWeather.Unified.projitems" Label="Shared" Condition="Exists('..\Unified\XWeather.Unified.projitems')" />
