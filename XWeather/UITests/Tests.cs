@@ -31,9 +31,19 @@ namespace XWeather.UITests
 		[Test]
 		public void AppLoadsWeatherData ()
 		{
+			app.Screenshot ("App Launched");
+
 			app.WaitForElement (x => x.Text ("Wednesday"), "Timed out waiting for weather data from Weather Underground");
 
-			app.Screenshot ("Weather Data Loaded");
+			app.Screenshot ("Daily Forecast (Weather Data Loaded)");
+
+			app.SwipeRightToLeft ();
+
+			app.Screenshot ("Hourly Forecast");
+
+			app.SwipeRightToLeft ();
+
+			app.Screenshot ("Detailed Conditions");
 		}
 	}
 }
