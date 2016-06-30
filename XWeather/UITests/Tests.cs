@@ -44,6 +44,7 @@ namespace XWeather.UITests
 			app.SwipeRightToLeft ();
 
 			app.Screenshot ("Detailed Conditions");
+
 		}
 	}
 }
