@@ -16,6 +16,8 @@ namespace XWeather
 		public WuAcLocation Location { get; set; }
 
 
+		public string Name => Weather?.current_observation?.display_location?.city ?? Location?.name;
+
 		public bool HasSunTimes => CurrentTime != null && Sunset != null && Sunrise != null;
 
 		public AstronomyTime CurrentTime => Weather?.moon_phase?.current_time;

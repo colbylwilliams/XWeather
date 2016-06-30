@@ -35,6 +35,10 @@ namespace XWeather.iOS
 		}
 
 
-		public override UIView GetViewForHeader (UITableView tableView, nint section) => tableHeader;
+		public override UIView GetViewForHeader (UITableView tableView, nint section)
+		{
+			tableHeader.SetData (Location);
+			return tableHeader;
+		}
 	}
 }

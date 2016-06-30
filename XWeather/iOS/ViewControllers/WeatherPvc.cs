@@ -84,8 +84,6 @@ namespace XWeather.iOS
 
 				loadingIndicatorView.StopAnimating ();
 
-				updateBackground ();
-
 				UIView.Animate (0.5, () => emptyView.Alpha = 0, () => emptyView.RemoveFromSuperview ());
 			}
 		}
@@ -100,9 +98,9 @@ namespace XWeather.iOS
 
 				await WuClient.Shared.GetLocations (TestData.LocationsJson);
 
-				//var i = new Random ().Next (4);
+				var i = new Random ().Next (4);
 
-				WuClient.Shared.Current = WuClient.Shared.Locations [0];
+				WuClient.Shared.Current = WuClient.Shared.Locations [i];
 
 				BeginInvokeOnMainThread (() => {
 
@@ -116,6 +114,8 @@ namespace XWeather.iOS
 
 		void reloadData ()
 		{
+			updateBackground ();
+
 			if (WuClient.Shared.HasCurrent) removeEmptyView ();
 
 			foreach (var controller in Controllers)

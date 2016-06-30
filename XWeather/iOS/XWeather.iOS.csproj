@@ -226,12 +226,12 @@
     <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\HourlyTvHeader.designer.cs">
       <DependentUpon>HourlyTvHeader.cs</DependentUpon>
     </Compile>
-    <Compile Include="DailyTvHeader.cs" />
-    <Compile Include="DailyTvHeader.designer.cs">
+    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DailyTvHeader.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DailyTvHeader.designer.cs">
       <DependentUpon>DailyTvHeader.cs</DependentUpon>
     </Compile>
-    <Compile Include="DetailsTvHeader.cs" />
-    <Compile Include="DetailsTvHeader.designer.cs">
+    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DetailsTvHeader.cs" />
+    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DetailsTvHeader.designer.cs">
       <DependentUpon>DetailsTvHeader.cs</DependentUpon>
     </Compile>
   </ItemGroup>
