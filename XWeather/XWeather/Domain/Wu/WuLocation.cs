@@ -1,5 +1,7 @@
 ﻿using System;
+
 using XWeather.Domain;
+
 namespace XWeather
 {
 	public class WuLocation
@@ -8,6 +10,15 @@ namespace XWeather
 		{
 			Location = location;
 		}
+
+
+		public WuLocation (WuAcLocation location, WuWeather weather)
+		{
+			Location = location;
+			Weather = weather;
+			Updated = DateTime.UtcNow;
+		}
+
 
 		public DateTime Updated { get; set; }
 

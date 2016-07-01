@@ -8,6 +8,8 @@ using XWeather.Domain;
 using XWeather.Unified;
 using System.Linq;
 using CoreAnimation;
+using Foundation;
+using ServiceStack;
 
 namespace XWeather.iOS
 {
@@ -92,15 +94,40 @@ namespace XWeather.iOS
 
 		void getData ()
 		{
+
+#if DEBUG
+
+			foreach (var location in TestData.Locations) {
+
+				var name = location.name.Split (',') [0].Replace (' ', '_');
+
+				var path = NSBundle.MainBundle.PathForResource (name, "json");
+
+				using (var data = NSData.FromFile (path)) {
+
+					var json = NSString.FromData (data, NSStringEncoding.ASCIIStringEncoding).ToString ();
+
+					var weather = json?.FromJson<WuWeather> ();
+
+					WuClient.Shared.Locations.Add (new WuLocation (location, weather));
+				}
+			}
+
+			var i = new Random ().Next (5);
+
+			WuClient.Shared.Current = WuClient.Shared.Locations [i];
+
+			reloadData ();
+
+#else
+
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 
 			Task.Run (async () => {
 
 				await WuClient.Shared.GetLocations (TestData.LocationsJson);
 
-				var i = new Random ().Next (4);
-
-				WuClient.Shared.Current = WuClient.Shared.Locations [i];
+				WuClient.Shared.Current = WuClient.Shared.Locations [0];
 
 				BeginInvokeOnMainThread (() => {
 
@@ -108,7 +135,10 @@ namespace XWeather.iOS
 
 					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 				});
+
 			});
+
+#endif
 		}
 
 

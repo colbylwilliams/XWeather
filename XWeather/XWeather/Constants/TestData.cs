@@ -7,59 +7,76 @@ namespace XWeather
 {
 	public static class TestData
 	{
-		static WuAcLocation sanfrancisco = new WuAcLocation {
-			name = "San Francisco, California",
-			type = "city",
-			c = "US",
-			zmw = "94101.1.99999",
-			tz = "America/Los_Angeles",
-			tzs = "PST",
-			l = "/q/zmw:94101.1.99999",
-			lat = "37.775009",
-			lon = " -122.418259"
-		};
 
-		static WuAcLocation boulder = new WuAcLocation {
-			name = "Boulder, Colorado",
+		static WuAcLocation Dallas = new WuAcLocation {
+			name = "Dallas, Texas",
 			type = "city",
 			c = "US",
-			zmw = "80301.1.99999",
-			tz = "America/Denver",
-			tzs = "MDT",
-			l = "/q/zmw:80301.1.99999",
-			ll = "40.046795 -105.212502",
-			lat = "40.046795",
-			lon = "-105.212502"
-		};
-
-		static WuAcLocation tulsa = new WuAcLocation {
-			name = "Tulsa, Oklahoma",
-			type = "city",
-			c = "US",
-			zmw = "74101.1.99999",
+			zmw = "75201.1.99999",
 			tz = "America/Chicago",
 			tzs = "CDT",
-			l = "/q/zmw:74101.1.99999",
-			ll = "36.071289 -95.904274",
-			lat = "36.071289",
-			lon = "-95.904274"
+			l = "/q/zmw:75201.1.99999",
+			ll = "32.786999 -96.798347",
+			lat = "32.786999",
+			lon = "-96.798347"
 		};
 
-		static WuAcLocation atlanta = new WuAcLocation {
-			name = "Atlanta, Georgia",
+		static WuAcLocation Denver = new WuAcLocation {
+			name = "Denver, Colorado",
 			type = "city",
 			c = "US",
-			zmw = "30301.1.99999",
+			zmw = "80202.1.99999",
+			tz = "America/Denver",
+			tzs = "MDT",
+			l = "/q/zmw:80202.1.99999",
+			ll = "39.749840 -104.995598",
+			lat = "39.749840",
+			lon = "-104.995598"
+		};
+
+		static WuAcLocation LasVegas = new WuAcLocation {
+			name = "Las Vegas, Nevada",
+			type = "city",
+			c = "US",
+			zmw = "89044.2.99999",
+			tz = "America/Los_Angeles",
+			tzs = "PDT",
+			l = "/q/zmw:89044.2.99999",
+			ll = "35.994629 -115.118973",
+			lat = "35.994629",
+			lon = "-115.118973"
+		};
+
+		static WuAcLocation Miami = new WuAcLocation {
+			name = "Miami, Florida",
+			type = "city",
+			c = "US",
+			zmw = "33010.2.99999",
 			tz = "America/New_York",
 			tzs = "EDT",
-			l = "/q/zmw:30301.1.99999",
-			ll = "33.855007 -84.395988",
-			lat = "33.855007",
-			lon = "-84.395988"
+			l = "/q/zmw:33010.2.99999",
+			ll = "25.828979 -80.285637",
+			lat = "25.828979",
+			lon = "-80.285637"
+		};
+
+		static WuAcLocation NewOrleans = new WuAcLocation {
+			name = "New Orleans, Louisiana",
+			type = "city",
+			c = "US",
+			zmw = "70112.1.99999",
+			tz = "America/Chicago",
+			tzs = "CDT",
+			l = "/q/zmw:70112.1.99999",
+			ll = "29.957520 -90.076859",
+			lat = "29.957520",
+			lon = "-90.076859"
 		};
 
 		//public static string LocationsJson => (new List<WuAcLocation> { atlanta }).ToJson ();
 
-		public static string LocationsJson => (new List<WuAcLocation> { sanfrancisco, boulder, tulsa, atlanta }).ToJson ();
+		public static List<WuAcLocation> Locations => new List<WuAcLocation> { Dallas, Denver, LasVegas, Miami, NewOrleans };
+
+		public static string LocationsJson => Locations.ToJson ();
 	}
 }

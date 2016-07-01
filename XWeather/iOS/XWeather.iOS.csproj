@@ -96,7 +96,7 @@
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: Colby Williams (5S2F48D3JN)</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchFastDev>true</MtouchFastDev>
@@ -185,6 +185,12 @@
     <Folder Include="ViewControllers\TableViewControllers\" />
     <Folder Include="ViewControllers\TableViewControllers\TableViewCells\" />
     <Folder Include="ViewControllers\TableViewControllers\TableViewHeaders\" />
+    <Folder Include="Assets.xcassets\Atlanta.dataset\" />
+    <Folder Include="Assets.xcassets\Miami.dataset\" />
+    <Folder Include="Assets.xcassets\New_Orleans.dataset\" />
+    <Folder Include="Assets.xcassets\Denver.dataset\" />
+    <Folder Include="Assets.xcassets\Las_Vegas.dataset\" />
+    <Folder Include="Assets.xcassets\San_Francisco.dataset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -269,6 +275,13 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Settings.bundle\Root.plist" />
+    <BundleResource Include="Resources\Atlanta.json" />
+    <BundleResource Include="Resources\Dallas.json" />
+    <BundleResource Include="Resources\Denver.json" />
+    <BundleResource Include="Resources\Las_Vegas.json" />
+    <BundleResource Include="Resources\Miami.json" />
+    <BundleResource Include="Resources\New_Orleans.json" />
+    <BundleResource Include="Resources\San_Francisco.json" />
   </ItemGroup>
   <Import Project="..\Unified\XWeather.Unified.projitems" Label="Shared" Condition="Exists('..\Unified\XWeather.Unified.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>DefaultValue</key>
-			<string>1.0 (19)</string>
+			<string>0.0.5 (23)</string>
 			<key>Key</key>
 			<string>VersionNumber</string>
 			<key>Title</key>
@@ -16,7 +16,7 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>ec7d78f</string>
+			<string>93caa3e</string>
 			<key>Key</key>
 			<string>GitCommitHash</string>
 			<key>Title</key>
