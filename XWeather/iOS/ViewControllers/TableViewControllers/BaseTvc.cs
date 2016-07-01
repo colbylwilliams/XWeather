@@ -12,11 +12,11 @@ namespace XWeather.iOS
 		where TCell : BaseTvCell
 	{
 
-		nfloat headerHeight = headerBase;
+		nfloat headerHeight = 280;
 
-		static nfloat headerBase = 280;
+		//nfloat headerBase = 280;
 
-		static nfloat footerBase = 44;
+		internal nfloat FooterHeight = 44;
 
 
 		public WuLocation Location => WuClient.Shared.Current;
@@ -47,7 +47,7 @@ namespace XWeather.iOS
 			foreach (TCell cell in TableView.VisibleCells) {
 
 				var topHiddenHeight = scrollView.ContentOffset.Y + headerHeight - cell.Frame.Y + scrollView.ContentInset.Top;
-				var bottomHiddenHeight = cell.Frame.Bottom - (scrollView.ContentOffset.Y + scrollView.Frame.Height - footerBase);
+				var bottomHiddenHeight = cell.Frame.Bottom - (scrollView.ContentOffset.Y + scrollView.Frame.Height - FooterHeight);
 
 				cell.SetCellMask (topHiddenHeight, bottomHiddenHeight);
 			}
@@ -57,7 +57,7 @@ namespace XWeather.iOS
 		public override nfloat GetHeightForHeader (UITableView tableView, nint section) => headerHeight;
 
 
-		public override nfloat GetHeightForFooter (UITableView tableView, nint section) => footerBase;
+		public override nfloat GetHeightForFooter (UITableView tableView, nint section) => FooterHeight;
 
 
 		public override void WillDisplayHeaderView (UITableView tableView, UIView headerView, nint section)

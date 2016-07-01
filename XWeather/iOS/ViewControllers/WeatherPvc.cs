@@ -17,7 +17,7 @@ namespace XWeather.iOS
 	{
 
 		List<UITableViewController> Controllers = new List<UITableViewController> (3);
-		//List<UIViewController> Controllers = new List<UIViewController> (3);
+
 
 		public WeatherPvc (IntPtr handle) : base (handle) { }
 
@@ -39,7 +39,28 @@ namespace XWeather.iOS
 			base.ViewWillAppear (animated);
 
 			reloadData ();
+
+			foreach (var button in toolbarButtons)
+				button.Hidden = button.Tag > 1;
 		}
+
+
+		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
+		{
+			if (segue.Identifier == "locationsSegue")
+				foreach (var button in toolbarButtons) button.Hidden = button.Tag < 2;
+
+		}
+
+
+		partial void closeClicked (NSObject sender)
+		{
+			foreach (var button in toolbarButtons) button.Hidden = button.Tag > 1;
+			DismissViewController (true, null);
+		}
+
+
+		#region Views
 
 
 		void initControllers ()
@@ -62,10 +83,10 @@ namespace XWeather.iOS
 		{
 			toolbarView.TranslatesAutoresizingMaskIntoConstraints = false;
 
-			View.AddSubview (toolbarView);
+			NavigationController.View.AddSubview (toolbarView);
 
-			View.AddConstraints (NSLayoutConstraint.FromVisualFormat (@"H:|[toolbarView]|", 0, "toolbarView", toolbarView));
-			View.AddConstraints (NSLayoutConstraint.FromVisualFormat (@"V:[toolbarView(44.0)]|", 0, "toolbarView", toolbarView));
+			NavigationController.View.AddConstraints (NSLayoutConstraint.FromVisualFormat (@"H:|[toolbarView]|", 0, "toolbarView", toolbarView));
+			NavigationController.View.AddConstraints (NSLayoutConstraint.FromVisualFormat (@"V:[toolbarView(44.0)]|", 0, "toolbarView", toolbarView));
 		}
 
 
@@ -90,6 +111,8 @@ namespace XWeather.iOS
 			}
 		}
 
+
+		#endregion
 
 
 		void getData ()

@@ -25,20 +25,16 @@ namespace XWeather.iOS
 		UIKit.UIPageControl pageIndicator { get; set; }
 
 		[Outlet]
+		UIKit.UIButton[] toolbarButtons { get; set; }
+
+		[Outlet]
 		UIKit.UIView toolbarView { get; set; }
+
+		[Action ("closeClicked:")]
+		partial void closeClicked (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (pageIndicator != null) {
-				pageIndicator.Dispose ();
-				pageIndicator = null;
-			}
-
-			if (toolbarView != null) {
-				toolbarView.Dispose ();
-				toolbarView = null;
-			}
-
 			if (emptyView != null) {
 				emptyView.Dispose ();
 				emptyView = null;
@@ -52,6 +48,16 @@ namespace XWeather.iOS
 			if (loadingIndicatorView != null) {
 				loadingIndicatorView.Dispose ();
 				loadingIndicatorView = null;
+			}
+
+			if (pageIndicator != null) {
+				pageIndicator.Dispose ();
+				pageIndicator = null;
+			}
+
+			if (toolbarView != null) {
+				toolbarView.Dispose ();
+				toolbarView = null;
 			}
 		}
 	}

@@ -8,6 +8,7 @@ using XWeather.Domain;
 using XWeather.Unified;
 
 using System.Collections.Generic;
+using CoreGraphics;
 
 namespace XWeather.iOS
 {
@@ -18,30 +19,57 @@ namespace XWeather.iOS
 		LocationSearchTvc resultsController;
 
 		List<WuLocation> Locations = WuClient.Shared.Locations;
-		//List<string> locations = new List<string> { "foo", "bar" };
 
 		List<WuAcLocation> LocationResults = new List<WuAcLocation> ();
 
 		List<NSAttributedString> resultStrings = new List<NSAttributedString> ();
 
 
-		public LocationTvc (IntPtr handle) : base (handle) { }
+		nfloat searchBarHeight => searchController?.SearchBar?.Frame.Height ?? 0;
+
+		nfloat rowHeight = 44;
+
+
+		public LocationTvc (IntPtr handle) : base (handle)
+		{
+
+		}
 
 
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
 
+			TableView.ContentInset = new UIEdgeInsets (20, 0, 0, 0);
+
+			//TableView.ContentOffset = new CGPoint (0, 24);
+
 			setupSearchController ();
 
 			if (!UIAccessibility.IsReduceTransparencyEnabled) {
 
 				TableView.BackgroundColor = UIColor.Clear;
+
 				var blur = UIBlurEffect.FromStyle (UIBlurEffectStyle.Dark);
+
 				TableView.BackgroundView = new UIVisualEffectView (blur);
 			}
+		}
 
-			//TableView.BackgroundView = new UIView { Frame = View.Frame, BackgroundColor = UIColor.Orange };
+
+		public override void ViewWillAppear (bool animated)
+		{
+			base.ViewWillAppear (animated);
+
+			//TableView.SetContentOffset (new CGPoint (0, searchBarHeight - 20), false);
+		}
+
+
+		public override void ViewDidAppear (bool animated)
+		{
+			base.ViewDidAppear (animated);
+
+			TableView.SetContentOffset (new CGPoint (0, searchBarHeight - 20), true);
 		}
 
 
@@ -71,6 +99,17 @@ namespace XWeather.iOS
 			//searchController.SearchBar.TintColor = Colors.ElitePartnerColor;
 
 			DefinesPresentationContext = true;
+		}
+
+
+		public override nfloat GetHeightForHeader (UITableView tableView, nint section)
+		{
+			if (TableView.Equals (tableView)) {
+
+				return tableView.Frame.Height - ((rowHeight * Locations.Count) + FooterHeight + searchBarHeight) + 20;
+			}
+
+			return searchBarHeight;
 		}
 
 
