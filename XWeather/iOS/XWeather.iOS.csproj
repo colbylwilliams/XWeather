@@ -192,6 +192,7 @@
     <Folder Include="Assets.xcassets\Las_Vegas.dataset\" />
     <Folder Include="Assets.xcassets\San_Francisco.dataset\" />
     <Folder Include="Providers\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -278,6 +279,7 @@
       <DependentUpon>WeatherNc.cs</DependentUpon>
     </Compile>
     <Compile Include="Providers\LocationProvider.cs" />
+    <Compile Include="Extensions\ViewExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Settings.bundle\Root.plist" />

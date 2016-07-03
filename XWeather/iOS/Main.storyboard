@@ -10,7 +10,7 @@
         <!--Location Tvc-->
         <scene sceneID="bQF-0Y-teO">
             <objects>
-                <tableViewController storyboardIdentifier="LocationTvc" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2wK-bM-6EZ" customClass="LocationTvc" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LocationTvc" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2wK-bM-6EZ" customClass="LocationTvc" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="NfM-u9-fUU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -561,7 +561,7 @@
         <!--Weather Pvc-->
         <scene sceneID="AMb-9y-bPh">
             <objects>
-                <pageViewController storyboardIdentifier="WeatherPvc" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="f0q-Y9-RUj" customClass="WeatherPvc" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="WeatherPvc" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="f0q-Y9-RUj" customClass="WeatherPvc" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ocO-0l-bED"/>

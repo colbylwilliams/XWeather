@@ -17,23 +17,22 @@ namespace XWeather.Clients
 		public static WuClient Shared => _shared ?? (_shared = new WuClient ());
 
 
-		public event EventHandler UpdatedCurrent;
+		public event EventHandler LocationAdded;
+		public event EventHandler UpdatedSelected;
 
 
-		WuLocation _current;
+		WuLocation _selected;
 		public WuLocation Selected {
-			get {
-				return _current;
-			}
+			get { return _selected; }
 			set {
 
 				foreach (var location in Locations) location.Selected = false;
 
-				_current = value;
+				_selected = value;
 
-				_current.Selected = true;
+				_selected.Selected = true;
 
-				UpdatedCurrent?.Invoke (this, EventArgs.Empty);
+				UpdatedSelected?.Invoke (this, EventArgs.Empty);
 			}
 		}
 
@@ -49,9 +48,13 @@ namespace XWeather.Clients
 
 		public async Task AddLocation (WuAcLocation location)
 		{
+			LocationAdded?.Invoke (this, EventArgs.Empty);
+
 			var wuLocation = await getWuLocation (location);
 
 			Locations.Add (wuLocation);
+
+			LocationAdded?.Invoke (this, EventArgs.Empty);
 		}
 
 

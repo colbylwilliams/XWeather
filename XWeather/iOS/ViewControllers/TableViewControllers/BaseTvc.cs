@@ -1,10 +1,10 @@
 ﻿using System;
-
+using System.Linq;
+using CoreAnimation;
 using Foundation;
 using UIKit;
 
 using XWeather.Clients;
-using System.Linq;
 
 namespace XWeather.iOS
 {
@@ -12,9 +12,7 @@ namespace XWeather.iOS
 		where TCell : BaseTvCell
 	{
 
-		nfloat headerHeight = 280;
-
-		//nfloat headerBase = 280;
+		public virtual nfloat HeaderHeight => 280;
 
 		internal nfloat FooterHeight = 44;
 
@@ -42,19 +40,19 @@ namespace XWeather.iOS
 		}
 
 
-		public void MaskCells (UIScrollView scrollView)
+		public virtual void MaskCells (UIScrollView scrollView)
 		{
 			foreach (TCell cell in TableView.VisibleCells) {
 
-				var topHiddenHeight = scrollView.ContentOffset.Y + headerHeight - cell.Frame.Y + scrollView.ContentInset.Top;
+				var topHiddenHeight = scrollView.ContentOffset.Y + HeaderHeight - cell.Frame.Y + scrollView.ContentInset.Top;
 				var bottomHiddenHeight = cell.Frame.Bottom - (scrollView.ContentOffset.Y + scrollView.Frame.Height - FooterHeight);
 
-				cell.SetCellMask (topHiddenHeight, bottomHiddenHeight);
+				cell.SetTransparencyMask (topHiddenHeight, bottomHiddenHeight);
 			}
 		}
 
 
-		public override nfloat GetHeightForHeader (UITableView tableView, nint section) => headerHeight;
+		public override nfloat GetHeightForHeader (UITableView tableView, nint section) => HeaderHeight;
 
 
 		public override nfloat GetHeightForFooter (UITableView tableView, nint section) => FooterHeight;
@@ -92,10 +90,11 @@ namespace XWeather.iOS
 		}
 
 
-		public override UIStatusBarStyle PreferredStatusBarStyle () => UIStatusBarStyle.LightContent;
-
 
 		public TCell DequeCell (UITableView tableView, NSIndexPath indexPath)
 			=> tableView.DequeueReusableCell (typeof (TCell).Name, indexPath) as TCell;
+
+
+		public override UIStatusBarStyle PreferredStatusBarStyle () => UIStatusBarStyle.LightContent;
 	}
 }

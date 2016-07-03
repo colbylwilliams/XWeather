@@ -33,7 +33,7 @@ namespace XWeather.iOS
 
 		public override void ViewDidLoad ()
 		{
-			WuClient.Shared.UpdatedCurrent += HandleUpdatedCurrent;
+			WuClient.Shared.UpdatedSelected += handleUpdatedCurrent;
 
 			base.ViewDidLoad ();
 
@@ -72,14 +72,16 @@ namespace XWeather.iOS
 		partial void radarClicked (NSObject sender) { }
 
 
-		public void updateToolbarButtons (bool dismissing)
+		void updateToolbarButtons (bool dismissing)
 		{
 			foreach (var button in toolbarButtons)
 				button.Hidden = dismissing ? button.Tag > 1 : button.Tag < 2;
+
+			pageIndicator.Hidden = !dismissing;
 		}
 
 
-		void HandleUpdatedCurrent (object sender, EventArgs e)
+		void handleUpdatedCurrent (object sender, EventArgs e)
 		{
 			BeginInvokeOnMainThread (() => {
 				updateToolbarButtons (true);

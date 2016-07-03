@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace XWeather
 {
 	public static class WuLocationExtensions
@@ -6,10 +7,6 @@ namespace XWeather
 		public static string GetForecastStrings (this WuLocation location)
 		{
 			return null;
-
-
-			//=> $"{TxtForecasts?[0].fcttext}\n\nTonight: {nightForecast?.fcttext}"
 		}
 	}
 }
-

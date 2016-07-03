@@ -7,9 +7,7 @@ namespace XWeather.iOS
 {
 	public partial class WeatherNc : UINavigationController
 	{
-		public WeatherNc (IntPtr handle) : base (handle)
-		{
-		}
+		public WeatherNc (IntPtr handle) : base (handle) { }
 
 		public override void DismissViewController (bool animated, Action completionHandler)
 		{
@@ -17,9 +15,5 @@ namespace XWeather.iOS
 
 			base.DismissViewController (animated, completionHandler);
 		}
-
-
-
-
 	}
 }

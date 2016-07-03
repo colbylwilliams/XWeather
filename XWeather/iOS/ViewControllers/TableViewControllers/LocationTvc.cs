@@ -14,18 +14,13 @@ using SettingsStudio;
 
 namespace XWeather.iOS
 {
-	public partial class LocationTvc : BaseTvc<LocationTvCell>, IUISearchResultsUpdating
+	public partial class LocationTvc : BaseTvc<LocationTvCell>, IUISearchControllerDelegate
 	{
 		UISearchController searchController;
 
 		LocationSearchTvc resultsController;
 
 		List<WuLocation> Locations => WuClient.Shared.Locations;
-
-		List<WuAcLocation> LocationResults = new List<WuAcLocation> ();
-
-		List<NSAttributedString> resultStrings = new List<NSAttributedString> ();
-
 
 		nfloat searchBarHeight => searchController?.SearchBar?.Frame.Height ?? 0;
 
@@ -41,9 +36,9 @@ namespace XWeather.iOS
 
 			TableView.ContentInset = new UIEdgeInsets (20, 0, 0, 0);
 
-			//TableView.ContentOffset = new CGPoint (0, 24);
-
 			setupSearchController ();
+
+			TableView.SetContentOffset (new CGPoint (0, searchBarHeight - 20), false);
 
 			if (!UIAccessibility.IsReduceTransparencyEnabled) {
 
@@ -56,11 +51,20 @@ namespace XWeather.iOS
 		}
 
 
-		public override void ViewWillAppear (bool animated)
+		public override void MaskCells (UIScrollView scrollView)
 		{
-			base.ViewWillAppear (animated);
+			base.MaskCells (scrollView);
 
-			//TableView.SetContentOffset (new CGPoint (0, searchBarHeight - 20), false);
+			if (TableView?.TableHeaderView != null) {
+
+				var topHiddenHeight = scrollView.ContentOffset.Y - TableView.TableHeaderView.Frame.Y + scrollView.ContentInset.Top;
+				TableView.TableHeaderView.SetTransparencyMask (topHiddenHeight, 0);
+			}
+
+			if (searchController != null && !searchController.Active && scrollView.ContentOffset.Y == -21) {
+				System.Diagnostics.Debug.WriteLine (scrollView.ContentOffset.Y);
+				searchController.Active = true;
+			}
 		}
 
 
@@ -68,8 +72,105 @@ namespace XWeather.iOS
 		{
 			base.ViewDidAppear (animated);
 
-			TableView.SetContentOffset (new CGPoint (0, searchBarHeight - 20), true);
+			System.Diagnostics.Debug.WriteLine ("Connected");
+			WuClient.Shared.LocationAdded += HandleLocationAdded;
 		}
+
+
+		public override void ViewDidDisappear (bool animated)
+		{
+			System.Diagnostics.Debug.WriteLine ("Disconnected");
+			WuClient.Shared.LocationAdded -= HandleLocationAdded;
+
+			base.ViewDidDisappear (animated);
+		}
+
+
+		public override nfloat HeaderHeight => TableView.Frame.Height - ((rowHeight * Locations.Count) + FooterHeight + searchBarHeight) + 20;
+
+
+		public override nint RowsInSection (UITableView tableView, nint section) => Locations?.Count ?? 0;
+
+
+		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
+		{
+			var cell = DequeCell (tableView, indexPath);
+
+			var location = Locations [indexPath.Row];
+
+			cell.TextLabel.Text = location.Location.name;
+
+			return cell;
+		}
+
+
+		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
+		{
+			// set location as the selected location
+			WuClient.Shared.Selected = Locations [indexPath.Row];
+
+			DismissViewController (true, null);
+		}
+
+
+		void HandleLocationAdded (object sender, EventArgs e)
+		{
+			BeginInvokeOnMainThread (() => {
+				if (searchController.Active) {
+
+					searchController.Active = false;
+				} else {
+
+					TableView?.ReloadData ();
+				}
+			});
+		}
+
+
+		#region IUISearchControllerDelegate
+
+
+		[Export ("didDismissSearchController:")]
+		public void DidDismissSearchController (UISearchController searchController)
+		{
+			MaskCells (TableView);
+			TableView.SetContentOffset (new CGPoint (0, searchBarHeight - 20), true);
+			System.Diagnostics.Debug.WriteLine ("DidDismissSearchController");
+		}
+
+
+		[Export ("didPresentSearchController:")]
+		public void DidPresentSearchController (UISearchController searchController)
+		{
+			searchController.SearchBar.BecomeFirstResponder ();
+			System.Diagnostics.Debug.WriteLine ("DidPresentSearchController");
+		}
+
+
+		[Export ("presentSearchController:")]
+		public void PresentSearchController (UISearchController searchController)
+		{
+			System.Diagnostics.Debug.WriteLine ("PresentSearchController");
+		}
+
+
+		[Export ("willDismissSearchController:")]
+		public void WillDismissSearchController (UISearchController searchController)
+		{
+
+
+			System.Diagnostics.Debug.WriteLine ("WillDismissSearchController");
+		}
+
+
+		[Export ("willPresentSearchController:")]
+		public void WillPresentSearchController (UISearchController searchController)
+		{
+			System.Diagnostics.Debug.WriteLine ("WillPresentSearchController");
+		}
+
+
+		#endregion
 
 
 		void setupSearchController ()
@@ -78,7 +179,7 @@ namespace XWeather.iOS
 
 			searchController = new UISearchController (resultsController) {
 				DimsBackgroundDuringPresentation = false,
-				SearchResultsUpdater = this,
+				SearchResultsUpdater = resultsController,
 				WeakDelegate = this
 			};
 
@@ -92,122 +193,12 @@ namespace XWeather.iOS
 
 			TableView.TableHeaderView = searchController.SearchBar;
 
-			resultsController.TableView.WeakDelegate = this;
-			resultsController.TableView.WeakDataSource = this;
+			//resultsController.TableView.WeakDelegate = this;
+			//resultsController.TableView.WeakDataSource = this;
 
 			//searchController.SearchBar.TintColor = Colors.ElitePartnerColor;
 
 			DefinesPresentationContext = true;
 		}
-
-
-		public override nfloat GetHeightForHeader (UITableView tableView, nint section)
-		{
-			if (TableView.Equals (tableView)) {
-
-				return tableView.Frame.Height - ((rowHeight * Locations.Count) + FooterHeight + searchBarHeight) + 20;
-			}
-
-			return searchBarHeight;
-		}
-
-
-		public override nint RowsInSection (UITableView tableView, nint section)
-			=> tableView.Equals (TableView) ? Locations?.Count ?? 0 : LocationResults?.Count ?? 0;
-
-
-		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
-		{
-			if (tableView.Equals (TableView)) {
-
-				var cell = DequeCell (tableView, indexPath);
-
-				var location = Locations [indexPath.Row];
-
-				cell.TextLabel.Text = location.Location.name;
-
-				return cell;
-
-			} else {
-
-				var cell = resultsController.DequeCell (tableView, indexPath);
-
-				cell.TextLabel.AttributedText = resultStrings [indexPath.Row];
-
-				return cell;
-			}
-		}
-
-
-		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
-		{
-			if (tableView.Equals (TableView)) {
-
-				// set location as the selected location
-				WuClient.Shared.Selected = Locations [indexPath.Row];
-
-				DismissViewController (true, null);
-
-			} else {
-
-				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
-
-				var location = LocationResults [indexPath.Row];
-
-				searchController.Active = false;
-
-				Task.Run (async () => {
-
-					await WuClient.Shared.AddLocation (location);
-
-					Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
-
-					BeginInvokeOnMainThread (() => {
-
-						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
-
-						TableView.ReloadData ();
-
-					});
-				});
-			}
-		}
-
-
-		#region IUISearchResultsUpdating
-
-
-		[Export ("updateSearchResultsForSearchController:")]
-		public async void UpdateSearchResultsForSearchController (UISearchController searchController)
-		{
-			var searchString = searchController.SearchBar?.Text;
-
-			try {
-
-				resultStrings = new List<NSAttributedString> ();
-
-				if (!string.IsNullOrWhiteSpace (searchString)) {
-
-					LocationResults = await WuAcClient.GetAsync (searchString, true);
-
-					foreach (var result in LocationResults) {
-						resultStrings.Add (result.name.GetSearchResultAttributedString (searchString));
-					}
-
-				} else {
-
-					LocationResults = new List<WuAcLocation> ();
-				}
-
-				resultsController?.TableView?.ReloadData ();
-
-			} catch (Exception ex) {
-
-				System.Diagnostics.Debug.WriteLine (ex.Message);
-			}
-		}
-
-
-		#endregion
 	}
 }
