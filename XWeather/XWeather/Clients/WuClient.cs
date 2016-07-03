@@ -17,30 +17,86 @@ namespace XWeather.Clients
 		public static WuClient Shared => _shared ?? (_shared = new WuClient ());
 
 
-		public WuLocation Current { get; set; }
+		public event EventHandler UpdatedCurrent;
+
+
+		WuLocation _current;
+		public WuLocation Selected {
+			get {
+				return _current;
+			}
+			set {
+
+				foreach (var location in Locations) location.Selected = false;
+
+				_current = value;
+
+				_current.Selected = true;
+
+				UpdatedCurrent?.Invoke (this, EventArgs.Empty);
+			}
+		}
+
 
 		public List<WuLocation> Locations { get; set; } = new List<WuLocation> ();
 
-		public bool HasCurrent => Current != null;
+		public bool HasCurrent => Selected != null;
+
 
 		JsonServiceClient _client;
-
 		JsonServiceClient client => _client ?? (_client = new JsonServiceClient ());
 
 
-		public async Task GetLocations (string json)
+		public async Task AddLocation (WuAcLocation location)
 		{
-			var locations = json.FromJson<List<WuAcLocation>> ();
+			var wuLocation = await getWuLocation (location);
 
-			var tasks = locations.Select (l => GetWuLocation (l)).ToArray ();
+			Locations.Add (wuLocation);
+		}
+
+
+		async Task<WuAcLocation> getCurrentLocation (double latitude, double longitude)
+		{
+			var location = await GetAsync<GeoLookup> ($"/q/{latitude},{longitude}");
+
+			return location.ToWuAcLocation ();
+		}
+
+
+		public async Task GetLocations (string json, double latitude, double longitude)
+		{
+			var locations = json.GetLocations ();
+
+			var oldCurrent = locations.FirstOrDefault (l => l.Current);
+
+			if (oldCurrent != null) locations.Remove (oldCurrent);
+
+
+			var newCurrent = await getCurrentLocation (latitude, longitude);
+
+			if (newCurrent != null) locations.Add (newCurrent);
+
+
+			// if the previous current was selected, or theres not one selected, select this one
+			newCurrent.Selected |= oldCurrent?.Selected ?? false || !locations.Any (l => l.Selected);
+
+			await GetLocations (locations);
+		}
+
+
+		public async Task GetLocations (List<WuAcLocation> locations)
+		{
+			var tasks = locations.Select (l => getWuLocation (l)).ToArray ();
 
 			var wuLocations = await Task.WhenAll (tasks);
 
 			Locations = new List<WuLocation> (wuLocations);
+
+			Selected = Locations.FirstOrDefault (l => l.Selected) ?? Locations [0];
 		}
 
 
-		async Task<WuLocation> GetWuLocation (WuAcLocation acLocation)
+		async Task<WuLocation> getWuLocation (WuAcLocation acLocation)
 		{
 			var location = new WuLocation (acLocation);
 

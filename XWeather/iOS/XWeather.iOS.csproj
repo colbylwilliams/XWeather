@@ -191,6 +191,7 @@
     <Folder Include="Assets.xcassets\Denver.dataset\" />
     <Folder Include="Assets.xcassets\Las_Vegas.dataset\" />
     <Folder Include="Assets.xcassets\San_Francisco.dataset\" />
+    <Folder Include="Providers\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -272,6 +273,11 @@
     <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DetailsTvHeader.designer.cs">
       <DependentUpon>DetailsTvHeader.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewControllers\WeatherNc.cs" />
+    <Compile Include="ViewControllers\WeatherNc.designer.cs">
+      <DependentUpon>WeatherNc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Providers\LocationProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Settings.bundle\Root.plist" />

@@ -9,6 +9,8 @@ using XWeather.Unified;
 
 using System.Collections.Generic;
 using CoreGraphics;
+using System.Threading.Tasks;
+using SettingsStudio;
 
 namespace XWeather.iOS
 {
@@ -18,7 +20,7 @@ namespace XWeather.iOS
 
 		LocationSearchTvc resultsController;
 
-		List<WuLocation> Locations = WuClient.Shared.Locations;
+		List<WuLocation> Locations => WuClient.Shared.Locations;
 
 		List<WuAcLocation> LocationResults = new List<WuAcLocation> ();
 
@@ -148,15 +150,32 @@ namespace XWeather.iOS
 			if (tableView.Equals (TableView)) {
 
 				// set location as the selected location
-				WuClient.Shared.Current = Locations [indexPath.Row];
+				WuClient.Shared.Selected = Locations [indexPath.Row];
 
 				DismissViewController (true, null);
 
 			} else {
 
-				//WuClient.Shared.Current = Locations [indexPath.Row];
+				UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 
-				// add to the locations json 
+				var location = LocationResults [indexPath.Row];
+
+				searchController.Active = false;
+
+				Task.Run (async () => {
+
+					await WuClient.Shared.AddLocation (location);
+
+					Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
+
+					BeginInvokeOnMainThread (() => {
+
+						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+
+						TableView.ReloadData ();
+
+					});
+				});
 			}
 		}
 

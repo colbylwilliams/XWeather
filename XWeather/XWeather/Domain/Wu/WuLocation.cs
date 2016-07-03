@@ -27,6 +27,10 @@ namespace XWeather
 		public WuAcLocation Location { get; set; }
 
 
+		public bool Current { get { return Location.Current; } set { Location.Current = value; } }
+
+		public bool Selected { get { return Location.Selected; } set { Location.Selected = value; } }
+
 		public string Name => Weather?.current_observation?.display_location?.city ?? Location?.name;
 
 		public bool HasSunTimes => CurrentTime != null && Sunset != null && Sunrise != null;

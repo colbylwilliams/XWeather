@@ -10,20 +10,28 @@ using System.Linq;
 using CoreAnimation;
 using Foundation;
 using ServiceStack;
+using SettingsStudio;
 
 namespace XWeather.iOS
 {
 	public partial class WeatherPvc : UIPageViewController
 	{
 
+		LocationProvider LocationProvider;
+
 		List<UITableViewController> Controllers = new List<UITableViewController> (3);
 
 
-		public WeatherPvc (IntPtr handle) : base (handle) { }
+		public WeatherPvc (IntPtr handle) : base (handle)
+		{
+			LocationProvider = new LocationProvider ();
+		}
 
 
 		public override void ViewDidLoad ()
 		{
+			WuClient.Shared.UpdatedCurrent += HandleUpdatedCurrent;
+
 			base.ViewDidLoad ();
 
 			initEmptyView ();
@@ -38,25 +46,82 @@ namespace XWeather.iOS
 		{
 			base.ViewWillAppear (animated);
 
-			reloadData ();
-
-			foreach (var button in toolbarButtons)
-				button.Hidden = button.Tag > 1;
+			updateToolbarButtons (true);
 		}
 
 
 		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
 		{
-			if (segue.Identifier == "locationsSegue")
-				foreach (var button in toolbarButtons) button.Hidden = button.Tag < 2;
-
+			if (segue.Identifier == "locationsSegue") updateToolbarButtons (false);
 		}
+
+
+		public override UIStatusBarStyle PreferredStatusBarStyle () => UIStatusBarStyle.LightContent;
 
 
 		partial void closeClicked (NSObject sender)
 		{
-			foreach (var button in toolbarButtons) button.Hidden = button.Tag > 1;
+			updateToolbarButtons (true);
 			DismissViewController (true, null);
+		}
+
+
+		partial void radarClicked (NSObject sender) { }
+
+
+		public void updateToolbarButtons (bool dismissing)
+		{
+			foreach (var button in toolbarButtons)
+				button.Hidden = dismissing ? button.Tag > 1 : button.Tag < 2;
+		}
+
+
+		void HandleUpdatedCurrent (object sender, EventArgs e)
+		{
+			BeginInvokeOnMainThread (() => {
+				updateToolbarButtons (true);
+				reloadData ();
+				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
+			});
+		}
+
+
+		void reloadData ()
+		{
+			updateBackground ();
+
+			if (WuClient.Shared.HasCurrent) removeEmptyView ();
+
+			foreach (var controller in Controllers) controller?.TableView?.ReloadData ();
+		}
+
+
+		void updateBackground ()
+		{
+			/* c0lby: Set the weather's conditional 'overlays' as the layers content prop by
+			 * supplying a delegate for the layer or subclassing.  This will improve performance */
+
+			var location = WuClient.Shared.Selected;
+
+			if (location == null) return;
+
+			var layer = View.Layer.Sublayers [0] as CAGradientLayer;
+
+			if (layer == null) {
+				layer = new CAGradientLayer ();
+				layer.Frame = View.Bounds;
+				View.Layer.InsertSublayer (layer, 0);
+			}
+
+			var gradients = location.GetTimeOfDayGradient ();
+
+			if (layer?.Colors?.Length > 0 && layer.Colors [0] == gradients.Item1 [0] && layer.Colors [1] == gradients.Item1 [1])
+				return;
+
+			CATransaction.Begin ();
+			CATransaction.AnimationDuration = 1.5;
+			layer.Colors = gradients.Item1;
+			CATransaction.Commit ();
 		}
 
 
@@ -73,9 +138,15 @@ namespace XWeather.iOS
 
 			WillTransition += (s, e) => { updateBackground (); };
 
-			DidFinishAnimating += (s, e) => pageIndicator.CurrentPage = Controllers.IndexOf ((UITableViewController)ViewControllers [0]);
+			DidFinishAnimating += (s, e) => {
+				var index = Controllers.IndexOf ((UITableViewController)ViewControllers [0]);
+				pageIndicator.CurrentPage = index;
+				Settings.WeatherPage = index;
+			};
 
-			SetViewControllers (new [] { Controllers [0] }, UIPageViewControllerNavigationDirection.Forward, false, (finished) => { getData (); });
+			SetViewControllers (new [] { Controllers [Settings.WeatherPage] }, UIPageViewControllerNavigationDirection.Forward, false, (finished) => { getData (); });
+
+			pageIndicator.CurrentPage = Settings.WeatherPage;
 		}
 
 
@@ -117,8 +188,7 @@ namespace XWeather.iOS
 
 		void getData ()
 		{
-
-#if DEBUG
+#if !DEBUG
 
 			foreach (var location in TestData.Locations) {
 
@@ -138,73 +208,27 @@ namespace XWeather.iOS
 
 			var i = new Random ().Next (5);
 
-			WuClient.Shared.Current = WuClient.Shared.Locations [i];
-
-			reloadData ();
+			WuClient.Shared.Selected = WuClient.Shared.Locations [i];
 
 #else
-
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 
 			Task.Run (async () => {
 
-				await WuClient.Shared.GetLocations (TestData.LocationsJson);
+				var location = await LocationProvider.GetCurrentLocationAsync ();
 
-				WuClient.Shared.Current = WuClient.Shared.Locations [0];
+				if (location != null) {
 
-				BeginInvokeOnMainThread (() => {
+					await WuClient.Shared.GetLocations (Settings.LocationsJson, location.Coordinate.Latitude, location.Coordinate.Longitude);
 
-					reloadData ();
+					BeginInvokeOnMainThread (() => {
 
-					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
-				});
-
+						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+					});
+				}
 			});
 
 #endif
 		}
-
-
-		void reloadData ()
-		{
-			updateBackground ();
-
-			if (WuClient.Shared.HasCurrent) removeEmptyView ();
-
-			foreach (var controller in Controllers)
-				controller?.TableView?.ReloadData ();
-		}
-
-
-		void updateBackground ()
-		{
-			/* c0lby: Set the weather's conditional 'overlays' as the layers content prop by
-			 * supplying a delegate for the layer or subclassing.  This will improve performance */
-
-			var location = WuClient.Shared.Current;
-
-			if (location == null) return;
-
-			var layer = View.Layer.Sublayers [0] as CAGradientLayer;
-
-			if (layer == null) {
-				layer = new CAGradientLayer ();
-				layer.Frame = View.Bounds;
-				View.Layer.InsertSublayer (layer, 0);
-			}
-
-			var gradients = location.GetTimeOfDayGradient ();
-
-			if (layer?.Colors?.Length > 0 && layer.Colors [0] == gradients.Item1 [0] && layer.Colors [1] == gradients.Item1 [1])
-				return;
-
-			CATransaction.Begin ();
-			CATransaction.AnimationDuration = 1.5;
-			layer.Colors = gradients.Item1;
-			CATransaction.Commit ();
-		}
-
-
-		public override UIStatusBarStyle PreferredStatusBarStyle () => UIStatusBarStyle.LightContent;
 	}
 }

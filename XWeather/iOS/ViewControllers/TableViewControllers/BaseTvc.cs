@@ -19,7 +19,7 @@ namespace XWeather.iOS
 		internal nfloat FooterHeight = 44;
 
 
-		public WuLocation Location => WuClient.Shared.Current;
+		public WuLocation Location => WuClient.Shared.Selected;
 
 
 		public BaseTvc (IntPtr handle) : base (handle) { }

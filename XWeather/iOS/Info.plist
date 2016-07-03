@@ -9,11 +9,13 @@
 	<key>CFBundleShortVersionString</key>
 	<string>0.0.5</string>
 	<key>CFBundleVersion</key>
-	<string>25</string>
+	<string>26</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your location is used to get weather data.</string>
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>

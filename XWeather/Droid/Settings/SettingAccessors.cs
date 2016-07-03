@@ -12,18 +12,13 @@ namespace SettingsStudio
 		#region Visible Settings
 
 
-		public static string VersionNumber => StringForKey (SettingsKeys.ss_title_version_number);
+		public static string VersionNumber => StringForKey (SettingsKeys.VersionNumber);
 
-		public static string BuildNumber => StringForKey (SettingsKeys.ss_title_build_number);
+		public static string BuildNumber => StringForKey (SettingsKeys.BuildNumber);
 
-		public static string GitHash => StringForKey (SettingsKeys.ss_title_git_hash);
+		public static string GitHash => StringForKey (SettingsKeys.GitCommitHash);
 
-		public static string ServerInstanceUrl {
-			get { return StringForKey (SettingsKeys.ss_textfield_server_instance_url); }
-			set { SetSetting (SettingsKeys.ss_textfield_server_instance_url, value); }
-		}
-
-		public static string TrackingKey => StringForKey (SettingsKeys.ss_title_tracking_key);
+		public static string UserReferenceKey => StringForKey (SettingsKeys.UserReferenceKey);
 
 
 		#endregion
@@ -33,8 +28,14 @@ namespace SettingsStudio
 
 
 		public static string LocationsJson {
-			get { return StringForKey (SettingsKeys.ss_string_locations_json); }
-			set { SetSetting (SettingsKeys.ss_string_locations_json, value); }
+			get { return StringForKey (SettingsKeys.LocationsJson); }
+			set { SetSetting (SettingsKeys.LocationsJson, value); }
+		}
+
+
+		public static int WeatherPage {
+			get { return Int32ForKey (SettingsKeys.WeatherPage); }
+			set { SetSetting (SettingsKeys.WeatherPage, value); }
 		}
 
 

@@ -6,17 +6,25 @@ namespace XWeather.Unified
 {
 	public static class DateExtensions
 	{
-		public static DateTime NSDateToDateTime (this NSDate date)
+		public static DateTime ToDateTime (this NSDate date)
 		{
-			DateTime reference = TimeZone.CurrentTimeZone.ToLocalTime (new DateTime (2001, 1, 1, 0, 0, 0));
-			return reference.AddSeconds (date.SecondsSinceReferenceDate);
+			// NSDate has a wider range than DateTime, so clip
+			// the converted date to DateTime.Min|MaxValue.
+			double secs = date.SecondsSinceReferenceDate;
+
+			if (secs < -63113904000)
+				return DateTime.MinValue;
+			if (secs > 252423993599)
+				return DateTime.MaxValue;
+
+			return (DateTime)date;
 		}
 
 
-		public static NSDate DateTimeToNSDate (this DateTime date)
+		public static NSDate ToNSDate (this DateTime date)
 		{
 			if (date.Kind == DateTimeKind.Unspecified) {
-				date = DateTime.SpecifyKind (date, DateTimeKind.Local);
+				date = DateTime.SpecifyKind (date, DateTimeKind.Utc);
 			}
 			return (NSDate)date;
 		}

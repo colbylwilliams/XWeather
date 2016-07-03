@@ -32,6 +32,9 @@ namespace XWeather.iOS
 
 		[Action ("closeClicked:")]
 		partial void closeClicked (Foundation.NSObject sender);
+
+		[Action ("radarClicked:")]
+		partial void radarClicked (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{

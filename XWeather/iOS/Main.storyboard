@@ -537,10 +537,10 @@
             </objects>
             <point key="canvasLocation" x="1593" y="-417"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Weather Nc-->
         <scene sceneID="vyZ-5e-Kva">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="oe7-ll-mI6" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="WeatherNc" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="oe7-ll-mI6" customClass="WeatherNc" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tiw-dD-Daf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -561,7 +561,7 @@
         <!--Weather Pvc-->
         <scene sceneID="AMb-9y-bPh">
             <objects>
-                <pageViewController storyboardIdentifier="WeatherPvc" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="f0q-Y9-RUj" customClass="WeatherPvc" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="WeatherPvc" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="f0q-Y9-RUj" customClass="WeatherPvc" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ocO-0l-bED"/>
@@ -587,6 +587,9 @@
                             <state key="normal" title="Map">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="radarClicked:" destination="f0q-Y9-RUj" eventType="touchUpInside" id="60C-KZ-aHt"/>
+                            </connections>
                         </button>
                         <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="s3a-fc-dw1">
                             <rect key="frame" x="281" y="3" width="39" height="37"/>
