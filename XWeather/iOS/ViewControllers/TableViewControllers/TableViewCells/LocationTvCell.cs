@@ -9,7 +9,7 @@ namespace XWeather.iOS
 		public void SetData (WuLocation location)
 		{
 			nameLabel.Text = location.Name;
-			timeLabel.Text = location.CurrentTime.LocalDateTime.ToShortDateString ();
+			timeLabel.Text = location.CurrentTime.LocalDateTime.ToShortTimeString ();
 			tempLabel.Text = Math.Round (location.Conditions?.temp_f ?? 0).ToString ();
 		}
 	}

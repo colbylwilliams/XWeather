@@ -45,6 +45,13 @@ namespace XWeather.UITests
 
 			app.Screenshot ("Detailed Conditions");
 
+			app.Tap (x => x.Marked ("Locations"));
+
+			app.Screenshot ("Locations Selection");
+
+			app.ScrollDown ();
+
+			app.Screenshot ("Locations Search");
 		}
 	}
 }
