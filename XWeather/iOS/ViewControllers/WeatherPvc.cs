@@ -188,7 +188,7 @@ namespace XWeather.iOS
 
 		void getData ()
 		{
-#if !DEBUG
+#if DEBUG
 
 			foreach (var location in TestData.Locations) {
 
