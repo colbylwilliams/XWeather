@@ -61,6 +61,7 @@
     <Compile Include="Extensions\ColorExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TaskExtensions.cs" />
+    <Compile Include="Constants\WeatherDetails.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
