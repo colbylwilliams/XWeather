@@ -1,6 +1,5 @@
 using System;
 
-using Foundation;
 using UIKit;
 
 namespace XWeather.iOS
@@ -14,7 +13,7 @@ namespace XWeather.iOS
 			var dayForecast = location?.Weather?.forecast?.txt_forecast.forecastday? [0];
 			var nightForecast = location?.Weather?.forecast?.txt_forecast.forecastday? [1];
 
-			conditionLabel.Text = $"{dayForecast.fcttext}\n\nTonight: {nightForecast.fcttext}";
+			conditionLabel.Text = $"{dayForecast?.fcttext}\n\nTonight: {nightForecast?.fcttext}";
 			locationLabel.Text = location?.Name;
 			//wuIcon.Text = null;
 		}
