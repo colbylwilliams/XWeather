@@ -32,10 +32,7 @@ namespace XWeather.iOS
 		nfloat rowHeight = 44;
 
 
-		public LocationTvc (IntPtr handle) : base (handle)
-		{
-
-		}
+		public LocationTvc (IntPtr handle) : base (handle) { }
 
 
 		public override void ViewDidLoad ()
@@ -113,9 +110,6 @@ namespace XWeather.iOS
 
 			return searchBarHeight;
 		}
-
-
-		public override nint NumberOfSections (UITableView tableView) => 1;
 
 
 		public override nint RowsInSection (UITableView tableView, nint section)

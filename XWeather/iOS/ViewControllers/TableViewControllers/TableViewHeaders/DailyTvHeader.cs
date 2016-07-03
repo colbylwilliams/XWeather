@@ -10,7 +10,7 @@ namespace XWeather.iOS
 
 		public void SetData (WuLocation location)
 		{
-			locationLabel.Text = location?.Name; ;
+			locationLabel.Text = location?.Name;
 			//wuIcon.Text = null;
 		}
 	}

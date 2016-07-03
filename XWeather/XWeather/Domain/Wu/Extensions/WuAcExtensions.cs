@@ -1,6 +1,7 @@
-﻿using System.Text.RegularExpressions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
+
 using ServiceStack;
 
 namespace XWeather.Domain
@@ -13,6 +14,7 @@ namespace XWeather.Domain
 
 		public static string GetZip (this WuAcLocation location)
 			=> string.IsNullOrEmpty (location.zmw) ? string.Empty : location.zmw.Substring (0, location.zmw.IndexOf ('.'));
+
 
 		public static WuAcLocation ToWuAcLocation (this GeoLookup lookup, bool current = true)
 		{
@@ -32,6 +34,7 @@ namespace XWeather.Domain
 				Current = current
 			};
 		}
+
 
 		public static string GetLocationsJson (this List<WuLocation> locations)
 			=> locations.Select (l => l.Location).ToList ().ToJson ();

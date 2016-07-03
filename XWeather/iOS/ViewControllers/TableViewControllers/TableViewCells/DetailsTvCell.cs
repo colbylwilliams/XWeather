@@ -8,7 +8,7 @@ namespace XWeather.iOS
 
 		public void SetData (string label, string value)
 		{
-			itemLabel.Text = $"{label}:";
+			itemLabel.Text = label.AppendColon ();
 			valueLabel.Text = value;
 		}
 	}

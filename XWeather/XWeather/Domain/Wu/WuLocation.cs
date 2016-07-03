@@ -2,6 +2,7 @@
 
 using XWeather.Domain;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace XWeather
 {
@@ -41,7 +42,14 @@ namespace XWeather
 
 		public List<ForecastDay> Forecasts => Weather?.Simpleforecast?.forecastday ?? new List<ForecastDay> ();
 
+		public ForecastDay TodayForecast => Weather?.Simpleforecast?.forecastday?.FirstOrDefault ();
 
+		public List<TxtForecastDay> TxtForecasts => Weather?.TextForecast?.forecastday ?? new List<TxtForecastDay> ();
+
+		public List<HourlyForecast> HourlyForecasts => Weather?.hourly_forecast ?? new List<HourlyForecast> ();
+
+
+		public string ForecastString => $"{TxtForecasts? [0]?.fcttext}\n\nTonight: {TxtForecasts? [1]?.fcttext}";
 
 		public AstronomyTime CurrentTime => Weather?.moon_phase?.current_time;
 

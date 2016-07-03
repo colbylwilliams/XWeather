@@ -20,6 +20,11 @@ namespace SettingsStudio
 
 		public static string UserReferenceKey => StringForKey (SettingsKeys.UserReferenceKey);
 
+		public static bool RandomBackgrounds {
+			get { return BoolForKey (SettingsKeys.RandomBackgrounds); }
+			set { SetSetting (SettingsKeys.RandomBackgrounds, value); }
+		}
+
 
 		#endregion
 
@@ -29,7 +34,7 @@ namespace SettingsStudio
 
 		public static string LocationsJson {
 			get { return StringForKey (SettingsKeys.LocationsJson); }
-			set { SetSetting (SettingsKeys.LocationsJson, value); }
+			set { SetSetting (SettingsKeys.LocationsJson, value ?? string.Empty); }
 		}
 
 

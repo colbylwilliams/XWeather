@@ -33,7 +33,7 @@
 				case 3: return location.Conditions.relative_humidity;
 				case 4: return $"{location.Conditions.wind_dir} {location.Conditions.wind_mph} mph";
 				case 5: return $"{location.Conditions.wind_dir} {location.Conditions.wind_gust_mph} mph";
-				case 6: return location.Conditions.feelslike_f.WithDegreeSymbol ();
+				case 6: return location.Conditions.feelslike_f.ToDegreesString ();
 				case 7: return $"{location.Conditions.precip_today_in} in";
 				case 8: return $"{location.Conditions.pressure_in} inHg";
 				case 9: return $"{location.Conditions.visibility_mi} mi";

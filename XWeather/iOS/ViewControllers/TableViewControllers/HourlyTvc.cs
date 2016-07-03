@@ -11,13 +11,10 @@ namespace XWeather.iOS
 	public partial class HourlyTvc : BaseTvc<HourlyTvCell>
 	{
 
-		List<HourlyForecast> Forecasts => Location?.Weather?.hourly_forecast ?? new List<HourlyForecast> ();
+		List<HourlyForecast> Forecasts => Location?.HourlyForecasts;
 
 
 		public HourlyTvc (IntPtr handle) : base (handle) { }
-
-
-		public override nint NumberOfSections (UITableView tableView) => 1;
 
 
 		public override nint RowsInSection (UITableView tableView, nint section) => Forecasts.Count;

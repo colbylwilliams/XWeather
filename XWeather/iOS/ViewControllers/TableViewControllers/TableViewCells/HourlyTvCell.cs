@@ -11,7 +11,7 @@ namespace XWeather.iOS
 		public void SetData (HourlyForecast forecast)
 		{
 			hourLabel.Text = forecast.FCTTIME.civil;
-			tempLabel.Text = $"{forecast.temp.english}°";
+			tempLabel.Text = forecast.temp.english.ToDegreesString ();
 		}
 	}
 }

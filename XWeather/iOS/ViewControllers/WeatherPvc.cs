@@ -1,16 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
+using CoreAnimation;
+using Foundation;
 using UIKit;
+
+using ServiceStack;
+using SettingsStudio;
+
+
 using XWeather.Clients;
 using XWeather.Domain;
 using XWeather.Unified;
-using System.Linq;
-using CoreAnimation;
-using Foundation;
-using ServiceStack;
-using SettingsStudio;
 
 namespace XWeather.iOS
 {
@@ -103,7 +106,7 @@ namespace XWeather.iOS
 
 			var location = WuClient.Shared.Selected;
 
-			if (location == null) return;
+			var random = location == null || Settings.RandomBackgrounds;
 
 			var layer = View.Layer.Sublayers [0] as CAGradientLayer;
 
@@ -113,7 +116,7 @@ namespace XWeather.iOS
 				View.Layer.InsertSublayer (layer, 0);
 			}
 
-			var gradients = location.GetTimeOfDayGradient ();
+			var gradients = location.GetTimeOfDayGradient (random);
 
 			if (layer?.Colors?.Length > 0 && layer.Colors [0] == gradients.Item1 [0] && layer.Colors [1] == gradients.Item1 [1])
 				return;

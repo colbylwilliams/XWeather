@@ -1,13 +1,15 @@
 ﻿using System;
-using UIKit;
+
 using CoreAnimation;
 using Foundation;
+using UIKit;
 
 namespace XWeather.iOS
 {
 	public class BaseTvCell : UITableViewCell
 	{
 		public BaseTvCell (IntPtr handle) : base (handle) { }
+
 
 		public override void AwakeFromNib ()
 		{
@@ -63,21 +65,5 @@ namespace XWeather.iOS
 
 			return mask;
 		}
-
-		//		void maskCellFromTop:(CGFloat)margin 
-		//		{
-		//		    Layer..mask = [self visibilityMaskWithLocation:margin/self.frame.size.height];
-		//    self.layer.masksToBounds = YES;
-		//}
-
-		//- (CAGradientLayer*)visibilityMaskWithLocation:(CGFloat)location {
-		//    CAGradientLayer* mask = [CAGradientLayer layer];
-		//	mask.frame = self.bounds;
-		//    mask.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithWhite:1 alpha:0]
-		//	CGColor], (id)[[UIColor colorWithWhite:1 alpha:1]
-		//	CGColor], nil];
-		//    mask.locations = [NSArray arrayWithObjects:[NSNumber numberWithFloat:location], [NSNumber numberWithFloat:location], nil];
-		//    return mask;
-		//}
 	}
 }

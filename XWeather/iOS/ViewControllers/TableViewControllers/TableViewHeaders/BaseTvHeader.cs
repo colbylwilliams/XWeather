@@ -1,10 +1,6 @@
-﻿using System;
-namespace XWeather.iOS
+﻿namespace XWeather.iOS
 {
 	public class BaseTvHeader
 	{
-		public BaseTvHeader ()
-		{
-		}
 	}
 }

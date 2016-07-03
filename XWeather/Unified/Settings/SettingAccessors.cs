@@ -20,6 +20,11 @@ namespace SettingsStudio
 
 		public static string UserReferenceKey => StringForKey (SettingsKeys.UserReferenceKey);
 
+		public static bool RandomBackgrounds {
+			get { return BoolForKey (SettingsKeys.RandomBackgrounds); }
+			set { SetSetting (SettingsKeys.RandomBackgrounds, value); }
+		}
+
 
 		#endregion
 

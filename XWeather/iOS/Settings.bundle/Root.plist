@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>DefaultValue</key>
-			<string>0.0.6 (30)</string>
+			<string>0.0.6 (31)</string>
 			<key>Key</key>
 			<string>VersionNumber</string>
 			<key>Title</key>
@@ -16,13 +16,31 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>45d4ed1</string>
+			<string>90ef60e</string>
 			<key>Key</key>
 			<string>GitCommitHash</string>
 			<key>Title</key>
 			<string>Git Hash</string>
 			<key>Type</key>
 			<string>PSTitleValueSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Background colors represent each location’s time of day. Enable this option to use random pretty colors instead.</string>
+			<key>Title</key>
+			<string>User Interface</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<true/>
+			<key>Key</key>
+			<string>RandomBackgrounds</string>
+			<key>Title</key>
+			<string>Random Backgrounds</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
 		</dict>
 		<dict>
 			<key>FooterText</key>

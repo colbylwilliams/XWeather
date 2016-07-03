@@ -18,7 +18,9 @@ namespace SettingsStudio
 
 		public const string GitCommitHash = "GitCommitHash";
 
-		public const string UserReferenceKey = "ss_title_tracking_key";
+		public const string UserReferenceKey = "UserReferenceKey";
+
+		public const string RandomBackgrounds = "RandomBackgrounds";
 
 
 		#endregion

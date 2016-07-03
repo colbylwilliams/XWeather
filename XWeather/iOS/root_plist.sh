@@ -11,6 +11,12 @@ PreparePreferenceFile
 		AddNewTitleValuePreference  -k "GitCommitHash" 	-d "$gitCommitHash" -t "Git Hash"
 
 
+	AddNewPreferenceGroup 	-t "User Interface"
+		AddNewStringNode 	-e "FooterText" 	-v "Background colors represent each location’s time of day. Enable this option to use random pretty colors instead."
+
+		AddNewToggleSwitchPreference -k "RandomBackgrounds" 	-d true 	-t "Random Backgrounds"
+
+
 	AddNewPreferenceGroup 	-t "Diagnostics Key"
 		AddNewStringNode 	-e "FooterText" 	-v "$copyright"
 

@@ -10,10 +10,7 @@ namespace XWeather.iOS
 
 		public void SetData (WuLocation location)
 		{
-			var dayForecast = location?.Weather?.forecast?.txt_forecast.forecastday? [0];
-			var nightForecast = location?.Weather?.forecast?.txt_forecast.forecastday? [1];
-
-			conditionLabel.Text = $"{dayForecast?.fcttext}\n\nTonight: {nightForecast?.fcttext}";
+			conditionLabel.Text = location?.ForecastString;
 			locationLabel.Text = location?.Name;
 			//wuIcon.Text = null;
 		}

@@ -11,13 +11,10 @@ namespace XWeather.iOS
 	public partial class DailyTvc : BaseTvc<DailyTvCell>
 	{
 
-		List<ForecastDay> Forecasts => Location?.Weather?.Simpleforecast?.forecastday ?? new List<ForecastDay> ();
+		List<ForecastDay> Forecasts => Location?.Forecasts;
 
 
 		public DailyTvc (IntPtr handle) : base (handle) { }
-
-
-		public override nint NumberOfSections (UITableView tableView) => 1;
 
 
 		public override nint RowsInSection (UITableView tableView, nint section) => Forecasts.Count;

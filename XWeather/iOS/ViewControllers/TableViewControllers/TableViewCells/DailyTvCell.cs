@@ -1,7 +1,5 @@
 using System;
 
-using Foundation;
-using UIKit;
 using XWeather.Domain;
 
 namespace XWeather.iOS
@@ -13,9 +11,9 @@ namespace XWeather.iOS
 		public void SetData (ForecastDay forecast)
 		{
 			dayLabel.Text = forecast.date.weekday;
-			precipLabel.Text = $"{forecast.pop}%";
-			highTempLabel.Text = $"{forecast.high.FahrenheitValue}°";
-			lowTempLabel.Text = $"{forecast.low.FahrenheitValue}°";
+			precipLabel.Text = forecast.pop.ToPercentString ();
+			highTempLabel.Text = forecast.high.FahrenheitValue.ToDegreesString ();
+			lowTempLabel.Text = forecast.low.FahrenheitValue.ToDegreesString ();
 		}
 	}
 }

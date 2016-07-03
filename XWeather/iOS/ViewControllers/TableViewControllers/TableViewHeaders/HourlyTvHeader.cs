@@ -1,8 +1,6 @@
 using System;
 
-using Foundation;
 using UIKit;
-using System.Linq;
 
 namespace XWeather.iOS
 {
@@ -12,16 +10,13 @@ namespace XWeather.iOS
 
 		public void SetData (WuLocation location)
 		{
-			var observation = location?.Weather?.current_observation;
-			var forecast = location?.Weather?.forecast?.simpleforecast?.forecastday.FirstOrDefault (f => f.period == 1);
-
-			conditionLabel.Text = observation?.weather;
+			conditionLabel.Text = location?.Conditions?.weather;
 			dayLabel.Text = DateTime.Today.DayOfWeek.ToString ();
-			highTempLabel.Text = forecast?.high?.FahrenheitValue.ToString ();
+			highTempLabel.Text = location?.TodayForecast?.high?.FahrenheitValue.ToString ();
 			locationLabel.Text = location?.Name;
-			lowTempLabel.Text = forecast?.low?.FahrenheitValue.ToString ();
-			precipLabel.Text = forecast?.pop.ToString (); ;
-			tempLabel.Text = Math.Round (observation?.temp_f ?? 0).ToString ();
+			lowTempLabel.Text = location?.TodayForecast?.low?.FahrenheitValue.ToString ();
+			precipLabel.Text = location?.TodayForecast?.pop.ToString (); ;
+			tempLabel.Text = Math.Round (location.Conditions?.temp_f ?? 0).ToString ();
 			todayLabel.Text = "Today";
 
 			//precipIcon.Text = null;
