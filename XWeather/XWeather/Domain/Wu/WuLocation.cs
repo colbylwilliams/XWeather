@@ -1,6 +1,7 @@
 ﻿using System;
 
 using XWeather.Domain;
+using System.Collections.Generic;
 
 namespace XWeather
 {
@@ -34,6 +35,13 @@ namespace XWeather
 		public string Name => Weather?.current_observation?.display_location?.city ?? Location?.name;
 
 		public bool HasSunTimes => CurrentTime != null && Sunset != null && Sunrise != null;
+
+
+		public CurrentObservation Conditions => Weather?.current_observation;
+
+		public List<ForecastDay> Forecasts => Weather?.Simpleforecast?.forecastday ?? new List<ForecastDay> ();
+
+
 
 		public AstronomyTime CurrentTime => Weather?.moon_phase?.current_time;
 
