@@ -1,5 +1,7 @@
 using System;
 
+using UIKit;
+
 using XWeather.Domain;
 
 namespace XWeather.iOS
@@ -12,6 +14,7 @@ namespace XWeather.iOS
 		{
 			hourLabel.Text = forecast.FCTTIME.civil;
 			tempLabel.Text = forecast.temp.english.ToDegreesString ();
+			iconImageView.Image = UIImage.FromBundle (forecast.icon);
 		}
 	}
 }

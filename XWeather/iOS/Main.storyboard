@@ -182,11 +182,11 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eq6-GQ-oVv">
-                                            <rect key="frame" x="290" y="12" width="20" height="20"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear" translatesAutoresizingMaskIntoConstraints="NO" id="Eq6-GQ-oVv">
+                                            <rect key="frame" x="287" y="9" width="26" height="26"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="20" id="4gF-UI-hdD"/>
-                                                <constraint firstAttribute="height" constant="20" id="oj9-Gf-nd5"/>
+                                                <constraint firstAttribute="width" constant="26" id="4gF-UI-hdD"/>
+                                                <constraint firstAttribute="height" constant="26" id="oj9-Gf-nd5"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -373,11 +373,11 @@
                                             <color key="textColor" red="0.20000000000000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZEQ-Ru-xfH">
-                                            <rect key="frame" x="272" y="12" width="20" height="20"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="ZEQ-Ru-xfH">
+                                            <rect key="frame" x="266" y="9" width="26" height="26"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="30M-jo-YZD"/>
-                                                <constraint firstAttribute="width" constant="20" id="MP2-BZ-OPM"/>
+                                                <constraint firstAttribute="height" constant="26" id="30M-jo-YZD"/>
+                                                <constraint firstAttribute="width" constant="26" id="MP2-BZ-OPM"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66f-De-zDf">
@@ -708,4 +708,8 @@
             <point key="canvasLocation" x="888" y="349"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="clear" width="26" height="26"/>
+        <image name="cloudy" width="26" height="26"/>
+    </resources>
 </document>

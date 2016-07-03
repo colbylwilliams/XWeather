@@ -1,5 +1,7 @@
 using System;
 
+using UIKit;
+
 using XWeather.Domain;
 
 namespace XWeather.iOS
@@ -14,6 +16,7 @@ namespace XWeather.iOS
 			precipLabel.Text = forecast.pop.ToPercentString ();
 			highTempLabel.Text = forecast.high.FahrenheitValue.ToDegreesString ();
 			lowTempLabel.Text = forecast.low.FahrenheitValue.ToDegreesString ();
+			iconImageView.Image = UIImage.FromBundle (forecast.icon);
 		}
 	}
 }

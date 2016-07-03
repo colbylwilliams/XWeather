@@ -63,6 +63,9 @@
     <Compile Include="Extensions\TaskExtensions.cs" />
     <Compile Include="Constants\WeatherDetails.cs" />
     <Compile Include="Domain\Wu\Extensions\WuLocationExtensions.cs" />
+    <Compile Include="Constants\WindDirections.cs" />
+    <Compile Include="Constants\WeatherConditions.cs" />
+    <Compile Include="Domain\Wu\Extensions\WeatherConditionsExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
