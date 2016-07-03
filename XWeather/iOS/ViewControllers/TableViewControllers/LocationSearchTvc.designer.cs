@@ -12,9 +12,15 @@ namespace XWeather.iOS
 	[Register ("LocationSearchTvc")]
 	partial class LocationSearchTvc
 	{
+		[Outlet]
+		UIKit.UIVisualEffectView emptyView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (emptyView != null) {
+				emptyView.Dispose ();
+				emptyView = null;
+			}
 		}
 	}
 }

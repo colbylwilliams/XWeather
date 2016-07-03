@@ -12,9 +12,31 @@ namespace XWeather.iOS
 	[Register ("LocationTvCell")]
 	partial class LocationTvCell
 	{
+		[Outlet]
+		UIKit.UILabel nameLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel tempLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel timeLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (nameLabel != null) {
+				nameLabel.Dispose ();
+				nameLabel = null;
+			}
+
+			if (tempLabel != null) {
+				tempLabel.Dispose ();
+				tempLabel = null;
+			}
+
+			if (timeLabel != null) {
+				timeLabel.Dispose ();
+				timeLabel = null;
+			}
 		}
 	}
 }

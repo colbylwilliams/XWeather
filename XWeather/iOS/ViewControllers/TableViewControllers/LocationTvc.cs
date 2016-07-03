@@ -24,7 +24,7 @@ namespace XWeather.iOS
 
 		nfloat searchBarHeight => searchController?.SearchBar?.Frame.Height ?? 0;
 
-		nfloat rowHeight = 44;
+		nfloat rowHeight = 60;
 
 
 		public LocationTvc (IntPtr handle) : base (handle) { }
@@ -98,10 +98,13 @@ namespace XWeather.iOS
 
 			var location = Locations [indexPath.Row];
 
-			cell.TextLabel.Text = location.Location.name;
+			cell.SetData (location);
 
 			return cell;
 		}
+
+
+		public override UIView GetViewForHeader (UITableView tableView, nint section) => tableHeader;
 
 
 		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)

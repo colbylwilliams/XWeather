@@ -12,9 +12,15 @@ namespace XWeather.iOS
 	[Register ("LocationTvc")]
 	partial class LocationTvc
 	{
+		[Outlet]
+		UIKit.UIView tableHeader { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (tableHeader != null) {
+				tableHeader.Dispose ();
+				tableHeader = null;
+			}
 		}
 	}
 }

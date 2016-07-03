@@ -10,6 +10,7 @@ using SettingsStudio;
 using XWeather.Clients;
 using XWeather.Domain;
 using XWeather.Unified;
+using System.Linq;
 
 namespace XWeather.iOS
 {
@@ -27,6 +28,8 @@ namespace XWeather.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
+			initEmptyView ();
 
 			//if (TableView.ContentInset.Top > 0) return;
 			//TableView.ContentInset = new UIEdgeInsets (44.0f, 0.0f, 0.0f, 0.0f);
@@ -81,6 +84,17 @@ namespace XWeather.iOS
 		}
 
 
+		void initEmptyView ()
+		{
+			emptyView.TranslatesAutoresizingMaskIntoConstraints = false;
+
+			ParentViewController?.View.AddSubview (emptyView);
+
+			ParentViewController?.View.AddConstraints (NSLayoutConstraint.FromVisualFormat (@"H:|[emptyView]|", 0, "emptyView", emptyView));
+			ParentViewController?.View.AddConstraints (NSLayoutConstraint.FromVisualFormat (@"V:|[emptyView]|", 0, "emptyView", emptyView));
+		}
+
+
 		#region IUISearchResultsUpdating
 
 
@@ -104,6 +118,15 @@ namespace XWeather.iOS
 				} else {
 
 					LocationResults = new List<WuAcLocation> ();
+				}
+
+				if (LocationResults.Any ()) {
+
+					emptyView.RemoveFromSuperview ();
+
+				} else if (!emptyView.IsDescendantOfView (ParentViewController.View)) {
+
+					initEmptyView ();
 				}
 
 				TableView?.ReloadData ();
