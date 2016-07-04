@@ -333,6 +333,7 @@
     <ImageAsset Include="Assets.xcassets\unknown.imageset\cloudy.png" />
     <ImageAsset Include="Assets.xcassets\unknown.imageset\cloudy%402x.png" />
     <ImageAsset Include="Assets.xcassets\unknown.imageset\cloudy%403x.png" />
+    <ImageAsset Include="Assets.xcassets\nt_chancerain.imageset\nt_chancerain.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -375,10 +376,6 @@
     <Compile Include="ViewControllers\TableViewControllers\TableViewCells\HourlyTvCell.designer.cs">
       <DependentUpon>HourlyTvCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationResultTvCell.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationResultTvCell.designer.cs">
-      <DependentUpon>LocationResultTvCell.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationSearchTvCell.cs" />
     <Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationSearchTvCell.designer.cs">
       <DependentUpon>LocationSearchTvCell.cs</DependentUpon>
@@ -398,10 +395,6 @@
     <Compile Include="ViewControllers\TableViewControllers\HourlyTvc.cs" />
     <Compile Include="ViewControllers\TableViewControllers\HourlyTvc.designer.cs">
       <DependentUpon>HourlyTvc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\TableViewControllers\LocationResultTvc.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\LocationResultTvc.designer.cs">
-      <DependentUpon>LocationResultTvc.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewControllers\TableViewControllers\LocationSearchTvc.cs" />
     <Compile Include="ViewControllers\TableViewControllers\LocationSearchTvc.designer.cs">

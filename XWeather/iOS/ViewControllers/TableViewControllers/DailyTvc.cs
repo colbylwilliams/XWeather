@@ -17,7 +17,7 @@ namespace XWeather.iOS
 		public DailyTvc (IntPtr handle) : base (handle) { }
 
 
-		public override nint RowsInSection (UITableView tableView, nint section) => Forecasts.Count;
+		public override nint RowsInSection (UITableView tableView, nint section) => Forecasts?.Count ?? 0;
 
 
 		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
