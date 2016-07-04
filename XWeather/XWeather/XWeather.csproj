@@ -66,6 +66,8 @@
     <Compile Include="Constants\WindDirections.cs" />
     <Compile Include="Constants\WeatherConditions.cs" />
     <Compile Include="Domain\Wu\Extensions\WeatherConditionsExtensions.cs" />
+    <Compile Include="Domain\Wu\RadarBounds.cs" />
+    <Compile Include="Domain\Wu\Extensions\RadarBoundsExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

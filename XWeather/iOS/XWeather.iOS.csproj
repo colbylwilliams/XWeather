@@ -429,6 +429,11 @@
     </Compile>
     <Compile Include="Providers\LocationProvider.cs" />
     <Compile Include="Extensions\ViewExtensions.cs" />
+    <Compile Include="ViewControllers\RadarMapVc.cs" />
+    <Compile Include="ViewControllers\RadarMapVc.designer.cs">
+      <DependentUpon>RadarMapVc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\ImageExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Settings.bundle\Root.plist" />

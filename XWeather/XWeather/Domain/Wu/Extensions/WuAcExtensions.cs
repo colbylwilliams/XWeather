@@ -29,8 +29,8 @@ namespace XWeather.Domain
 				tzs = location.tz_short,
 				l = location.l,
 				ll = $"{location.lat}, {location.lon}",
-				lat = location.lat.ToString (),
-				lon = location.lon.ToString (),
+				lat = location.lat,
+				lon = location.lon,
 				Current = current
 			};
 		}

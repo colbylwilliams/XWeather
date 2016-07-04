@@ -17,8 +17,8 @@ namespace XWeather
 			tzs = "CDT",
 			l = "/q/zmw:75201.1.99999",
 			ll = "32.786999 -96.798347",
-			lat = "32.786999",
-			lon = "-96.798347"
+			lat = 32.786999,
+			lon = -96.798347
 		};
 
 		static WuAcLocation Denver = new WuAcLocation {
@@ -30,8 +30,8 @@ namespace XWeather
 			tzs = "MDT",
 			l = "/q/zmw:80202.1.99999",
 			ll = "39.749840 -104.995598",
-			lat = "39.749840",
-			lon = "-104.995598"
+			lat = 39.749840,
+			lon = -104.995598
 		};
 
 		static WuAcLocation LasVegas = new WuAcLocation {
@@ -43,8 +43,8 @@ namespace XWeather
 			tzs = "PDT",
 			l = "/q/zmw:89044.2.99999",
 			ll = "35.994629 -115.118973",
-			lat = "35.994629",
-			lon = "-115.118973"
+			lat = 35.994629,
+			lon = -115.118973
 		};
 
 		static WuAcLocation Miami = new WuAcLocation {
@@ -56,8 +56,8 @@ namespace XWeather
 			tzs = "EDT",
 			l = "/q/zmw:33010.2.99999",
 			ll = "25.828979 -80.285637",
-			lat = "25.828979",
-			lon = "-80.285637"
+			lat = 25.828979,
+			lon = -80.285637
 		};
 
 		static WuAcLocation NewOrleans = new WuAcLocation {
@@ -69,8 +69,8 @@ namespace XWeather
 			tzs = "CDT",
 			l = "/q/zmw:70112.1.99999",
 			ll = "29.957520 -90.076859",
-			lat = "29.957520",
-			lon = "-90.076859"
+			lat = 29.957520,
+			lon = -90.076859
 		};
 
 		//public static string LocationsJson => (new List<WuAcLocation> { atlanta }).ToJson ();

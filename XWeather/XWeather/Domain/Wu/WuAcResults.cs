@@ -17,8 +17,8 @@ namespace XWeather.Domain
 		public string tzs { get; set; }
 		public string l { get; set; }
 		public string ll { get; set; }
-		public string lat { get; set; }
-		public string lon { get; set; }
+		public double lat { get; set; }
+		public double lon { get; set; }
 
 		public bool Current { get; set; }
 		public bool Selected { get; set; }

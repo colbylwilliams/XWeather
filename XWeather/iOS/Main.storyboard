@@ -623,6 +623,7 @@
                             </state>
                             <connections>
                                 <action selector="radarClicked:" destination="f0q-Y9-RUj" eventType="touchUpInside" id="60C-KZ-aHt"/>
+                                <segue destination="tQx-kC-bIG" kind="presentation" identifier="mapSegue" id="b08-KD-xCw"/>
                             </connections>
                         </button>
                         <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="s3a-fc-dw1">
@@ -681,15 +682,15 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMR-Fr-j89">
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMR-Fr-j89">
                             <rect key="frame" x="90" y="34" width="60" height="60"/>
                             <subviews>
-                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="JMW-Zf-0Wv">
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="JMW-Zf-0Wv">
                                     <rect key="frame" x="12" y="11" width="37" height="37"/>
                                     <color key="color" red="0.98823529480000005" green="0.066666670139999995" blue="0.24705882370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </activityIndicatorView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="Qvw-Cl-aRc"/>
                                 <constraint firstItem="JMW-Zf-0Wv" firstAttribute="centerY" secondItem="lMR-Fr-j89" secondAttribute="centerY" id="bkM-2n-GOW"/>
@@ -706,6 +707,55 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="888" y="349"/>
+        </scene>
+        <!--Radar Map Vc-->
+        <scene sceneID="ZbU-NN-7Ak">
+            <objects>
+                <viewController storyboardIdentifier="RadarMapVc" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tQx-kC-bIG" customClass="RadarMapVc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yC6-cu-vYt"/>
+                        <viewControllerLayoutGuide type="bottom" id="fP5-hv-tsf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aap-Ik-JWn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="JGU-As-X9d">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <connections>
+                                    <outlet property="delegate" destination="tQx-kC-bIG" id="ISM-OS-PUu"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBm-vj-Kh9">
+                                <rect key="frame" x="530" y="558" width="50" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="jRf-M1-jTh"/>
+                                </constraints>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeClicked:" destination="tQx-kC-bIG" eventType="touchUpInside" id="UIo-5V-Uki"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JGU-As-X9d" firstAttribute="leading" secondItem="aap-Ik-JWn" secondAttribute="leading" id="7JA-fm-fLw"/>
+                            <constraint firstItem="fBm-vj-Kh9" firstAttribute="trailing" secondItem="aap-Ik-JWn" secondAttribute="trailingMargin" id="9ZN-vd-n94"/>
+                            <constraint firstItem="JGU-As-X9d" firstAttribute="top" secondItem="yC6-cu-vYt" secondAttribute="bottom" id="i5P-nl-aa9"/>
+                            <constraint firstItem="fP5-hv-tsf" firstAttribute="top" secondItem="JGU-As-X9d" secondAttribute="bottom" id="lP3-6c-gPD"/>
+                            <constraint firstAttribute="trailing" secondItem="JGU-As-X9d" secondAttribute="trailing" id="uqA-Kx-bnP"/>
+                            <constraint firstItem="fP5-hv-tsf" firstAttribute="top" secondItem="fBm-vj-Kh9" secondAttribute="bottom" constant="12" id="vaq-6W-Z77"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="fBm-vj-Kh9" id="PLG-sV-VWg"/>
+                        <outlet property="mapView" destination="JGU-As-X9d" id="hLU-g2-Kwd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zEH-qV-WTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1593" y="349"/>
         </scene>
     </scenes>
     <resources>

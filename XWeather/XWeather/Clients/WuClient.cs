@@ -118,7 +118,7 @@ namespace XWeather.Clients
 		{
 			try {
 
-				return client.GetAsync<T> (ApiKeys.WuApiKeyedQueryFmt.Fmt (new T ().WuKey, location));
+				return client.GetAsync<T> (ApiKeys.WuApiKeyedQueryJsonFmt.Fmt (new T ().WuKey, location));
 
 			} catch (WebServiceException webEx) {
 
@@ -128,6 +128,31 @@ namespace XWeather.Clients
 			} catch (Exception ex) {
 
 				System.Diagnostics.Debug.WriteLine ($"Exception processing Weather Underground request for {typeof (T).Name}\n{ex.Message}");
+				throw;
+			}
+		}
+
+
+		public Task<byte []> GetRadarImageAsync (RadarBounds bounds)
+		{
+			try {
+
+				var query = $"/image.gif?maxlat={bounds.MaxLat}&maxlon={bounds.MaxLon}&minlat={bounds.MinLat}&minlon={bounds.MinLon}&width={bounds.Width}&height={bounds.Height}&rainsnow={1}&num={6}&delay={25}";
+
+				var url = ApiKeys.WuApiKeyedQueryFmt.Fmt ("animatedradar", query);
+
+				System.Diagnostics.Debug.WriteLine (url);
+
+				return client.GetAsync<byte []> (ApiKeys.WuApiKeyedQueryFmt.Fmt ("animatedradar", query));
+
+			} catch (WebServiceException webEx) {
+
+				System.Diagnostics.Debug.WriteLine ($"Exception processing Weather Underground request for Radar Image\n{webEx.Message}");
+				throw;
+
+			} catch (Exception ex) {
+
+				System.Diagnostics.Debug.WriteLine ($"Exception processing Weather Underground request for Radar Image\n{ex.Message}");
 				throw;
 			}
 		}

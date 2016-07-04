@@ -55,7 +55,8 @@ namespace XWeather.iOS
 
 		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
 		{
-			if (segue.Identifier == "locationsSegue") updateToolbarButtons (false);
+			//if (segue.Identifier == "locationsSegue") updateToolbarButtons (false);
+			updateToolbarButtons (false);
 		}
 
 
@@ -172,8 +173,20 @@ namespace XWeather.iOS
 
 			View.AddSubview (emptyView);
 
+			loadingIndicatorView.Hidden = true;
+
 			View.AddConstraints (NSLayoutConstraint.FromVisualFormat (@"H:|[emptyView]|", 0, "emptyView", emptyView));
 			View.AddConstraints (NSLayoutConstraint.FromVisualFormat (@"V:|[emptyView]|", 0, "emptyView", emptyView));
+
+			var layer = emptyView.Layer.Sublayers [0] as CAGradientLayer;
+
+			if (layer == null) {
+				layer = new CAGradientLayer ();
+				layer.Frame = View.Bounds;
+				emptyView.Layer.InsertSublayer (layer, 0);
+			}
+
+			layer.Colors = Colors.Gradients [7];
 		}
 
 
@@ -194,26 +207,31 @@ namespace XWeather.iOS
 		void getData ()
 		{
 #if DEBUG
+			Task.Run (async () => {
 
-			foreach (var location in TestData.Locations) {
+				await Task.Delay (1000);
 
-				var name = location.name.Split (',') [0].Replace (' ', '_');
+				foreach (var location in TestData.Locations) {
 
-				var path = NSBundle.MainBundle.PathForResource (name, "json");
+					var name = location.name.Split (',') [0].Replace (' ', '_');
 
-				using (var data = NSData.FromFile (path)) {
+					var path = NSBundle.MainBundle.PathForResource (name, "json");
 
-					var json = NSString.FromData (data, NSStringEncoding.ASCIIStringEncoding).ToString ();
+					using (var data = NSData.FromFile (path)) {
 
-					var weather = json?.FromJson<WuWeather> ();
+						var json = NSString.FromData (data, NSStringEncoding.ASCIIStringEncoding).ToString ();
 
-					WuClient.Shared.Locations.Add (new WuLocation (location, weather));
+						var weather = json?.FromJson<WuWeather> ();
+
+						WuClient.Shared.Locations.Add (new WuLocation (location, weather));
+					}
 				}
-			}
 
-			var i = new Random ().Next (5);
+				var i = new Random ().Next (5);
 
-			WuClient.Shared.Selected = WuClient.Shared.Locations [i];
+				WuClient.Shared.Selected = WuClient.Shared.Locations [i];
+
+			});
 
 #else
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
