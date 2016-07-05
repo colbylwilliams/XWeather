@@ -118,7 +118,11 @@ namespace XWeather.Clients
 		{
 			try {
 
-				return client.GetAsync<T> (ApiKeys.WuApiKeyedQueryJsonFmt.Fmt (new T ().WuKey, location));
+				var url = ApiKeys.WuApiKeyedQueryJsonFmt.Fmt (new T ().WuKey, location);
+
+				System.Diagnostics.Debug.WriteLine (url);
+
+				return client.GetAsync<T> (url);
 
 			} catch (WebServiceException webEx) {
 
@@ -137,13 +141,13 @@ namespace XWeather.Clients
 		{
 			try {
 
-				var query = $"/image.gif?maxlat={bounds.MaxLat}&maxlon={bounds.MaxLon}&minlat={bounds.MinLat}&minlon={bounds.MinLon}&width={bounds.Width}&height={bounds.Height}&rainsnow={1}&num={6}&delay={25}";
+				var query = $"image.gif?maxlat={bounds.MaxLat}&maxlon={bounds.MaxLon}&minlat={bounds.MinLat}&minlon={bounds.MinLon}&width={bounds.Width}&height={bounds.Height}&rainsnow={1}&num={6}&delay={25}";
 
 				var url = ApiKeys.WuApiKeyedQueryFmt.Fmt ("animatedradar", query);
 
 				System.Diagnostics.Debug.WriteLine (url);
 
-				return client.GetAsync<byte []> (ApiKeys.WuApiKeyedQueryFmt.Fmt ("animatedradar", query));
+				return client.GetAsync<byte []> (url);
 
 			} catch (WebServiceException webEx) {
 

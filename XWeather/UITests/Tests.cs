@@ -49,9 +49,21 @@ namespace XWeather.UITests
 
 			app.Screenshot ("Locations Selection");
 
-			app.ScrollDown ();
+			app.ScrollUp (x => x.Class ("UITableView").Index (1));
 
 			app.Screenshot ("Locations Search");
+
+			app.EnterText ("Search", "San Fr");
+
+			app.Screenshot ("Locations Search: 'San Fr'");
+
+			app.Tap (x => x.Marked ("Cancel"));
+
+			app.Screenshot ("Locations Selection");
+
+			app.Tap (x => x.Marked ("Close"));
+
+			app.Screenshot ("Detailed Conditions");
 		}
 	}
 }

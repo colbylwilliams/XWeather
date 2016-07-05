@@ -1,13 +1,14 @@
 using System;
-
-using Foundation;
-using UIKit;
-using MapKit;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+
 using CoreGraphics;
 using CoreLocation;
-using System.Threading.Tasks;
-using System.Threading;
+using Foundation;
+using MapKit;
+using UIKit;
+
 using XWeather.Clients;
 
 namespace XWeather.iOS
@@ -15,12 +16,12 @@ namespace XWeather.iOS
 	public partial class RadarMapVc : UIViewController, IMKMapViewDelegate
 	{
 
-		public bool AnimateRadar { get; set; }
+		bool animateRadar;
 
 		RadarOverlay radarOverlay;
 
-		CancellationTokenSource refreshOverlayCts;
-		CancellationTokenSource refreshTimerCts;
+		CancellationTokenSource refreshOverlayCts, refreshTimerCts;
+
 
 		public RadarMapVc (IntPtr handle) : base (handle) { }
 
@@ -41,16 +42,18 @@ namespace XWeather.iOS
 		{
 			base.ViewDidAppear (animated);
 
-			AnimateRadar = true;
+			animateRadar = true;
 
-			RefreshRadarOverlay ();
+			refreshRadarOverlay ();
 		}
 
 
 		partial void closeClicked (NSObject sender)
 		{
-			AnimateRadar = false;
+			animateRadar = false;
+
 			KillTimer ();
+
 			DismissViewController (true, null);
 		}
 
@@ -67,16 +70,13 @@ namespace XWeather.iOS
 
 
 		[Export ("mapView:regionWillChangeAnimated:")]
-		public void RegionWillChange (MKMapView mapView, bool animated)
-		{
-			//throw new System.NotImplementedException ();
-		}
+		public void RegionWillChange (MKMapView mapView, bool animated) { }
 
 
 		[Export ("mapView:regionDidChangeAnimated:")]
 		public void RegionChanged (MKMapView mapView, bool animated)
 		{
-			if (AnimateRadar) RefreshRadarOverlay ();
+			if (animateRadar) refreshRadarOverlay ();
 		}
 
 
@@ -103,7 +103,7 @@ namespace XWeather.iOS
 
 					updateRendererDisplayOnMainThread ();
 
-					while (AnimateRadar) {
+					while (animateRadar) {
 
 						await Task.Delay (500, refreshTimerCts.Token);
 
@@ -120,7 +120,7 @@ namespace XWeather.iOS
 		public void KillTimer () => refreshTimerCts?.Cancel ();
 
 
-		void RefreshRadarOverlay ()
+		void refreshRadarOverlay ()
 		{
 			try {
 
@@ -191,6 +191,7 @@ namespace XWeather.iOS
 			});
 		}
 	}
+
 
 	public class RadarOverlay : MKOverlay
 	{
