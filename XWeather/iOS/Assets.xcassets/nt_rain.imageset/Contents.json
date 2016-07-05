@@ -1,20 +1,18 @@
 {
   "images": [
     {
+      "filename": "nt_rain.pdf",
       "idiom": "universal"
     },
     {
-      "filename": "nt_rain.png",
       "scale": "1x",
       "idiom": "universal"
     },
     {
-      "filename": "nt_rain@2x.png",
       "scale": "2x",
       "idiom": "universal"
     },
     {
-      "filename": "nt_rain@3x.png",
       "scale": "3x",
       "idiom": "universal"
     },

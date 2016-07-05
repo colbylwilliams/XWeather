@@ -1,20 +1,18 @@
 {
   "images": [
     {
+      "filename": "nt_tstorms.pdf",
       "idiom": "universal"
     },
     {
-      "filename": "nt_tstorms.png",
       "scale": "1x",
       "idiom": "universal"
     },
     {
-      "filename": "nt_tstorms@2x.png",
       "scale": "2x",
       "idiom": "universal"
     },
     {
-      "filename": "nt_tstorms@3x.png",
       "scale": "3x",
       "idiom": "universal"
     },

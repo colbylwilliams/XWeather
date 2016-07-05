@@ -1,20 +1,18 @@
 {
   "images": [
     {
+      "filename": "nt_chancesleet.pdf",
       "idiom": "universal"
     },
     {
-      "filename": "nt_chancesleet.png",
       "scale": "1x",
       "idiom": "universal"
     },
     {
-      "filename": "nt_chancesleet@2x.png",
       "scale": "2x",
       "idiom": "universal"
     },
     {
-      "filename": "nt_chancesleet@3x.png",
       "scale": "3x",
       "idiom": "universal"
     },

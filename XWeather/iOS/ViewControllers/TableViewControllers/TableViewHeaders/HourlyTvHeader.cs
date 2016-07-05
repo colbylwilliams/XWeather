@@ -15,7 +15,7 @@ namespace XWeather.iOS
 			highTempLabel.Text = location?.TodayForecast?.high?.FahrenheitValue.ToString ();
 			locationLabel.Text = location?.Name;
 			lowTempLabel.Text = location?.TodayForecast?.low?.FahrenheitValue.ToString ();
-			precipLabel.Text = location?.TodayForecast?.pop.ToString (); ;
+			precipLabel.Text = location?.TodayForecast?.pop.ToPercentString ();
 			tempLabel.Text = Math.Round (location?.Conditions?.temp_f ?? 0).ToString ();
 			todayLabel.Text = "Today";
 

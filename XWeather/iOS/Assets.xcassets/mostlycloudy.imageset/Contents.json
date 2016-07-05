@@ -1,20 +1,18 @@
 {
   "images": [
     {
+      "filename": "mostlycloudy.pdf",
       "idiom": "universal"
     },
     {
-      "filename": "mostlycloudy.png",
       "scale": "1x",
       "idiom": "universal"
     },
     {
-      "filename": "mostlycloudy@2x.png",
       "scale": "2x",
       "idiom": "universal"
     },
     {
-      "filename": "mostlycloudy@3x.png",
       "scale": "3x",
       "idiom": "universal"
     },
