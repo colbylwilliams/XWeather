@@ -32,5 +32,10 @@ namespace XWeather.iOS
 			tableHeader.SetData (Location);
 			return tableHeader;
 		}
+
+		public override nfloat GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+		{
+			return WeatherDetails.IsSectionTop (indexPath.Row) ? 52 : 38;
+		}
 	}
 }

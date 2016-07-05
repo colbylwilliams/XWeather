@@ -55,7 +55,6 @@ namespace XWeather.iOS
 
 		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
 		{
-			//if (segue.Identifier == "locationsSegue") updateToolbarButtons (false);
 			updateToolbarButtons (false);
 		}
 

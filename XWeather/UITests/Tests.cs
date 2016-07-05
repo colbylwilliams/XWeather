@@ -45,7 +45,7 @@ namespace XWeather.UITests
 
 			app.Screenshot ("Detailed Conditions");
 
-			app.Tap (x => x.Marked ("Locations"));
+			app.Tap (x => x.Id (UIElements.WeatherPvc.button_locations));
 
 			app.Screenshot ("Locations Selection");
 
@@ -61,7 +61,7 @@ namespace XWeather.UITests
 
 			app.Screenshot ("Locations Selection");
 
-			app.Tap (x => x.Marked ("Close"));
+			app.Tap (x => x.Id (UIElements.WeatherPvc.button_close));
 
 			app.Screenshot ("Detailed Conditions");
 		}

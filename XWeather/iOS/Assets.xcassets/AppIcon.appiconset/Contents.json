@@ -1,153 +1,230 @@
 {
   "images": [
     {
-      "idiom": "iphone",
+      "filename": "icon _29.png",
       "size": "29x29",
-      "scale": "1x"
+      "scale": "1x",
+      "idiom": "iphone"
     },
     {
-      "idiom": "iphone",
+      "filename": "icon _58.png",
       "size": "29x29",
-      "scale": "2x"
+      "scale": "2x",
+      "idiom": "iphone"
     },
     {
-      "idiom": "iphone",
+      "filename": "icon _87.png",
       "size": "29x29",
-      "scale": "3x"
+      "scale": "3x",
+      "idiom": "iphone"
     },
     {
-      "idiom": "iphone",
+      "filename": "icon _80.png",
       "size": "40x40",
-      "scale": "2x"
+      "scale": "2x",
+      "idiom": "iphone"
     },
     {
-      "idiom": "iphone",
+      "filename": "icon _120.png",
       "size": "40x40",
-      "scale": "3x"
+      "scale": "3x",
+      "idiom": "iphone"
     },
     {
-      "idiom": "iphone",
       "size": "57x57",
-      "scale": "1x"
+      "scale": "1x",
+      "idiom": "iphone"
     },
     {
-      "idiom": "iphone",
       "size": "57x57",
-      "scale": "2x"
+      "scale": "2x",
+      "idiom": "iphone"
     },
     {
-      "idiom": "iphone",
+      "filename": "icon _120.png",
       "size": "60x60",
-      "scale": "2x"
+      "scale": "2x",
+      "idiom": "iphone"
     },
     {
-      "idiom": "iphone",
+      "filename": "icon _180.png",
       "size": "60x60",
-      "scale": "3x"
+      "scale": "3x",
+      "idiom": "iphone"
     },
     {
-      "idiom": "ipad",
+      "filename": "icon _29.png",
       "size": "29x29",
-      "scale": "1x"
+      "scale": "1x",
+      "idiom": "ipad"
     },
     {
-      "idiom": "ipad",
+      "filename": "icon _58.png",
       "size": "29x29",
-      "scale": "2x"
+      "scale": "2x",
+      "idiom": "ipad"
     },
     {
-      "idiom": "ipad",
+      "filename": "icon _40.png",
       "size": "40x40",
-      "scale": "1x"
+      "scale": "1x",
+      "idiom": "ipad"
     },
     {
-      "idiom": "ipad",
+      "filename": "icon _80.png",
       "size": "40x40",
-      "scale": "2x"
+      "scale": "2x",
+      "idiom": "ipad"
     },
     {
-      "idiom": "ipad",
       "size": "50x50",
-      "scale": "1x"
+      "scale": "1x",
+      "idiom": "ipad"
     },
     {
-      "idiom": "ipad",
       "size": "50x50",
-      "scale": "2x"
+      "scale": "2x",
+      "idiom": "ipad"
     },
     {
-      "idiom": "ipad",
+      "filename": "icon _167.png",
+      "size": "83.5x83.5",
+      "scale": "2x",
+      "idiom": "ipad"
+    },
+    {
       "size": "72x72",
-      "scale": "1x"
+      "scale": "1x",
+      "idiom": "ipad"
     },
     {
-      "idiom": "ipad",
       "size": "72x72",
-      "scale": "2x"
+      "scale": "2x",
+      "idiom": "ipad"
     },
     {
-      "idiom": "ipad",
+      "filename": "icon _76.png",
       "size": "76x76",
-      "scale": "1x"
+      "scale": "1x",
+      "idiom": "ipad"
     },
     {
-      "idiom": "ipad",
+      "filename": "icon _152.png",
       "size": "76x76",
-      "scale": "2x"
+      "scale": "2x",
+      "idiom": "ipad"
     },
     {
+      "role": "notificationCenter",
+      "filename": "icon _48.png",
       "size": "24x24",
-      "idiom": "watch",
+      "subtype": "38mm",
       "scale": "2x",
-      "role": "notificationCenter",
-      "subtype": "38mm"
+      "idiom": "watch"
     },
     {
+      "role": "notificationCenter",
+      "filename": "icon _55.png",
       "size": "27.5x27.5",
-      "idiom": "watch",
+      "subtype": "42mm",
       "scale": "2x",
-      "role": "notificationCenter",
-      "subtype": "42mm"
+      "idiom": "watch"
     },
     {
-      "size": "29x29",
-      "idiom": "watch",
       "role": "companionSettings",
-      "scale": "2x"
-    },
-    {
+      "filename": "icon _58.png",
       "size": "29x29",
-      "idiom": "watch",
-      "role": "companionSettings",
-      "scale": "3x"
-    },
-    {
-      "size": "40x40",
-      "idiom": "watch",
       "scale": "2x",
+      "idiom": "watch"
+    },
+    {
+      "role": "companionSettings",
+      "filename": "icon _87.png",
+      "size": "29x29",
+      "scale": "3x",
+      "idiom": "watch"
+    },
+    {
       "role": "appLauncher",
-      "subtype": "38mm"
+      "filename": "icon _80.png",
+      "size": "40x40",
+      "subtype": "38mm",
+      "scale": "2x",
+      "idiom": "watch"
     },
     {
-      "size": "44x44",
-      "idiom": "watch",
-      "scale": "2x",
       "role": "longLook",
-      "subtype": "42mm"
+      "filename": "icon _88.png",
+      "size": "44x44",
+      "subtype": "42mm",
+      "scale": "2x",
+      "idiom": "watch"
     },
     {
+      "role": "quickLook",
+      "filename": "icon _172.png",
       "size": "86x86",
-      "idiom": "watch",
+      "subtype": "38mm",
       "scale": "2x",
-      "role": "quickLook",
-      "subtype": "38mm"
+      "idiom": "watch"
     },
     {
-      "size": "98x98",
-      "idiom": "watch",
-      "scale": "2x",
       "role": "quickLook",
-      "subtype": "42mm"
+      "filename": "icon _196.png",
+      "size": "98x98",
+      "subtype": "42mm",
+      "scale": "2x",
+      "idiom": "watch"
+    },
+    {
+      "size": "16x16",
+      "scale": "1x",
+      "idiom": "mac"
+    },
+    {
+      "size": "16x16",
+      "scale": "2x",
+      "idiom": "mac"
+    },
+    {
+      "size": "32x32",
+      "scale": "1x",
+      "idiom": "mac"
+    },
+    {
+      "size": "32x32",
+      "scale": "2x",
+      "idiom": "mac"
+    },
+    {
+      "size": "128x128",
+      "scale": "1x",
+      "idiom": "mac"
+    },
+    {
+      "size": "128x128",
+      "scale": "2x",
+      "idiom": "mac"
+    },
+    {
+      "size": "256x256",
+      "scale": "1x",
+      "idiom": "mac"
+    },
+    {
+      "size": "256x256",
+      "scale": "2x",
+      "idiom": "mac"
+    },
+    {
+      "size": "512x512",
+      "scale": "1x",
+      "idiom": "mac"
+    },
+    {
+      "size": "512x512",
+      "scale": "2x",
+      "idiom": "mac"
     }
   ],
   "info": {

@@ -268,6 +268,21 @@
     <ImageAsset Include="Assets.xcassets\unknown.imageset\cloudy.pdf" />
     <ImageAsset Include="Assets.xcassets\i_cog.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\i_cog.imageset\i_cog.pdf" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _152.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _167.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _48.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _55.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _88.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _172.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _196.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
