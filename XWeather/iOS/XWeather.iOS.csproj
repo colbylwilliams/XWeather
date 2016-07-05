@@ -266,6 +266,8 @@
     <ImageAsset Include="Assets.xcassets\sunny.imageset\sunny.pdf" />
     <ImageAsset Include="Assets.xcassets\tstorms.imageset\tstorms.pdf" />
     <ImageAsset Include="Assets.xcassets\unknown.imageset\cloudy.pdf" />
+    <ImageAsset Include="Assets.xcassets\i_cog.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\i_cog.imageset\i_cog.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -287,6 +289,7 @@
     <Folder Include="Assets.xcassets\i_close.imageset\" />
     <Folder Include="Assets.xcassets\i_list.imageset\" />
     <Folder Include="Assets.xcassets\i_drop.imageset\" />
+    <Folder Include="Assets.xcassets\i_cog.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />

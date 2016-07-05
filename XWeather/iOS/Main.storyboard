@@ -624,7 +624,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBf-Gm-Wzy" userLabel="Radar Map">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBf-Gm-Wzy" userLabel="Radar">
                             <rect key="frame" x="22" y="10" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="25" id="uwj-gL-Lv6"/>
@@ -634,14 +634,13 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="radarClicked:" destination="f0q-Y9-RUj" eventType="touchUpInside" id="60C-KZ-aHt"/>
                                 <segue destination="tQx-kC-bIG" kind="presentation" identifier="mapSegue" id="b08-KD-xCw"/>
                             </connections>
                         </button>
                         <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="s3a-fc-dw1">
                             <rect key="frame" x="281" y="3" width="39" height="37"/>
                         </pageControl>
-                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSw-6N-8Ec">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSw-6N-8Ec" userLabel="Locations">
                             <rect key="frame" x="553" y="9" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="3tR-kq-diJ"/>
@@ -661,7 +660,7 @@
                                 <constraint firstAttribute="height" constant="0.5" id="3gH-kh-Pjh"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8g-Qy-g52">
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8g-Qy-g52" userLabel="Close">
                             <rect key="frame" x="553" y="9" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="rPX-F6-Cyk"/>
@@ -674,11 +673,14 @@
                                 <action selector="closeClicked:" destination="f0q-Y9-RUj" eventType="touchUpInside" id="Aiz-6U-aWh"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Es-4M-ZbP">
-                            <rect key="frame" x="22" y="7" width="30" height="30"/>
-                            <state key="normal" title="Edit">
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Es-4M-ZbP" userLabel="Settings">
+                            <rect key="frame" x="22" y="9" width="25" height="25"/>
+                            <state key="normal" image="i_cog">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="settingsClicked:" destination="f0q-Y9-RUj" eventType="touchUpInside" id="QdP-in-fm7"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -779,6 +781,7 @@
         <image name="cloudy" width="20" height="20"/>
         <image name="i_add" width="25" height="25"/>
         <image name="i_close" width="25" height="25"/>
+        <image name="i_cog" width="25" height="25"/>
         <image name="i_drop" width="12" height="16"/>
         <image name="i_globe" width="25" height="25"/>
         <image name="i_list" width="25" height="25"/>

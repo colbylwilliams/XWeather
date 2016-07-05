@@ -70,7 +70,15 @@ namespace XWeather.iOS
 		}
 
 
-		partial void radarClicked (NSObject sender) { }
+		partial void settingsClicked (NSObject sender)
+		{
+			var settingsString = UIApplication.OpenSettingsUrlString?.ToString ();
+
+			if (!string.IsNullOrEmpty (settingsString)) {
+				var settingsUrl = NSUrl.FromString (settingsString);
+				UIApplication.SharedApplication.OpenUrl (settingsUrl);
+			}
+		}
 
 
 		void updateToolbarButtons (bool dismissing)
