@@ -31,10 +31,6 @@ namespace XWeather.iOS
 
 			initEmptyView ();
 
-			//if (TableView.ContentInset.Top > 0) return;
-			//TableView.ContentInset = new UIEdgeInsets (44.0f, 0.0f, 0.0f, 0.0f);
-			//TableView.ContentOffset = new CoreGraphics.CGPoint (0.0f, 44.0f);
-
 			if (!UIAccessibility.IsReduceTransparencyEnabled) {
 
 				TableView.BackgroundColor = UIColor.Clear;

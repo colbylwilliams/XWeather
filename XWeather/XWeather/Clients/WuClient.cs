@@ -18,6 +18,7 @@ namespace XWeather.Clients
 
 
 		public event EventHandler LocationAdded;
+		public event EventHandler LocationRemoved;
 		public event EventHandler UpdatedSelected;
 
 
@@ -55,6 +56,14 @@ namespace XWeather.Clients
 			Locations.Add (wuLocation);
 
 			LocationAdded?.Invoke (this, EventArgs.Empty);
+		}
+
+
+		public void RemoveLocation (WuLocation location)
+		{
+			Locations.Remove (location);
+
+			LocationRemoved?.Invoke (this, EventArgs.Empty);
 		}
 
 

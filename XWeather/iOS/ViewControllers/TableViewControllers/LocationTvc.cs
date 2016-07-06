@@ -73,14 +73,14 @@ namespace XWeather.iOS
 			base.ViewDidAppear (animated);
 
 			System.Diagnostics.Debug.WriteLine ("Connected");
-			WuClient.Shared.LocationAdded += HandleLocationAdded;
+			WuClient.Shared.LocationAdded += handleLocationAdded;
 		}
 
 
 		public override void ViewDidDisappear (bool animated)
 		{
 			System.Diagnostics.Debug.WriteLine ("Disconnected");
-			WuClient.Shared.LocationAdded -= HandleLocationAdded;
+			WuClient.Shared.LocationAdded -= handleLocationAdded;
 
 			base.ViewDidDisappear (animated);
 		}
@@ -116,9 +116,29 @@ namespace XWeather.iOS
 		}
 
 
-		void HandleLocationAdded (object sender, EventArgs e)
+		public override UITableViewCellEditingStyle EditingStyleForRow (UITableView tableView, NSIndexPath indexPath)
+			=> indexPath.Row > 0 ? UITableViewCellEditingStyle.Delete : UITableViewCellEditingStyle.None;
+
+
+		public override void CommitEditingStyle (UITableView tableView, UITableViewCellEditingStyle editingStyle, NSIndexPath indexPath)
+		{
+			if (editingStyle == UITableViewCellEditingStyle.Delete) {
+
+				var location = Locations [indexPath.Row];
+
+				WuClient.Shared.RemoveLocation (location);
+
+				tableView.DeleteRows (new [] { indexPath }, UITableViewRowAnimation.Automatic);
+
+				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
+			}
+		}
+
+
+		void handleLocationAdded (object sender, EventArgs e)
 		{
 			BeginInvokeOnMainThread (() => {
+
 				if (searchController.Active) {
 
 					searchController.Active = false;
