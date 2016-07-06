@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 using Foundation;
@@ -10,7 +11,6 @@ using SettingsStudio;
 using XWeather.Clients;
 using XWeather.Domain;
 using XWeather.Unified;
-using System.Linq;
 
 namespace XWeather.iOS
 {
@@ -29,7 +29,7 @@ namespace XWeather.iOS
 		{
 			base.ViewDidLoad ();
 
-			initEmptyView ();
+			//initEmptyView ();
 
 			if (!UIAccessibility.IsReduceTransparencyEnabled) {
 
@@ -77,6 +77,14 @@ namespace XWeather.iOS
 					TableView.ReloadData ();
 				});
 			});
+		}
+
+
+		partial void emptyViewClicked (NSObject sender)
+		{
+			var searchController = ParentViewController as UISearchController;
+
+			if (searchController != null) searchController.Active = false;
 		}
 
 

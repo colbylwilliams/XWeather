@@ -43,7 +43,7 @@
 		public string local_epoch { get; set; }
 		public string local_tz_short { get; set; }
 		public string local_tz_long { get; set; }
-		public string local_tz_offset { get; set; }
+		public double local_tz_offset { get; set; }
 		public string weather { get; set; }
 		public string temperature_string { get; set; }
 		public double temp_f { get; set; }

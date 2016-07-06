@@ -65,5 +65,11 @@ namespace XWeather
 
 		public static string TempString (this HourlyForecast forecast, TemperatureUnits units, bool round = false, bool degreeSymbol = false)
 			=> getValueInUnitsString (forecast.Temp (units, round), degreeSymbol);
+
+
+		public static string HourString (this HourlyForecast forecast, bool lowercase = true)
+			 => lowercase ? forecast.FCTTIME.civil.ToLower () : forecast.FCTTIME.civil;
+
+
 	}
 }

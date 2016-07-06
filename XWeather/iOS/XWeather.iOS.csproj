@@ -283,6 +283,8 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _88.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _172.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _196.png" />
+    <ImageAsset Include="Assets.xcassets\i_add_sm.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\i_add_sm.imageset\i_add_sm.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -305,6 +307,7 @@
     <Folder Include="Assets.xcassets\i_list.imageset\" />
     <Folder Include="Assets.xcassets\i_drop.imageset\" />
     <Folder Include="Assets.xcassets\i_cog.imageset\" />
+    <Folder Include="Assets.xcassets\i_add_sm.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />

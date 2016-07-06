@@ -28,8 +28,8 @@
 
 			switch (row) {
 				case 0: return location.Conditions.FeelsLikeString (units, true, true);
-				case 1: return location.Sunrise.LocalDateTime.ToString ("t");
-				case 2: return location.Sunset.LocalDateTime.ToString ("t");
+				case 1: return location.Sunrise.LocalDateTime.ToString ("t").ToLower ();
+				case 2: return location.Sunset.LocalDateTime.ToString ("t").ToLower ();
 				case 3: return $"{location?.Forecasts? [0].pop}%";
 				case 4: return location.Conditions.relative_humidity;
 				case 5: return $"{location.Conditions.wind_dir} {location.Conditions.wind_mph} mph";
@@ -45,6 +45,7 @@
 		public static bool IsSectionTop (int row)
 		{
 			switch (row) {
+				case 0:
 				case 1:
 				case 3:
 				case 5:

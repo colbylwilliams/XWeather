@@ -14,6 +14,9 @@ namespace XWeather.iOS
 	{
 		[Outlet]
 		UIKit.UIVisualEffectView emptyView { get; set; }
+
+		[Action ("emptyViewClicked:")]
+		partial void emptyViewClicked (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{

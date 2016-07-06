@@ -12,7 +12,7 @@ namespace XWeather.iOS
 
 		public void SetData (HourlyForecast forecast, TemperatureUnits units)
 		{
-			hourLabel.Text = forecast.FCTTIME.civil;
+			hourLabel.Text = forecast.HourString ();
 			tempLabel.Text = forecast.TempString (units, true, true);
 			iconImageView.Image = UIImage.FromBundle (forecast.icon);
 		}
