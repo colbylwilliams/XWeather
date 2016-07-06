@@ -98,7 +98,7 @@ namespace XWeather.iOS
 
 			var location = Locations [indexPath.Row];
 
-			cell.SetData (location);
+			cell.SetData (location, TemperatureUnit);
 
 			return cell;
 		}

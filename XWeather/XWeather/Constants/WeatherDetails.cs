@@ -22,12 +22,12 @@
 			}
 		}
 
-		public static string GetValue (int row, WuLocation location)
+		public static string GetValue (int row, WuLocation location, TemperatureUnits units)
 		{
 			if (location?.Conditions == null) return string.Empty;
 
 			switch (row) {
-				case 0: return location.Conditions.feelslike_f.ToDegreesString ();
+				case 0: return location.Conditions.FeelsLikeString (units, true, true);
 				case 1: return location.Sunrise.LocalDateTime.ToString ("t");
 				case 2: return location.Sunset.LocalDateTime.ToString ("t");
 				case 3: return $"{location?.Forecasts? [0].pop}%";

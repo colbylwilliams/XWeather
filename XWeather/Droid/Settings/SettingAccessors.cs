@@ -25,6 +25,11 @@ namespace SettingsStudio
 			set { SetSetting (SettingsKeys.RandomBackgrounds, value); }
 		}
 
+		public static int UomTemperature {
+			get { return Int32ForKey (SettingsKeys.UomTemperature); }
+			set { SetSetting (SettingsKeys.UomTemperature, value); }
+		}
+
 
 		#endregion
 

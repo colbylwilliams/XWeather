@@ -26,7 +26,7 @@ namespace XWeather.iOS
 
 			var forecast = Forecasts [indexPath.Row];
 
-			cell.SetData (forecast);
+			cell.SetData (forecast, TemperatureUnit);
 
 			return cell;
 		}
@@ -34,7 +34,7 @@ namespace XWeather.iOS
 
 		public override UIView GetViewForHeader (UITableView tableView, nint section)
 		{
-			tableHeader.SetData (Location);
+			tableHeader.SetData (Location, TemperatureUnit);
 			return tableHeader;
 		}
 	}

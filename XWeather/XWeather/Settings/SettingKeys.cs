@@ -22,6 +22,8 @@ namespace SettingsStudio
 
 		public const string RandomBackgrounds = "RandomBackgrounds";
 
+		public const string UomTemperature = "UomTemperature";
+
 
 		#endregion
 

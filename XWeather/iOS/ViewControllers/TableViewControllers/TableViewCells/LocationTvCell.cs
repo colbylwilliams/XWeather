@@ -6,11 +6,11 @@ namespace XWeather.iOS
 	{
 		public LocationTvCell (IntPtr handle) : base (handle) { }
 
-		public void SetData (WuLocation location)
+		public void SetData (WuLocation location, TemperatureUnits units)
 		{
 			nameLabel.Text = location.Name;
 			timeLabel.Text = location?.CurrentTime?.LocalDateTime.ToShortTimeString ();
-			tempLabel.Text = Math.Round (location.Conditions?.temp_f ?? 0).ToString ();
+			tempLabel.Text = location?.Conditions.TempString (units, true);
 		}
 	}
 }

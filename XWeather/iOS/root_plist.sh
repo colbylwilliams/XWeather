@@ -11,6 +11,12 @@ PreparePreferenceFile
 		AddNewTitleValuePreference  -k "GitCommitHash" 	-d "$gitCommitHash" -t "Git Hash"
 
 
+	AddNewPreferenceGroup	-t "Units of Measurement"
+		AddNewMultiValuePreference  -k "UomTemperature"   	-d 0 		-t "Temperature"
+			SetMultiValuePreferenceValues  0 1
+			SetMultiValuePreferenceTitles  "Fahrenheit" "Celsius"
+
+
 	AddNewPreferenceGroup 	-t "User Interface"
 		AddNewStringNode 	-e "FooterText" 	-v "Background colors represent each location’s time of day. Enable this option to use random pretty colors instead."
 

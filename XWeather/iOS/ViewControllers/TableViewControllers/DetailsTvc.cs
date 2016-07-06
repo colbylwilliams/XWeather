@@ -19,7 +19,7 @@ namespace XWeather.iOS
 			var cell = DequeCell (tableView, indexPath);
 
 			var label = WeatherDetails.GetLabel (indexPath.Row);
-			var value = WeatherDetails.GetValue (indexPath.Row, Location);
+			var value = WeatherDetails.GetValue (indexPath.Row, Location, TemperatureUnit);
 
 			cell.SetData (label, value);
 

@@ -10,10 +10,10 @@ namespace XWeather.iOS
 	{
 		public HourlyTvCell (IntPtr handle) : base (handle) { }
 
-		public void SetData (HourlyForecast forecast)
+		public void SetData (HourlyForecast forecast, TemperatureUnits units)
 		{
 			hourLabel.Text = forecast.FCTTIME.civil;
-			tempLabel.Text = forecast.temp.english.ToDegreesString ();
+			tempLabel.Text = forecast.TempString (units, true, true);
 			iconImageView.Image = UIImage.FromBundle (forecast.icon);
 		}
 	}

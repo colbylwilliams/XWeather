@@ -195,7 +195,7 @@ namespace XWeather.iOS
 
 	public class RadarOverlay : MKOverlay
 	{
-		MKMapRect MapRect;
+		readonly MKMapRect MapRect;
 
 		public List<CGImage> Images { get; set; }
 
@@ -205,9 +205,7 @@ namespace XWeather.iOS
 			Images = images;
 		}
 
-		public override CLLocationCoordinate2D Coordinate {
-			get { throw new NotImplementedException (); }
-		}
+		public override CLLocationCoordinate2D Coordinate => new CLLocationCoordinate2D ();
 
 		public override MKMapRect BoundingMapRect => MapRect;
 	}

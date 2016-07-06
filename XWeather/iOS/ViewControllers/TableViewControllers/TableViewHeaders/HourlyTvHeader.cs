@@ -8,15 +8,15 @@ namespace XWeather.iOS
 	{
 		public HourlyTvHeader (IntPtr handle) : base (handle) { }
 
-		public void SetData (WuLocation location)
+		public void SetData (WuLocation location, TemperatureUnits units)
 		{
 			conditionLabel.Text = location?.Conditions?.weather;
 			dayLabel.Text = DateTime.Today.DayOfWeek.ToString ();
-			highTempLabel.Text = location?.TodayForecast?.high?.FahrenheitValue.ToString ();
+			highTempLabel.Text = location?.TodayForecast.HighTempString (units);
 			locationLabel.Text = location?.Name;
-			lowTempLabel.Text = location?.TodayForecast?.low?.FahrenheitValue.ToString ();
+			lowTempLabel.Text = location?.TodayForecast.LowTempString (units);
 			precipLabel.Text = location?.TodayForecast?.pop.ToPercentString ();
-			tempLabel.Text = Math.Round (location?.Conditions?.temp_f ?? 0).ToString ();
+			tempLabel.Text = location?.Conditions.TempString (units, true);
 			todayLabel.Text = "Today";
 
 			//precipIcon.Text = null;

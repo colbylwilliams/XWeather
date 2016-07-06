@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
-using CoreAnimation;
+
 using Foundation;
 using UIKit;
+
+using SettingsStudio;
 
 using XWeather.Clients;
 
@@ -11,6 +13,9 @@ namespace XWeather.iOS
 	public class BaseTvc<TCell> : UITableViewController
 		where TCell : BaseTvCell
 	{
+
+		public TemperatureUnits TemperatureUnit => (TemperatureUnits)Settings.UomTemperature;
+
 
 		public virtual nfloat HeaderHeight => 280;
 

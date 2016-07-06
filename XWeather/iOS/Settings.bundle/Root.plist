@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>DefaultValue</key>
-			<string>0.1.0 (41)</string>
+			<string>0.1.0 (42)</string>
 			<key>Key</key>
 			<string>VersionNumber</string>
 			<key>Title</key>
@@ -16,13 +16,39 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>cd74def</string>
+			<string>4081603</string>
 			<key>Key</key>
 			<string>GitCommitHash</string>
 			<key>Title</key>
 			<string>Git Hash</string>
 			<key>Type</key>
 			<string>PSTitleValueSpecifier</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Units of Measurement</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>0</string>
+			<key>Key</key>
+			<string>UomTemperature</string>
+			<key>Title</key>
+			<string>Temperature</string>
+			<key>Titles</key>
+			<array>
+				<string>Fahrenheit</string>
+				<string>Celsius</string>
+			</array>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Values</key>
+			<array>
+				<string>0</string>
+				<string>1</string>
+			</array>
 		</dict>
 		<dict>
 			<key>FooterText</key>
