@@ -518,6 +518,26 @@
                                 <constraint firstAttribute="height" constant="0.5" id="Yyo-hS-7dr"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nOs-2m-8HW">
+                            <rect key="frame" x="22" y="100" width="1" height="157"/>
+                            <color key="backgroundColor" white="1" alpha="0.39563978040540543" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="aRz-5b-L8D"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PsC-xK-zRo">
+                            <rect key="frame" x="23" y="256" width="545" height="1"/>
+                            <color key="backgroundColor" white="1" alpha="0.39563978040540543" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="qnl-64-e2t"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="graph" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYB-CA-MEA">
+                            <rect key="frame" x="229" y="165" width="143" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="0.39864864864864863" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -525,9 +545,17 @@
                         <constraint firstItem="bxD-Ud-ggv" firstAttribute="leading" secondItem="BMz-PU-SYC" secondAttribute="leading" id="CrW-8A-CoV"/>
                         <constraint firstAttribute="trailing" secondItem="bxD-Ud-ggv" secondAttribute="trailing" id="F0v-Rb-vWo"/>
                         <constraint firstAttribute="bottom" secondItem="bxD-Ud-ggv" secondAttribute="bottom" id="Hnw-pn-XtG"/>
+                        <constraint firstItem="nOs-2m-8HW" firstAttribute="leading" secondItem="BMz-PU-SYC" secondAttribute="leading" constant="22" id="KtC-6R-fQ1"/>
+                        <constraint firstAttribute="trailing" secondItem="PsC-xK-zRo" secondAttribute="trailing" constant="32" id="LmV-oW-Na9"/>
+                        <constraint firstItem="PsC-xK-zRo" firstAttribute="leading" secondItem="nOs-2m-8HW" secondAttribute="trailing" id="bc7-WS-1Gp"/>
+                        <constraint firstItem="PsC-xK-zRo" firstAttribute="top" secondItem="YYB-CA-MEA" secondAttribute="bottom" constant="70" id="cmP-Qa-Atf"/>
+                        <constraint firstItem="bxD-Ud-ggv" firstAttribute="top" secondItem="PsC-xK-zRo" secondAttribute="bottom" constant="22" id="gW7-39-lKs"/>
                         <constraint firstItem="igN-xf-d2h" firstAttribute="centerX" secondItem="BMz-PU-SYC" secondAttribute="centerX" id="jI5-Zy-alW"/>
                         <constraint firstAttribute="trailing" secondItem="eop-Ej-qYB" secondAttribute="trailing" constant="12" id="kGe-iw-gEx"/>
+                        <constraint firstItem="bxD-Ud-ggv" firstAttribute="top" secondItem="nOs-2m-8HW" secondAttribute="bottom" constant="22" id="kJj-L8-gjV"/>
+                        <constraint firstItem="nOs-2m-8HW" firstAttribute="top" secondItem="BMz-PU-SYC" secondAttribute="top" constant="100" id="mLK-gv-POw"/>
                         <constraint firstAttribute="bottom" secondItem="eop-Ej-qYB" secondAttribute="bottom" constant="8" id="pQo-Gg-hKX"/>
+                        <constraint firstItem="YYB-CA-MEA" firstAttribute="centerX" secondItem="BMz-PU-SYC" secondAttribute="centerX" id="q1d-5h-CtO"/>
                     </constraints>
                     <connections>
                         <outlet property="locationLabel" destination="igN-xf-d2h" id="Uhs-qA-T1K"/>

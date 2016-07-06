@@ -14,9 +14,6 @@ namespace XWeather.iOS
 		where TCell : BaseTvCell
 	{
 
-		//public TemperatureUnits TemperatureUnit => (TemperatureUnits)Settings.UomTemperature;
-
-
 		public virtual nfloat HeaderHeight => 280;
 
 		internal nfloat FooterHeight = 44;
@@ -31,6 +28,8 @@ namespace XWeather.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+
+			// HockeyApp.iOS.BITHockeyManager.SharedHockeyManager.MetricsManager.TrackEvent()
 
 			View.BackgroundColor = UIColor.Clear;
 
