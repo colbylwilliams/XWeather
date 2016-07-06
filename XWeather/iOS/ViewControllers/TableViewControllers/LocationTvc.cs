@@ -62,7 +62,6 @@ namespace XWeather.iOS
 			}
 
 			if (searchController != null && !searchController.Active && scrollView.ContentOffset.Y == -21) {
-				System.Diagnostics.Debug.WriteLine (scrollView.ContentOffset.Y);
 				searchController.Active = true;
 			}
 		}
@@ -72,14 +71,12 @@ namespace XWeather.iOS
 		{
 			base.ViewDidAppear (animated);
 
-			System.Diagnostics.Debug.WriteLine ("Connected");
 			WuClient.Shared.LocationAdded += handleLocationAdded;
 		}
 
 
 		public override void ViewDidDisappear (bool animated)
 		{
-			System.Diagnostics.Debug.WriteLine ("Disconnected");
 			WuClient.Shared.LocationAdded -= handleLocationAdded;
 
 			base.ViewDidDisappear (animated);
@@ -158,7 +155,6 @@ namespace XWeather.iOS
 		{
 			MaskCells (TableView);
 			TableView.SetContentOffset (new CGPoint (0, searchBarHeight - 20), true);
-			System.Diagnostics.Debug.WriteLine ("DidDismissSearchController");
 		}
 
 
@@ -166,31 +162,19 @@ namespace XWeather.iOS
 		public void DidPresentSearchController (UISearchController searchController)
 		{
 			searchController.SearchBar.BecomeFirstResponder ();
-			System.Diagnostics.Debug.WriteLine ("DidPresentSearchController");
 		}
 
 
 		[Export ("presentSearchController:")]
-		public void PresentSearchController (UISearchController searchController)
-		{
-			System.Diagnostics.Debug.WriteLine ("PresentSearchController");
-		}
+		public void PresentSearchController (UISearchController searchController) { }
 
 
 		[Export ("willDismissSearchController:")]
-		public void WillDismissSearchController (UISearchController searchController)
-		{
-
-
-			System.Diagnostics.Debug.WriteLine ("WillDismissSearchController");
-		}
+		public void WillDismissSearchController (UISearchController searchController) { }
 
 
 		[Export ("willPresentSearchController:")]
-		public void WillPresentSearchController (UISearchController searchController)
-		{
-			System.Diagnostics.Debug.WriteLine ("WillPresentSearchController");
-		}
+		public void WillPresentSearchController (UISearchController searchController) { }
 
 
 		#endregion
