@@ -2,6 +2,7 @@ using System;
 
 using Foundation;
 using UIKit;
+using SettingsStudio;
 
 namespace XWeather.iOS
 {
@@ -19,7 +20,7 @@ namespace XWeather.iOS
 			var cell = DequeCell (tableView, indexPath);
 
 			var label = WeatherDetails.GetLabel (indexPath.Row);
-			var value = WeatherDetails.GetValue (indexPath.Row, Location, TemperatureUnit);
+			var value = WeatherDetails.GetValue (indexPath.Row, Location, Settings.UomTemperature, Settings.UomSpeed, Settings.UomLength, Settings.UomDistance, Settings.UomPressure);
 
 			cell.SetData (label, value);
 

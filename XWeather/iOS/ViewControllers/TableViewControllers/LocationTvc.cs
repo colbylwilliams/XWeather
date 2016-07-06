@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
+using CoreGraphics;
 using Foundation;
 using UIKit;
 
@@ -7,9 +10,6 @@ using XWeather.Clients;
 using XWeather.Domain;
 using XWeather.Unified;
 
-using System.Collections.Generic;
-using CoreGraphics;
-using System.Threading.Tasks;
 using SettingsStudio;
 
 namespace XWeather.iOS
@@ -98,7 +98,7 @@ namespace XWeather.iOS
 
 			var location = Locations [indexPath.Row];
 
-			cell.SetData (location, TemperatureUnit);
+			cell.SetData (location);
 
 			return cell;
 		}

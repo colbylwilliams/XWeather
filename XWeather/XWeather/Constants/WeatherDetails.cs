@@ -22,21 +22,23 @@
 			}
 		}
 
-		public static string GetValue (int row, WuLocation location, TemperatureUnits units)
+		public static string GetValue (int row, WuLocation location, TemperatureUnits temp, SpeedUnits speed, LengthUnits length, DistanceUnits distance, PressureUnits pressure)
 		{
-			if (location?.Conditions == null) return string.Empty;
+			var conditions = location?.Conditions;
+
+			if (conditions == null) return string.Empty;
 
 			switch (row) {
-				case 0: return location.Conditions.FeelsLikeString (units, true, true);
-				case 1: return location.Sunrise.LocalDateTime.ToString ("t").ToLower ();
-				case 2: return location.Sunset.LocalDateTime.ToString ("t").ToLower ();
-				case 3: return $"{location?.Forecasts? [0].pop}%";
-				case 4: return location.Conditions.relative_humidity;
-				case 5: return $"{location.Conditions.wind_dir} {location.Conditions.wind_mph} mph";
-				case 6: return $"{location.Conditions.wind_dir} {location.Conditions.wind_gust_mph} mph";
-				case 7: return $"{location.Conditions.precip_today_in} in";
-				case 8: return $"{location.Conditions.pressure_in} inHg";
-				case 9: return $"{location.Conditions.visibility_mi} mi";
+				case 0: return conditions.FeelsLikeString (temp, true, true);
+				case 1: return location.SunriseString ();
+				case 2: return location.SunsetString ();
+				case 3: return location.ProbabilityPercipString ();
+				case 4: return conditions.relative_humidity;
+				case 5: return conditions.WindString (speed);
+				case 6: return conditions.GustString (speed);
+				case 7: return conditions.PrecipTodayString (length);
+				case 8: return conditions.PressureString (pressure);
+				case 9: return conditions.VisibilityString (distance);
 				case 10: return location.Conditions.UV.ToString ();
 				default: return string.Empty;
 			}

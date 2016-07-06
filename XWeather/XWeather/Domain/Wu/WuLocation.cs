@@ -49,8 +49,6 @@ namespace XWeather
 		public List<HourlyForecast> HourlyForecasts => Weather?.hourly_forecast ?? new List<HourlyForecast> ();
 
 
-		public string ForecastString => $"{TxtForecasts? [0]?.fcttext}\n\nTonight: {TxtForecasts? [1]?.fcttext}";
-
 		public AstronomyTime CurrentTime => Weather?.moon_phase?.current_time;
 
 		public AstronomyTime Sunset => Weather?.moon_phase?.sunset ?? Weather?.sun_phase?.sunset;

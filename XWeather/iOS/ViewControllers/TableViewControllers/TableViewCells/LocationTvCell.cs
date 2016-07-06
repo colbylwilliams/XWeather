@@ -1,5 +1,7 @@
 using System;
 
+using SettingsStudio;
+
 using XWeather.Unified;
 
 namespace XWeather.iOS
@@ -8,11 +10,11 @@ namespace XWeather.iOS
 	{
 		public LocationTvCell (IntPtr handle) : base (handle) { }
 
-		public void SetData (WuLocation location, TemperatureUnits units)
+		public void SetData (WuLocation location)
 		{
 			nameLabel.Text = location.Name;
 			timeLabel.Text = location?.LocalTimeString ();
-			tempLabel.Text = location?.Conditions.TempString (units, true);
+			tempLabel.Text = location?.TempString (Settings.UomTemperature, true);
 		}
 	}
 }

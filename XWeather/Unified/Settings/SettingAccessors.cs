@@ -2,6 +2,7 @@
  *
  * Copyright © 2015 Colby Williams. All Rights Reserved.
  */
+using XWeather;
 
 namespace SettingsStudio
 {
@@ -25,9 +26,29 @@ namespace SettingsStudio
 			set { SetSetting (SettingsKeys.RandomBackgrounds, value); }
 		}
 
-		public static int UomTemperature {
-			get { return Int32ForKey (SettingsKeys.UomTemperature); }
-			set { SetSetting (SettingsKeys.UomTemperature, value); }
+		public static TemperatureUnits UomTemperature {
+			get { return (TemperatureUnits)Int32ForKey (SettingsKeys.UomTemperature); }
+			set { SetSetting (SettingsKeys.UomTemperature, (int)value); }
+		}
+
+		public static DistanceUnits UomDistance {
+			get { return (DistanceUnits)Int32ForKey (SettingsKeys.UomDistance); }
+			set { SetSetting (SettingsKeys.UomDistance, (int)value); }
+		}
+
+		public static PressureUnits UomPressure {
+			get { return (PressureUnits)Int32ForKey (SettingsKeys.UomPressure); }
+			set { SetSetting (SettingsKeys.UomPressure, (int)value); }
+		}
+
+		public static LengthUnits UomLength {
+			get { return (LengthUnits)Int32ForKey (SettingsKeys.UomLength); }
+			set { SetSetting (SettingsKeys.UomLength, (int)value); }
+		}
+
+		public static SpeedUnits UomSpeed {
+			get { return (SpeedUnits)Int32ForKey (SettingsKeys.UomSpeed); }
+			set { SetSetting (SettingsKeys.UomSpeed, (int)value); }
 		}
 
 

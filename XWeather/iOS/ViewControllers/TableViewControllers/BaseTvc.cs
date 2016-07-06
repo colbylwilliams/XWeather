@@ -14,7 +14,7 @@ namespace XWeather.iOS
 		where TCell : BaseTvCell
 	{
 
-		public TemperatureUnits TemperatureUnit => (TemperatureUnits)Settings.UomTemperature;
+		//public TemperatureUnits TemperatureUnit => (TemperatureUnits)Settings.UomTemperature;
 
 
 		public virtual nfloat HeaderHeight => 280;

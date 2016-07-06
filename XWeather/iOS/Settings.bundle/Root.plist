@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>DefaultValue</key>
-			<string>0.1.2 (44)</string>
+			<string>0.1.3 (45)</string>
 			<key>Key</key>
 			<string>VersionNumber</string>
 			<key>Title</key>
@@ -16,7 +16,7 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>c6a5d17</string>
+			<string>f706d4b</string>
 			<key>Key</key>
 			<string>GitCommitHash</string>
 			<key>Title</key>
@@ -41,6 +41,86 @@
 			<array>
 				<string>Fahrenheit</string>
 				<string>Celsius</string>
+			</array>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Values</key>
+			<array>
+				<string>0</string>
+				<string>1</string>
+			</array>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>0</string>
+			<key>Key</key>
+			<string>UomDistance</string>
+			<key>Title</key>
+			<string>Distance</string>
+			<key>Titles</key>
+			<array>
+				<string>Miles</string>
+				<string>Kilometers</string>
+			</array>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Values</key>
+			<array>
+				<string>0</string>
+				<string>1</string>
+			</array>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>0</string>
+			<key>Key</key>
+			<string>UomPressure</string>
+			<key>Title</key>
+			<string>Pressure</string>
+			<key>Titles</key>
+			<array>
+				<string>Inches of Mercury</string>
+				<string>Millibars</string>
+			</array>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Values</key>
+			<array>
+				<string>0</string>
+				<string>1</string>
+			</array>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>0</string>
+			<key>Key</key>
+			<string>UomLength</string>
+			<key>Title</key>
+			<string>Length</string>
+			<key>Titles</key>
+			<array>
+				<string>Inches</string>
+				<string>Millimeters</string>
+			</array>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Values</key>
+			<array>
+				<string>0</string>
+				<string>1</string>
+			</array>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>0</string>
+			<key>Key</key>
+			<string>UomSpeed</string>
+			<key>Title</key>
+			<string>Speed</string>
+			<key>Titles</key>
+			<array>
+				<string>Miles per hour</string>
+				<string>Kilometers per hour</string>
 			</array>
 			<key>Type</key>
 			<string>PSMultiValueSpecifier</string>

@@ -2,6 +2,8 @@ using System;
 
 using UIKit;
 
+using SettingsStudio;
+
 using XWeather.Domain;
 
 namespace XWeather.iOS
@@ -10,10 +12,10 @@ namespace XWeather.iOS
 	{
 		public HourlyTvCell (IntPtr handle) : base (handle) { }
 
-		public void SetData (HourlyForecast forecast, TemperatureUnits units)
+		public void SetData (HourlyForecast forecast)
 		{
 			hourLabel.Text = forecast.HourString ();
-			tempLabel.Text = forecast.TempString (units, true, true);
+			tempLabel.Text = forecast.TempString (Settings.UomTemperature, true, true);
 			iconImageView.Image = UIImage.FromBundle (forecast.icon);
 		}
 	}

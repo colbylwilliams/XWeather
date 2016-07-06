@@ -24,6 +24,14 @@ namespace SettingsStudio
 
 		public const string UomTemperature = "UomTemperature";
 
+		public const string UomDistance = "UomDistance";
+
+		public const string UomPressure = "UomPressure";
+
+		public const string UomLength = "UomLength";
+
+		public const string UomSpeed = "UomSpeed";
+
 
 		#endregion
 

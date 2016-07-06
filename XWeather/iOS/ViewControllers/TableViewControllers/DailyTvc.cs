@@ -26,7 +26,7 @@ namespace XWeather.iOS
 
 			var forecast = Forecasts [indexPath.Row];
 
-			cell.SetData (forecast, TemperatureUnit);
+			cell.SetData (forecast);
 
 			return cell;
 		}
