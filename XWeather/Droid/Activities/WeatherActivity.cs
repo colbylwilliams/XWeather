@@ -133,7 +133,7 @@ namespace XWeather.Droid
 
 		void getData ()
 		{
-#if DEBUG
+			//#if DEBUG
 			Task.Run (async () => {
 
 				await Task.Delay (10);
@@ -159,25 +159,25 @@ namespace XWeather.Droid
 				WuClient.Shared.Selected = WuClient.Shared.Locations [i];
 			});
 
-#else
+			//#else
 			//UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 
-			Task.Run (async () => {
+			//Task.Run (async () => {
 
-				var location = await LocationProvider.GetCurrentLocationAsync ();
+			//	var location = await LocationProvider.GetCurrentLocationAsync ();
 
-				if (location != null) {
+			//	if (location != null) {
 
-					await WuClient.Shared.GetLocations (Settings.LocationsJson, location.Coordinate.Latitude, location.Coordinate.Longitude);
+			//		await WuClient.Shared.GetLocations (Settings.LocationsJson, location.Coordinate.Latitude, location.Coordinate.Longitude);
 
-					BeginInvokeOnMainThread (() => {
+			//		BeginInvokeOnMainThread (() => {
 
-						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
-					});
-				}
-			});
+			//			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+			//		});
+			//	}
+			//});
 
-#endif
+			//#endif
 		}
 
 	}
