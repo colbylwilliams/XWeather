@@ -19,6 +19,9 @@ namespace XWeather.iOS
 		UIKit.UIImageView iconImageView { get; set; }
 
 		[Outlet]
+		UIKit.UILabel precipLabel { get; set; }
+
+		[Outlet]
 		UIKit.UILabel tempLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
@@ -28,14 +31,19 @@ namespace XWeather.iOS
 				hourLabel = null;
 			}
 
+			if (iconImageView != null) {
+				iconImageView.Dispose ();
+				iconImageView = null;
+			}
+
 			if (tempLabel != null) {
 				tempLabel.Dispose ();
 				tempLabel = null;
 			}
 
-			if (iconImageView != null) {
-				iconImageView.Dispose ();
-				iconImageView = null;
+			if (precipLabel != null) {
+				precipLabel.Dispose ();
+				precipLabel = null;
 			}
 		}
 	}

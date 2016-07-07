@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<dimen name="weather_location_title">32dp</dimen>
+	<dimen name="weather_header_height">260dp</dimen>
+</resources>

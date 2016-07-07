@@ -8,7 +8,7 @@ PreparePreferenceFile
 
 		AddNewTitleValuePreference  -k "VersionNumber" 	-d "$versionNumber ($buildNumber)" 	-t "Version"
 
-		AddNewTitleValuePreference  -k "GitCommitHash" 	-d "$gitCommitHash" -t "Git Hash"
+		# AddNewTitleValuePreference  -k "GitCommitHash" 	-d "$gitCommitHash" -t "Git Hash"
 
 
 	AddNewPreferenceGroup	-t "Units of Measurement"

@@ -69,6 +69,9 @@
     <Compile Include="Domain\Wu\RadarBounds.cs" />
     <Compile Include="Domain\Wu\Extensions\RadarBoundsExtensions.cs" />
     <Compile Include="Constants\UnitsOfMeasurement.cs" />
+    <Compile Include="Domain\Wu\WeatherDetail.cs" />
+    <Compile Include="Utilities\LruCacheUtility.cs" />
+    <Compile Include="Constants\ConditionStrings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -113,6 +116,7 @@
     <Folder Include="Domain\Wu\Extensions\" />
     <Folder Include="Settings\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

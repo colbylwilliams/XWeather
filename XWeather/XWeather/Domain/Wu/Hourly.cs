@@ -29,7 +29,7 @@ namespace XWeather.Domain
 		public Measurement feelslike { get; set; }
 		public Measurement qpf { get; set; }
 		public Measurement snow { get; set; }
-		public string pop { get; set; }
+		public double pop { get; set; }
 		public Measurement mslp { get; set; }
 	}
 }

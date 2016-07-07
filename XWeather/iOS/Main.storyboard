@@ -225,16 +225,27 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear" translatesAutoresizingMaskIntoConstraints="NO" id="Eq6-GQ-oVv">
-                                            <rect key="frame" x="290" y="12" width="20" height="20"/>
+                                            <rect key="frame" x="277" y="12" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="4gF-UI-hdD"/>
                                                 <constraint firstAttribute="height" constant="20" id="oj9-Gf-nd5"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHy-SU-o4N">
+                                            <rect key="frame" x="303" y="12" width="23" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.20000000000000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="label_3"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="LHy-SU-o4N" firstAttribute="leading" secondItem="Eq6-GQ-oVv" secondAttribute="trailing" constant="6" id="Jkd-EM-XhN"/>
                                         <constraint firstItem="Eq6-GQ-oVv" firstAttribute="centerY" secondItem="QAq-AN-bIs" secondAttribute="centerY" id="KgJ-5F-kXo"/>
-                                        <constraint firstItem="Eq6-GQ-oVv" firstAttribute="centerX" secondItem="QAq-AN-bIs" secondAttribute="centerX" id="XTA-z1-Tvv"/>
+                                        <constraint firstItem="LHy-SU-o4N" firstAttribute="centerY" secondItem="QAq-AN-bIs" secondAttribute="centerY" id="UxB-Rm-ue8"/>
+                                        <constraint firstItem="Eq6-GQ-oVv" firstAttribute="trailing" secondItem="QAq-AN-bIs" secondAttribute="centerX" constant="-3" id="XTA-z1-Tvv"/>
                                         <constraint firstItem="pZt-O3-zT7" firstAttribute="leading" secondItem="QAq-AN-bIs" secondAttribute="leadingMargin" constant="12" id="bg2-Ev-Umu"/>
                                         <constraint firstItem="pNb-oo-bAW" firstAttribute="centerY" secondItem="QAq-AN-bIs" secondAttribute="centerY" id="pjL-pk-ikv"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="pNb-oo-bAW" secondAttribute="trailing" constant="12" id="sL2-gv-2Kx"/>
@@ -244,6 +255,7 @@
                                 <connections>
                                     <outlet property="hourLabel" destination="pZt-O3-zT7" id="boT-6E-2Fc"/>
                                     <outlet property="iconImageView" destination="Eq6-GQ-oVv" id="MPu-PD-iim"/>
+                                    <outlet property="precipLabel" destination="LHy-SU-o4N" id="P3K-5b-Ikm"/>
                                     <outlet property="tempLabel" destination="pNb-oo-bAW" id="YcI-5k-IVN"/>
                                 </connections>
                             </tableViewCell>
@@ -434,7 +446,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCo-Vo-YZr">
-                                            <rect key="frame" x="297" y="12" width="23" height="20"/>
+                                            <rect key="frame" x="303" y="12" width="23" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.20000000000000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -443,7 +455,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="ZEQ-Ru-xfH">
-                                            <rect key="frame" x="274" y="12" width="20" height="20"/>
+                                            <rect key="frame" x="277" y="12" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="30M-jo-YZD"/>
                                                 <constraint firstAttribute="width" constant="20" id="MP2-BZ-OPM"/>
@@ -463,10 +475,10 @@
                                         <constraint firstItem="DZr-GY-Lvt" firstAttribute="leading" secondItem="PcV-bg-Tse" secondAttribute="leadingMargin" constant="12" id="AUU-C7-Ofz"/>
                                         <constraint firstItem="ZEQ-Ru-xfH" firstAttribute="centerY" secondItem="PcV-bg-Tse" secondAttribute="centerY" id="Bcn-Xd-H8E"/>
                                         <constraint firstItem="66f-De-zDf" firstAttribute="centerY" secondItem="PcV-bg-Tse" secondAttribute="centerY" id="CTb-Tq-yRY"/>
-                                        <constraint firstItem="aCo-Vo-YZr" firstAttribute="leading" secondItem="ZEQ-Ru-xfH" secondAttribute="trailing" constant="3" id="DKE-qw-Mt1"/>
+                                        <constraint firstItem="aCo-Vo-YZr" firstAttribute="leading" secondItem="ZEQ-Ru-xfH" secondAttribute="trailing" constant="6" id="DKE-qw-Mt1"/>
                                         <constraint firstItem="aCo-Vo-YZr" firstAttribute="centerY" secondItem="PcV-bg-Tse" secondAttribute="centerY" id="MV6-TU-Ygc"/>
                                         <constraint firstItem="66f-De-zDf" firstAttribute="leading" secondItem="bBa-Dk-Gq8" secondAttribute="trailing" constant="8" id="Nzc-mv-Tqj"/>
-                                        <constraint firstItem="ZEQ-Ru-xfH" firstAttribute="trailing" secondItem="PcV-bg-Tse" secondAttribute="centerX" constant="-6" id="UCo-Hj-DAw"/>
+                                        <constraint firstItem="ZEQ-Ru-xfH" firstAttribute="trailing" secondItem="PcV-bg-Tse" secondAttribute="centerX" constant="-3" id="UCo-Hj-DAw"/>
                                         <constraint firstItem="bBa-Dk-Gq8" firstAttribute="centerY" secondItem="PcV-bg-Tse" secondAttribute="centerY" id="bGA-cd-Mv1"/>
                                         <constraint firstItem="DZr-GY-Lvt" firstAttribute="centerY" secondItem="PcV-bg-Tse" secondAttribute="centerY" id="cLI-Qc-Dba"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="66f-De-zDf" secondAttribute="trailing" constant="12" id="nKX-Zm-XP4"/>

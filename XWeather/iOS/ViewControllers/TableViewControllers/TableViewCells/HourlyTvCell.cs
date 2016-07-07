@@ -16,6 +16,7 @@ namespace XWeather.iOS
 		{
 			hourLabel.Text = forecast.HourString ();
 			tempLabel.Text = forecast.TempString (Settings.UomTemperature, true, true);
+			precipLabel.Text = forecast.ProbabilityPercipString ();
 			iconImageView.Image = UIImage.FromBundle (forecast.icon);
 		}
 	}

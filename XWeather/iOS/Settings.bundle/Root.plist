@@ -6,21 +6,11 @@
 	<array>
 		<dict>
 			<key>DefaultValue</key>
-			<string>0.2.0 (48)</string>
+			<string>0.2.0 (49)</string>
 			<key>Key</key>
 			<string>VersionNumber</string>
 			<key>Title</key>
 			<string>Version</string>
-			<key>Type</key>
-			<string>PSTitleValueSpecifier</string>
-		</dict>
-		<dict>
-			<key>DefaultValue</key>
-			<string>3b60281</string>
-			<key>Key</key>
-			<string>GitCommitHash</string>
-			<key>Title</key>
-			<string>Git Hash</string>
 			<key>Type</key>
 			<string>PSTitleValueSpecifier</string>
 		</dict>

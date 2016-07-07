@@ -209,5 +209,8 @@ namespace XWeather
 
 
 		public static string ProbabilityPercipString (this WuLocation location) => location?.TodayForecast?.ProbabilityPercipString ();
+
+
+		public static string ProbabilityPercipString (this HourlyForecast forecast) => forecast?.pop.ToPercentString ();
 	}
 }

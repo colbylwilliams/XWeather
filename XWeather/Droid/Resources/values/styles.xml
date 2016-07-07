@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<!-- Inherit from the Material Theme (We will be using the toolbar so no need to show ActionBar) -->
+	<style name="WeatherTheme" parent="Theme.AppCompat">
+		<!-- Main theme colors -->
+		<!--   your app branding color for the app bar -->
+		<!--		<item name="colorPrimary">@color/theme_primary</item>-->
+		<!--   darker variant for the status bar and contextual app bars -->
+		<!--		<item name="colorPrimaryDark">@color/theme_primary_dark</item>-->
+		<!--   theme UI controls like checkboxes and text fields -->
+		<!--		<item name="colorAccent">@color/theme_accent</item>-->
+		<item name="windowNoTitle">true</item>
+		<!--We will be using the toolbar so no need to show ActionBar-->
+		<item name="windowActionBar">false</item>
+		<item name="android:textColorPrimary">@color/theme_white</item>
+		<item name="android:textColor">@color/theme_white</item>
+		<item name="android:textSize">16sp</item>
+	</style>
+	<style name="blueText" parent="WeatherTheme">
+		<item name="android:textColor">@color/theme_blue_mid</item>
+	</style>
+	<style name="blueTextBright" parent="WeatherTheme">
+		<item name="android:textColor">@color/theme_blue_bright</item>
+	</style>
+	<style name="secondaryText" parent="WeatherTheme">
+		<item name="android:textColor">@color/theme_white_60</item>
+	</style>
+</resources>

@@ -45,6 +45,8 @@ namespace XWeather.UITests
 
 			app.Screenshot ("Detailed Conditions");
 
+			if (platform == Platform.Android) return;
+
 			app.Tap (x => x.Id (UIElements.WeatherPvc.button_locations));
 
 			app.Screenshot ("Locations Selection");

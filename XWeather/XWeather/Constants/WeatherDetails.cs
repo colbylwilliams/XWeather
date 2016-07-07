@@ -1,8 +1,28 @@
-﻿namespace XWeather
+﻿using System.Collections.Generic;
+namespace XWeather.Domain
 {
 	public static class WeatherDetails
 	{
+		public static List<WeatherDetail> GetDetails (WuLocation location, TemperatureUnits temp, SpeedUnits speed, LengthUnits length, DistanceUnits distance, PressureUnits pressure)
+		{
+			var list = new List<WeatherDetail> ();
+
+			for (int i = 0; i < Count; i++) list.Add (GetDetail (i, location, temp, speed, length, distance, pressure));
+
+			return list;
+		}
+
 		public static int Count = 11;
+
+		public static WeatherDetail GetDetail (int row, WuLocation location, TemperatureUnits temp, SpeedUnits speed, LengthUnits length, DistanceUnits distance, PressureUnits pressure)
+		{
+			return new WeatherDetail {
+				DetailLabel = GetLabel (row),
+				DetailValue = GetValue (row, location, temp, speed, length, distance, pressure),
+				IsSectionTop = IsSectionTop (row)
+			};
+		}
+
 
 		public static string GetLabel (int row)
 		{
@@ -21,6 +41,7 @@
 				default: return string.Empty;
 			}
 		}
+
 
 		public static string GetValue (int row, WuLocation location, TemperatureUnits temp, SpeedUnits speed, LengthUnits length, DistanceUnits distance, PressureUnits pressure)
 		{
@@ -43,6 +64,7 @@
 				default: return string.Empty;
 			}
 		}
+
 
 		public static bool IsSectionTop (int row)
 		{
