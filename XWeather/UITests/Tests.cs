@@ -45,7 +45,7 @@ namespace XWeather.UITests
 
 			app.SwipeRightToLeft ();
 
-			app.Screenshot ("Detailed Conditions");
+			app.Screenshot ("Detailed Conditions ");
 
 
 			if (platform == Platform.Android) return;
