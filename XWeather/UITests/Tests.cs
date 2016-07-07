@@ -11,6 +11,8 @@ namespace XWeather.UITests
 	[TestFixture (Platform.iOS)]
 	public class Tests
 	{
+		bool iOS => platform == Platform.iOS;
+
 		IApp app;
 		Platform platform;
 
@@ -33,7 +35,7 @@ namespace XWeather.UITests
 		{
 			app.Screenshot ("App Launched");
 
-			app.WaitForElement (x => x.Text ("Wednesday"), "Timed out waiting for weather data from Weather Underground");
+			app.WaitForElement (x => x.Id (iOS ? "label_1" : "DailyListItem_dayLabel").Index (2), "Timed out waiting for weather data from Weather Underground");
 
 			app.Screenshot ("Daily Forecast (Weather Data Loaded)");
 
@@ -44,6 +46,7 @@ namespace XWeather.UITests
 			app.SwipeRightToLeft ();
 
 			app.Screenshot ("Detailed Conditions");
+
 
 			if (platform == Platform.Android) return;
 
