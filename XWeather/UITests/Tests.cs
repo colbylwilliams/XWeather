@@ -30,13 +30,6 @@ namespace XWeather.UITests
 		}
 
 
-		//[Test]
-		//public void AppLoadsWeatherData ()
-		//{
-		//	app.Repl ();
-		//}
-
-
 		[Test]
 		public void AppLoadsWeatherData ()
 		{
@@ -77,5 +70,76 @@ namespace XWeather.UITests
 
 			app.Screenshot ("Detailed Conditions");
 		}
+
+
+#if DEBUG
+		[Test]
+		public void AutoCompleteSearch ()
+		{
+			app.Tap (x => x.Id ("button_locations"));
+
+			app.ScrollUp (x => x.Class ("UITableView").Index (1)); ;
+
+			app.Screenshot ("Scroll Up to Search");
+
+			app.EnterText ("Search", "San Fr");
+
+			app.Screenshot ("Locations Search: 'San Fr'");
+
+			app.Tap (x => x.Marked ("San Francisco, California"));
+
+			app.Screenshot ("Added Location: 'San Francisco, California'");
+
+
+			app.ScrollUp (x => x.Class ("UITableView").Index (1));
+
+			app.EnterText ("Search", "Atlan");
+
+			app.Screenshot ("Locations Search: 'Atlan'");
+
+			app.Tap (x => x.Marked ("Atlanta, Georgia"));
+
+			app.Screenshot ("Added Location: 'Atlanta, Georgia'");
+
+
+			app.ScrollUp (x => x.Class ("UITableView").Index (1));
+
+			app.EnterText ("Search", "Toron");
+
+			app.Screenshot ("Locations Search: 'Toron'");
+
+			app.Tap (x => x.Marked ("Toronto, Canada"));
+
+			app.Screenshot ("Added Location: 'Toronto, Canada'");
+
+
+			app.ScrollUp (x => x.Class ("UITableView").Index (1));
+
+			app.EnterText ("Search", "Lond");
+
+			app.Screenshot ("Locations Search: 'Lond'");
+
+			app.Tap (x => x.Marked ("London, United Kingdom"));
+
+			app.Screenshot ("Added Location: 'London, United Kingdom'");
+
+
+
+			app.ScrollUp (x => x.Class ("UITableView").Index (1));
+
+			app.EnterText ("Search", "Sao Pa");
+
+			app.Screenshot ("Locations Search: 'Sao Pa'");
+
+			app.Tap (x => x.Marked ("Sao Paulo, Brazil"));
+
+			app.Screenshot ("Added Location: 'Sao Paulo, Brazil'");
+
+
+			app.Tap (x => x.Marked ("London"));
+
+			app.Screenshot ("Selected 'London'");
+		}
+#endif
 	}
 }
