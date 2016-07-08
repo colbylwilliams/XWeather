@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace XWeather
 {
-	public class WuLocation
+	public class WuLocation : IComparable<WuLocation>//, IEquatable<WuLocation>
 	{
 		public WuLocation (WuAcLocation location)
 		{
@@ -54,5 +54,15 @@ namespace XWeather
 		public AstronomyTime Sunset => Weather?.moon_phase?.sunset ?? Weather?.sun_phase?.sunset;
 
 		public AstronomyTime Sunrise => Weather?.moon_phase?.sunrise ?? Weather?.sun_phase?.sunrise;
+
+
+		public int CompareTo (WuLocation other)
+		{
+			if (Current) return -1;
+
+			if (other.Current) return 1;
+
+			return Name.CompareTo (other.Name);
+		}
 	}
 }

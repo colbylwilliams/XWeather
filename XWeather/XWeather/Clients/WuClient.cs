@@ -55,6 +55,8 @@ namespace XWeather.Clients
 
 			Locations.Add (wuLocation);
 
+			Locations.Sort ();
+
 			LocationAdded?.Invoke (this, EventArgs.Empty);
 		}
 
@@ -62,6 +64,8 @@ namespace XWeather.Clients
 		public void RemoveLocation (WuLocation location)
 		{
 			Locations.Remove (location);
+
+			Locations.Sort ();
 
 			LocationRemoved?.Invoke (this, EventArgs.Empty);
 		}
@@ -103,6 +107,8 @@ namespace XWeather.Clients
 			var wuLocations = await Task.WhenAll (tasks);
 
 			Locations = new List<WuLocation> (wuLocations);
+
+			Locations.Sort ();
 
 			Selected = Locations.FirstOrDefault (l => l.Selected) ?? Locations [0];
 		}
