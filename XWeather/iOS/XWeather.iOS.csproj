@@ -45,7 +45,7 @@
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignKey>iPhone Distribution: Xamarin Inc</CodesignKey>
     <MtouchUseSGen>true</MtouchUseSGen>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchFloat32>true</MtouchFloat32>
@@ -55,7 +55,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>425294bc-0b13-423f-87c0-6249ba22b750</CodesignProvision>
+    <CodesignProvision>5b3782fa-8390-4bd8-a591-1d04813da6e5</CodesignProvision>
     <CustomCommands>
       <CustomCommands>
         <Command>
@@ -110,7 +110,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>5cae4307-2811-4813-ab92-3991e82ae707</CodesignProvision>
+    <CodesignProvision>0306018f-fbbb-44a0-aecd-62b166998fe7</CodesignProvision>
     <CustomCommands>
       <CustomCommands>
         <Command>

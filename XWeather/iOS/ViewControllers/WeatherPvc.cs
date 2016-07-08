@@ -213,7 +213,7 @@ namespace XWeather.iOS
 
 		void getData ()
 		{
-#if FOO //DEBUG
+#if DEBUG
 			Task.Run (async () => {
 
 				await Task.Delay (1000);
