@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -7,7 +7,7 @@
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>XWeather.iOS</RootNamespace>
-    <AssemblyName>XWeather.iOS</AssemblyName>
+    <AssemblyName>XWeatheriOS</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
@@ -176,115 +176,333 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\chanceflurries.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\chancerain.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\chancesleet.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\chancesnow.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\chancetstorms.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\clear.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\cloudy.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\flurries.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\fog.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\hazy.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\mostlycloudy.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\mostlysunny.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_chanceflurries.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_chancerain.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_chancesleet.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_chancesnow.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_chancetstorms.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_clear.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_cloudy.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_flurries.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_fog.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_hazy.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_mostlycloudy.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_mostlysunny.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_partlycloudy.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_partlysunny.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_rain.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_sleet.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_snow.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_sunny.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\nt_tstorms.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\partlycloudy.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\partlysunny.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\rain.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\sleet.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\snow.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\sunny.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\tstorms.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\unknown.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\i_globe.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\i_globe.imageset\i_globe.pdf" />
-    <ImageAsset Include="Assets.xcassets\i_add.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\i_close.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\i_close.imageset\i_close.pdf" />
-    <ImageAsset Include="Assets.xcassets\i_add.imageset\i_add.pdf" />
-    <ImageAsset Include="Assets.xcassets\i_list.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\i_list.imageset\i_list.pdf" />
-    <ImageAsset Include="Assets.xcassets\i_drop.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\i_drop.imageset\i_drop.pdf" />
-    <ImageAsset Include="Assets.xcassets\chanceflurries.imageset\chanceflurries.pdf" />
-    <ImageAsset Include="Assets.xcassets\chancerain.imageset\chancerain.pdf" />
-    <ImageAsset Include="Assets.xcassets\chancesleet.imageset\chancesleet.pdf" />
-    <ImageAsset Include="Assets.xcassets\chancesnow.imageset\chancesnow.pdf" />
-    <ImageAsset Include="Assets.xcassets\chancetstorms.imageset\chancetstorms.pdf" />
-    <ImageAsset Include="Assets.xcassets\clear.imageset\clear.pdf" />
-    <ImageAsset Include="Assets.xcassets\cloudy.imageset\cloudy.pdf" />
-    <ImageAsset Include="Assets.xcassets\flurries.imageset\flurries.pdf" />
-    <ImageAsset Include="Assets.xcassets\fog.imageset\fog.pdf" />
-    <ImageAsset Include="Assets.xcassets\hazy.imageset\hazy.pdf" />
-    <ImageAsset Include="Assets.xcassets\mostlycloudy.imageset\mostlycloudy.pdf" />
-    <ImageAsset Include="Assets.xcassets\mostlysunny.imageset\mostlysunny.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_chanceflurries.imageset\nt_chanceflurries.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_chancerain.imageset\nt_chancerain.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_chancesleet.imageset\nt_chancesleet.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_chancesnow.imageset\nt_chancesnow.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_chancetstorms.imageset\nt_chancetstorms.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_clear.imageset\nt_clear.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_cloudy.imageset\nt_cloudy.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_flurries.imageset\nt_flurries.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_fog.imageset\nt_fog.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_hazy.imageset\nt_hazy.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_mostlycloudy.imageset\nt_mostlycloudy.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_mostlysunny.imageset\nt_mostlysunny.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_partlycloudy.imageset\nt_partlycloudy.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_partlysunny.imageset\nt_partlysunny.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_rain.imageset\nt_rain.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_sleet.imageset\nt_sleet.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_snow.imageset\nt_snow.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_sunny.imageset\nt_sunny.pdf" />
-    <ImageAsset Include="Assets.xcassets\nt_tstorms.imageset\nt_tstorms.pdf" />
-    <ImageAsset Include="Assets.xcassets\partlycloudy.imageset\partlycloudy.pdf" />
-    <ImageAsset Include="Assets.xcassets\partlysunny.imageset\partlysunny.pdf" />
-    <ImageAsset Include="Assets.xcassets\rain.imageset\rain.pdf" />
-    <ImageAsset Include="Assets.xcassets\sleet.imageset\sleet.pdf" />
-    <ImageAsset Include="Assets.xcassets\snow.imageset\snow.pdf" />
-    <ImageAsset Include="Assets.xcassets\sunny.imageset\sunny.pdf" />
-    <ImageAsset Include="Assets.xcassets\tstorms.imageset\tstorms.pdf" />
-    <ImageAsset Include="Assets.xcassets\unknown.imageset\cloudy.pdf" />
-    <ImageAsset Include="Assets.xcassets\i_cog.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\i_cog.imageset\i_cog.pdf" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _29.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _58.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _87.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _80.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _120.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _180.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _40.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _76.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _152.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _167.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _48.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _55.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _88.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _172.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _196.png" />
-    <ImageAsset Include="Assets.xcassets\i_add_sm.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\i_add_sm.imageset\i_add_sm.pdf" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chanceflurries.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chancerain.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chancesleet.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chancesnow.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chancetstorms.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\clear.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\cloudy.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\flurries.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\fog.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\hazy.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\mostlycloudy.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\mostlysunny.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_chanceflurries.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_chancerain.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_chancesleet.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_chancesnow.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_chancetstorms.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_clear.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_cloudy.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_flurries.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_fog.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_hazy.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_mostlycloudy.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_mostlysunny.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_partlycloudy.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_partlysunny.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_rain.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_sleet.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_snow.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_sunny.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_tstorms.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\partlycloudy.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\partlysunny.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\rain.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\sleet.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\snow.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\sunny.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\tstorms.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\unknown.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_globe.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_globe.imageset\i_globe.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_add.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_close.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_close.imageset\i_close.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_add.imageset\i_add.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_list.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_list.imageset\i_list.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_drop.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_drop.imageset\i_drop.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chanceflurries.imageset\chanceflurries.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chancerain.imageset\chancerain.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chancesleet.imageset\chancesleet.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chancesnow.imageset\chancesnow.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\chancetstorms.imageset\chancetstorms.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\clear.imageset\clear.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\cloudy.imageset\cloudy.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\flurries.imageset\flurries.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\fog.imageset\fog.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\hazy.imageset\hazy.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\mostlycloudy.imageset\mostlycloudy.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\mostlysunny.imageset\mostlysunny.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_chanceflurries.imageset\nt_chanceflurries.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_chancerain.imageset\nt_chancerain.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_chancesleet.imageset\nt_chancesleet.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_chancesnow.imageset\nt_chancesnow.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_chancetstorms.imageset\nt_chancetstorms.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_clear.imageset\nt_clear.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_cloudy.imageset\nt_cloudy.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_flurries.imageset\nt_flurries.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_fog.imageset\nt_fog.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_hazy.imageset\nt_hazy.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_mostlycloudy.imageset\nt_mostlycloudy.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_mostlysunny.imageset\nt_mostlysunny.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_partlycloudy.imageset\nt_partlycloudy.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_partlysunny.imageset\nt_partlysunny.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_rain.imageset\nt_rain.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_sleet.imageset\nt_sleet.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_snow.imageset\nt_snow.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_sunny.imageset\nt_sunny.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\nt_tstorms.imageset\nt_tstorms.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\partlycloudy.imageset\partlycloudy.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\partlysunny.imageset\partlysunny.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\rain.imageset\rain.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\sleet.imageset\sleet.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\snow.imageset\snow.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\sunny.imageset\sunny.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\tstorms.imageset\tstorms.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\unknown.imageset\cloudy.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_cog.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_cog.imageset\i_cog.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _29.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _58.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _87.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _80.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _120.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _180.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _40.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _76.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _152.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _167.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _48.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _55.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _88.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _172.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _196.png">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_add_sm.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_add_sm.imageset\i_add_sm.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
