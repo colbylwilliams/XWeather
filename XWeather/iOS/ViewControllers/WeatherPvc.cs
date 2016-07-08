@@ -257,7 +257,6 @@ namespace XWeather.iOS
 					});
 				}
 			});
-
 #endif
 		}
 	}

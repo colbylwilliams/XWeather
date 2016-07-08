@@ -125,6 +125,21 @@
     <Reference Include="Xamarin.Android.Support.Design">
       <HintPath>..\packages\Xamarin.Android.Support.Design.23.4.0\lib\MonoAndroid43\Xamarin.Android.Support.Design.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Basement">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Basement.30.0.2-alpha1\lib\MonoAndroid41\Xamarin.GooglePlayServices.Basement.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Tasks">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Tasks.30.0.2-alpha1\lib\MonoAndroid41\Xamarin.GooglePlayServices.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Firebase.Common">
+      <HintPath>..\packages\Xamarin.Firebase.Common.30.0.2-alpha1\lib\MonoAndroid41\Xamarin.Firebase.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Base">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Base.30.0.2-alpha1\lib\MonoAndroid41\Xamarin.GooglePlayServices.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Maps">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Maps.30.0.2-alpha1\lib\MonoAndroid41\Xamarin.GooglePlayServices.Maps.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XWeather\XWeather.csproj">
@@ -164,6 +179,8 @@
     <Compile Include="ViewHolders\HourlyHeadHolder.cs" />
     <Compile Include="Constants\Colors.cs" />
     <Compile Include="Extensions\ColorExtensions.cs" />
+    <Compile Include="XWeatherApp.cs" />
+    <Compile Include="Activities\RadarMapActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -239,6 +256,7 @@
     <AndroidResource Include="Resources\layout\DailyHeader.axml" />
     <AndroidResource Include="Resources\layout\HourlyHeader.axml" />
     <AndroidResource Include="Resources\layout\DetailsHeader.axml" />
+    <AndroidResource Include="Resources\layout\MapRadarActivity.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utilities\" />
@@ -267,4 +285,5 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\packages\Xamarin.GooglePlayServices.Basement.30.0.2-alpha1\build\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Basement.30.0.2-alpha1\build\Xamarin.GooglePlayServices.Basement.targets')" />
 </Project>

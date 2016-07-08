@@ -30,6 +30,13 @@ namespace XWeather.UITests
 		}
 
 
+		//[Test]
+		//public void AppLoadsWeatherData ()
+		//{
+		//	app.Repl ();
+		//}
+
+
 		[Test]
 		public void AppLoadsWeatherData ()
 		{
