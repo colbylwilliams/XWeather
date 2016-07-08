@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>XWeather.Droid</RootNamespace>
     <AssemblyName>XWeather.Droid</AssemblyName>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v6.0.99</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
