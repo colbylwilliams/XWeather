@@ -214,31 +214,31 @@ namespace XWeather.iOS
 		void getData ()
 		{
 #if DEBUG
-			Task.Run (async () => {
+			//Task.Run (async () => {
 
-				await Task.Delay (1000);
+			//await Task.Delay (1000);
 
-				foreach (var location in TestData.Locations) {
+			foreach (var location in TestData.Locations) {
 
-					var name = location.name.Split (',') [0].Replace (' ', '_');
+				var name = location.name.Split (',') [0].Replace (' ', '_');
 
-					var path = NSBundle.MainBundle.PathForResource (name, "json");
+				var path = NSBundle.MainBundle.PathForResource (name, "json");
 
-					using (var data = NSData.FromFile (path)) {
+				using (var data = NSData.FromFile (path)) {
 
-						var json = NSString.FromData (data, NSStringEncoding.ASCIIStringEncoding).ToString ();
+					var json = NSString.FromData (data, NSStringEncoding.ASCIIStringEncoding).ToString ();
 
-						var weather = json?.FromJson<WuWeather> ();
+					var weather = json?.FromJson<WuWeather> ();
 
-						WuClient.Shared.Locations.Add (new WuLocation (location, weather));
-					}
+					WuClient.Shared.Locations.Add (new WuLocation (location, weather));
 				}
+			}
 
-				var i = new Random ().Next (5);
+			var i = new Random ().Next (5);
 
-				WuClient.Shared.Selected = WuClient.Shared.Locations [i];
+			WuClient.Shared.Selected = WuClient.Shared.Locations [i];
 
-			});
+			//});
 
 #else
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
