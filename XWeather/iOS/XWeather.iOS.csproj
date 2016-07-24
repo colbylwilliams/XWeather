@@ -610,6 +610,7 @@
       <DependentUpon>RadarMapVc.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\ImageExtensions.cs" />
+    <Compile Include="DailyGraphView.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Settings.bundle\Root.plist" />

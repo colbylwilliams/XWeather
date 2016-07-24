@@ -7,7 +7,7 @@ using UIKit;
 using XWeather.Domain;
 
 namespace XWeather.iOS
-{
+{ 
 	public partial class DailyTvc : BaseTvc<DailyTvCell>
 	{
 
@@ -35,6 +35,7 @@ namespace XWeather.iOS
 		public override UIView GetViewForHeader (UITableView tableView, nint section)
 		{
 			tableHeader.SetData (Location);
+
 			return tableHeader;
 		}
 	}

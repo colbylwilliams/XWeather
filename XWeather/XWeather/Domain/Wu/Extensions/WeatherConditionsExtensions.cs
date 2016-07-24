@@ -6,32 +6,32 @@ namespace XWeather
 {
 	public static class WeatherConditionsExtensions
 	{
-		static bool isImperial (this TemperatureUnits unit) => unit == TemperatureUnits.Fahrenheit;
+		public static bool IsImperial (this TemperatureUnits unit) => unit == TemperatureUnits.Fahrenheit;
 
-		static bool isImperial (this DistanceUnits unit) => unit == DistanceUnits.Miles;
+		static bool IsImperial (this DistanceUnits unit) => unit == DistanceUnits.Miles;
 
-		static bool isImperial (this PressureUnits unit) => unit == PressureUnits.InchesOfMercury;
+		static bool IsImperial (this PressureUnits unit) => unit == PressureUnits.InchesOfMercury;
 
-		static bool isImperial (this LengthUnits unit) => unit == LengthUnits.Inches;
+		static bool IsImperial (this LengthUnits unit) => unit == LengthUnits.Inches;
 
-		static bool isImperial (this SpeedUnits unit) => unit == SpeedUnits.MilesPerHour;
+		static bool IsImperial (this SpeedUnits unit) => unit == SpeedUnits.MilesPerHour;
 
 
 
 		static double getValueInUnits (TemperatureUnits units, double? imperial, double? metric, bool round = false)
-			=> getValueInUnits (units.isImperial (), imperial, metric, round);
+			=> getValueInUnits (units.IsImperial (), imperial, metric, round);
 
 		static double getValueInUnits (DistanceUnits units, double? imperial, double? metric, bool round = false)
-			=> getValueInUnits (units.isImperial (), imperial, metric, round);
+			=> getValueInUnits (units.IsImperial (), imperial, metric, round);
 
 		static double getValueInUnits (PressureUnits units, double? imperial, double? metric, bool round = false)
-			=> getValueInUnits (units.isImperial (), imperial, metric, round);
+			=> getValueInUnits (units.IsImperial (), imperial, metric, round);
 
 		static double getValueInUnits (LengthUnits units, double? imperial, double? metric, bool round = false)
-			=> getValueInUnits (units.isImperial (), imperial, metric, round);
+			=> getValueInUnits (units.IsImperial (), imperial, metric, round);
 
 		static double getValueInUnits (SpeedUnits units, double? imperial, double? metric, bool round = false)
-			=> getValueInUnits (units.isImperial (), imperial, metric, round);
+			=> getValueInUnits (units.IsImperial (), imperial, metric, round);
 
 
 
@@ -44,15 +44,15 @@ namespace XWeather
 
 
 
-		static string getUnitString (this TemperatureUnits unit) => unit.isImperial () ? "F" : "C";
+		static string getUnitString (this TemperatureUnits unit) => unit.IsImperial () ? "F" : "C";
 
-		static string getUnitString (this DistanceUnits unit) => unit.isImperial () ? "mi" : "km";
+		static string getUnitString (this DistanceUnits unit) => unit.IsImperial () ? "mi" : "km";
 
-		static string getUnitString (this PressureUnits unit) => unit.isImperial () ? "inHg" : "mb";
+		static string getUnitString (this PressureUnits unit) => unit.IsImperial () ? "inHg" : "mb";
 
-		static string getUnitString (this LengthUnits unit) => unit.isImperial () ? "in" : "mm";
+		static string getUnitString (this LengthUnits unit) => unit.IsImperial () ? "in" : "mm";
 
-		static string getUnitString (this SpeedUnits unit) => unit.isImperial () ? "mph" : "kph";
+		static string getUnitString (this SpeedUnits unit) => unit.IsImperial () ? "mph" : "kph";
 
 
 
@@ -193,8 +193,8 @@ namespace XWeather
 			var today = location?.TxtForecasts? [0];
 			var tonight = location?.TxtForecasts? [1];
 
-			var todayString = unit.isImperial () ? today?.fcttext : today.fcttext_metric;
-			var tonightString = unit.isImperial () ? tonight?.fcttext : tonight.fcttext_metric;
+			var todayString = unit.IsImperial () ? today?.fcttext : today.fcttext_metric;
+			var tonightString = unit.IsImperial () ? tonight?.fcttext : tonight.fcttext_metric;
 
 			return $"{todayString}\n\nTonight: {tonightString}";
 		}
