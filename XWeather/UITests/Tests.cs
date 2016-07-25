@@ -72,11 +72,15 @@ namespace XWeather.UITests
 		}
 
 
-#if DEBUG
+		//#if DEBUG
+
 		[Test]
 		public void AutoCompleteSearch ()
 		{
 			app.Tap (x => x.Id ("button_locations"));
+
+			app.WaitForElement (x => x.Class ("LocationTvCell"));
+
 
 			app.ScrollUp (x => x.Class ("UITableView").Index (1)); ;
 
@@ -87,6 +91,8 @@ namespace XWeather.UITests
 			app.Screenshot ("Locations Search: 'San Fr'");
 
 			app.Tap (x => x.Marked ("San Francisco, California"));
+
+			app.WaitForElement (x => x.Marked ("San Francisco"));
 
 			app.Screenshot ("Added Location: 'San Francisco, California'");
 
@@ -99,6 +105,8 @@ namespace XWeather.UITests
 
 			app.Tap (x => x.Marked ("Atlanta, Georgia"));
 
+			app.WaitForElement (x => x.Marked ("Atlanta"));
+
 			app.Screenshot ("Added Location: 'Atlanta, Georgia'");
 
 
@@ -109,6 +117,8 @@ namespace XWeather.UITests
 			app.Screenshot ("Locations Search: 'Toron'");
 
 			app.Tap (x => x.Marked ("Toronto, Canada"));
+
+			app.WaitForElement (x => x.Marked ("Toronto"));
 
 			app.Screenshot ("Added Location: 'Toronto, Canada'");
 
@@ -121,25 +131,29 @@ namespace XWeather.UITests
 
 			app.Tap (x => x.Marked ("London, United Kingdom"));
 
+			app.WaitForElement (x => x.Marked ("London"));
+
 			app.Screenshot ("Added Location: 'London, United Kingdom'");
 
 
 
-			app.ScrollUp (x => x.Class ("UITableView").Index (1));
+			//app.ScrollUp (x => x.Class ("UITableView").Index (1));
 
-			app.EnterText ("Search", "Sao Pa");
+			//app.EnterText ("Search", "Sao Pa");
 
-			app.Screenshot ("Locations Search: 'Sao Pa'");
+			//app.Screenshot ("Locations Search: 'Sao Pa'");
 
-			app.Tap (x => x.Marked ("Sao Paulo, Brazil"));
+			//app.Tap (x => x.Marked ("Sao Paulo, Brazil"));
 
-			app.Screenshot ("Added Location: 'Sao Paulo, Brazil'");
+			//app.WaitForElement (x => x.Marked ("Sao Paulo"));
+
+			//app.Screenshot ("Added Location: 'Sao Paulo, Brazil'");
 
 
 			app.Tap (x => x.Marked ("London"));
 
 			app.Screenshot ("Selected 'London'");
 		}
-#endif
+		//#endif
 	}
 }

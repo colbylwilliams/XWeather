@@ -43,6 +43,8 @@ namespace SettingsStudio
 
 		public const string WeatherPage = "WeatherPage";
 
+		public const string HighLowGraph = "HighLowGraph";
+
 
 		#endregion
 	}

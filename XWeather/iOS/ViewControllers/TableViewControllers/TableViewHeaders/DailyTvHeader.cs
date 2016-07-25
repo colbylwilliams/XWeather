@@ -14,25 +14,8 @@ namespace XWeather.iOS
 		{
 			locationLabel.Text = location?.Name;
 
-			//addGraph ();
-
-			//wuIcon.Text = null;
+			// redraw graph
+			graphView.SetNeedsDisplay ();
 		}
-
-		//void addGraph()
-		//{
-		//	if (addedGraph) return;
-
-		//	addedGraph = true;
-
-		//	var graph = new DailyGraphView ();
-
-		//	graph.TranslatesAutoresizingMaskIntoConstraints = false;
-
-		//	AddSubview (graph);
-
-		//	AddConstraints (NSLayoutConstraint.FromVisualFormat (@"H:|[graph]|", 0, "graph", graph));
-		//	AddConstraints (NSLayoutConstraint.FromVisualFormat (@"V:|-(56)-[graph]|", 0, "graph", graph));
-		//}
 	}
 }

@@ -71,6 +71,12 @@ namespace SettingsStudio
 		}
 
 
+		public static bool HighLowGraph {
+			get { return BoolForKey (SettingsKeys.HighLowGraph); }
+			set { SetSetting (SettingsKeys.HighLowGraph, value); }
+		}
+
+
 		#endregion
 	}
 }

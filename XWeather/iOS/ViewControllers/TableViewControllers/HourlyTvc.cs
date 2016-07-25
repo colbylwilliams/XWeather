@@ -10,8 +10,9 @@ namespace XWeather.iOS
 {
 	public partial class HourlyTvc : BaseTvc<HourlyTvCell>
 	{
+		static int day = DateTime.Now.Day;
 
-		List<HourlyForecast> Forecasts => Location?.HourlyForecasts;
+		List<HourlyForecast> Forecasts => Location?.HourlyForecast (day);
 
 
 		public HourlyTvc (IntPtr handle) : base (handle) { }
@@ -35,6 +36,7 @@ namespace XWeather.iOS
 		public override UIView GetViewForHeader (UITableView tableView, nint section)
 		{
 			tableHeader.SetData (Location);
+
 			return tableHeader;
 		}
 	}

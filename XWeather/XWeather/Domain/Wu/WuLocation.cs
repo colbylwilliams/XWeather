@@ -49,6 +49,14 @@ namespace XWeather
 		public List<HourlyForecast> HourlyForecasts => Weather?.hourly_forecast ?? new List<HourlyForecast> ();
 
 
+		Dictionary<int, List<HourlyForecast>> hourlyForecastCache = new Dictionary<int, List<HourlyForecast>> ();
+
+		public List<HourlyForecast> HourlyForecast (int day, bool nextDay = true)
+			=> hourlyForecastCache.ContainsKey (day) ?
+						   hourlyForecastCache [day] :
+						  (hourlyForecastCache [day] = Weather?.hourly_forecast?.Where (f => f.FCTTIME.mday == day || (nextDay && f.FCTTIME.mday == day + 1))?.ToList () ?? new List<HourlyForecast> ());
+
+
 		public AstronomyTime CurrentTime => Weather?.moon_phase?.current_time;
 
 		public AstronomyTime Sunset => Weather?.moon_phase?.sunset ?? Weather?.sun_phase?.sunset;

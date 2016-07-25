@@ -13,11 +13,14 @@ namespace XWeather.iOS
 	partial class DailyTvHeader
 	{
 		[Outlet]
+		XWeather.iOS.DailyGraphView graphView { get; set; }
+
+		[Outlet]
 		UIKit.UILabel locationLabel { get; set; }
 
 		[Outlet]
 		UIKit.UIImageView wuIcon { get; set; }
-		
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (locationLabel != null) {
@@ -28,6 +31,11 @@ namespace XWeather.iOS
 			if (wuIcon != null) {
 				wuIcon.Dispose ();
 				wuIcon = null;
+			}
+
+			if (graphView != null) {
+				graphView.Dispose ();
+				graphView = null;
 			}
 		}
 	}

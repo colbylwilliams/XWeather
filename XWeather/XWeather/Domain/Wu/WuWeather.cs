@@ -5,7 +5,8 @@ namespace XWeather.Domain
 	public class WuWeather : WuObject
 	{
 		//public override string WuKey => "conditions/forecast10day/hourly10day/astronomy/tide/rawtide";
-		public override string WuKey => "conditions/forecast10day/hourly/astronomy";
+		//public override string WuKey => "conditions/forecast10day/hourly/astronomy";
+		public override string WuKey => "conditions/forecast10day/hourly10day/astronomy";
 
 
 		// Conditions

@@ -2,10 +2,12 @@
 
 # c0lby:
 
+# BUILD_SOURCESDIRECTORY="/Users/colbywilliams/GitHub/XWeather"
 
 mkdir tmp
 
-queryUrlBase="http://api.wunderground.com/api/$1/conditions/forecast10day/hourly/astronomy/q/"
+# queryUrlBase="http://api.wunderground.com/api/$1/conditions/forecast10day/hourly/astronomy/q/"
+queryUrlBase="http://api.wunderground.com/api/$1/conditions/forecast10day/hourly10day/astronomy/q/"
 
 # queryArray=("$@")
 

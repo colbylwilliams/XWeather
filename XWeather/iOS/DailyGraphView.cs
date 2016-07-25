@@ -1,27 +1,26 @@
 ﻿using System;
-using UIKit;
-using CoreGraphics;
 using System.Collections.Generic;
-using XWeather.Domain;
-using XWeather.Clients;
 using System.Linq;
-using SettingsStudio;
+
+using CoreGraphics;
 using CoreText;
 using Foundation;
+using UIKit;
+
+using SettingsStudio;
+
+using XWeather.Clients;
+using XWeather.Domain;
+using CoreAnimation;
 
 namespace XWeather.iOS
 {
 	[Register ("DailyGraphView")]
 	public class DailyGraphView : UIView
 	{
-		/* Logic
-		 * - Get the highest high and the lowest low and add ~ 10 degrees (maybe 5 for celcius) on
-		 *   both ends.
-		 * - Get the width and height of the graph and devide accordingly for each coord
-		 * - Draw both high and low graph lines along the x axis, then animate them up into place
-		 */
-
 		List<ForecastDay> Forecasts => WuClient.Shared?.Selected?.Forecasts;
+
+		List<HourlyForecast> Hourly => WuClient.Shared?.Selected?.HourlyForecasts;
 
 
 		List<double> _highTemps;
@@ -32,15 +31,32 @@ namespace XWeather.iOS
 		List<double> LowTemps => _lowTemps ?? (_lowTemps = Forecasts.Select (f => f.LowTemp (Settings.UomTemperature)).ToList ());
 
 
-		nfloat inset = 12;
+		List<double> _hourlyTemps;
+		List<double> HourlyTemps => _hourlyTemps ?? (_hourlyTemps = Hourly.Select (h => h.Temp (Settings.UomTemperature)).ToList ());
+
 
 		nfloat padding = 28;
 
-		nfloat lineWidth = 4;
+		nfloat lineWidth = 2;
+
+		nfloat fontSize = 11;
+
 
 		int dividerCount = 8;
 
-		int offset = 2;
+		int scalePadding = 4;
+
+
+		bool hourly => !Settings.HighLowGraph;
+
+
+		CAShapeLayer _layer;
+		CAShapeLayer layer => _layer ?? (_layer = new CAShapeLayer { Frame = Bounds });
+
+
+		CGRect graphRect;
+
+		nfloat scaleHigh, scaleLow, scaleRange, scaleX, scaleY, inset;
 
 
 		public DailyGraphView () { }
@@ -48,42 +64,86 @@ namespace XWeather.iOS
 		public DailyGraphView (IntPtr handle) : base (handle) { }
 
 
+		UITapGestureRecognizer tapGesture = new UITapGestureRecognizer (t => { Settings.HighLowGraph = !Settings.HighLowGraph; t.View.SetNeedsDisplay (); });
+
+
+		public override void WillMoveToSuperview (UIView newsuper)
+		{
+			base.WillMoveToSuperview (newsuper);
+
+			if (newsuper != null) {
+				AddGestureRecognizer (tapGesture);
+			} else {
+				RemoveGestureRecognizer (tapGesture);
+			}
+		}
+
+
+		public override void LayoutSubviews ()
+		{
+			base.LayoutSubviews ();
+
+			System.Diagnostics.Debug.WriteLine ("LayoutSubviews");
+
+			if (Layer?.Sublayers == null || !Layer.Sublayers.Contains (layer)) {
+
+				Layer.AddSublayer (layer);
+			}
+		}
+
+
 		public override void Draw (CGRect rect)
 		{
+			System.Diagnostics.Debug.WriteLine ("Draw");
+
 			base.Draw (rect);
 
-			var graphRect = new CGRect (rect.X + padding, rect.Y + padding, rect.Width - (padding * 2), rect.Height - (padding * 2));
 
-			var highest = (nfloat)HighTemps.Max ();
-			var lowest = (nfloat)LowTemps.Min ();
+			_highTemps = null;
+			_lowTemps = null;
 
-			var scaleHigh = NMath.Round (highest, MidpointRounding.AwayFromZero);
-			var scaleLow = lowest < 0 ? NMath.Round (lowest, MidpointRounding.AwayFromZero) : NMath.Round (lowest);
+			_hourlyTemps = null;
 
-			offset = Settings.UomTemperature.IsImperial () ? offset : (offset / 2);
 
-			scaleHigh += offset;
-			scaleLow -= offset;
+			graphRect = new CGRect (rect.X + padding, rect.Y + padding, rect.Width - (padding * 2), rect.Height - (padding * 2));
 
-			var scaleRange = scaleHigh - scaleLow;
+
+			var days = Hourly.GroupBy (h => h.FCTTIME.mday).Select (g => g.First ().FCTTIME.weekday_name_abbrev).ToList ();
+
+			var dayCount = hourly ? days.Count : Forecasts.Count;
+
+
+			var xAxisScale = (graphRect.Width + padding / 2) / dayCount;
+
+			inset = xAxisScale / 2;
+
+
+			var highest = (nfloat)(hourly ? HourlyTemps.Max () : HighTemps.Max ());
+			var lowest = (nfloat)(hourly ? HourlyTemps.Min () : LowTemps.Min ());
+
+
+			scaleHigh = NMath.Round (highest, MidpointRounding.AwayFromZero);
+			scaleLow = lowest < 0 ? NMath.Round (lowest, MidpointRounding.AwayFromZero) : NMath.Round (lowest);
+
+			var rangePadding = Settings.UomTemperature.IsImperial () ? scalePadding : (scalePadding / 2);
+
+
+			scaleHigh += rangePadding;
+			scaleLow -= rangePadding;
+
+			scaleRange = scaleHigh - scaleLow;
+
 
 			var scaleIncrement = scaleRange / dividerCount;
 
-			var scaleX = graphRect.Width / Forecasts.Count;
-			var scaleY = graphRect.Height / dividerCount;
+			scaleX = (graphRect.Width - inset) / (hourly ? HourlyTemps.Count : Forecasts.Count);
+			scaleY = graphRect.Height / dividerCount;
 
-
-			var dot = new CGRect (0, 0, lineWidth, lineWidth);
 
 			nfloat x, y;
 
-			CGPoint start = CGPoint.Empty;
-			CGPoint end = CGPoint.Empty;
-
-			var dividerHeight = graphRect.Height / dividerCount;
 
 			using (CGContext ctx = UIGraphics.GetCurrentContext ()) {
-
 
 				// Draw x and y axis
 				using (UIColor color = UIColor.White) {
@@ -112,102 +172,18 @@ namespace XWeather.iOS
 
 					for (int i = 1; i < dividerCount; i += 2) {
 
-						y = (i * scaleY) + dividerHeight;
+						y = (i + 1) * scaleY;
 
 						color.SetFill ();
-						ctx.FillRect (new CGRect (graphRect.GetMinX (), graphRect.GetMaxY () - y, graphRect.Width, dividerHeight));
+						ctx.FillRect (new CGRect (graphRect.GetMinX (), graphRect.GetMaxY () - y, graphRect.Width, scaleY));
 						ctx.StrokePath ();
 					}
 				}
 
 
-				// Draw curved graph line
-				using (UIColor color = UIColor.White.ColorWithAlpha (0.25f), dotColor = UIColor.White.ColorWithAlpha (0.70f)) {
 
-					for (int i = 0; i < (Forecasts.Count * 2); i++) {
+				drawLines ();
 
-						if (i == Forecasts.Count) {
-
-							// last dot on high temps
-							dot.X = start.X - (lineWidth / 2);
-							dot.Y = start.Y - (lineWidth / 2);
-
-							using (CGPath p = new CGPath ()) {
-
-								dotColor.SetFill ();
-
-								ctx.AddEllipseInRect (dot);
-								ctx.DrawPath (CGPathDrawingMode.Fill);
-							}
-
-							start = CGPoint.Empty;
-						}
-
-						var highs = i < Forecasts.Count;
-
-						var ai = highs ? i : i - Forecasts.Count;
-
-						var temp = highs ? HighTemps [ai] : LowTemps [ai];
-
-						x = padding + inset + (ai * scaleX);
-
-						nfloat percent = ((nfloat)temp - scaleLow) / scaleRange;
-
-						y = graphRect.Bottom - (graphRect.Height * percent);
-
-						end = new CGPoint (x, y);
-
-						dot.X = start.X - (lineWidth / 2);
-						dot.Y = start.Y - (lineWidth / 2);
-
-						using (CGPath p = new CGPath ()) {
-
-							if (start == CGPoint.Empty) {
-
-								p.MoveToPoint (end);
-
-							} else {
-
-								color.SetStroke ();
-								ctx.SetLineWidth (lineWidth);
-
-								p.MoveToPoint (start);
-
-								nfloat diff = (end.X - start.X) / 2;
-
-								p.AddCurveToPoint (end.X - diff, start.Y, start.X + diff, end.Y, end.X, end.Y);
-
-								ctx.AddPath (p);
-								ctx.DrawPath (CGPathDrawingMode.Stroke);
-
-								dotColor.SetFill ();
-
-								ctx.AddEllipseInRect (dot);
-								ctx.DrawPath (CGPathDrawingMode.Fill);
-							}
-						}
-
-						start = end;
-					}
-
-					// last dot on low temps
-					dot.X = start.X - (lineWidth / 2);
-					dot.Y = start.Y - (lineWidth / 2);
-
-
-					using (CGPath p = new CGPath ()) {
-
-						dotColor.SetFill ();
-
-						ctx.AddEllipseInRect (dot);
-						ctx.DrawPath (CGPathDrawingMode.Fill);
-					}
-
-
-					for (int i = 0; i < Forecasts.Count; i++) {
-
-					}
-				}
 
 				// Draw y-axis labels
 
@@ -224,35 +200,154 @@ namespace XWeather.iOS
 
 					var step = NMath.Round (yStep).ToString ();
 
-					DrawCgLabel (ctx, rect, y, padding - 6, UITextAlignment.Right, step, false, true);
+					drawLabel (ctx, rect, y, padding - 6, UITextAlignment.Right, step, false, true);
 
 					yStep += scaleIncrement;
 				}
 
 
 				// Draw x-axis labels
-				for (int i = 0; i < Forecasts.Count; i++) {
+				for (int i = 0; i < dayCount; i++) {
 
-					x = padding + inset + (i * scaleX);
+					x = padding + (i * xAxisScale);
 
-					DrawCgLabel (ctx, rect, padding - 6, x, UITextAlignment.Center, Forecasts [i]?.date?.weekday_short, false);
+					drawLabel (ctx, rect, padding - 6, x, UITextAlignment.Left, hourly ? days [i] : Forecasts [i]?.date?.weekday_short, false);
 				}
 
 				ctx.RestoreState ();
 			}
+
 		}
 
 
-		void DrawCgLabel (CGContext ctx, CGRect rect, nfloat yCoord, nfloat xCoord, UITextAlignment alignment, string label, bool flipContext = true, bool centerVertical = false)
+		void drawLines ()
+		{
+			layer.RemoveAllAnimations ();
+
+			var dot = new CGRect (0, 0, lineWidth, lineWidth);
+
+			nfloat x, y;
+
+			CGPoint start = CGPoint.Empty;
+			CGPoint end = CGPoint.Empty;
+
+
+			// Draw curved graph line
+			using (UIColor color = UIColor.White.ColorWithAlpha (0.25f), dotColor = UIColor.White.ColorWithAlpha (0.70f)) {
+
+				//color.SetStroke ();
+
+				//dotColor.SetFill ();
+
+				//ctx.SetLineWidth (lineWidth);
+
+				using (CGPath path = new CGPath ()) {
+
+
+					var count = hourly ? HourlyTemps.Count : (Forecasts.Count * 2);
+
+					for (int i = 0; i < count; i++) {
+
+						// adjusted index
+						var ai = i;
+
+						double temp;
+
+						if (hourly) {
+
+							temp = HourlyTemps [ai];
+
+						} else {
+
+							// reset start when switching from highs to lows
+							if (i == Forecasts.Count) start = CGPoint.Empty;
+
+							var highs = i < Forecasts.Count;
+
+							ai = highs ? i : i - Forecasts.Count;
+
+							temp = highs ? HighTemps [ai] : LowTemps [ai];
+						}
+
+						var percent = ((nfloat)temp - scaleLow) / scaleRange;
+
+
+						x = padding + inset + (ai * scaleX);
+
+						y = graphRect.GetMaxY () - (graphRect.Height * percent);
+
+						end = new CGPoint (x, y);
+
+
+						if (!hourly) {
+
+							dot.X = end.X - (lineWidth / 2);
+							dot.Y = end.Y - (lineWidth / 2);
+
+							path.AddEllipseInRect (dot);
+
+							//ctx.AddEllipseInRect (dot);
+						}
+
+
+						if (start == CGPoint.Empty) {
+
+							path.MoveToPoint (end);
+
+						} else {
+
+							path.MoveToPoint (start);
+
+							if (hourly) {
+
+								path.AddLineToPoint (end);
+
+							} else {
+
+								var diff = (end.X - start.X) / 2;
+
+								path.AddCurveToPoint (end.X - diff, start.Y, start.X + diff, end.Y, end.X, end.Y);
+							}
+						}
+
+						start = end;
+					}
+
+					// draw all dots to context
+					//if (!hourly) ctx.DrawPath (CGPathDrawingMode.Fill);
+
+					// add line path to context
+					layer.Path = path;
+					//ctx.AddPath (path);
+
+					// draw lines
+					//ctx.DrawPath (CGPathDrawingMode.Stroke);
+
+					layer.LineWidth = lineWidth;
+					layer.StrokeColor = color.CGColor;
+					layer.FillColor = dotColor.CGColor;
+
+					CABasicAnimation pathAnimation = new CABasicAnimation { KeyPath = "strokeEnd" };
+					pathAnimation.Duration = 1.0;
+					pathAnimation.From = NSNumber.FromNFloat (0);
+					pathAnimation.To = NSNumber.FromNFloat (1);
+					layer.AddAnimation (pathAnimation, "strokeEndAnimation");
+
+				}
+			}
+		}
+
+
+		void drawLabel (CGContext ctx, CGRect rect, nfloat yCoord, nfloat xCoord, UITextAlignment alignment, string label, bool flipContext = true, bool centerVertical = false)
 		{
 			// Draw light the sunrise and Sunset labels at the ends of the light box
 			using (UIColor fontColor = UIColor.White, shadowColor = UIColor.Black.ColorWithAlpha (0.1f)) {
 
 				var fontAttributes = new UIFontAttributes (new UIFontFeature (CTFontFeatureNumberSpacing.Selector.ProportionalNumbers));
 
-				using (var desc = UIFont.SystemFontOfSize (11f).FontDescriptor.CreateWithAttributes (fontAttributes)) {
+				using (var desc = UIFont.SystemFontOfSize (fontSize).FontDescriptor.CreateWithAttributes (fontAttributes)) {
 
-					using (UIFont font = UIFont.FromDescriptor (desc, 11f)) {
+					using (UIFont font = UIFont.FromDescriptor (desc, fontSize)) {
 
 						// calculating the range of our attributed string
 						var range = new NSRange (0, label.Length);
@@ -272,11 +367,10 @@ namespace XWeather.iOS
 							NSRange fit;
 
 							using (NSMutableAttributedString attrString = new NSMutableAttributedString (label, stringAttributes)) {
-								//measurementAttrString = new NSMutableAttributedString (new string ('5', label.Length), stringAttributes)) {
 
 								//creating a container for out attributed string 
 								using (CTFramesetter framesetter = new CTFramesetter (attrString)) {
-									//measurementFramesetter = new CTFramesetter (measurementAttrString)) {
+
 
 									CGSize frameSize = framesetter.SuggestFrameSize (range, null, target, out fit);
 
@@ -322,7 +416,6 @@ namespace XWeather.iOS
 							}
 						}
 					}
-
 				}
 			}
 		}
