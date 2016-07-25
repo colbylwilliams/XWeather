@@ -54,11 +54,11 @@ namespace XWeather.UITests
 
 			app.Screenshot ("Locations Selection");
 
-			app.ScrollUp (x => x.Class ("UITableView").Index (1));
+			app.ScrollUp (x => x.Class ("UITableView").Index (1), ScrollStrategy.Gesture);
 
 			app.Screenshot ("Locations Search");
 
-			app.EnterText ("Search", "San Fr");
+			app.EnterText ("San Fr");
 
 			app.Screenshot ("Locations Search: 'San Fr'");
 
@@ -82,11 +82,11 @@ namespace XWeather.UITests
 			app.WaitForElement (x => x.Class ("LocationTvCell"));
 
 
-			app.ScrollUp (x => x.Class ("UITableView").Index (1)); ;
+			app.ScrollUp (x => x.Class ("UITableView").Index (1), ScrollStrategy.Gesture);
 
 			app.Screenshot ("Scroll Up to Search");
 
-			app.EnterText ("Search", "San Fr");
+			app.EnterText ("San Fr");
 
 			app.Screenshot ("Locations Search: 'San Fr'");
 
@@ -97,9 +97,10 @@ namespace XWeather.UITests
 			app.Screenshot ("Added Location: 'San Francisco, California'");
 
 
-			app.ScrollUp (x => x.Class ("UITableView").Index (1));
 
-			app.EnterText ("Search", "Atlan");
+			app.ScrollUp (x => x.Class ("UITableView").Index (1), ScrollStrategy.Gesture);
+
+			app.EnterText ("Atlan");
 
 			app.Screenshot ("Locations Search: 'Atlan'");
 
@@ -110,9 +111,10 @@ namespace XWeather.UITests
 			app.Screenshot ("Added Location: 'Atlanta, Georgia'");
 
 
-			app.ScrollUp (x => x.Class ("UITableView").Index (1));
 
-			app.EnterText ("Search", "Toron");
+			app.ScrollUp (x => x.Class ("UITableView").Index (1), ScrollStrategy.Gesture);
+
+			app.EnterText ("Toron");
 
 			app.Screenshot ("Locations Search: 'Toron'");
 
@@ -123,9 +125,10 @@ namespace XWeather.UITests
 			app.Screenshot ("Added Location: 'Toronto, Canada'");
 
 
-			app.ScrollUp (x => x.Class ("UITableView").Index (1));
 
-			app.EnterText ("Search", "Lond");
+			app.ScrollUp (x => x.Class ("UITableView").Index (1), ScrollStrategy.Gesture);
+
+			app.EnterText ("Lond");
 
 			app.Screenshot ("Locations Search: 'Lond'");
 
@@ -137,7 +140,7 @@ namespace XWeather.UITests
 
 
 
-			//app.ScrollUp (x => x.Class ("UITableView").Index (1));
+			//app.ScrollUp (x => x.Class ("UITableView").Index (1), ScrollStrategy.Gesture);
 
 			//app.EnterText ("Search", "Sao Pa");
 
