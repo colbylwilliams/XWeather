@@ -53,6 +53,7 @@
     <Compile Include="..\iOS\UIElements.cs">
       <Link>UIElements.cs</Link>
     </Compile>
+    <Compile Include="TestExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

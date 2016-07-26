@@ -54,17 +54,14 @@ namespace XWeather.UITests
 
 			app.Screenshot ("Locations Selection");
 
-			app.ScrollUp (x => x.Class ("UITableView").Index (1), ScrollStrategy.Gesture);
 
-			app.Screenshot ("Locations Search");
+			app.SearchFor ("San Fr");
 
-			app.EnterText ("San Fr");
-
-			app.Screenshot ("Locations Search: 'San Fr'");
 
 			app.Tap (x => x.Marked ("Cancel"));
 
 			app.Screenshot ("Locations Selection");
+
 
 			app.Tap (x => x.Id (UIElements.WeatherPvc.button_close));
 
@@ -72,91 +69,33 @@ namespace XWeather.UITests
 		}
 
 
-		//#if DEBUG
-
 		[Test]
 		public void AutoCompleteSearch ()
 		{
 			app.Tap (x => x.Id ("button_locations"));
 
+
 			app.WaitForElement (x => x.Class ("LocationTvCell"));
 
 
-			app.ScrollUp (x => x.Class ("UITableView").Index (1), ScrollStrategy.Gesture);
-
-			app.Screenshot ("Scroll Up to Search");
-
-			app.EnterText ("San Fr");
-
-			app.Screenshot ("Locations Search: 'San Fr'");
-
-			app.Tap (x => x.Marked ("San Francisco, California"));
-
-			app.WaitForElement (x => x.Marked ("San Francisco"));
-
-			app.Screenshot ("Added Location: 'San Francisco, California'");
+			app.SearchForAndSelect ("San Fr", "San Francisco, California", "San Francisco");
 
 
-
-			app.ScrollUp (x => x.Class ("UITableView").Index (1), ScrollStrategy.Gesture);
-
-			app.EnterText ("Atlan");
-
-			app.Screenshot ("Locations Search: 'Atlan'");
-
-			app.Tap (x => x.Marked ("Atlanta, Georgia"));
-
-			app.WaitForElement (x => x.Marked ("Atlanta"));
-
-			app.Screenshot ("Added Location: 'Atlanta, Georgia'");
+			app.SearchForAndSelect ("Atlan", "Atlanta, Georgia", "Atlanta");
 
 
-
-			app.ScrollUp (x => x.Class ("UITableView").Index (1), ScrollStrategy.Gesture);
-
-			app.EnterText ("Toron");
-
-			app.Screenshot ("Locations Search: 'Toron'");
-
-			app.Tap (x => x.Marked ("Toronto, Canada"));
-
-			app.WaitForElement (x => x.Marked ("Toronto"));
-
-			app.Screenshot ("Added Location: 'Toronto, Canada'");
+			app.SearchForAndSelect ("Toron", "Toronto, Canada", "Toronto");
 
 
-
-			app.ScrollUp (x => x.Class ("UITableView").Index (1), ScrollStrategy.Gesture);
-
-			app.EnterText ("Lond");
-
-			app.Screenshot ("Locations Search: 'Lond'");
-
-			app.Tap (x => x.Marked ("London, United Kingdom"));
-
-			app.WaitForElement (x => x.Marked ("London"));
-
-			app.Screenshot ("Added Location: 'London, United Kingdom'");
+			app.SearchForAndSelect ("Lond", "London, United Kingdom", "London");
 
 
-
-			//app.ScrollUp (x => x.Class ("UITableView").Index (1), ScrollStrategy.Gesture);
-
-			//app.EnterText ("Search", "Sao Pa");
-
-			//app.Screenshot ("Locations Search: 'Sao Pa'");
-
-			//app.Tap (x => x.Marked ("Sao Paulo, Brazil"));
-
-			//app.WaitForElement (x => x.Marked ("Sao Paulo"));
-
-			//app.Screenshot ("Added Location: 'Sao Paulo, Brazil'");
+			//app.SearchForAndSelect ("Sao Pa", "Sao Paulo, Brazil", "Sao Paulo");
 
 
 			app.Tap (x => x.Marked ("London"));
 
 			app.Screenshot ("Selected 'London'");
 		}
-		//#endif
 	}
 }
