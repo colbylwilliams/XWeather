@@ -24,6 +24,8 @@ namespace XWeather.Droid
 
 		WeatherPagerAdapter PagerAdapter;
 
+		LocationProvider LocationProvider;
+
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
 			Bootstrap.Run (this, Application);
@@ -31,6 +33,8 @@ namespace XWeather.Droid
 			base.OnCreate (savedInstanceState);
 
 			SetContentView (Resource.Layout.WeatherActivity);
+
+			LocationProvider = new LocationProvider ();
 
 			//var toolbar = FindViewById<Toolbar> (Resource.Id.toolbar);
 
@@ -133,7 +137,8 @@ namespace XWeather.Droid
 
 		void getData ()
 		{
-			//#if DEBUG
+#if !DEBUG
+
 			Task.Run (async () => {
 
 				await Task.Delay (10);
@@ -159,26 +164,19 @@ namespace XWeather.Droid
 				WuClient.Shared.Selected = WuClient.Shared.Locations [i];
 			});
 
-			//#else
-			//UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
+#else
 
-			//Task.Run (async () => {
+			Task.Run (async () => {
 
-			//	var location = await LocationProvider.GetCurrentLocationAsync ();
+				var location = await LocationProvider.GetCurrentLocationAsync ();
 
-			//	if (location != null) {
+				if (location != null) {
 
-			//		await WuClient.Shared.GetLocations (Settings.LocationsJson, location.Coordinate.Latitude, location.Coordinate.Longitude);
+					await WuClient.Shared.GetLocations (Settings.LocationsJson, location.Latitude, location.Longitude);
+				}
+			});
 
-			//		BeginInvokeOnMainThread (() => {
-
-			//			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
-			//		});
-			//	}
-			//});
-
-			//#endif
+#endif
 		}
-
 	}
 }

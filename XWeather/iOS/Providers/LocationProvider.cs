@@ -6,6 +6,13 @@ using CoreLocation;
 
 using XWeather.Unified;
 
+#if DEBUG
+using static System.Diagnostics.Debug;
+#else
+using static System.Console;
+#endif
+
+
 namespace XWeather.iOS
 {
 	public class LocationProvider
@@ -38,12 +45,14 @@ namespace XWeather.iOS
 
 			var status = CLLocationManager.Status;
 
+
 			if (status == CLAuthorizationStatus.NotDetermined) status = await getAuthorizationStatusAsync ();
 
 
-			if (status == CLAuthorizationStatus.AuthorizedWhenInUse && CLLocationManager.LocationServicesEnabled) {
+			Log ($"status: {status}");
 
-				Log ("Authorized");
+
+			if (status == CLAuthorizationStatus.AuthorizedWhenInUse && CLLocationManager.LocationServicesEnabled) {
 
 				ClLocationManager.LocationsUpdated += handleLocationsUpdated;
 
@@ -52,8 +61,6 @@ namespace XWeather.iOS
 				Log ("StartUpdatingLocation");
 
 			} else {
-
-				Log ("Not Authorized");
 
 				ClLocationTcs.SetResult (null);
 			}
@@ -133,6 +140,8 @@ namespace XWeather.iOS
 		{
 			Log ("handleAuthorizationChanged");
 
+			if (e.Status == CLAuthorizationStatus.NotDetermined) return;
+
 			ClLocationManager.AuthorizationChanged -= handleAuthorizationChanged;
 
 			if (!ClAuthTcs.TrySetResult (e.Status)) {
@@ -155,6 +164,6 @@ namespace XWeather.iOS
 
 		bool log = true;
 
-		void Log (string message) { if (log) System.Diagnostics.Debug.WriteLine ($"[LocationProvider] {message}"); }
+		void Log (string message) { if (log) WriteLine ($"[LocationProvider] {message}"); }
 	}
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using CoreAnimation;
 using CoreGraphics;
 using CoreText;
 using Foundation;
@@ -11,16 +12,15 @@ using SettingsStudio;
 
 using XWeather.Clients;
 using XWeather.Domain;
-using CoreAnimation;
 
 namespace XWeather.iOS
 {
 	[Register ("DailyGraphView")]
 	public class DailyGraphView : UIView
 	{
-		List<ForecastDay> Forecasts => WuClient.Shared?.Selected?.Forecasts;
+		List<ForecastDay> Forecasts => WuClient.Shared?.Selected?.Forecasts ?? new List<ForecastDay> ();
 
-		List<HourlyForecast> Hourly => WuClient.Shared?.Selected?.HourlyForecasts;
+		List<HourlyForecast> Hourly => WuClient.Shared?.Selected?.HourlyForecasts ?? new List<HourlyForecast> ();
 
 
 		List<double> _highTemps;
@@ -83,8 +83,6 @@ namespace XWeather.iOS
 		{
 			base.LayoutSubviews ();
 
-			System.Diagnostics.Debug.WriteLine ("LayoutSubviews");
-
 			if (Layer?.Sublayers == null || !Layer.Sublayers.Contains (layer)) {
 
 				Layer.AddSublayer (layer);
@@ -94,8 +92,6 @@ namespace XWeather.iOS
 
 		public override void Draw (CGRect rect)
 		{
-			System.Diagnostics.Debug.WriteLine ("Draw");
-
 			base.Draw (rect);
 
 
@@ -103,6 +99,9 @@ namespace XWeather.iOS
 			_lowTemps = null;
 
 			_hourlyTemps = null;
+
+
+			if (Forecasts.Count == 0 || Hourly.Count == 0) return;
 
 
 			graphRect = new CGRect (rect.X + padding, rect.Y + padding, rect.Width - (padding * 2), rect.Height - (padding * 2));
