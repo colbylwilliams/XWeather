@@ -38,6 +38,7 @@
         </Command>
       </CustomCommands>
     </CustomCommands>
+    <CodesignProvision>5f69129c-412e-4ff6-a4f1-f44d89e79819</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>pdbonly</DebugType>
@@ -110,7 +111,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>0306018f-fbbb-44a0-aecd-62b166998fe7</CodesignProvision>
+    <CodesignProvision>5f69129c-412e-4ff6-a4f1-f44d89e79819</CodesignProvision>
     <CustomCommands>
       <CustomCommands>
         <Command>

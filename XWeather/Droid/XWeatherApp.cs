@@ -11,7 +11,11 @@ namespace XWeather.Droid
 	/// Custom extension of the base Android.App.Application class, in order to add properties which
 	/// are global to the application, but not persisted as settings.
 	/// </summary>
-	[Application]
+	[Application (Icon = "@mipmap/icon", Label = "XWeather", Theme = "@style/WeatherTheme", AllowBackup = true
+#if DEBUG
+				  , Debuggable = true
+#endif
+				 )]
 	[MetaData ("com.google.android.geo.API_KEY", Value = PrivateKeys.GoogleMapsApiKey)]
 	public class XWeatherApp : Application
 	{

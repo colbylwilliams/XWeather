@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>XWeather.Droid</RootNamespace>
     <AssemblyName>XWeather.Droid</AssemblyName>
-    <TargetFrameworkVersion>v6.0.99</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -34,6 +34,7 @@
         </Command>
       </CustomCommands>
     </CustomCommands>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

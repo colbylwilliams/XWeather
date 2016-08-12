@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="72" android:versionName="0.0.5" package="com.xamarin.xweather">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="73" android:versionName="0.0.5" package="com.xamarin.xweather">
 	<uses-sdk android:minSdkVersion="21" />
 	<!-- Google Maps for Android v2 requires OpenGL ES v2 -->
 	<uses-feature android:glEsVersion="0x00020000" android:required="true" />
@@ -15,5 +15,4 @@
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<!-- Allow the application to access Google web-based services. -->
 	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-	<application android:label="XWeather" android:allowBackup="true" android:icon="@mipmap/icon" android:theme="@style/WeatherTheme"></application>
 </manifest>

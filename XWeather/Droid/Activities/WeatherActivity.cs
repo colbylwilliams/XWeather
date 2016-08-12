@@ -34,7 +34,7 @@ namespace XWeather.Droid
 
 			SetContentView (Resource.Layout.WeatherActivity);
 
-			LocationProvider = new LocationProvider ();
+			LocationProvider = new LocationProvider (this);
 
 			//var toolbar = FindViewById<Toolbar> (Resource.Id.toolbar);
 

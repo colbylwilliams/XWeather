@@ -6,9 +6,11 @@ using Android.Gms.Common.Apis;
 using Android.OS;
 using Android.Locations;
 using System.Threading.Tasks;
+using Android.App;
 
 #if DEBUG
 using static System.Diagnostics.Debug;
+using Android.Content;
 #else
 using static System.Console;
 #endif
@@ -24,11 +26,15 @@ namespace XWeather.Droid
 
 		LocationRequest locRequest;
 
-
 		public Location Location { get; set; }
 
-		public LocationProvider ()
+		Activity Context;
+
+		public LocationProvider (Activity context)
 		{
+			Context = context;
+
+			//apiClient = new GoogleApiClient.Builder (Android.App.Application.Context, this, this).AddApi (LocationServices.API).Build ();
 			apiClient = new GoogleApiClient.Builder (Android.App.Application.Context, this, this).AddApi (LocationServices.API).Build ();
 
 			locRequest = LocationRequest.Create ();
@@ -68,7 +74,7 @@ namespace XWeather.Droid
 				}
 
 				// pass in a location request and LocationListener
-				Task.Run (async () => await LocationServices.FusedLocationApi.RequestLocationUpdates (apiClient, locRequest, this));
+				Context.RunOnUiThread (async () => await LocationServices.FusedLocationApi.RequestLocationUpdates (apiClient, locRequest, this));
 
 			} else {
 
