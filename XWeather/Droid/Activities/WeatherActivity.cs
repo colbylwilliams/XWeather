@@ -137,7 +137,7 @@ namespace XWeather.Droid
 
 		void getData ()
 		{
-#if !DEBUG
+#if DEBUG
 
 			Task.Run (async () => {
 
