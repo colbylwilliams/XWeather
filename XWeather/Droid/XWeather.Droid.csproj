@@ -270,6 +270,7 @@
     <AndroidResource Include="Resources\values\integers.xml" />
     <AndroidResource Include="Resources\drawable\i_settings.xml" />
     <AndroidResource Include="Resources\menu\menu_locations.xml" />
+    <AndroidResource Include="Resources\drawable\i_track_changes.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utilities\" />

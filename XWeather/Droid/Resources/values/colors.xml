@@ -1,16 +1,56 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-	<color name="theme_primary">#7FE4FF</color>
-	<color name="theme_primary_dark">#34FEFE</color>
-	<color name="theme_accent">#FFFFFF</color>
-	<color name="theme_tint">#FFFFFF</color>
-	<color name="theme_white">#FFFFFFFF</color>
-	<color name="theme_white_30">#4DFFFFFF</color>
-	<color name="theme_white_40">#66FFFFFF</color>
-	<color name="theme_white_50">#7FFFFFFF</color>
-	<color name="theme_white_60">#99FFFFFF</color>
-	<color name="theme_white_70">#B3FFFFFF</color>
-	<color name="theme_white_80">#CCFFFFFF</color>
-	<color name="theme_blue_bright">#34FEFE</color>
-	<color name="theme_blue_mid">#7FE4FF</color>
+	<!--theme_primary-->
+	<color
+		name="theme_primary">#262626</color>
+	<color
+		name="theme_primary_50">#7F262626</color>
+	<color
+		name="theme_primary_60">#99262626</color>
+	<color
+		name="theme_primary_70">#B3262626</color>
+	<color
+		name="theme_primary_80">#CC262626</color>
+	<color
+		name="theme_primary_90">#E6262626</color>
+	<color
+		name="theme_primary_dark">#34FEFE</color>
+	<!--theme_white-->
+	<color
+		name="theme_white">#FFFFFFFF</color>
+	<color
+		name="theme_white_30">#4DFFFFFF</color>
+	<color
+		name="theme_white_40">#66FFFFFF</color>
+	<color
+		name="theme_white_50">#7FFFFFFF</color>
+	<color
+		name="theme_white_60">#99FFFFFF</color>
+	<color
+		name="theme_white_70">#B3FFFFFF</color>
+	<!--theme_black-->
+	<color
+		name="theme_white_80">#CCFFFFFF</color>
+	<color
+		name="theme_black">#FF000000</color>
+	<color
+		name="theme_black_30">#4D000000</color>
+	<color
+		name="theme_black_40">#66000000</color>
+	<color
+		name="theme_black_50">#7F000000</color>
+	<color
+		name="theme_black_60">#99000000</color>
+	<color
+		name="theme_black_70">#B3000000</color>
+	<color
+		name="theme_black_80">#CC000000</color>
+	<color
+		name="theme_blue_bright">#34FEFE</color>
+	<color
+		name="theme_blue_mid">#7FE4FF</color>
+	<color
+		name="theme_accent">#FFFFFF</color>
+	<color
+		name="theme_tint">#FFFFFF</color>
 </resources>

@@ -8,11 +8,11 @@ using Android.Support.V4.View;
 using Android.Support.V7.Widget;
 
 using Toolbar = Android.Support.V7.Widget.Toolbar;
-using XWeather.Clients;
+
 
 namespace XWeather.Droid
 {
-	[Activity (Icon = "@mipmap/icon", LaunchMode = Android.Content.PM.LaunchMode.SingleTop,
+	[Activity (Icon = "@mipmap/icon", Theme = "@style/LocationsTheme", LaunchMode = Android.Content.PM.LaunchMode.SingleTop,
 			   ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
 	public class LocationsActivity : BaseActivity, SearchView.IOnQueryTextListener, MenuItemCompat.IOnActionExpandListener
 	{
@@ -98,6 +98,16 @@ namespace XWeather.Droid
 		public override bool OnOptionsItemSelected (IMenuItem item)
 		{
 			switch (item.ItemId) {
+				case Resource.Id.action_search:
+
+					return true;
+
+				case Resource.Id.action_radar:
+
+					Android.Widget.Toast.MakeText (this, "Weather radar coming soon...", Android.Widget.ToastLength.Short).Show ();
+
+					return true;
+
 				case Resource.Id.action_settings:
 
 					FragmentManager.BeginTransaction ()
@@ -107,9 +117,6 @@ namespace XWeather.Droid
 
 					return true;
 
-				case Resource.Id.action_search:
-
-					return true;
 
 				default: return base.OnOptionsItemSelected (item);
 			}

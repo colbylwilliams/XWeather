@@ -6,6 +6,8 @@
 	<string
 		name="action_search">Search</string>
 	<string
+		name="action_radar">Radar</string>
+	<string
 		name="action_settings">Settings</string>
 	<!-- Units of Measurement -->
 	<string-array

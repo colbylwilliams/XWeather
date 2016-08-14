@@ -39,7 +39,7 @@ namespace XWeather.Droid
 		{
 			base.OnCreateOptionsMenu (menu, inflater);
 
-			menu.RemoveItem (Resource.Id.action_settings);
+			//menu.GetItem (Resource.Id.action_settings).SetEnabled (false);
 		}
 
 
