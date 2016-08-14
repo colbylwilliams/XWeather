@@ -29,18 +29,18 @@ namespace XWeather.Droid
 		{
 			base.OnCreate (savedInstanceState);
 
-			SetHasOptionsMenu (true);
+			//SetHasOptionsMenu (true);
 
 			ListAdapter = FilterAdapter;
 		}
 
 
-		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
-		{
-			base.OnCreateOptionsMenu (menu, inflater);
+		//public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
+		//{
+		//	base.OnCreateOptionsMenu (menu, inflater);
 
-			//menu.GetItem (Resource.Id.action_settings).SetEnabled (false);
-		}
+		//	//menu.GetItem (Resource.Id.action_settings).SetEnabled (false);
+		//}
 
 
 		public override void OnListItemClick (ListView l, View v, int position, long id)
