@@ -97,9 +97,13 @@ namespace XWeather.Droid
 			viewPager = (ViewPager)FindViewById (Resource.Id.viewPager);
 			viewPager.Adapter = PagerAdapter;
 
+			viewPager.CurrentItem = Settings.WeatherPage;
+
 			updateBackground ();
 
 			viewPager.PageSelected += (sender, e) => {
+
+				Settings.WeatherPage = e.Position;
 
 				updateBackground ();
 			};

@@ -5,16 +5,16 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	tools:context="XWeather.Droid.LocationsActivity">
 	<item
+		android:orderInCategory="1"
 		android:id="@+id/action_search"
 		android:icon="@drawable/abc_ic_search_api_mtrl_alpha"
-		android:menuCategory="secondary"
 		app:showAsAction="always|collapseActionView"
 		android:title="@string/action_search"
-		android:orderInCategory="200"
 		app:actionViewClass="android.support.v7.widget.SearchView" />
 	<item
+		android:orderInCategory="2"
 		android:id="@+id/action_settings"
-		android:orderInCategory="100"
-		android:showAsAction="never"
+		android:icon="@drawable/i_settings"
+		app:showAsAction="always"
 		android:title="@string/action_settings" />
 </menu>

@@ -104,6 +104,7 @@ namespace XWeather.Droid
 								   .Replace (Resource.Id.locations_activity_content_container, new SettingsFragment ())
 								   .AddToBackStack (null)
 								   .Commit ();
+
 					return true;
 
 				case Resource.Id.action_search:

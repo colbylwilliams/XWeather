@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 
 using Android.App;
+using Android.OS;
 using Android.Views;
 using Android.Widget;
 
@@ -8,6 +9,7 @@ using XWeather.Clients;
 using XWeather.Domain;
 
 using SettingsStudio;
+
 
 namespace XWeather.Droid
 {
@@ -23,11 +25,21 @@ namespace XWeather.Droid
 		}
 
 
-		public override void OnCreate (Android.OS.Bundle savedInstanceState)
+		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
 
+			SetHasOptionsMenu (true);
+
 			ListAdapter = FilterAdapter;
+		}
+
+
+		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
+		{
+			base.OnCreateOptionsMenu (menu, inflater);
+
+			menu.RemoveItem (Resource.Id.action_settings);
 		}
 
 

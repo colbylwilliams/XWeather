@@ -1,6 +1,6 @@
 ﻿using Android.OS;
 using Android.Preferences;
-
+using Android.Views;
 using SettingsStudio;
 
 namespace XWeather.Droid
@@ -15,9 +15,20 @@ namespace XWeather.Droid
 		{
 			base.OnCreate (savedInstanceState);
 
+			SetHasOptionsMenu (true);
+
 			AddPreferencesFromResource (Resource.Xml.preferences);
 
 			FindPreference ("VersionNumberString").Summary = $"{Settings.VersionNumber} ({Settings.BuildNumber})";
+		}
+
+
+		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
+		{
+			base.OnCreateOptionsMenu (menu, inflater);
+
+			menu.RemoveItem (Resource.Id.action_search);
+			menu.RemoveItem (Resource.Id.action_settings);
 		}
 
 
