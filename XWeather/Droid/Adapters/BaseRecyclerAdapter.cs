@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Android.Support.V7.Widget;
 using Android.Views;
-using Javax.Microedition.Khronos.Opengles;
+
+using Android.Support.V7.Widget;
 
 namespace XWeather.Droid
 {

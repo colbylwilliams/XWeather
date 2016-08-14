@@ -1,5 +1,6 @@
-﻿using Android.Support.V4.App;
-using Android.Views;
+﻿using Android.Views;
+
+using Android.Support.V4.App;
 
 namespace XWeather.Droid
 {

@@ -17,8 +17,6 @@ using SettingsStudio;
 using XWeather.Clients;
 using XWeather.Domain;
 
-using Toolbar = Android.Support.V7.Widget.Toolbar;
-
 
 namespace XWeather.Droid
 {
@@ -42,11 +40,6 @@ namespace XWeather.Droid
 			SetContentView (Resource.Layout.WeatherActivity);
 
 			LocationProvider = new LocationProvider (this);
-
-
-			//var toolbar = FindViewById<Toolbar> (Resource.Id.toolbar);
-
-			//SetSupportActionBar (toolbar);
 
 
 			var fab = FindViewById<FloatingActionButton> (Resource.Id.floatingButton);
@@ -83,10 +76,6 @@ namespace XWeather.Droid
 
 		void updateToolbarButtons (bool dismissing)
 		{
-			//foreach (var button in toolbarButtons)
-			//button.Hidden = dismissing ? button.Tag > 1 : button.Tag < 2;
-
-			//pageIndicator.Hidden = !dismissing;
 		}
 
 
@@ -98,12 +87,6 @@ namespace XWeather.Droid
 
 				fragment?.Adapter?.NotifyDataSetChanged ();
 			}
-
-			//updateBackground ();
-
-			//if (WuClient.Shared.HasCurrent) removeEmptyView ();
-
-			//foreach (var controller in Controllers) controller?.TableView?.ReloadData ();
 		}
 
 
@@ -116,17 +99,9 @@ namespace XWeather.Droid
 
 			updateBackground ();
 
-			//var tabLayout = (TabLayout)FindViewById (Resource.Id.tabLayout);
-			//tabLayout.SetupWithViewPager (viewPager);
-
 			viewPager.PageSelected += (sender, e) => {
 
-				//System.Diagnostics.Debug.WriteLine ("PageSelected");
-
 				updateBackground ();
-
-				//update the query listener
-				//var fragment = PagerAdapter.GetFragmentAtPosition (e.Position);
 			};
 		}
 

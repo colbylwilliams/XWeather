@@ -1,13 +1,12 @@
 ﻿using System;
 
+using Android.App;
 using Android.OS;
 using Android.Views;
 
-//using Android.Support.V4.App;
 using Android.Support.V7.Widget;
 
 using XWeather.Clients;
-using Android.App;
 
 namespace XWeather.Droid
 {
