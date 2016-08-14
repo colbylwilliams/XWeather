@@ -2,7 +2,7 @@
 
 namespace XWeather.Droid
 {
-	public class DailyRecyclerFragment : RecyclerViewFragment<ForecastDay, DailyViewHolder, WuLocation, DailyHeadHolder>
+	public class DailyRecyclerFragment : RecyclerViewSupportFragment<ForecastDay, DailyViewHolder, WuLocation, DailyHeadHolder>
 	{
 		public static DailyRecyclerFragment Create () => new DailyRecyclerFragment ();
 

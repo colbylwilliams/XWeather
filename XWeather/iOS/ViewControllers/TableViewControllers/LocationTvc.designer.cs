@@ -14,6 +14,9 @@ namespace XWeather.iOS
 	{
 		[Outlet]
 		UIKit.UIView tableHeader { get; set; }
+
+		[Action ("addButtonClicked:")]
+		partial void addButtonClicked (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{

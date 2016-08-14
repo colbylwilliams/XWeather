@@ -5,6 +5,8 @@ namespace XWeather.Droid
 	public class WeatherPagerAdapter : BasePagerAdapter
 	{
 
+
+
 		public WeatherPagerAdapter (FragmentManager manager) : base (manager) { }
 
 

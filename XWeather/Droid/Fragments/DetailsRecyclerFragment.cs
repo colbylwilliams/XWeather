@@ -2,7 +2,7 @@
 
 namespace XWeather.Droid
 {
-	public class DetailsRecyclerFragment : RecyclerViewFragment<WeatherDetail, DetailsViewHolder, WuLocation, DetailsHeadHolder>
+	public class DetailsRecyclerFragment : RecyclerViewSupportFragment<WeatherDetail, DetailsViewHolder, WuLocation, DetailsHeadHolder>
 	{
 		public static DetailsRecyclerFragment Create () => new DetailsRecyclerFragment ();
 

@@ -1,5 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="hello">Hello World, Click Me!</string>
-	<string name="app_name">XWeather.Droid</string>
+	<string
+		name="app_name">XWeather</string>
+	<!-- Menu Items -->
+	<string
+		name="action_search">Search</string>
+	<string
+		name="action_settings">Settings</string>
+	<!-- Units of Measurement -->
+	<string-array
+		name="settings_uom_temperature">
+		<item>Fahrenheit</item>
+		<item>Celsius</item>
+	</string-array>
+	<string-array
+		name="settings_uom_distance">
+		<item>Miles</item>
+		<item>Kilometers</item>
+	</string-array>
+	<string-array
+		name="settings_uom_pressure">
+		<item>Inches of Mercury</item>
+		<item>Millibars</item>
+	</string-array>
+	<string-array
+		name="settings_uom_length">
+		<item>Inches</item>
+		<item>Millimeters</item>
+	</string-array>
+	<string-array
+		name="settings_uom_speed">
+		<item>Miles per hour</item>
+		<item>Kilometers per hour</item>
+	</string-array>
+	<string-array
+		name="integer_sequence">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+	</string-array>
 </resources>

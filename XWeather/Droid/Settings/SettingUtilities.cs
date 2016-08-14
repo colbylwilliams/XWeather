@@ -13,6 +13,8 @@ namespace SettingsStudio
 	public static partial class Settings
 	{
 
+		const string zero = "0";
+
 		#region Utilities
 
 
@@ -39,11 +41,15 @@ namespace SettingsStudio
 		}
 
 
-		public static void SetSetting (string key, int value)
+		public static void SetSetting (string key, int value, bool asString = false)
 		{
 			using (var sharedPreferences = PreferenceManager.GetDefaultSharedPreferences (Application.Context))
 			using (var sharedPreferencesEditor = sharedPreferences.Edit ()) {
-				sharedPreferencesEditor.PutInt (key, value);
+				if (asString) {
+					sharedPreferencesEditor.PutString (key, value.ToString ());
+				} else {
+					sharedPreferencesEditor.PutInt (key, value);
+				}
 				sharedPreferencesEditor.Commit ();
 			}
 		}
@@ -60,10 +66,15 @@ namespace SettingsStudio
 
 
 
-		public static int Int32ForKey (string key)
+		public static int Int32ForKey (string key, bool fromString = false)
 		{
-			using (var sharedPreferences = PreferenceManager.GetDefaultSharedPreferences (Application.Context))
-				return Convert.ToInt32 (sharedPreferences.GetInt (key, 0));
+			using (var sharedPreferences = PreferenceManager.GetDefaultSharedPreferences (Application.Context)) {
+				if (fromString) {
+					return int.Parse (sharedPreferences.GetString (key, zero));
+				} else {
+					return Convert.ToInt32 (sharedPreferences.GetInt (key, 0));
+				}
+			}
 		}
 
 

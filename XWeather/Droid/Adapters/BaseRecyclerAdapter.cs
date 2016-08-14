@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Android.Support.V7.Widget;
 using Android.Views;
+using Javax.Microedition.Khronos.Opengles;
 
 namespace XWeather.Droid
 {
@@ -16,6 +17,7 @@ namespace XWeather.Droid
 		public const string TAG = "RecyclerViewAdapter";
 
 
+		public event EventHandler<int> HeadClick;
 		public event EventHandler<int> ItemClick;
 
 
@@ -72,7 +74,8 @@ namespace XWeather.Droid
 		{
 			// Get element from your dataset at this position and replace the contents of the view with that element
 			if (holder is TCellViewHolder) {
-				holder.SetData (DataSet [position - 1]);
+				position -= 1;
+				holder.SetData (DataSet [position]);
 			} else if (holder is THeadViewHolder) {
 				holder.SetData (HeadData);
 			}
@@ -88,12 +91,19 @@ namespace XWeather.Droid
 
 		void OnClick (View view, int position)
 		{
-			ItemClick?.Invoke (view, position);
+			if (position == 0) {
+				HeadClick?.Invoke (view, position);
+			} else {
+				position -= 1;
+				ItemClick?.Invoke (view, position);
+			}
 		}
 
 
 		public TCellData RemoveItem (int position)
 		{
+			position -= 1;
+
 			var item = DataSet [position];
 			DataSet.RemoveAt (position);
 			NotifyItemRemoved (position);
@@ -103,6 +113,8 @@ namespace XWeather.Droid
 
 		public void AddItem (int position, TCellData item)
 		{
+			position -= 1;
+
 			DataSet.Insert (position, item);
 			NotifyItemInserted (position);
 		}
@@ -110,6 +122,9 @@ namespace XWeather.Droid
 
 		public void MoveItem (int fromPosition, int toPosition)
 		{
+			fromPosition -= 1;
+			toPosition -= 1;
+
 			var item = DataSet [fromPosition];
 			DataSet.RemoveAt (fromPosition);
 			DataSet.Insert (toPosition, item);
@@ -154,4 +169,3 @@ namespace XWeather.Droid
 		}
 	}
 }
-

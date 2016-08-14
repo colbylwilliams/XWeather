@@ -14,42 +14,54 @@ namespace SettingsStudio
 		#region Visible Settings
 
 
-		public static string VersionNumber => StringForKey (SettingsKeys.VersionNumber);
+		public static string VersionNumber {
+			get { return StringForKey (SettingsKeys.VersionNumber); }
+			set { SetSetting (SettingsKeys.VersionNumber, value); }
+		}
 
-		public static string BuildNumber => StringForKey (SettingsKeys.BuildNumber);
+		public static string BuildNumber {
+			get { return StringForKey (SettingsKeys.BuildNumber); }
+			set { SetSetting (SettingsKeys.BuildNumber, value); }
+		}
 
 		public static string GitHash => StringForKey (SettingsKeys.GitCommitHash);
 
 		public static string UserReferenceKey => StringForKey (SettingsKeys.UserReferenceKey);
+
 
 		public static bool RandomBackgrounds {
 			get { return BoolForKey (SettingsKeys.RandomBackgrounds); }
 			set { SetSetting (SettingsKeys.RandomBackgrounds, value); }
 		}
 
+
 		public static TemperatureUnits UomTemperature {
-			get { return (TemperatureUnits)Int32ForKey (SettingsKeys.UomTemperature); }
-			set { SetSetting (SettingsKeys.UomTemperature, (int)value); }
+			get { return (TemperatureUnits)Int32ForKey (SettingsKeys.UomTemperature, true); }
+			set { SetSetting (SettingsKeys.UomTemperature, (int)value, true); }
 		}
+
 
 		public static DistanceUnits UomDistance {
-			get { return (DistanceUnits)Int32ForKey (SettingsKeys.UomDistance); }
-			set { SetSetting (SettingsKeys.UomDistance, (int)value); }
+			get { return (DistanceUnits)Int32ForKey (SettingsKeys.UomDistance, true); }
+			set { SetSetting (SettingsKeys.UomDistance, (int)value, true); }
 		}
+
 
 		public static PressureUnits UomPressure {
-			get { return (PressureUnits)Int32ForKey (SettingsKeys.UomPressure); }
-			set { SetSetting (SettingsKeys.UomPressure, (int)value); }
+			get { return (PressureUnits)Int32ForKey (SettingsKeys.UomPressure, true); }
+			set { SetSetting (SettingsKeys.UomPressure, (int)value, true); }
 		}
+
 
 		public static LengthUnits UomLength {
-			get { return (LengthUnits)Int32ForKey (SettingsKeys.UomLength); }
-			set { SetSetting (SettingsKeys.UomLength, (int)value); }
+			get { return (LengthUnits)Int32ForKey (SettingsKeys.UomLength, true); }
+			set { SetSetting (SettingsKeys.UomLength, (int)value, true); }
 		}
 
+
 		public static SpeedUnits UomSpeed {
-			get { return (SpeedUnits)Int32ForKey (SettingsKeys.UomSpeed); }
-			set { SetSetting (SettingsKeys.UomSpeed, (int)value); }
+			get { return (SpeedUnits)Int32ForKey (SettingsKeys.UomSpeed, true); }
+			set { SetSetting (SettingsKeys.UomSpeed, (int)value, true); }
 		}
 
 

@@ -132,6 +132,17 @@ namespace XWeather.iOS
 		}
 
 
+		partial void addButtonClicked (NSObject sender)
+		{
+			if (searchController != null && !searchController.Active) {
+
+				TableView.SetContentOffset (new CGPoint (0, -21), true);
+
+				//searchController.Active = true;
+			}
+		}
+
+
 		void handleLocationAdded (object sender, EventArgs e)
 		{
 			BeginInvokeOnMainThread (() => {

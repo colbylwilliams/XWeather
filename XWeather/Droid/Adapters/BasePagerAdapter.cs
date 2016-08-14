@@ -1,4 +1,5 @@
 ﻿using Android.Support.V4.App;
+using Android.Views;
 
 namespace XWeather.Droid
 {
@@ -16,7 +17,7 @@ namespace XWeather.Droid
 		}
 
 
-		public override Java.Lang.Object InstantiateItem (Android.Views.ViewGroup container, int position)
+		public override Java.Lang.Object InstantiateItem (ViewGroup container, int position)
 		{
 			var obj = base.InstantiateItem (container, position);
 

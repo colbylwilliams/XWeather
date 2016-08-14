@@ -30,7 +30,6 @@ Global
 		{F61CFA34-47FF-4168-81FA-B9C3E3C6A2DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F61CFA34-47FF-4168-81FA-B9C3E3C6A2DB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F61CFA34-47FF-4168-81FA-B9C3E3C6A2DB}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{F61CFA34-47FF-4168-81FA-B9C3E3C6A2DB}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{F61CFA34-47FF-4168-81FA-B9C3E3C6A2DB}.Release|iPhone.ActiveCfg = Release|Any CPU
 		{F61CFA34-47FF-4168-81FA-B9C3E3C6A2DB}.Release|iPhone.Build.0 = Release|Any CPU
 		{F61CFA34-47FF-4168-81FA-B9C3E3C6A2DB}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
@@ -38,7 +37,6 @@ Global
 		{F61CFA34-47FF-4168-81FA-B9C3E3C6A2DB}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{F61CFA34-47FF-4168-81FA-B9C3E3C6A2DB}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{3B22D06D-E502-470F-8565-F0D8FC93624D}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
-		{3B22D06D-E502-470F-8565-F0D8FC93624D}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
 		{3B22D06D-E502-470F-8565-F0D8FC93624D}.Release|Any CPU.ActiveCfg = Release|iPhone
 		{3B22D06D-E502-470F-8565-F0D8FC93624D}.Release|Any CPU.Build.0 = Release|iPhone
 		{3B22D06D-E502-470F-8565-F0D8FC93624D}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
@@ -74,7 +72,6 @@ Global
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Release|Any CPU.Build.0 = Release|Any CPU
 		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
@@ -88,5 +85,25 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531} = {9EA8454D-34BF-4B5B-B807-2B463B26ED5D}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.inheritsSet = null
+		$1.scope = application/android+xml
+		$0.XmlFormattingPolicy = $2
+		$2.DefaultFormat = $3
+		$3.AttributesInNewLine = True
+		$3.MaxAttributesPerLine = 1
+		$3.AlignAttributes = True
+		$2.inheritsSet = null
+		$2.inheritsScope = application/xml
+		$2.scope = application/android+xml
+		$0.TextStylePolicy = $4
+		$4.inheritsSet = null
+		$4.scope = application/android+xml
+		$0.XmlFormattingPolicy = $5
+		$5.inheritsSet = null
+		$5.scope = application/android+xml
 	EndGlobalSection
 EndGlobal

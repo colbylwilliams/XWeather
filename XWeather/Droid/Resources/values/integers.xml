@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<integer
+		name="preference_default_entry_value">0</integer>
+	<integer-array
+		name="integer_sequence_zero_four">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+	</integer-array>
+</resources>

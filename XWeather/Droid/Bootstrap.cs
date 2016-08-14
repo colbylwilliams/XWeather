@@ -1,9 +1,9 @@
 ﻿using Android.App;
 using Android.Content;
-
+using Android.Content.PM;
 using HockeyApp.Android;
 using HockeyApp.Android.Metrics;
-
+using SettingsStudio;
 using XWeather.Constants;
 
 namespace XWeather.Droid
@@ -19,6 +19,10 @@ namespace XWeather.Droid
 			ServiceStack.AndroidPclExportClient.Configure ();
 
 			ServiceStack.JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new ModernHttpClient.NativeMessageHandler ();
+
+			Settings.VersionNumber = application.PackageManager.GetPackageInfo (application.PackageName, 0).VersionName;
+
+			Settings.BuildNumber = application.PackageManager.GetPackageInfo (application.PackageName, 0).VersionCode.ToString ();
 
 			//Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init ();
 		}

@@ -2,7 +2,7 @@
 
 namespace XWeather.Droid
 {
-	public class HourlyRecyclerFragment : RecyclerViewFragment<HourlyForecast, HourlyViewHolder, WuLocation, HourlyHeadHolder>
+	public class HourlyRecyclerFragment : RecyclerViewSupportFragment<HourlyForecast, HourlyViewHolder, WuLocation, HourlyHeadHolder>
 	{
 		public static HourlyRecyclerFragment Create () => new HourlyRecyclerFragment ();
 

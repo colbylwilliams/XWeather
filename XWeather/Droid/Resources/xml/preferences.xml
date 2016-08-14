@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:title="Settings">
+	<PreferenceCategory
+		android:title="XWeather Settings">
+		<Preference
+			android:title="Version"
+			android:key="VersionNumberString"
+			android:selectable="false"
+			android:summary="0.0.0 (0)" />
+	</PreferenceCategory>
+	<PreferenceCategory
+		android:title="Units of Measurement">
+		<ListPreference
+			android:key="UomTemperature"
+			android:title="Temperature"
+			android:entries="@array/settings_uom_temperature"
+			android:entryValues="@array/integer_sequence"
+			android:defaultValue="0" />
+		<ListPreference
+			android:key="UomDistance"
+			android:title="Distance"
+			android:entries="@array/settings_uom_distance"
+			android:entryValues="@array/integer_sequence"
+			android:defaultValue="0" />
+		<ListPreference
+			android:key="UomPressure"
+			android:title="Pressure"
+			android:entries="@array/settings_uom_pressure"
+			android:entryValues="@array/integer_sequence"
+			android:defaultValue="0" />
+		<ListPreference
+			android:key="UomLength"
+			android:title="Length"
+			android:entries="@array/settings_uom_length"
+			android:entryValues="@array/integer_sequence"
+			android:defaultValue="0" />
+		<ListPreference
+			android:key="UomSpeed"
+			android:title="Speed"
+			android:entries="@array/settings_uom_speed"
+			android:entryValues="@array/integer_sequence"
+			android:defaultValue="0" />
+	</PreferenceCategory>
+	<PreferenceCategory
+		android:title="User Interface">
+		<CheckBoxPreference
+			android:title="Random Backgrounds"
+			android:key="RandomBackgrounds"
+			android:defaultValue="true"
+			android:summary="Background colors represent each location’s time of day. Enable this option to use random pretty colors instead." />
+	</PreferenceCategory>
+	<PreferenceCategory
+		android:title="Diagnostics Key">
+		<Preference
+			android:title="Diagnostics Key"
+			android:key="UserReferenceKey"
+			android:selectable="false"
+			android:summary="1" />
+	</PreferenceCategory>
+	<PreferenceCategory>
+		<Preference
+			android:key="Copyright"
+			android:summary="© 2016 Colby Williams"
+			android:selectable="false" />
+	</PreferenceCategory>
+</PreferenceScreen>

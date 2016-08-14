@@ -16,6 +16,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,7 +45,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
-    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <CustomCommands>
       <CustomCommands>
         <Command>
@@ -177,6 +177,17 @@
     <Compile Include="XWeatherApp.cs" />
     <Compile Include="Activities\RadarMapActivity.cs" />
     <Compile Include="Providers\LocationProvider.cs" />
+    <Compile Include="Activities\LocationsActivity.cs" />
+    <Compile Include="Fragments\SettingsFragment.cs" />
+    <Compile Include="Fragments\LocationsRecyclerFragment.cs" />
+    <Compile Include="Fragments\LocationsSearchRecyclerFragment.cs" />
+    <Compile Include="ViewHolders\LocationViewHolder.cs" />
+    <Compile Include="Extensions\WuLocationExtensions.cs" />
+    <Compile Include="ViewHolders\LocationsHeadHolder.cs" />
+    <Compile Include="Adapters\LocationsRecyclerAdapter.cs" />
+    <Compile Include="Adapters\Filters\LocationSearchFilter.cs" />
+    <Compile Include="Adapters\LocationSearchRecyclerAdapter.cs" />
+    <Compile Include="Extensions\SpannableStringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -253,6 +264,11 @@
     <AndroidResource Include="Resources\layout\HourlyHeader.axml" />
     <AndroidResource Include="Resources\layout\DetailsHeader.axml" />
     <AndroidResource Include="Resources\layout\MapRadarActivity.axml" />
+    <AndroidResource Include="Resources\layout\LocationsActivity.axml" />
+    <AndroidResource Include="Resources\menu\menu_locations.xml" />
+    <AndroidResource Include="Resources\xml\preferences.xml" />
+    <AndroidResource Include="Resources\layout\LocationsHeader.axml" />
+    <AndroidResource Include="Resources\values\integers.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utilities\" />
@@ -266,6 +282,8 @@
     <Folder Include="Resources\drawable\" />
     <Folder Include="Constants\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Resources\xml\" />
+    <Folder Include="Adapters\Filters\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Atlanta.json" />

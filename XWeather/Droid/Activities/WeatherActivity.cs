@@ -1,24 +1,31 @@
-﻿using Android.OS;
-using Android.Support.V4.View;
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
+
 using Android.App;
+using Android.Graphics.Drawables;
+using Android.OS;
+using Android.Views;
+
+using Android.Support.Design.Widget;
+using Android.Support.V4.View;
+
+using ServiceStack;
+
+using SettingsStudio;
+
+using XWeather.Clients;
+using XWeather.Domain;
 
 using Toolbar = Android.Support.V7.Widget.Toolbar;
-using System.Threading.Tasks;
-using System.IO;
-using ServiceStack;
-using XWeather.Domain;
-using XWeather.Clients;
-using System;
-using SettingsStudio;
-using Android.Graphics.Drawables;
-using Android.Support.Design.Widget;
+
 
 namespace XWeather.Droid
 {
 	[Activity (Label = "XWeather", MainLauncher = true,
 			   Icon = "@mipmap/icon", LaunchMode = Android.Content.PM.LaunchMode.SingleTop,
 			   ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
-	public class WeatherActivity : BaseActivity
+	public class WeatherActivity : BaseActivity, FloatingActionButton.IOnClickListener
 	{
 		ViewPager viewPager;
 
@@ -36,15 +43,41 @@ namespace XWeather.Droid
 
 			LocationProvider = new LocationProvider (this);
 
+
 			//var toolbar = FindViewById<Toolbar> (Resource.Id.toolbar);
 
 			//SetSupportActionBar (toolbar);
 
-			WuClient.Shared.UpdatedSelected += handleUpdatedCurrent;
+
+			var fab = FindViewById<FloatingActionButton> (Resource.Id.floatingButton);
+
+			fab.SetOnClickListener (this);
+
 
 			setupViewPager ();
 
 			getData ();
+		}
+
+
+		protected override void OnStart ()
+		{
+			base.OnStart ();
+
+			reloadData ();
+		}
+
+
+		public void OnClick (View v) => StartActivity (typeof (LocationsActivity));
+
+
+		protected override void HandleUpdatedSelectedLocation (object sender, EventArgs e)
+		{
+			RunOnUiThread (() => {
+				updateToolbarButtons (true);
+				reloadData ();
+				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
+			});
 		}
 
 
@@ -57,18 +90,15 @@ namespace XWeather.Droid
 		}
 
 
-		void handleUpdatedCurrent (object sender, EventArgs e)
-		{
-			RunOnUiThread (() => {
-				updateToolbarButtons (true);
-				reloadData ();
-				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
-			});
-		}
-
-
 		void reloadData ()
 		{
+			for (int i = 0; i < 3; i++) {
+
+				var fragment = PagerAdapter.GetFragmentAtPosition (i) as IRecyclerViewFragment;
+
+				fragment?.Adapter?.NotifyDataSetChanged ();
+			}
+
 			//updateBackground ();
 
 			//if (WuClient.Shared.HasCurrent) removeEmptyView ();

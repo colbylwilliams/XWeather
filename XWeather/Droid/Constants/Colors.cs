@@ -7,6 +7,16 @@ namespace XWeather.Droid
 {
 	public static class Colors
 	{
+		public static Color White = Color.White;
+		public static Color Clear = Color.Transparent;
+
+		// sRGB
+		public static Color ThemeDark = Color.Rgb (77, 82, 80);
+
+		public static Color SearchResultColor = Color.Argb (125, 255, 255, 255);
+		public static Color SearchResultHighlightColor = Color.Argb (255, 255, 255, 255);
+
+
 		public static List<Color []> Gradients = new List<Color []> {
 			new Color[] { Color.Rgb (1, 22, 47), Color.Rgb (22, 19, 76) }, // NIGHT
 			new Color[] { Color.Rgb (1, 22, 47), Color.Rgb (22, 19, 76) },
