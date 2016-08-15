@@ -15,8 +15,9 @@ namespace XWeather.Droid
 		TextView hourLabel;
 		TextView tempLabel;
 		TextView precipLabel;
-		TextView tomorrowLabel;
 		ImageView iconImageView;
+
+		TextView tomorrowLabel;
 
 
 		static readonly int day = DateTime.Now.Day;
@@ -33,8 +34,9 @@ namespace XWeather.Droid
 			hourLabel = (TextView)rootView.FindViewById (Resource.Id.HourlyListItem_hourLabel);
 			tempLabel = (TextView)rootView.FindViewById (Resource.Id.HourlyListItem_tempLabel);
 			precipLabel = (TextView)rootView.FindViewById (Resource.Id.HourlyListItem_precipLabel);
-			tomorrowLabel = (TextView)rootView.FindViewById (Resource.Id.HourlyListItem_tomorrowLabel);
 			iconImageView = (ImageView)rootView.FindViewById (Resource.Id.HourlyListItem_iconImageView);
+
+			tomorrowLabel = (TextView)rootView.FindViewById (Resource.Id.HourlyListItem_tomorrowLabel);
 		}
 
 
