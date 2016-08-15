@@ -16,7 +16,6 @@ namespace XWeather.Droid
 			   ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
 	public class LocationsActivity : BaseActivity, SearchView.IOnQueryTextListener, MenuItemCompat.IOnActionExpandListener
 	{
-
 		IMenuItem searchMenuItem;
 
 		LocationsRecyclerFragment LocationsFragment;

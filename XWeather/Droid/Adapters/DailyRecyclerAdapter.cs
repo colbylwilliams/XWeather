@@ -7,7 +7,7 @@ using XWeather.Clients;
 
 namespace XWeather.Droid
 {
-	public class DailyRecyclerAdapter : BaseRecyclerAdapter<ForecastDay, DailyViewHolder, WuLocation, DailyHeadHolder>
+	public class DailyRecyclerAdapter : BaseHeadRecyclerAdapter<ForecastDay, DailyViewHolder, WuLocation, DailyHeadHolder>
 	{
 		public override IList<ForecastDay> DataSet => WuClient.Shared.Selected?.Forecasts;
 

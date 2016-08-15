@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<menu
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context="XWeather.Droid.LocationsActivity">
+	<item
+		android:orderInCategory="1"
+		android:id="@+id/context_action_share"
+		android:icon="@drawable/i_share"
+		app:showAsAction="always"
+		android:title="@string/context_action_share"
+		app:actionProviderClass="android.support.v7.widget.ShareActionProvider" />
+	<item
+		android:orderInCategory="2"
+		android:id="@+id/context_action_delete"
+		android:icon="@drawable/i_delete"
+		app:showAsAction="always"
+		android:title="@string/context_action_delete" />
+	<item
+		android:orderInCategory="3"
+		android:id="@+id/context_action_select_all"
+		android:icon="@drawable/i_settings"
+		app:showAsAction="never"
+		android:title="@string/context_action_select_all" />
+</menu>

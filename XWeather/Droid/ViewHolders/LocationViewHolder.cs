@@ -2,14 +2,17 @@
 using Android.Widget;
 
 using SettingsStudio;
+using Android.Graphics.Drawables;
 
 namespace XWeather.Droid
 {
-	public class LocationViewHolder : ViewHolder<WuLocation>
+	public class LocationViewHolder : SelectableViewHolder<WuLocation>
 	{
 		TextView nameLabel;
 		TextView tempLabel;
 		TextView timeLabel;
+		LinearLayout container;
+
 
 		public LocationViewHolder (View itemView) : base (itemView) { }
 
@@ -22,6 +25,7 @@ namespace XWeather.Droid
 			nameLabel = (TextView)rootView.FindViewById (Resource.Id.LocationListItem_nameLabel);
 			tempLabel = (TextView)rootView.FindViewById (Resource.Id.LocationListItem_tempLabel);
 			timeLabel = (TextView)rootView.FindViewById (Resource.Id.LocationListItem_timeLabel);
+			container = (LinearLayout)rootView.FindViewById (Resource.Id.LocationListItem_container);
 		}
 
 
@@ -30,6 +34,23 @@ namespace XWeather.Droid
 			nameLabel.SetText (data?.Name, TextView.BufferType.Normal);
 			tempLabel.SetText (data?.TempString (Settings.UomTemperature, true), TextView.BufferType.Normal);
 			timeLabel.SetText (data?.LocalTimeString (), TextView.BufferType.Normal);
+		}
+
+		Drawable defaultDrawable;
+
+		public override void SetSelected (bool selected)
+		{
+			if (defaultDrawable == null) {
+				defaultDrawable = container.Background;
+			}
+
+			if (selected) {
+				container.SetBackgroundResource (Resource.Color.theme_white_30);
+			} else {
+				container.Background = defaultDrawable;
+			}
+
+			System.Diagnostics.Debug.WriteLine (selected ? "Selected" : "Deselected");
 		}
 	}
 }

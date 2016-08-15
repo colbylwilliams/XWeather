@@ -67,15 +67,9 @@ namespace XWeather.Droid
 		protected override void HandleUpdatedSelectedLocation (object sender, EventArgs e)
 		{
 			RunOnUiThread (() => {
-				updateToolbarButtons (true);
 				reloadData ();
 				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
 			});
-		}
-
-
-		void updateToolbarButtons (bool dismissing)
-		{
 		}
 
 
@@ -146,7 +140,7 @@ namespace XWeather.Droid
 
 		void getData ()
 		{
-#if DEBUG
+#if !DEBUG
 
 			Task.Run (async () => {
 

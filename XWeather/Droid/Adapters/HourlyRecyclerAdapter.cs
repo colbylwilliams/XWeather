@@ -8,7 +8,7 @@ using XWeather.Domain;
 
 namespace XWeather.Droid
 {
-	public class HourlyRecyclerAdapter : BaseRecyclerAdapter<HourlyForecast, HourlyViewHolder, WuLocation, HourlyHeadHolder>
+	public class HourlyRecyclerAdapter : BaseHeadRecyclerAdapter<HourlyForecast, HourlyViewHolder, WuLocation, HourlyHeadHolder>
 	{
 		static int day = DateTime.Now.Day;
 

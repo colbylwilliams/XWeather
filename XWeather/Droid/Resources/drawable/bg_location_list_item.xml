@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<<selector
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<item
+		android:state_pressed="true"
+		android:drawable="@drawable/button_pressed" />
+	<!-- pressed -->
+	<item
+		android:state_focused="true"
+		android:drawable="@drawable/button_focused" />
+	<!-- focused -->
+	<item
+		android:state_hovered="true"
+		android:drawable="@drawable/button_focused" />
+	<!-- hovered -->
+	<item
+		android:state_active="true"
+		android:drawable="@drawable/listChoiceBackgroundIndicator" />
+	<item
+		android:drawable="@drawable/button_normal" />
+	<!-- default -->
+</selector>

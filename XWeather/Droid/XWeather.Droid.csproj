@@ -151,12 +151,10 @@
     <Compile Include="Activities\BaseActivity.cs" />
     <Compile Include="Activities\WeatherActivity.cs" />
     <Compile Include="Adapters\WeatherPagerAdapter.cs" />
-    <Compile Include="Adapters\BasePagerAdapter.cs" />
     <Compile Include="Fragments\RecyclerViewFragment.cs" />
     <Compile Include="Adapters\HourlyRecyclerAdapter.cs" />
     <Compile Include="Adapters\DailyRecyclerAdapter.cs" />
     <Compile Include="Adapters\DetailsRecyclerAdapter.cs" />
-    <Compile Include="Adapters\BaseRecyclerAdapter.cs" />
     <Compile Include="ViewHolders\ViewHolder.cs" />
     <Compile Include="ViewHolders\HourlyViewHolder.cs" />
     <Compile Include="ViewHolders\DailyViewHolder.cs" />
@@ -188,6 +186,12 @@
     <Compile Include="Adapters\Filters\LocationSearchFilter.cs" />
     <Compile Include="Adapters\LocationSearchRecyclerAdapter.cs" />
     <Compile Include="Extensions\SpannableStringExtensions.cs" />
+    <Compile Include="Adapters\Base\BaseHeadRecyclerAdapter.cs" />
+    <Compile Include="Adapters\Base\BaseRecyclerAdapter.cs" />
+    <Compile Include="Adapters\Base\BasePagerAdapter.cs" />
+    <Compile Include="Adapters\Base\BaseSelectableRecyclerAdapter.cs" />
+    <Compile Include="Widgets\DividerItemDecoration.cs" />
+    <Compile Include="Widgets\ScrollAwareFABBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -229,7 +233,6 @@
     <AndroidResource Include="Resources\drawable\i_cog.xml" />
     <AndroidResource Include="Resources\drawable\i_drop.xml" />
     <AndroidResource Include="Resources\drawable\i_globe.xml" />
-    <AndroidResource Include="Resources\drawable\i_list.xml" />
     <AndroidResource Include="Resources\drawable\mostlycloudy.xml" />
     <AndroidResource Include="Resources\drawable\mostlysunny.xml" />
     <AndroidResource Include="Resources\drawable\nt_chanceflurries.xml" />
@@ -271,6 +274,11 @@
     <AndroidResource Include="Resources\drawable\i_settings.xml" />
     <AndroidResource Include="Resources\menu\menu_locations.xml" />
     <AndroidResource Include="Resources\drawable\i_track_changes.xml" />
+    <AndroidResource Include="Resources\menu\menu_locations_context.xml" />
+    <AndroidResource Include="Resources\drawable\i_delete.xml" />
+    <AndroidResource Include="Resources\drawable\i_share.xml" />
+    <AndroidResource Include="Resources\drawable\i_search.xml" />
+    <AndroidResource Include="Resources\drawable\i_list.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utilities\" />
@@ -286,6 +294,8 @@
     <Folder Include="Extensions\" />
     <Folder Include="Resources\xml\" />
     <Folder Include="Adapters\Filters\" />
+    <Folder Include="Adapters\Base\" />
+    <Folder Include="Widgets\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Atlanta.json" />

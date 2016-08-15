@@ -28,6 +28,7 @@ namespace XWeather.Droid
 			base.OnCreateOptionsMenu (menu, inflater);
 
 			menu.RemoveItem (Resource.Id.action_search);
+			menu.RemoveItem (Resource.Id.action_radar);
 			menu.RemoveItem (Resource.Id.action_settings);
 		}
 

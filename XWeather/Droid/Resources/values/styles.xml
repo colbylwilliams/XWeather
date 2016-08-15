@@ -27,6 +27,8 @@
 		name="LocationsTheme"
 		parent="WeatherTheme">
 		<item
+			name="windowActionModeOverlay">true</item>
+		<item
 			name="android:windowIsTranslucent">true</item>
 		<item
 			name="android:windowBackground">@color/theme_primary_90</item>
@@ -52,5 +54,17 @@
 		parent="WeatherTheme">
 		<item
 			name="android:textColor">@color/theme_white_60</item>
+	</style>
+	<style
+		name="themeFontLight"
+		parent="WeatherTheme">
+		<item
+			name="android:fontFamily">sans-serif-light</item>
+	</style>
+	<style
+		name="themeFontThin"
+		parent="WeatherTheme">
+		<item
+			name="android:fontFamily">sans-serif-thin</item>
 	</style>
 </resources>

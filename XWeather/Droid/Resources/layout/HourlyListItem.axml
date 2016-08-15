@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
-    android:padding="12dip"
     android:layout_width="match_parent"
-    android:layout_height="?android:attr/listPreferredItemHeightSmall">
-    <TextView
-        android:text="00:00 mm"
+    android:layout_height="?android:attr/listPreferredItemHeightSmall"
+    android:paddingRight="12dp"
+    android:paddingBottom="4dp"
+    android:paddingLeft="12dp"
+    android:paddingTop="4dp">
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/HourlyListItem_hourLabel"
-        android:gravity="center_vertical"
-        android:layout_weight="1" />
+        android:layout_weight="1">
+        <TextView
+            android:text="00:00 mm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/HourlyListItem_hourLabel"
+            android:gravity="center_vertical" />
+        <TextView
+            android:text="tomorrow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/HourlyListItem_tomorrowLabel"
+            android:gravity="bottom"
+            android:textSize="10sp"
+            style="@style/secondaryText" />
+    </FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

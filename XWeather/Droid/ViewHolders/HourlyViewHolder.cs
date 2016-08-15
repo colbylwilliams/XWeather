@@ -1,9 +1,12 @@
-﻿using Android.Views;
+﻿using System;
+
+using Android.Views;
 using Android.Widget;
 
 using SettingsStudio;
 
 using XWeather.Domain;
+
 
 namespace XWeather.Droid
 {
@@ -12,7 +15,11 @@ namespace XWeather.Droid
 		TextView hourLabel;
 		TextView tempLabel;
 		TextView precipLabel;
+		TextView tomorrowLabel;
 		ImageView iconImageView;
+
+
+		static readonly int day = DateTime.Now.Day;
 
 
 		public HourlyViewHolder (View itemView) : base (itemView) { }
@@ -26,6 +33,7 @@ namespace XWeather.Droid
 			hourLabel = (TextView)rootView.FindViewById (Resource.Id.HourlyListItem_hourLabel);
 			tempLabel = (TextView)rootView.FindViewById (Resource.Id.HourlyListItem_tempLabel);
 			precipLabel = (TextView)rootView.FindViewById (Resource.Id.HourlyListItem_precipLabel);
+			tomorrowLabel = (TextView)rootView.FindViewById (Resource.Id.HourlyListItem_tomorrowLabel);
 			iconImageView = (ImageView)rootView.FindViewById (Resource.Id.HourlyListItem_iconImageView);
 		}
 
@@ -36,6 +44,8 @@ namespace XWeather.Droid
 			tempLabel.SetText (data.TempString (Settings.UomTemperature, true, true), TextView.BufferType.Normal);
 			precipLabel.SetText (data.ProbabilityPercipString (), TextView.BufferType.Normal);
 			iconImageView.SetImageResource (ImageProvider.ResourceForString (data.icon));
+
+			tomorrowLabel.Visibility = data.FCTTIME.mday == day ? ViewStates.Invisible : ViewStates.Visible;
 		}
 	}
 }

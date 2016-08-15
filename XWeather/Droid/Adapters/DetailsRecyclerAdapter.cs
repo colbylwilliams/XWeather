@@ -9,7 +9,7 @@ using XWeather.Domain;
 
 namespace XWeather.Droid
 {
-	public class DetailsRecyclerAdapter : BaseRecyclerAdapter<WeatherDetail, DetailsViewHolder, WuLocation, DetailsHeadHolder>
+	public class DetailsRecyclerAdapter : BaseHeadRecyclerAdapter<WeatherDetail, DetailsViewHolder, WuLocation, DetailsHeadHolder>
 	{
 		public override IList<WeatherDetail> DataSet => WeatherDetails.GetDetails (WuClient.Shared.Selected, Settings.UomTemperature, Settings.UomSpeed, Settings.UomLength, Settings.UomDistance, Settings.UomPressure);
 

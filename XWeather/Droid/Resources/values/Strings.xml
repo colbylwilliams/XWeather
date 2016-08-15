@@ -9,6 +9,12 @@
 		name="action_radar">Radar</string>
 	<string
 		name="action_settings">Settings</string>
+	<string
+		name="context_action_share">Share</string>
+	<string
+		name="context_action_delete">Delete</string>
+	<string
+		name="context_action_select_all">Select all</string>
 	<!-- Units of Measurement -->
 	<string-array
 		name="settings_uom_temperature">
