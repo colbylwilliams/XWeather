@@ -504,6 +504,10 @@
     <ImageAsset Include="Assets.xcassets\i_add_sm.imageset\i_add_sm.pdf">
       <InProject>false</InProject>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_wunderground_rev.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\logo_wunderground_rev.imageset\logo_wunderground_rev.pdf" />
+    <ImageAsset Include="Assets.xcassets\logo_wunderground_white.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\logo_wunderground_white.imageset\logo_wunderground_white.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -527,6 +531,8 @@
     <Folder Include="Assets.xcassets\i_drop.imageset\" />
     <Folder Include="Assets.xcassets\i_cog.imageset\" />
     <Folder Include="Assets.xcassets\i_add_sm.imageset\" />
+    <Folder Include="Assets.xcassets\logo_wunderground_rev.imageset\" />
+    <Folder Include="Assets.xcassets\logo_wunderground_white.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />

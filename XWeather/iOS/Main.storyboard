@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A286a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oe7-ll-mI6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A294a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oe7-ll-mI6">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -356,11 +356,11 @@
                                 <constraint firstAttribute="width" constant="12" id="tIv-F6-GQD"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lgx-OA-KCL">
-                            <rect key="frame" x="558" y="240" width="30" height="32"/>
+                        <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_wunderground_rev" translatesAutoresizingMaskIntoConstraints="NO" id="lgx-OA-KCL">
+                            <rect key="frame" x="538" y="239" width="50" height="33"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="RlH-E9-J7j"/>
-                                <constraint firstAttribute="height" constant="32" id="ZAk-Wb-QdR"/>
+                                <constraint firstAttribute="width" constant="50" id="RlH-E9-J7j"/>
+                                <constraint firstAttribute="height" constant="33" id="ZAk-Wb-QdR"/>
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVx-gz-kH8">
@@ -519,11 +519,11 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="label_5"/>
                             </userDefinedRuntimeAttributes>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eop-Ej-qYB">
-                            <rect key="frame" x="558" y="240" width="30" height="32"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_wunderground_white" translatesAutoresizingMaskIntoConstraints="NO" id="eop-Ej-qYB">
+                            <rect key="frame" x="538" y="239" width="50" height="33"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="3gW-4j-gkb"/>
-                                <constraint firstAttribute="height" constant="32" id="NnU-Cw-foh"/>
+                                <constraint firstAttribute="width" constant="50" id="3gW-4j-gkb"/>
+                                <constraint firstAttribute="height" constant="33" id="NnU-Cw-foh"/>
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxD-Ud-ggv" userLabel="Bottom Border">
@@ -533,7 +533,7 @@
                                 <constraint firstAttribute="height" constant="0.5" id="Yyo-hS-7dr"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PsC-xK-zRo" customClass="DailyGraphView">
+                        <view contentMode="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="PsC-xK-zRo" customClass="DailyGraphView">
                             <rect key="frame" x="8" y="77" width="592" height="194"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
@@ -625,7 +625,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cts-EF-dQ0">
-                            <rect key="frame" x="200" y="38" width="199.5" height="38.5"/>
+                            <rect key="frame" x="200" y="38" width="200" height="39"/>
                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -634,7 +634,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mostly Sunny" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jje-Ah-nTF">
-                            <rect key="frame" x="20" y="88.5" width="560" height="140"/>
+                            <rect key="frame" x="20" y="89" width="560" height="140"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="140" id="d2m-sz-Jcy"/>
                             </constraints>
@@ -645,11 +645,11 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="label_4"/>
                             </userDefinedRuntimeAttributes>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zg3-c6-Ybj">
-                            <rect key="frame" x="558" y="240" width="30" height="32"/>
+                        <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_wunderground_white" translatesAutoresizingMaskIntoConstraints="NO" id="zg3-c6-Ybj">
+                            <rect key="frame" x="538" y="239" width="50" height="33"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="30" id="Y7a-th-Xu4"/>
-                                <constraint firstAttribute="height" constant="32" id="eVb-GX-hhp"/>
+                                <constraint firstAttribute="width" constant="50" id="Y7a-th-Xu4"/>
+                                <constraint firstAttribute="height" constant="33" id="eVb-GX-hhp"/>
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SI2-7n-VVS">
@@ -929,5 +929,7 @@
         <image name="i_drop" width="12" height="16"/>
         <image name="i_globe" width="25" height="25"/>
         <image name="i_list" width="25" height="25"/>
+        <image name="logo_wunderground_rev" width="40" height="32"/>
+        <image name="logo_wunderground_white" width="50" height="33"/>
     </resources>
 </document>

@@ -25,11 +25,16 @@ namespace XWeather.Droid
 			   ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
 	public class WeatherActivity : BaseActivity, FloatingActionButton.IOnClickListener
 	{
+		int viewPagerCache;
+
 		ViewPager viewPager;
 
-		WeatherPagerAdapter PagerAdapter;
+		FloatingActionButton floatingButton;
 
-		LocationProvider LocationProvider;
+		WeatherPagerAdapter pagerAdapter;
+
+		LocationProvider locationProvider;
+
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
@@ -39,12 +44,12 @@ namespace XWeather.Droid
 
 			SetContentView (Resource.Layout.WeatherActivity);
 
-			LocationProvider = new LocationProvider (this);
+			locationProvider = new LocationProvider (this);
 
 
-			var fab = FindViewById<FloatingActionButton> (Resource.Id.floatingButton);
+			floatingButton = FindViewById<FloatingActionButton> (Resource.Id.floatingButton);
 
-			fab.SetOnClickListener (this);
+			floatingButton.SetOnClickListener (this);
 
 
 			setupViewPager ();
@@ -77,7 +82,7 @@ namespace XWeather.Droid
 		{
 			for (int i = 0; i < 3; i++) {
 
-				var fragment = PagerAdapter.GetFragmentAtPosition (i) as IRecyclerViewFragment;
+				var fragment = pagerAdapter.GetFragmentAtPosition (i) as IRecyclerViewFragment;
 
 				fragment?.Adapter?.NotifyDataSetChanged ();
 			}
@@ -86,20 +91,42 @@ namespace XWeather.Droid
 
 		void setupViewPager ()
 		{
-			PagerAdapter = new WeatherPagerAdapter (SupportFragmentManager);
+			pagerAdapter = new WeatherPagerAdapter (SupportFragmentManager);
 
 			viewPager = (ViewPager)FindViewById (Resource.Id.viewPager);
-			viewPager.Adapter = PagerAdapter;
+			viewPager.Adapter = pagerAdapter;
 
 			viewPager.CurrentItem = Settings.WeatherPage;
 
 			updateBackground ();
 
+
 			viewPager.PageSelected += (sender, e) => {
 
 				Settings.WeatherPage = e.Position;
 
+				floatingButton?.Show ();
+
 				updateBackground ();
+			};
+
+
+			viewPager.PageScrollStateChanged += (sender, e) => {
+
+				switch (e.State) {
+					case ViewPager.ScrollStateDragging:
+
+						viewPagerCache = viewPager.CurrentItem;
+
+						break;
+					case ViewPager.ScrollStateIdle:
+
+						var fragment = pagerAdapter?.GetFragmentAtPosition (viewPagerCache) as IRecyclerViewFragment;
+
+						fragment?.RecyclerView?.ScrollToPosition (0);
+
+						break;
+				}
 			};
 		}
 
@@ -108,8 +135,7 @@ namespace XWeather.Droid
 		{
 			var location = WuClient.Shared.Selected;
 
-			//var random = location == null || Settings.RandomBackgrounds;
-			var random = true;
+			var random = location == null || Settings.RandomBackgrounds;
 
 			var gradients = location.GetTimeOfDayGradient (random);
 
@@ -140,7 +166,7 @@ namespace XWeather.Droid
 
 		void getData ()
 		{
-#if DEBUG
+#if !DEBUG
 
 			Task.Run (async () => {
 
@@ -171,7 +197,7 @@ namespace XWeather.Droid
 
 			Task.Run (async () => {
 
-				var location = await LocationProvider.GetCurrentLocationAsync ();
+				var location = await locationProvider.GetCurrentLocationAsync ();
 
 				if (location != null) {
 

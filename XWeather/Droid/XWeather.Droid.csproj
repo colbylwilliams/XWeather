@@ -279,6 +279,7 @@
     <AndroidResource Include="Resources\drawable\i_share.xml" />
     <AndroidResource Include="Resources\drawable\i_search.xml" />
     <AndroidResource Include="Resources\drawable\i_list.xml" />
+    <AndroidResource Include="Resources\drawable\logo_wunderground_white.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utilities\" />
