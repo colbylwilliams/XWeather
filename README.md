@@ -4,17 +4,17 @@ A weather app built with Xamarin
 ![Screenshots](/images/xweather.png?raw=true "XWeather")
 
 
-## Setup
+## Getting Started
 
-You'll need a few Keys in order to build and run app locally:
+You'll need to obtain a few API Keys and add them to a `PrivateKeys.cs` file in order to build and run app locally.  You'll find instructions for obtaining and adding each key below. 
 
 
 ### PrivateKeys.cs
 
-First, move (or copy) the template private keys file `extrax/PrivateKeys.cs` into the constants directory `XWeather/XWeather/Constants`.
+First, move (or copy) the template private keys file `extras/PrivateKeys.cs` into the constants directory `XWeather/XWeather/Constants`.
 
 
-#### Weather Underground
+### Weather Underground
 
 XWeather gets weather data from Weather Underground's API.  There are static data files included in the iOS and Android app bundle that will allow you to build and run the app with "test data".  However, in order to get live weather data, add additional locations, etc., you'll need to create an Weather Underground account and obtain an API key.  The free "Developer" tier is sufficient to run the app.   
 
@@ -23,7 +23,7 @@ XWeather gets weather data from Weather Underground's API.  There are static dat
 * In `PrivateKeys.cs` set the value of `WuApiKey` to your Weather Underground API Key.
 
 
-#### Google Maps API key (Android)
+### Google Maps API key (Android)
 
 To use location services in the Android version of XWeather, you'll need to [obtain a Google Maps API key][9]  
 
@@ -31,11 +31,11 @@ To use location services in the Android version of XWeather, you'll need to [obt
 * In `PrivateKeys.cs` set the value of `GoogleMapsApiKey` to your Weather Underground API Key. 
 
 
-#### HockeyApp (optional)
+### HockeyApp (optional)
    
 [HockeyApp][10] is a platform to collect live crash reports, get feedback from your users, distribute your betas, recruit new testers, and analyze your test coverage.
 
-Setting up HockeyApp is completely optional.  If you'd rather skip this step for now, simply leave the values of `HockeyApiKey_iOS` and `HockeyApiKey_Droid` as empty strings.
+Setting up HockeyApp is completely optional.  You can set it up by following the steps listed below.  However, if you'd rather skip this step for now, simply leave the values of `HockeyApiKey_iOS` and `HockeyApiKey_Droid` as empty strings.
 
 * [Sign up][12] for new a HockeyApp account (or [login][13] to an existing one)
 * Follow the [How to create a new app][11] tutorial to create an iOS and Android app.
@@ -52,7 +52,7 @@ Setting up HockeyApp is completely optional.  If you'd rather skip this step for
 
 
 
-#### License
+## License
 The MIT License (MIT)
 Copyright (c) 2016 Colby Williams
 
