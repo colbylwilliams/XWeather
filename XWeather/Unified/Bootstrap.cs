@@ -1,6 +1,12 @@
-﻿#if __IOS__
+﻿using SettingsStudio;
 
-using HockeyApp.iOS;
+using ServiceStack;
+
+using ModernHttpClient;
+
+
+#if __IOS__
+
 using PclExportClient = ServiceStack.IosPclExportClient;
 
 #else
@@ -9,21 +15,13 @@ using PclExportClient = ServiceStack.MacPclExportClient;
 
 #endif
 
-using SettingsStudio;
-
-using ServiceStack;
-
-using ModernHttpClient;
-
-using XWeather.Constants;
-
 namespace XWeather.Unified
 {
 	public static class Bootstrap
 	{
 		public static void Run ()
 		{
-			configureHockeyApp ();
+			AnalyticsManager.Shared.ConfigureHockeyApp ();
 
 			XWeather.Bootstrap.Run ();
 
@@ -32,20 +30,6 @@ namespace XWeather.Unified
 			JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new NativeMessageHandler ();
 
 			Settings.RegisterDefaultSettings ();
-		}
-
-
-		static void configureHockeyApp ()
-		{
-#if __IOS__
-			var manager = BITHockeyManager.SharedHockeyManager;
-
-			manager.Configure (PrivateKeys.HockeyApiKey_iOS);
-
-			manager.DisableUpdateManager = true;
-
-			manager.StartManager ();
-#endif
 		}
 	}
 }

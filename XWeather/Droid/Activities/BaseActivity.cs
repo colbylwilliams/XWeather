@@ -4,8 +4,6 @@ using Android.Support.V7.App;
 
 using XWeather.Clients;
 
-using HockeyApp.Android;
-
 namespace XWeather.Droid
 {
 	public class BaseActivity : AppCompatActivity
@@ -18,7 +16,7 @@ namespace XWeather.Droid
 			WuClient.Shared.UpdatedSelected += HandleUpdatedSelectedLocation;
 			WuClient.Shared.LocationAdded += HandleNewLocationAdded;
 
-			Tracking.StartUsage (this);
+			AnalyticsManager.Shared.StartUsage (this);
 		}
 
 
@@ -29,7 +27,7 @@ namespace XWeather.Droid
 			WuClient.Shared.UpdatedSelected -= HandleUpdatedSelectedLocation;
 			WuClient.Shared.LocationAdded -= HandleNewLocationAdded;
 
-			Tracking.StopUsage (this);
+			AnalyticsManager.Shared.StopUsage (this);
 		}
 
 

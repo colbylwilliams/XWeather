@@ -215,5 +215,8 @@ Thumbs.db
 #bitrise
 .bitrise*
 
+#Visual Studio Code
+.vscode*
+
 [Ll]ocal/
 [Pp]rivateKeys.cs

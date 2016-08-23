@@ -22,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ColorExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\AttributedStringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\WuLocationExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\AnalyticsManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Constants\" />

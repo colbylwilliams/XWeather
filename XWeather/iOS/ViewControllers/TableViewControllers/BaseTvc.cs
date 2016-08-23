@@ -7,6 +7,7 @@ using UIKit;
 using SettingsStudio;
 
 using XWeather.Clients;
+using XWeather.Unified;
 
 namespace XWeather.iOS
 {
@@ -29,7 +30,7 @@ namespace XWeather.iOS
 		{
 			base.ViewDidLoad ();
 
-			// HockeyApp.iOS.BITHockeyManager.SharedHockeyManager.MetricsManager.TrackEvent()
+			//AnalyticsManager.Shared.TrackEvent ("foo");
 
 			View.BackgroundColor = UIColor.Clear;
 

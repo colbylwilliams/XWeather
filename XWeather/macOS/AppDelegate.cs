@@ -8,18 +8,6 @@ namespace XWeather.macOS
 	{
 		public AppDelegate ()
 		{
-			#region Configure HockeyApp
-
-			//var manager = BITHockeyManager.SharedHockeyManager;
-
-			//manager.Configure (AppKeys.HockeyAppKeyiOS);
-
-			//manager.DisableUpdateManager = true;
-
-			//manager.StartManager ();
-
-			#endregion
-
 			Unified.Bootstrap.Run ();
 		}
 

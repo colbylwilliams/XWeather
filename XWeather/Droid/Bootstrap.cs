@@ -1,10 +1,7 @@
 ﻿using Android.App;
 using Android.Content;
-using Android.Content.PM;
-using HockeyApp.Android;
-using HockeyApp.Android.Metrics;
+
 using SettingsStudio;
-using XWeather.Constants;
 
 namespace XWeather.Droid
 {
@@ -12,7 +9,7 @@ namespace XWeather.Droid
 	{
 		public static void Run (Context context, Application application)
 		{
-			configureHockeyApp (context, application);
+			AnalyticsManager.Shared.ConfigureHockeyApp (context, application);
 
 			XWeather.Bootstrap.Run ();
 
@@ -25,16 +22,6 @@ namespace XWeather.Droid
 			Settings.BuildNumber = application.PackageManager.GetPackageInfo (application.PackageName, 0).VersionCode.ToString ();
 
 			//Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init ();
-		}
-
-
-		static void configureHockeyApp (Context context, Application application)
-		{
-			CrashManager.Register (context, PrivateKeys.HockeyApiKey_Droid);
-
-			// UpdateManager.Register(this, PrivateKeys.HockeyApiKey_Droid);
-
-			MetricsManager.Register (context, application, PrivateKeys.HockeyApiKey_Droid);
 		}
 	}
 }
