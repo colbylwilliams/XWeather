@@ -8,8 +8,8 @@ using Foundation;
 using UIKit;
 
 using ServiceStack;
-using SettingsStudio;
 
+using SettingsStudio;
 
 using XWeather.Clients;
 using XWeather.Domain;
@@ -20,15 +20,10 @@ namespace XWeather.iOS
 	public partial class WeatherPvc : UIPageViewController
 	{
 
-		LocationProvider LocationProvider;
-
 		List<UITableViewController> Controllers = new List<UITableViewController> (3);
 
 
-		public WeatherPvc (IntPtr handle) : base (handle)
-		{
-			LocationProvider = new LocationProvider ();
-		}
+		public WeatherPvc (IntPtr handle) : base (handle) { }
 
 
 		public override void ViewDidLoad ()
@@ -53,10 +48,7 @@ namespace XWeather.iOS
 		}
 
 
-		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
-		{
-			updateToolbarButtons (false);
-		}
+		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender) => updateToolbarButtons (false);
 
 
 		public override UIStatusBarStyle PreferredStatusBarStyle () => UIStatusBarStyle.LightContent;
@@ -138,9 +130,6 @@ namespace XWeather.iOS
 		}
 
 
-		#region Views
-
-
 		void initControllers ()
 		{
 			Controllers = new List<UITableViewController> { Storyboard.Instantiate<DailyTvc> (), Storyboard.Instantiate<HourlyTvc> (), Storyboard.Instantiate<DetailsTvc> () };
@@ -208,54 +197,21 @@ namespace XWeather.iOS
 		}
 
 
-		#endregion
-
-
 		void getData ()
 		{
-#if !DEBUG
-			//Task.Run (async () => {
-
-			//await Task.Delay (1000);
-
-			foreach (var location in TestData.Locations) {
-
-				var name = location.name.Split (',') [0].Replace (' ', '_');
-
-				var path = NSBundle.MainBundle.PathForResource (name, "json");
-
-				using (var data = NSData.FromFile (path)) {
-
-					var json = NSString.FromData (data, NSStringEncoding.ASCIIStringEncoding).ToString ();
-
-					var weather = json?.FromJson<WuWeather> ();
-
-					WuClient.Shared.Locations.Add (new WuLocation (location, weather));
-				}
-			}
-
-			var i = new Random ().Next (5);
-
-			WuClient.Shared.Selected = WuClient.Shared.Locations [i];
-
-			//});
-
+#if DEBUG
+			TestDataProvider.InitTestDataAsync ();
 #else
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 
 			Task.Run (async () => {
 
-				var location = await LocationProvider.GetCurrentLocationAsync ();
+				await WuClient.Shared.GetLocationsAsync (Settings.LocationsJson);
 
-				if (location != null) {
+				BeginInvokeOnMainThread (() => {
 
-					await WuClient.Shared.GetLocations (Settings.LocationsJson, location.Coordinate.Latitude, location.Coordinate.Longitude);
-
-					BeginInvokeOnMainThread (() => {
-
-						UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
-					});
-				}
+					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
+				});
 			});
 #endif
 		}

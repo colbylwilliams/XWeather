@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 using Android.Gms.Location;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
 using Android.OS;
 using Android.Locations;
-using System.Threading.Tasks;
 using Android.App;
+using XWeather.Domain;
 
 #if DEBUG
 using static System.Diagnostics.Debug;
@@ -17,7 +18,7 @@ using static System.Console;
 
 namespace XWeather.Droid
 {
-	public class LocationProvider : Java.Lang.Object, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener, Android.Gms.Location.ILocationListener
+	public class LocationProvider : Java.Lang.Object, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener, Android.Gms.Location.ILocationListener, ILocationProvider
 	{
 		TaskCompletionSource<bool> ConnectTcs;
 		TaskCompletionSource<Location> LocationTcs;
@@ -50,6 +51,21 @@ namespace XWeather.Droid
 
 			WriteLine ($"Request priority set to status code {locRequest.Priority}, interval set to {locRequest.Interval} ms");
 		}
+
+
+		#region ILocationProvider
+
+		public async Task<LocationCoordinates> GetCurrentLocationCoordnatesAsync ()
+		{
+			var location = await GetCurrentLocationAsync ();
+
+			if (location != null)
+				return new LocationCoordinates { Latitude = location.Latitude, Longitude = location.Longitude };
+
+			return null;
+		}
+
+		#endregion
 
 
 		public async Task<Location> GetCurrentLocationAsync ()

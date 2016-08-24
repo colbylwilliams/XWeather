@@ -17,6 +17,14 @@ namespace XWeather.Clients
 		public static WuClient Shared => _shared ?? (_shared = new WuClient ());
 
 
+		JsonServiceClient _client;
+		JsonServiceClient client => _client ?? (_client = new JsonServiceClient ());
+
+
+		ILocationProvider _locationProvider;
+		ILocationProvider locationProvider => _locationProvider ?? (_locationProvider = LocationProviderFactory.Create ());
+
+
 		public event EventHandler LocationAdded;
 		public event EventHandler LocationRemoved;
 		public event EventHandler UpdatedSelected;
@@ -43,10 +51,6 @@ namespace XWeather.Clients
 		public bool HasCurrent => Selected != null;
 
 
-		JsonServiceClient _client;
-		JsonServiceClient client => _client ?? (_client = new JsonServiceClient ());
-
-
 		public async Task AddLocation (WuAcLocation location)
 		{
 			LocationAdded?.Invoke (this, EventArgs.Empty);
@@ -71,15 +75,17 @@ namespace XWeather.Clients
 		}
 
 
-		async Task<WuAcLocation> getCurrentLocation (double latitude, double longitude)
+		async Task<WuAcLocation> getCurrentLocation ()
 		{
-			var location = await GetAsync<GeoLookup> ($"/q/{latitude},{longitude}");
+			var coordnates = await locationProvider.GetCurrentLocationCoordnatesAsync ();
 
-			return location.ToWuAcLocation ();
+			var location = coordnates != null ? await GetAsync<GeoLookup> ($"/q/{coordnates.Latitude},{coordnates.Longitude}") : null;
+
+			return location?.ToWuAcLocation ();
 		}
 
 
-		public async Task GetLocations (string json, double latitude, double longitude)
+		public async Task GetLocationsAsync (string json)
 		{
 			var locations = json.GetLocations ();
 
@@ -88,7 +94,7 @@ namespace XWeather.Clients
 			if (oldCurrent != null) locations.Remove (oldCurrent);
 
 
-			var newCurrent = await getCurrentLocation (latitude, longitude);
+			var newCurrent = await getCurrentLocation ();
 
 			if (newCurrent != null) locations.Add (newCurrent);
 

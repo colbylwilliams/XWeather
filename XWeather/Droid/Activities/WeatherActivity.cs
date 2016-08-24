@@ -17,7 +17,6 @@ using SettingsStudio;
 using XWeather.Clients;
 using XWeather.Domain;
 
-
 namespace XWeather.Droid
 {
 	[Activity (Label = "XWeather", MainLauncher = true,
@@ -33,8 +32,6 @@ namespace XWeather.Droid
 
 		WeatherPagerAdapter pagerAdapter;
 
-		LocationProvider locationProvider;
-
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
@@ -43,8 +40,6 @@ namespace XWeather.Droid
 			base.OnCreate (savedInstanceState);
 
 			SetContentView (Resource.Layout.WeatherActivity);
-
-			locationProvider = new LocationProvider (this);
 
 
 			floatingButton = FindViewById<FloatingActionButton> (Resource.Id.floatingButton);
@@ -167,44 +162,9 @@ namespace XWeather.Droid
 		void getData ()
 		{
 #if DEBUG
-
-			Task.Run (async () => {
-
-				await Task.Delay (10);
-
-				foreach (var location in TestData.Locations) {
-
-					var name = location.name.Split (',') [0].Replace (' ', '_');
-
-					var path = $"{name}.json";
-
-					using (var sr = new StreamReader (Assets.Open (path))) {
-
-						var json = sr.ReadToEnd ();
-
-						var weather = json?.FromJson<WuWeather> ();
-
-						WuClient.Shared.Locations.Add (new WuLocation (location, weather));
-					}
-				}
-
-				var i = new Random ().Next (5);
-
-				WuClient.Shared.Selected = WuClient.Shared.Locations [i];
-			});
-
+			Task.Run (async () => await TestDataProvider.InitTestDataAsync (this));
 #else
-
-			Task.Run (async () => {
-
-				var location = await locationProvider.GetCurrentLocationAsync ();
-
-				if (location != null) {
-
-					await WuClient.Shared.GetLocations (Settings.LocationsJson, location.Latitude, location.Longitude);
-				}
-			});
-
+			Task.Run (async () => await WuClient.Shared.GetLocationsAsync (Settings.LocationsJson));
 #endif
 		}
 	}

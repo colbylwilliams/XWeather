@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 using CoreLocation;
 
-using XWeather.Unified;
+using XWeather.Domain;
 
 #if DEBUG
 using static System.Diagnostics.Debug;
@@ -13,9 +13,9 @@ using static System.Console;
 #endif
 
 
-namespace XWeather.iOS
+namespace XWeather.Unified
 {
-	public class LocationProvider
+	public class LocationProvider : ILocationProvider
 	{
 		TaskCompletionSource<CLLocation> ClLocationTcs;
 		TaskCompletionSource<CLAuthorizationStatus> ClAuthTcs;
@@ -33,6 +33,21 @@ namespace XWeather.iOS
 		}
 
 
+		#region ILocationProvider
+
+		public async Task<LocationCoordinates> GetCurrentLocationCoordnatesAsync ()
+		{
+			var location = await GetCurrentLocationAsync ();
+
+			if (location != null)
+				return new LocationCoordinates { Latitude = location.Coordinate.Latitude, Longitude = location.Coordinate.Longitude };
+
+			return null;
+		}
+
+		#endregion
+
+
 		public async Task<CLLocation> GetCurrentLocationAsync ()
 		{
 			Log ("GetCurrentLocationAsync");
@@ -43,16 +58,22 @@ namespace XWeather.iOS
 
 			ClLocationTcs = new TaskCompletionSource<CLLocation> ();
 
-			var status = CLLocationManager.Status;
+#if __IOS__
 
+			var status = CLLocationManager.Status;
 
 			if (status == CLAuthorizationStatus.NotDetermined) status = await getAuthorizationStatusAsync ();
 
-
 			Log ($"status: {status}");
 
+#endif
 
-			if (status == CLAuthorizationStatus.AuthorizedWhenInUse && CLLocationManager.LocationServicesEnabled) {
+
+			if (CLLocationManager.LocationServicesEnabled
+#if __IOS__
+			&& status == CLAuthorizationStatus.AuthorizedWhenInUse
+#endif
+			   ) {
 
 				ClLocationManager.LocationsUpdated += handleLocationsUpdated;
 
@@ -81,7 +102,11 @@ namespace XWeather.iOS
 
 			ClLocationManager.AuthorizationChanged += handleAuthorizationChanged;
 
+#if __IOS__
+
 			ClLocationManager.RequestWhenInUseAuthorization ();
+
+#endif
 
 			return ClAuthTcs.Task;
 		}
@@ -152,6 +177,8 @@ namespace XWeather.iOS
 		}
 
 
+#if __IOS__
+
 		public async Task<CLPlacemark> ReverseGeocodeLocation (CLLocation location)
 		{
 			var geocoder = new CLGeocoder ();
@@ -161,6 +188,7 @@ namespace XWeather.iOS
 			return placemarks?.FirstOrDefault ();
 		}
 
+#endif
 
 		bool log = true;
 

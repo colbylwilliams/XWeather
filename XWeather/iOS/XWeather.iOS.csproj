@@ -610,7 +610,6 @@
     <Compile Include="ViewControllers\WeatherNc.designer.cs">
       <DependentUpon>WeatherNc.cs</DependentUpon>
     </Compile>
-    <Compile Include="Providers\LocationProvider.cs" />
     <Compile Include="Extensions\ViewExtensions.cs" />
     <Compile Include="ViewControllers\RadarMapVc.cs" />
     <Compile Include="ViewControllers\RadarMapVc.designer.cs">

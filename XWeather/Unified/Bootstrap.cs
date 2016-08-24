@@ -23,6 +23,8 @@ namespace XWeather.Unified
 		{
 			AnalyticsManager.Shared.ConfigureHockeyApp ();
 
+			LocationProviderFactory.Create = () => new LocationProvider ();
+
 			XWeather.Bootstrap.Run ();
 
 			PclExportClient.Configure ();

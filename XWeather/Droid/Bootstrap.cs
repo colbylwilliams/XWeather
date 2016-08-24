@@ -7,9 +7,11 @@ namespace XWeather.Droid
 {
 	public static class Bootstrap
 	{
-		public static void Run (Context context, Application application)
+		public static void Run (Activity context, Application application)
 		{
 			AnalyticsManager.Shared.ConfigureHockeyApp (context, application);
+
+			LocationProviderFactory.Create = () => new LocationProvider (context);
 
 			XWeather.Bootstrap.Run ();
 
