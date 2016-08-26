@@ -15,7 +15,7 @@ namespace XWeather.Droid
 	{
 		WuLocation Location => WuClient.Shared.Selected;
 
-
+		// boom
 		GoogleMap map;
 		MapFragment mapFragment;
 
