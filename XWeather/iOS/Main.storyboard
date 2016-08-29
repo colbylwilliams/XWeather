@@ -92,7 +92,7 @@
                         <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC6-o6-zQv">
                             <state key="normal" image="i_add_sm"/>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="button_1"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="button_add"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="addButtonClicked:" destination="2wK-bM-6EZ" eventType="touchUpInside" id="ITZ-fG-R6B"/>

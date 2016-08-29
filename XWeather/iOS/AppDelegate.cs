@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using SettingsStudio;
 
 namespace XWeather.iOS
 {
@@ -18,8 +19,21 @@ namespace XWeather.iOS
 #if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start ();
 #endif
-
 			return true;
 		}
+
+#if ENABLE_TEST_CLOUD
+		[Export ("updateSettingsToImperial")]
+		public NSString UpdateSettingsToImperial ()
+		{
+			Settings.UomTemperature = TemperatureUnits.Celsius;
+			Settings.UomDistance = DistanceUnits.Kilometers;
+			Settings.UomPressure = PressureUnits.Millibars;
+			Settings.UomLength = LengthUnits.Millimeters;
+			Settings.UomSpeed = SpeedUnits.KilometersPerHour;
+
+			return new NSString ("done");
+		}
+#endif
 	}
 }

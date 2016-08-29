@@ -6,12 +6,15 @@ namespace XWeather.UITests
 {
 	public static class TestExtensions
 	{
-
-		public static void SearchFor (this IApp app, string searchString)
+		public static void SearchFor (this IApp app, Platform platform, string searchString)
 		{
-			app.ScrollUp (x => x.Class ("UITableView").Index (1), ScrollStrategy.Gesture);
+			//app.ScrollUp (x => x.Class ("UITableView").Index (1), ScrollStrategy.Gesture);
 
-			app.Screenshot ("Scroll Up to Search");
+			var ios = platform == Platform.iOS;
+
+			app.Tap (x => x.Id (ios ? "button_add" : "action_search"));
+
+			app.Screenshot ("Start Search");
 
 			try {
 
@@ -19,7 +22,7 @@ namespace XWeather.UITests
 
 			} catch (Exception) {
 
-				app.EnterText ("Search", searchString);
+				app.EnterText (ios ? "Search" : "search_src_text", searchString);
 
 			}
 
@@ -27,15 +30,27 @@ namespace XWeather.UITests
 		}
 
 
-		public static void SearchForAndSelect (this IApp app, string searchString, string selection, string waitFor)
+		public static void SearchForAndSelect (this IApp app, Platform platform, string searchString, string selection, string waitFor)
 		{
-			app.SearchFor (searchString);
+			app.SearchFor (platform, searchString);
 
 			app.Tap (x => x.Marked (selection));
 
 			app.WaitForElement (x => x.Marked (waitFor));
 
 			app.Screenshot ($"Added Location: '{selection}'");
+		}
+
+
+		public static void UpdateSetting (this IApp app, Platform platform, string settingTitle, string selection)
+		{
+			var ios = platform == Platform.iOS;
+
+			app.Tap (x => x.Marked (settingTitle));
+
+			app.Screenshot ($"Setting Change: '{settingTitle}'");
+
+			app.Tap (x => x.Marked (selection));
 		}
 	}
 }
