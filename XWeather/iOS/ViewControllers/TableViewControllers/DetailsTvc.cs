@@ -4,6 +4,7 @@ using Foundation;
 using UIKit;
 using SettingsStudio;
 using XWeather.Domain;
+using XWeather.Unified;
 
 namespace XWeather.iOS
 {
@@ -11,6 +12,14 @@ namespace XWeather.iOS
 	{
 
 		public DetailsTvc (IntPtr handle) : base (handle) { }
+
+
+		public override void ViewDidAppear (bool animated)
+		{
+			base.ViewDidAppear (animated);
+
+			AnalyticsManager.Shared.TrackEvent (TrackedEvents.WeatherDetails.Opened);
+		}
 
 
 		public override nint RowsInSection (UITableView tableView, nint section) => WeatherDetails.Count;

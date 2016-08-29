@@ -20,6 +20,8 @@ namespace XWeather.iOS
 	public partial class WeatherPvc : UIPageViewController
 	{
 
+		LocationProvider LocationProvider;
+
 		List<UITableViewController> Controllers = new List<UITableViewController> (3);
 
 
@@ -31,8 +33,6 @@ namespace XWeather.iOS
 			WuClient.Shared.UpdatedSelected += handleUpdatedCurrent;
 
 			base.ViewDidLoad ();
-
-			initEmptyView ();
 
 			initToolbar ();
 
@@ -46,7 +46,6 @@ namespace XWeather.iOS
 
 			var controller = NotificationCenter.NCWidgetController.GetWidgetController ();
 			controller?.SetHasContent (true, "com.xamarin.xweather.widget-extension");
-
 
 			updateToolbarButtons (true);
 		}
@@ -71,7 +70,9 @@ namespace XWeather.iOS
 
 			if (!string.IsNullOrEmpty (settingsString)) {
 				var settingsUrl = NSUrl.FromString (settingsString);
-				UIApplication.SharedApplication.OpenUrl (settingsUrl);
+				if (UIApplication.SharedApplication.OpenUrl (settingsUrl)) {
+					AnalyticsManager.Shared.TrackEvent (TrackedEvents.Settings.Opened);
+				}
 			}
 		}
 
@@ -98,8 +99,6 @@ namespace XWeather.iOS
 		void reloadData ()
 		{
 			updateBackground ();
-
-			if (WuClient.Shared.HasCurrent) removeEmptyView ();
 
 			foreach (var controller in Controllers) controller?.TableView?.ReloadData ();
 		}
@@ -153,6 +152,8 @@ namespace XWeather.iOS
 			SetViewControllers (new [] { Controllers [Settings.WeatherPage] }, UIPageViewControllerNavigationDirection.Forward, false, (finished) => { getData (); });
 
 			pageIndicator.CurrentPage = Settings.WeatherPage;
+
+			updateBackground ();
 		}
 
 
@@ -167,45 +168,9 @@ namespace XWeather.iOS
 		}
 
 
-		void initEmptyView ()
-		{
-			emptyView.TranslatesAutoresizingMaskIntoConstraints = false;
-
-			View.AddSubview (emptyView);
-
-			loadingIndicatorView.Hidden = true;
-
-			View.AddConstraints (NSLayoutConstraint.FromVisualFormat (@"H:|[emptyView]|", 0, "emptyView", emptyView));
-			View.AddConstraints (NSLayoutConstraint.FromVisualFormat (@"V:|[emptyView]|", 0, "emptyView", emptyView));
-
-			var layer = emptyView.Layer.Sublayers [0] as CAGradientLayer;
-
-			if (layer == null) {
-				layer = new CAGradientLayer ();
-				layer.Frame = View.Bounds;
-				emptyView.Layer.InsertSublayer (layer, 0);
-			}
-
-			layer.Colors = Colors.Gradients [7];
-		}
-
-
-		void removeEmptyView ()
-		{
-			if (emptyView.IsDescendantOfView (View)) {
-
-				loadingIndicatorView.StopAnimating ();
-
-				UIView.Animate (0.5, () => emptyView.Alpha = 0, () => emptyView.RemoveFromSuperview ());
-			}
-		}
-
-
-		LocationProvider LocationProvider;
-
 		void getData ()
 		{
-#if DEBUG
+#if !DEBUG
 			TestDataProvider.InitTestDataAsync ();
 #else
 			if (LocationProvider == null) LocationProvider = new LocationProvider ();

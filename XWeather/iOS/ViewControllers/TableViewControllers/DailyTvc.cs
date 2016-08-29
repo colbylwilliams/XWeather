@@ -5,9 +5,10 @@ using Foundation;
 using UIKit;
 
 using XWeather.Domain;
+using XWeather.Unified;
 
 namespace XWeather.iOS
-{ 
+{
 	public partial class DailyTvc : BaseTvc<DailyTvCell>
 	{
 
@@ -15,6 +16,14 @@ namespace XWeather.iOS
 
 
 		public DailyTvc (IntPtr handle) : base (handle) { }
+
+
+		public override void ViewDidAppear (bool animated)
+		{
+			base.ViewDidAppear (animated);
+
+			AnalyticsManager.Shared.TrackEvent (TrackedEvents.WeatherDaily.Opened);
+		}
 
 
 		public override nint RowsInSection (UITableView tableView, nint section) => Forecasts?.Count ?? 0;

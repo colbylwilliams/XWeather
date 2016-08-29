@@ -72,6 +72,8 @@ namespace XWeather.iOS
 			base.ViewDidAppear (animated);
 
 			WuClient.Shared.LocationAdded += handleLocationAdded;
+
+			AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Opened);
 		}
 
 
@@ -109,7 +111,7 @@ namespace XWeather.iOS
 			// set location as the selected location
 			WuClient.Shared.Selected = Locations [indexPath.Row];
 
-			AnalyticsManager.Shared.TrackEvent (TrackedEvents.SelectedLocation);
+			AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Selected);
 
 			DismissViewController (true, null);
 		}
@@ -130,6 +132,8 @@ namespace XWeather.iOS
 				tableView.DeleteRows (new [] { indexPath }, UITableViewRowAnimation.Automatic);
 
 				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
+
+				AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Removed);
 			}
 		}
 
@@ -139,8 +143,6 @@ namespace XWeather.iOS
 			if (searchController != null && !searchController.Active) {
 
 				TableView.SetContentOffset (new CGPoint (0, -21), true);
-
-				//searchController.Active = true;
 			}
 		}
 
@@ -152,7 +154,10 @@ namespace XWeather.iOS
 				if (searchController.Active) {
 
 					searchController.Active = false;
+
 				} else {
+
+					AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Added);
 
 					TableView?.ReloadData ();
 				}

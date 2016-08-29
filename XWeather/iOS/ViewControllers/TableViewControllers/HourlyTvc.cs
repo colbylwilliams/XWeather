@@ -5,6 +5,7 @@ using Foundation;
 using UIKit;
 
 using XWeather.Domain;
+using XWeather.Unified;
 
 namespace XWeather.iOS
 {
@@ -13,6 +14,14 @@ namespace XWeather.iOS
 		static int day = DateTime.Now.Day;
 
 		List<HourlyForecast> Forecasts => Location?.HourlyForecast (day);
+
+
+		public override void ViewDidAppear (bool animated)
+		{
+			base.ViewDidAppear (animated);
+
+			AnalyticsManager.Shared.TrackEvent (TrackedEvents.WeatherHourly.Opened);
+		}
 
 
 		public HourlyTvc (IntPtr handle) : base (handle) { }

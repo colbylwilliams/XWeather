@@ -10,6 +10,7 @@ using MapKit;
 using UIKit;
 
 using XWeather.Clients;
+using XWeather.Unified;
 
 namespace XWeather.iOS
 {
@@ -41,6 +42,8 @@ namespace XWeather.iOS
 		public override void ViewDidAppear (bool animated)
 		{
 			base.ViewDidAppear (animated);
+
+			AnalyticsManager.Shared.TrackEvent (TrackedEvents.WeatherRadar.Opened);
 
 			animateRadar = true;
 

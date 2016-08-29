@@ -29,8 +29,6 @@ namespace XWeather.iOS
 		{
 			base.ViewDidLoad ();
 
-			//initEmptyView ();
-
 			if (!UIAccessibility.IsReduceTransparencyEnabled) {
 
 				TableView.BackgroundColor = UIColor.Clear;
@@ -39,6 +37,13 @@ namespace XWeather.iOS
 
 				TableView.BackgroundView = new UIVisualEffectView (blur);
 			}
+		}
+
+		public override void ViewDidAppear (bool animated)
+		{
+			base.ViewDidAppear (animated);
+
+			AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationSearch.Opened);
 		}
 
 
@@ -60,6 +65,8 @@ namespace XWeather.iOS
 
 		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 		{
+			AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationSearch.Selected);
+
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 
 			var location = LocationResults [indexPath.Row];
