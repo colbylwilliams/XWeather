@@ -176,11 +176,6 @@
       <Project>{35B9C6F1-6311-42AC-9DD2-B8377F16EC8B}</Project>
       <Name>XWeather</Name>
     </ProjectReference>
-    <ProjectReference Include="..\iOS.Today\XWeather.iOS.Today.csproj">
-      <IsAppExtension>true</IsAppExtension>
-      <Project>{9DB5A323-0FCF-437F-B91D-0BCE2C5C521C}</Project>
-      <Name>XWeather.iOS.Today</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">

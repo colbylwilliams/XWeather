@@ -40,12 +40,6 @@
       <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
       <Private>False</Private>
     </ProjectReference>
-      <ProjectReference Include="..\iOS.Today\XWeather.iOS.Today.csproj">
-      <Project>{9DB5A323-0FCF-437F-B91D-0BCE2C5C521C}</Project>
-      <Name>XWeather.iOS.Today</Name>
-      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
-      <Private>False</Private>
-    </ProjectReference>
     <ProjectReference Include="..\Droid\XWeather.Droid.csproj">
       <Project>{F61CFA34-47FF-4168-81FA-B9C3E3C6A2DB}</Project>
       <Name>XWeather.Droid</Name>
