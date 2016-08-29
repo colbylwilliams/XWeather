@@ -46,7 +46,16 @@ namespace XWeather.UITests
 		{
 			var ios = platform == Platform.iOS;
 
-			app.Tap (x => x.Marked (settingTitle));
+			try {
+
+				app.Tap (x => x.Marked (settingTitle));
+
+			} catch (Exception) {
+
+				app.ScrollDown ();
+
+				app.Tap (x => x.Marked (settingTitle));
+			}
 
 			app.Screenshot ($"Setting Change: '{settingTitle}'");
 

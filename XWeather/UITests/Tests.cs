@@ -74,6 +74,10 @@ namespace XWeather.UITests
 		[Test]
 		public void AutoCompleteSearch ()
 		{
+			app.Screenshot ("App Launched");
+
+			app.WaitForElement (x => x.Id (iOS ? "label_1" : "DailyListItem_dayLabel").Index (2), "Timed out waiting for weather data from Weather Underground");
+
 			app.Tap (x => x.Id (iOS ? "button_locations" : "floatingButton"));
 
 			app.SearchForAndSelect (platform, "San Fr", "San Francisco, California", "San Francisco");
