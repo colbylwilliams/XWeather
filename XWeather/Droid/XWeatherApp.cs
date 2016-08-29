@@ -34,6 +34,7 @@ namespace XWeather.Droid
 		{
 			base.OnCreate ();
 
+            //moved to Activity
 			//Bootstrap.Run (Context, this);
 		}
 	}
