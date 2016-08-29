@@ -1,7 +1,13 @@
 # XWeather
 XWeather is a weather app for iOS and Android built with Xamarin.
 
-![Screenshots](/images/xweather.png?raw=true "XWeather")
+![ios-daily](/images/xweather-ios-daily.png?raw=true "ios-daily") | ![ios-hourly](/images/xweather-ios-hourly.png?raw=true "ios-hourly") | ![ios-details](/images/xweather-ios-details.png?raw=true "ios-details") | ![ios-locations](/images/xweather-ios-locations.png?raw=true "ios-locations") | ![ios-search](/images/xweather-ios-search.png?raw=true "ios-search")
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+
+   
+![android-daily](/images/xweather-android-daily.png?raw=true "android-daily") | ![android-hourly](/images/xweather-android-hourly.png?raw=true "android-hourly") | ![android-details](/images/xweather-android-details.png?raw=true "android-details") | ![android-locations](/images/xweather-android-locations.png?raw=true "android-locations") | ![android-search](/images/xweather-android-search.png?raw=true "android-search")
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+   
 
 ## Xamarin Test Cloud
 
