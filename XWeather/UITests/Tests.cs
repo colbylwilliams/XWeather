@@ -143,15 +143,15 @@ namespace XWeather.UITests
 				app.Back ();
 
 
-			app.Screenshot ("Detailed Conditions (Imperial)");
+			app.Screenshot ("Detailed Conditions (Metric)");
 
 			app.SwipeLeftToRight ();
 
-			app.Screenshot ("Hourly Forecast (Imperial)");
+			app.Screenshot ("Hourly Forecast (Metric)");
 
 			app.SwipeLeftToRight ();
 
-			app.Screenshot ("Daily Forecast (Weather Data Loaded) (Imperial)");
+			app.Screenshot ("Daily Forecast (Metric)");
 		}
 	}
 }
