@@ -76,8 +76,6 @@ namespace XWeather.UITests
 		{
 			app.Tap (x => x.Id (iOS ? "button_locations" : "floatingButton"));
 
-			app.WaitForElement (x => x.Id (iOS ? "label_1" : "LocationListItem_nameLabel").Index (2), "Timed out waiting for weather data from Weather Underground");
-
 			app.SearchForAndSelect (platform, "San Fr", "San Francisco, California", "San Francisco");
 
 			app.SearchForAndSelect (platform, "Atlan", "Atlanta, Georgia", "Atlanta");
