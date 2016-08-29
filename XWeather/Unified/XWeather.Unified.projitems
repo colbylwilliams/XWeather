@@ -23,7 +23,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\AttributedStringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\WuLocationExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\AnalyticsManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Providers\LocationProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Providers\TestDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>

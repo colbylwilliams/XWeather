@@ -44,6 +44,10 @@ namespace XWeather.iOS
 		{
 			base.ViewWillAppear (animated);
 
+			var controller = NotificationCenter.NCWidgetController.GetWidgetController ();
+			controller?.SetHasContent (true, "com.xamarin.xweather.widget-extension");
+
+
 			updateToolbarButtons (true);
 		}
 
@@ -197,16 +201,22 @@ namespace XWeather.iOS
 		}
 
 
+		LocationProvider LocationProvider;
+
 		void getData ()
 		{
 #if DEBUG
 			TestDataProvider.InitTestDataAsync ();
 #else
+			if (LocationProvider == null) LocationProvider = new LocationProvider ();
+
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 
 			Task.Run (async () => {
 
-				await WuClient.Shared.GetLocationsAsync (Settings.LocationsJson);
+				var location = await LocationProvider.GetCurrentLocationCoordnatesAsync ();
+
+				await WuClient.Shared.GetLocations (Settings.LocationsJson, location);
 
 				BeginInvokeOnMainThread (() => {
 

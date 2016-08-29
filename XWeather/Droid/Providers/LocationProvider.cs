@@ -7,6 +7,7 @@ using Android.Gms.Common.Apis;
 using Android.OS;
 using Android.Locations;
 using Android.App;
+
 using XWeather.Domain;
 
 #if DEBUG
@@ -18,7 +19,7 @@ using static System.Console;
 
 namespace XWeather.Droid
 {
-	public class LocationProvider : Java.Lang.Object, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener, Android.Gms.Location.ILocationListener, ILocationProvider
+	public class LocationProvider : Java.Lang.Object, GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener, Android.Gms.Location.ILocationListener
 	{
 		TaskCompletionSource<bool> ConnectTcs;
 		TaskCompletionSource<Location> LocationTcs;
@@ -53,8 +54,6 @@ namespace XWeather.Droid
 		}
 
 
-		#region ILocationProvider
-
 		public async Task<LocationCoordinates> GetCurrentLocationCoordnatesAsync ()
 		{
 			var location = await GetCurrentLocationAsync ();
@@ -64,8 +63,6 @@ namespace XWeather.Droid
 
 			return null;
 		}
-
-		#endregion
 
 
 		public async Task<Location> GetCurrentLocationAsync ()

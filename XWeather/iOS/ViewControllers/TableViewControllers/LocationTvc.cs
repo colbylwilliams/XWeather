@@ -109,6 +109,8 @@ namespace XWeather.iOS
 			// set location as the selected location
 			WuClient.Shared.Selected = Locations [indexPath.Row];
 
+			AnalyticsManager.Shared.TrackEvent (TrackedEvents.SelectedLocation);
+
 			DismissViewController (true, null);
 		}
 

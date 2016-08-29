@@ -1,5 +1,6 @@
 ﻿using XWeather.Constants;
 
+
 namespace XWeather.Unified
 {
 	public class AnalyticsManager
@@ -8,6 +9,9 @@ namespace XWeather.Unified
 
 		public static AnalyticsManager Shared => _shared ?? (_shared = new AnalyticsManager ());
 
+#if __IOS__
+		HockeyApp.iOS.BITHockeyManager manager => HockeyApp.iOS.BITHockeyManager.SharedHockeyManager;
+#endif
 
 		bool managerStarted;
 
@@ -16,11 +20,12 @@ namespace XWeather.Unified
 #if __IOS__
 			if (!string.IsNullOrEmpty (PrivateKeys.HockeyApiKey_iOS)) {
 
-				var manager = HockeyApp.iOS.BITHockeyManager.SharedHockeyManager;
-
 				manager.Configure (PrivateKeys.HockeyApiKey_iOS);
 
-				manager.DisableUpdateManager = true;
+				manager.DisableCrashManager = false;
+				manager.DisableUpdateManager = false;
+				manager.DisableMetricsManager = false;
+				manager.DisableInstallTracking = false;
 
 				manager.StartManager ();
 
@@ -33,7 +38,9 @@ namespace XWeather.Unified
 		{
 #if __IOS__
 			if (managerStarted)
-				HockeyApp.iOS.BITHockeyManager.SharedHockeyManager.MetricsManager.TrackEvent (eventName);
+				manager.MetricsManager.TrackEvent (eventName);
+
+			System.Diagnostics.Debug.WriteLine ($"[AnalyticsManager] TrackEvent: '{eventName}'");
 #endif
 		}
 	}

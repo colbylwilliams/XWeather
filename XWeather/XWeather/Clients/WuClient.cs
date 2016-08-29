@@ -21,10 +21,6 @@ namespace XWeather.Clients
 		JsonServiceClient client => _client ?? (_client = new JsonServiceClient ());
 
 
-		ILocationProvider _locationProvider;
-		ILocationProvider locationProvider => _locationProvider ?? (_locationProvider = LocationProviderFactory.Create ());
-
-
 		public event EventHandler LocationAdded;
 		public event EventHandler LocationRemoved;
 		public event EventHandler UpdatedSelected;
@@ -75,17 +71,15 @@ namespace XWeather.Clients
 		}
 
 
-		async Task<WuAcLocation> getCurrentLocation ()
+		async Task<WuAcLocation> getCurrentLocation (LocationCoordinates coordnates)
 		{
-			var coordnates = await locationProvider.GetCurrentLocationCoordnatesAsync ();
-
 			var location = coordnates != null ? await GetAsync<GeoLookup> ($"/q/{coordnates.Latitude},{coordnates.Longitude}") : null;
 
 			return location?.ToWuAcLocation ();
 		}
 
 
-		public async Task GetLocationsAsync (string json)
+		public async Task GetLocations (string json, LocationCoordinates coordnates)
 		{
 			var locations = json.GetLocations ();
 
@@ -94,13 +88,15 @@ namespace XWeather.Clients
 			if (oldCurrent != null) locations.Remove (oldCurrent);
 
 
-			var newCurrent = await getCurrentLocation ();
+			var newCurrent = await getCurrentLocation (coordnates);
 
-			if (newCurrent != null) locations.Add (newCurrent);
+			if (newCurrent != null) {
 
+				locations.Add (newCurrent);
 
-			// if the previous current was selected, or theres not one selected, select this one
-			newCurrent.Selected |= oldCurrent?.Selected ?? false || !locations.Any (l => l.Selected);
+				// if the previous current was selected, or theres not one selected, select this one
+				newCurrent.Selected |= oldCurrent?.Selected ?? false || !locations.Any (l => l.Selected);
+			}
 
 			await GetLocations (locations);
 		}

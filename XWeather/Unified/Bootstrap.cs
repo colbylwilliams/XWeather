@@ -8,6 +8,7 @@ using ModernHttpClient;
 #if __IOS__
 
 using PclExportClient = ServiceStack.IosPclExportClient;
+using LocationProvider = XWeather.iOS.LocationProvider;
 
 #else
 
@@ -22,8 +23,6 @@ namespace XWeather.Unified
 		public static void Run ()
 		{
 			AnalyticsManager.Shared.ConfigureHockeyApp ();
-
-			LocationProviderFactory.Create = () => new LocationProvider ();
 
 			XWeather.Bootstrap.Run ();
 

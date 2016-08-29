@@ -158,13 +158,21 @@ namespace XWeather.Droid
 			}
 		}
 
+		LocationProvider LocationProvider;
 
 		void getData ()
 		{
 #if DEBUG
 			Task.Run (async () => await TestDataProvider.InitTestDataAsync (this));
 #else
-			Task.Run (async () => await WuClient.Shared.GetLocationsAsync (Settings.LocationsJson));
+			if (LocationProvider == null) LocationProvider = new LocationProvider (this);
+
+			Task.Run (async () => {
+
+				var location = await LocationProvider.GetCurrentLocationCoordnatesAsync ();
+
+				await WuClient.Shared.GetLocations (Settings.LocationsJson, location);
+			});
 #endif
 		}
 	}

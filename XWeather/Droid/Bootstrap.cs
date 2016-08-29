@@ -11,8 +11,6 @@ namespace XWeather.Droid
 		{
 			AnalyticsManager.Shared.ConfigureHockeyApp (context, application);
 
-			LocationProviderFactory.Create = () => new LocationProvider (context);
-
 			XWeather.Bootstrap.Run ();
 
 			ServiceStack.AndroidPclExportClient.Configure ();

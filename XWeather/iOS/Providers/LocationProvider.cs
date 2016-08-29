@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CoreLocation;
 
 using XWeather.Domain;
+using XWeather.Unified;
 
 #if DEBUG
 using static System.Diagnostics.Debug;
@@ -12,10 +13,9 @@ using static System.Diagnostics.Debug;
 using static System.Console;
 #endif
 
-
-namespace XWeather.Unified
+namespace XWeather.iOS
 {
-	public class LocationProvider : ILocationProvider
+	public class LocationProvider
 	{
 		TaskCompletionSource<CLLocation> ClLocationTcs;
 		TaskCompletionSource<CLAuthorizationStatus> ClAuthTcs;
@@ -33,8 +33,6 @@ namespace XWeather.Unified
 		}
 
 
-		#region ILocationProvider
-
 		public async Task<LocationCoordinates> GetCurrentLocationCoordnatesAsync ()
 		{
 			var location = await GetCurrentLocationAsync ();
@@ -44,8 +42,6 @@ namespace XWeather.Unified
 
 			return null;
 		}
-
-		#endregion
 
 
 		public async Task<CLLocation> GetCurrentLocationAsync ()
@@ -58,7 +54,6 @@ namespace XWeather.Unified
 
 			ClLocationTcs = new TaskCompletionSource<CLLocation> ();
 
-#if __IOS__
 
 			var status = CLLocationManager.Status;
 
@@ -66,14 +61,8 @@ namespace XWeather.Unified
 
 			Log ($"status: {status}");
 
-#endif
 
-
-			if (CLLocationManager.LocationServicesEnabled
-#if __IOS__
-			&& status == CLAuthorizationStatus.AuthorizedWhenInUse
-#endif
-			   ) {
+			if (CLLocationManager.LocationServicesEnabled && status == CLAuthorizationStatus.AuthorizedWhenInUse) {
 
 				ClLocationManager.LocationsUpdated += handleLocationsUpdated;
 
@@ -102,11 +91,7 @@ namespace XWeather.Unified
 
 			ClLocationManager.AuthorizationChanged += handleAuthorizationChanged;
 
-#if __IOS__
-
 			ClLocationManager.RequestWhenInUseAuthorization ();
-
-#endif
 
 			return ClAuthTcs.Task;
 		}
@@ -153,6 +138,7 @@ namespace XWeather.Unified
 					Log ($"Location was too old: ({timedelta})");
 
 					ClLocationManager.LocationsUpdated += handleLocationsUpdated;
+
 					ClLocationManager.StartUpdatingLocation ();
 
 					Log ("StartUpdatingLocation");
@@ -177,8 +163,6 @@ namespace XWeather.Unified
 		}
 
 
-#if __IOS__
-
 		public async Task<CLPlacemark> ReverseGeocodeLocation (CLLocation location)
 		{
 			var geocoder = new CLGeocoder ();
@@ -187,8 +171,6 @@ namespace XWeather.Unified
 
 			return placemarks?.FirstOrDefault ();
 		}
-
-#endif
 
 		bool log = true;
 

@@ -20,12 +20,12 @@
     <WarningLevel>4</WarningLevel>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
-    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchFastDev>false</MtouchFastDev>
     <MtouchProfiling>true</MtouchProfiling>
     <MtouchUseSGen>true</MtouchUseSGen>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>i386</MtouchArch>
+    <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
@@ -39,6 +39,7 @@
       </CustomCommands>
     </CustomCommands>
     <CodesignProvision>5f69129c-412e-4ff6-a4f1-f44d89e79819</CodesignProvision>
+    <DeviceSpecificBuild>false</DeviceSpecificBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>pdbonly</DebugType>
@@ -174,6 +175,11 @@
     <ProjectReference Include="..\XWeather\XWeather.csproj">
       <Project>{35B9C6F1-6311-42AC-9DD2-B8377F16EC8B}</Project>
       <Name>XWeather</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iOS.Today\XWeather.iOS.Today.csproj">
+      <IsAppExtension>true</IsAppExtension>
+      <Project>{9DB5A323-0FCF-437F-B91D-0BCE2C5C521C}</Project>
+      <Name>XWeather.iOS.Today</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -508,6 +514,9 @@
     <ImageAsset Include="Assets.xcassets\logo_wunderground_rev.imageset\logo_wunderground_rev.pdf" />
     <ImageAsset Include="Assets.xcassets\logo_wunderground_white.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\logo_wunderground_white.imageset\logo_wunderground_white.pdf" />
+    <ImageAsset Include="Assets.xcassets\bg_launch.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\bg_launch.imageset\bg_launch.pdf" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -533,6 +542,7 @@
     <Folder Include="Assets.xcassets\i_add_sm.imageset\" />
     <Folder Include="Assets.xcassets\logo_wunderground_rev.imageset\" />
     <Folder Include="Assets.xcassets\logo_wunderground_white.imageset\" />
+    <Folder Include="Assets.xcassets\bg_launch.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -617,6 +627,7 @@
     </Compile>
     <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="DailyGraphView.cs" />
+    <Compile Include="Providers\LocationProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Settings.bundle\Root.plist" />
