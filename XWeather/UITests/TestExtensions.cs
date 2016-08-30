@@ -34,7 +34,17 @@ namespace XWeather.UITests
 		{
 			app.SearchFor (platform, searchString);
 
-			app.Tap (x => x.Marked (selection));
+			try {
+
+				app.Tap (x => x.Marked (selection));
+
+			} catch (Exception) {
+
+				app.SearchFor (platform, searchString);
+
+				app.Tap (x => x.Marked (selection));
+			}
+
 
 			app.WaitForElement (x => x.Marked (waitFor));
 
