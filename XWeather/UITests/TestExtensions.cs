@@ -81,7 +81,7 @@ namespace XWeather.UITests
 
 			} catch (Exception) {
 
-				app.SwipeRightToLeft (swipeSpeed: 800);
+				app.SwipeRightToLeft (swipePercentage: 0.70);
 
 				app.WaitForElement (x => x.Id (waitFor).Index (2), $"Timed out waiting element with ID: {waitFor}");
 			}
@@ -98,7 +98,7 @@ namespace XWeather.UITests
 
 			} catch (Exception) {
 
-				app.SwipeLeftToRight (swipeSpeed: 800);
+				app.SwipeLeftToRight (swipePercentage: 0.70);
 
 				app.WaitForElement (x => x.Id (waitFor).Index (2), $"Timed out waiting element with ID: {waitFor}");
 			}
