@@ -8,8 +8,6 @@ namespace XWeather.UITests
 	{
 		public static void SearchFor (this IApp app, Platform platform, string searchString)
 		{
-			//app.ScrollUp (x => x.Class ("UITableView").Index (1), ScrollStrategy.Gesture);
-
 			var ios = platform == Platform.iOS;
 
 			app.Tap (x => x.Id (ios ? "button_add" : "action_search"));
@@ -39,6 +37,8 @@ namespace XWeather.UITests
 				app.Tap (x => x.Marked (selection));
 
 			} catch (Exception) {
+
+				app.ClearText ();
 
 				app.SearchFor (platform, searchString);
 

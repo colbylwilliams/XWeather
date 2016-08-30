@@ -11,8 +11,8 @@ namespace XWeather.UITests
 		bool iOS => platform == Platform.iOS;
 
 		IApp app;
-		Platform platform;
 
+		readonly Platform platform;
 
 		public Tests (Platform platform)
 		{
@@ -25,6 +25,7 @@ namespace XWeather.UITests
 		{
 			app = AppInitializer.StartApp (platform);
 		}
+
 
 		//[Test]
 		//public void repl () => app.Repl ();
