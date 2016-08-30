@@ -14,13 +14,20 @@ namespace XWeather.UITests
 
 			app.Screenshot ("Start Search");
 
+
 			try {
 
-				app.EnterText (searchString);
+				// type in each char one at a time
+				foreach (var item in searchString)
+					app.EnterText (item.ToString ());
 
 			} catch (Exception) {
 
-				app.EnterText (ios ? "Search" : "search_src_text", searchString);
+				// clear and try again
+				app.ClearText ();
+
+				foreach (var item in searchString)
+					app.EnterText (ios ? "Search" : "search_src_text", item.ToString ());
 
 			}
 
@@ -32,36 +39,27 @@ namespace XWeather.UITests
 		{
 			app.SearchFor (platform, searchString);
 
-			try {
+			app.WaitForElement (x => x.Marked (selection));
 
-				app.Tap (x => x.Marked (selection));
 
-			} catch (Exception) {
-
-				app.ClearText ();
-
-				app.SearchFor (platform, searchString);
-
-				app.Tap (x => x.Marked (selection));
-			}
-
+			app.Tap (x => x.Marked (selection));
 
 			app.WaitForElement (x => x.Marked (waitFor));
+
 
 			app.Screenshot ($"Added Location: '{selection}'");
 		}
 
 
-		public static void UpdateSetting (this IApp app, Platform platform, string settingTitle, string selection)
+		public static void UpdateAndroidSetting (this IApp app, string settingTitle, string selection)
 		{
-			var ios = platform == Platform.iOS;
-
 			try {
 
 				app.Tap (x => x.Marked (settingTitle));
 
 			} catch (Exception) {
 
+				// may be below the fold, scroll down and try agian
 				app.ScrollDown ();
 
 				app.Tap (x => x.Marked (settingTitle));
@@ -70,6 +68,40 @@ namespace XWeather.UITests
 			app.Screenshot ($"Setting Change: '{settingTitle}'");
 
 			app.Tap (x => x.Marked (selection));
+		}
+
+
+		public static void SwipeRightToLeftWithIdCheck (this IApp app, string waitFor)
+		{
+			app.SwipeRightToLeft ();
+
+			try {
+
+				app.WaitForElement (x => x.Id (waitFor).Index (2), $"Timed out waiting element with ID: {waitFor}");
+
+			} catch (Exception) {
+
+				app.SwipeRightToLeft (swipeSpeed: 800);
+
+				app.WaitForElement (x => x.Id (waitFor).Index (2), $"Timed out waiting element with ID: {waitFor}");
+			}
+		}
+
+
+		public static void SwipeLeftToRightWithIdCheck (this IApp app, string waitFor)
+		{
+			app.SwipeLeftToRight ();
+
+			try {
+
+				app.WaitForElement (x => x.Id (waitFor).Index (2), $"Timed out waiting element with ID: {waitFor}");
+
+			} catch (Exception) {
+
+				app.SwipeLeftToRight (swipeSpeed: 800);
+
+				app.WaitForElement (x => x.Id (waitFor).Index (2), $"Timed out waiting element with ID: {waitFor}");
+			}
 		}
 	}
 }

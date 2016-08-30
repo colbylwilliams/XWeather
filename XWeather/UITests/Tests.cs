@@ -36,15 +36,15 @@ namespace XWeather.UITests
 		{
 			app.Screenshot ("App Launched");
 
-			app.WaitForElement (x => x.Id (iOS ? "label_1" : "DailyListItem_dayLabel").Index (2), "Timed out waiting for weather data from Weather Underground");
+			app.WaitForElement (x => x.Id (iOS ? "DailyTvCell_dayLabel" : "DailyListItem_dayLabel").Index (2), "Timed out waiting for weather data from Weather Underground");
 
 			app.Screenshot ("Daily Forecast (Weather Data Loaded)");
 
-			app.SwipeRightToLeft ();
+			app.SwipeRightToLeftWithIdCheck (iOS ? "HourlyTvCell_hourLabel" : "HourlyListItem_hourLabel");
 
 			app.Screenshot ("Hourly Forecast");
 
-			app.SwipeRightToLeft ();
+			app.SwipeRightToLeftWithIdCheck (iOS ? "DetailsTvCell_valueLabel" : "DetailsListItem_valueLabel");
 
 			app.Screenshot ("Detailed Conditions ");
 
@@ -77,7 +77,7 @@ namespace XWeather.UITests
 		{
 			app.Screenshot ("App Launched");
 
-			app.WaitForElement (x => x.Id (iOS ? "label_1" : "DailyListItem_dayLabel").Index (2), "Timed out waiting for weather data from Weather Underground");
+			app.WaitForElement (x => x.Id (iOS ? "DailyTvCell_dayLabel" : "DailyListItem_dayLabel").Index (2), "Timed out waiting for weather data from Weather Underground");
 
 			app.Tap (x => x.Id (iOS ? "button_locations" : "floatingButton"));
 
@@ -100,15 +100,15 @@ namespace XWeather.UITests
 		{
 			app.Screenshot ("App Launched");
 
-			app.WaitForElement (x => x.Id (iOS ? "label_1" : "DailyListItem_dayLabel").Index (2), "Timed out waiting for weather data from Weather Underground");
+			app.WaitForElement (x => x.Id (iOS ? "DailyTvCell_dayLabel" : "DailyListItem_dayLabel").Index (2), "Timed out waiting for weather data from Weather Underground");
 
 			app.Screenshot ("Daily Forecast (Weather Data Loaded) (Imperial)");
 
-			app.SwipeRightToLeft ();
+			app.SwipeRightToLeftWithIdCheck (iOS ? "HourlyTvCell_hourLabel" : "HourlyListItem_hourLabel");
 
 			app.Screenshot ("Hourly Forecast (Imperial)");
 
-			app.SwipeRightToLeft ();
+			app.SwipeRightToLeftWithIdCheck (iOS ? "DetailsTvCell_valueLabel" : "DetailsListItem_valueLabel");
 
 			app.Screenshot ("Detailed Conditions (Imperial)");
 
@@ -125,15 +125,15 @@ namespace XWeather.UITests
 
 				app.Screenshot ("Settings (Imperial)");
 
-				app.UpdateSetting (platform, "Temperature", "Celsius");
+				app.UpdateAndroidSetting ("Temperature", "Celsius");
 
-				app.UpdateSetting (platform, "Distance", "Kilometers");
+				app.UpdateAndroidSetting ("Distance", "Kilometers");
 
-				app.UpdateSetting (platform, "Pressure", "Millibars");
+				app.UpdateAndroidSetting ("Pressure", "Millibars");
 
-				app.UpdateSetting (platform, "Length", "Millimeters");
+				app.UpdateAndroidSetting ("Length", "Millimeters");
 
-				app.UpdateSetting (platform, "Speed", "Kilometers per hour");
+				app.UpdateAndroidSetting ("Speed", "Kilometers per hour");
 
 				app.Screenshot ("Settings (Metric)");
 
@@ -148,11 +148,11 @@ namespace XWeather.UITests
 
 			app.Screenshot ("Detailed Conditions (Metric)");
 
-			app.SwipeLeftToRight ();
+			app.SwipeLeftToRightWithIdCheck (iOS ? "HourlyTvCell_hourLabel" : "HourlyListItem_hourLabel");
 
 			app.Screenshot ("Hourly Forecast (Metric)");
 
-			app.SwipeLeftToRight ();
+			app.SwipeLeftToRightWithIdCheck (iOS ? "DailyTvCell_dayLabel" : "DailyListItem_dayLabel");
 
 			app.Screenshot ("Daily Forecast (Metric)");
 		}
