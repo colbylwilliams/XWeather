@@ -27,11 +27,8 @@ namespace XWeather.UITests
 		}
 
 
-		[Test]
-		public void repl ()
-		{
-			app.Repl ();
-		}
+		//[Test]
+		//public void repl () => app.Repl ();
 
 
 		[Test]
