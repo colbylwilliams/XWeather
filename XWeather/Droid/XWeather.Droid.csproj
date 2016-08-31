@@ -196,6 +196,7 @@
     <Compile Include="Widgets\ScrollAwareFABBehavior.cs" />
     <Compile Include="Utilities\AnalyticsManager.cs" />
     <Compile Include="Providers\TestDataProvider.cs" />
+    <Compile Include="AppWidget\AppWidget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -284,6 +285,8 @@
     <AndroidResource Include="Resources\drawable\i_search.xml" />
     <AndroidResource Include="Resources\drawable\i_list.xml" />
     <AndroidResource Include="Resources\drawable\logo_wunderground_white.xml" />
+    <AndroidResource Include="Resources\xml\widget_provider.xml" />
+    <AndroidResource Include="Resources\layout\widget_layout.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utilities\" />
@@ -301,6 +304,7 @@
     <Folder Include="Adapters\Filters\" />
     <Folder Include="Adapters\Base\" />
     <Folder Include="Widgets\" />
+    <Folder Include="AppWidget\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Atlanta.json" />
