@@ -37,14 +37,25 @@ namespace XWeather.UITests
 
 		public static void SearchForAndSelect (this IApp app, Platform platform, string searchString, string selection, string waitFor)
 		{
+			var ios = platform == Platform.iOS;
+
 			app.SearchFor (platform, searchString);
 
-			app.WaitForElement (x => x.Marked (selection));
+			try {
+
+				app.WaitForElement (x => x.Marked (selection));
 
 
-			app.Tap (x => x.Marked (selection));
+				app.Tap (x => x.Marked (selection));
 
-			app.WaitForElement (x => x.Marked (waitFor));
+				app.WaitForElement (x => x.Marked (waitFor));
+
+
+			} catch (Exception) {
+
+
+				app.Tap (x => x.Id (ios ? "LocationSearchTvCell_nameLabel" : "text1").Index (2));
+			}
 
 
 			app.Screenshot ($"Added Location: '{selection}'");

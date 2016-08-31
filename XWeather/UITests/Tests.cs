@@ -89,9 +89,9 @@ namespace XWeather.UITests
 
 			app.SearchForAndSelect (platform, "Lond", "London, United Kingdom", "London");
 
-			app.Tap (x => x.Marked ("London"));
+			//app.Tap (x => x.Marked ("London"));
 
-			app.Screenshot ("Selected 'London'");
+			//app.Screenshot ("Selected 'London'");
 		}
 
 
