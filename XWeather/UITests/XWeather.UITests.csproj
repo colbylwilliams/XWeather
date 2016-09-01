@@ -50,9 +50,6 @@
   <ItemGroup>
     <Compile Include="Tests.cs" />
     <Compile Include="AppInitializer.cs" />
-    <Compile Include="..\iOS\UIElements.cs">
-      <Link>UIElements.cs</Link>
-    </Compile>
     <Compile Include="TestExtensions.cs" />
   </ItemGroup>
   <ItemGroup>

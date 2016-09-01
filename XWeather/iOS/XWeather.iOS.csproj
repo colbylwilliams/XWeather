@@ -133,9 +133,6 @@
     <Reference Include="System.Net.Http.Primitives">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="ModernHttpClient">
       <HintPath>..\packages\modernhttpclient.2.4.2\lib\Xamarin.iOS10\ModernHttpClient.dll</HintPath>
     </Reference>
@@ -163,12 +160,6 @@
     </Reference>
     <Reference Include="ServiceStack.HttpClient">
       <HintPath>..\packages\ServiceStack.HttpClient.4.0.62\lib\portable-net45+win8+monotouch+monoandroid+xamarin.ios10\ServiceStack.HttpClient.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.WindowsAzure.Mobile">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Client.2.1.1\lib\Xamarin.iOS10\Microsoft.WindowsAzure.Mobile.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.WindowsAzure.Mobile.Ext">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Client.2.1.1\lib\Xamarin.iOS10\Microsoft.WindowsAzure.Mobile.Ext.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -621,8 +612,8 @@
       <DependentUpon>RadarMapVc.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\ImageExtensions.cs" />
-    <Compile Include="DailyGraphView.cs" />
     <Compile Include="Providers\LocationProvider.cs" />
+    <Compile Include="ViewControllers\DailyGraphView.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Settings.bundle\Root.plist" />

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Threading.Tasks;
 
 using Android.App;
@@ -9,8 +8,6 @@ using Android.Views;
 
 using Android.Support.Design.Widget;
 using Android.Support.V4.View;
-
-using ServiceStack;
 
 using SettingsStudio;
 
@@ -158,13 +155,17 @@ namespace XWeather.Droid
 			}
 		}
 
+
+#if DEBUG
+
+		void getData () => Task.Run (async () => await TestDataProvider.InitTestDataAsync (this));
+
+#else
+
 		LocationProvider LocationProvider;
 
 		void getData ()
 		{
-#if DEBUG
-			Task.Run (async () => await TestDataProvider.InitTestDataAsync (this));
-#else
 			if (LocationProvider == null) LocationProvider = new LocationProvider (this);
 
 			Task.Run (async () => {
@@ -173,7 +174,7 @@ namespace XWeather.Droid
 
 				await WuClient.Shared.GetLocations (Settings.LocationsJson, location);
 			});
-#endif
 		}
+#endif
 	}
 }

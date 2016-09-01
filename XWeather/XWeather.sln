@@ -9,13 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWeather", "XWeather\XWeath
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWeather.UITests", "UITests\XWeather.UITests.csproj", "{15ED7D76-DC89-4BE7-AF33-D5224EA24531}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWeather.macOS", "macOS\XWeather.macOS.csproj", "{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XWeather.Unified", "Unified\XWeather.Unified.shproj", "{8226D00B-19CF-4B54-945C-B13C1AE855A1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9EA8454D-34BF-4B5B-B807-2B463B26ED5D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWeather.iOS.Today", "iOS.Today\XWeather.iOS.Today.csproj", "{9DB5A323-0FCF-437F-B91D-0BCE2C5C521C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,22 +65,6 @@ Global
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{994ECCF7-ADEE-4C99-AFA3-BBE7BD89FD59}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{9DB5A323-0FCF-437F-B91D-0BCE2C5C521C}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
-		{9DB5A323-0FCF-437F-B91D-0BCE2C5C521C}.Release|Any CPU.ActiveCfg = Release|iPhone
-		{9DB5A323-0FCF-437F-B91D-0BCE2C5C521C}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{9DB5A323-0FCF-437F-B91D-0BCE2C5C521C}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{9DB5A323-0FCF-437F-B91D-0BCE2C5C521C}.Release|iPhone.ActiveCfg = Release|iPhone
-		{9DB5A323-0FCF-437F-B91D-0BCE2C5C521C}.Release|iPhone.Build.0 = Release|iPhone
-		{9DB5A323-0FCF-437F-B91D-0BCE2C5C521C}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{9DB5A323-0FCF-437F-B91D-0BCE2C5C521C}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{9DB5A323-0FCF-437F-B91D-0BCE2C5C521C}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{9DB5A323-0FCF-437F-B91D-0BCE2C5C521C}.Debug|iPhone.Build.0 = Debug|iPhone
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531} = {9EA8454D-34BF-4B5B-B807-2B463B26ED5D}

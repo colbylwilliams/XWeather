@@ -72,27 +72,27 @@ namespace XWeather.UITests
 		}
 
 
-		//[Test]
-		//public void AutoCompleteSearch ()
-		//{
-		//	app.Screenshot ("App Launched");
+		[Test]
+		public void AutoCompleteSearch ()
+		{
+			app.Screenshot ("App Launched");
 
-		//	app.WaitForElement (x => x.Id (iOS ? "DailyTvCell_dayLabel" : "DailyListItem_dayLabel").Index (2), "Timed out waiting for weather data from Weather Underground");
+			app.WaitForElement (x => x.Id (iOS ? "DailyTvCell_dayLabel" : "DailyListItem_dayLabel").Index (2), "Timed out waiting for weather data from Weather Underground");
 
-		//	app.Tap (x => x.Id (iOS ? "button_locations" : "floatingButton"));
+			app.Tap (x => x.Id (iOS ? "button_locations" : "floatingButton"));
 
-		//	app.SearchForAndSelect (platform, "San Fr", "San Francisco, California", "San Francisco");
+			app.SearchForAndSelect (platform, "San Fr", "San Francisco, California", "San Francisco");
 
-		//	app.SearchForAndSelect (platform, "Atlan", "Atlanta, Georgia", "Atlanta");
+			app.SearchForAndSelect (platform, "Atlan", "Atlanta, Georgia", "Atlanta");
 
-		//	app.SearchForAndSelect (platform, "Toron", "Toronto, Canada", "Toronto");
+			app.SearchForAndSelect (platform, "Toron", "Toronto, Canada", "Toronto");
 
-		//	app.SearchForAndSelect (platform, "Lond", "London, United Kingdom", "London");
+			app.SearchForAndSelect (platform, "Lond", "London, United Kingdom", "London");
 
-		//	app.Tap (x => x.Marked ("London"));
+			app.Tap (x => x.Marked ("London"));
 
-		//	app.Screenshot ("Selected 'London'");
-		//}
+			app.Screenshot ("Selected 'London'");
+		}
 
 
 		[Test]
