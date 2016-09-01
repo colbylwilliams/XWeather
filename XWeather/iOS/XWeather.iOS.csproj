@@ -38,7 +38,7 @@
         </Command>
       </CustomCommands>
     </CustomCommands>
-    <CodesignProvision>5f69129c-412e-4ff6-a4f1-f44d89e79819</CodesignProvision>
+    <CodesignProvision></CodesignProvision>
     <DeviceSpecificBuild>false</DeviceSpecificBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
@@ -47,7 +47,7 @@
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Distribution: Xamarin Inc</CodesignKey>
+    <CodesignKey>iPhone Distribution</CodesignKey>
     <MtouchUseSGen>true</MtouchUseSGen>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchFloat32>true</MtouchFloat32>
@@ -57,7 +57,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>5b3782fa-8390-4bd8-a591-1d04813da6e5</CodesignProvision>
+    <CodesignProvision></CodesignProvision>
     <CustomCommands>
       <CustomCommands>
         <Command>
@@ -98,7 +98,7 @@
     <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer: Colby Williams (5S2F48D3JN)</CodesignKey>
+    <CodesignKey>iPhone Developer</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchFastDev>true</MtouchFastDev>
@@ -112,7 +112,7 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>5f69129c-412e-4ff6-a4f1-f44d89e79819</CodesignProvision>
+    <CodesignProvision></CodesignProvision>
     <CustomCommands>
       <CustomCommands>
         <Command>
