@@ -529,6 +529,7 @@
     <Folder Include="Assets.xcassets\logo_wunderground_rev.imageset\" />
     <Folder Include="Assets.xcassets\logo_wunderground_white.imageset\" />
     <Folder Include="Assets.xcassets\bg_launch.imageset\" />
+    <Folder Include="ViewControllers\RadarOverlay\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -614,6 +615,9 @@
     <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="Providers\LocationProvider.cs" />
     <Compile Include="ViewControllers\DailyGraphView.cs" />
+    <Compile Include="ViewControllers\RadarOverlay\RadarOverlay.cs" />
+    <Compile Include="ViewControllers\RadarOverlay\RadarOverlayRenderer.cs" />
+    <Compile Include="ViewControllers\RadarOverlay\RadarOverlayExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Settings.bundle\Root.plist" />

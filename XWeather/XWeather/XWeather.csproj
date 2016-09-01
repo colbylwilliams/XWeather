@@ -72,7 +72,6 @@
     <Compile Include="Utilities\LruCacheUtility.cs" />
     <Compile Include="Constants\ConditionStrings.cs" />
     <Compile Include="Domain\LocationCoordinates.cs" />
-    <Compile Include="Settings\ISettings.cs" />
     <Compile Include="Constants\TrackedEvents.cs" />
   </ItemGroup>
   <ItemGroup>

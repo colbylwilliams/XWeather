@@ -7,9 +7,9 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyTitle ("XWeather")]
 [assembly: AssemblyDescription ("")]
 [assembly: AssemblyConfiguration ("")]
-[assembly: AssemblyCompany ("Xamarin")]
+[assembly: AssemblyCompany ("Colby Williams")]
 [assembly: AssemblyProduct ("")]
-[assembly: AssemblyCopyright ("Copyright © 2016 Xamarin Inc.")]
+[assembly: AssemblyCopyright ("Copyright © 2016 Colby Williams")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 

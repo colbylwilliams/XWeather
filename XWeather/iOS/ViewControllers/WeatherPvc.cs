@@ -1,13 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 using CoreAnimation;
 using Foundation;
 using UIKit;
-
-using ServiceStack;
 
 using SettingsStudio;
 
@@ -19,8 +15,6 @@ namespace XWeather.iOS
 {
 	public partial class WeatherPvc : UIPageViewController
 	{
-
-		LocationProvider LocationProvider;
 
 		List<UITableViewController> Controllers = new List<UITableViewController> (3);
 
@@ -43,9 +37,6 @@ namespace XWeather.iOS
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
-
-			var controller = NotificationCenter.NCWidgetController.GetWidgetController ();
-			controller?.SetHasContent (true, "com.xamarin.xweather.widget-extension");
 
 			updateToolbarButtons (true);
 		}
@@ -106,9 +97,6 @@ namespace XWeather.iOS
 
 		void updateBackground ()
 		{
-			/* c0lby: Set the weather's conditional 'overlays' as the layers content prop by
-			 * supplying a delegate for the layer or subclassing.  This will improve performance */
-
 			var location = WuClient.Shared.Selected;
 
 			var random = location == null || Settings.RandomBackgrounds;
@@ -168,16 +156,21 @@ namespace XWeather.iOS
 		}
 
 
+#if !DEBUG
+
+		void getData () => TestDataProvider.InitTestDataAsync ();
+
+#else
+
+		LocationProvider LocationProvider;
+
 		void getData ()
 		{
-#if !DEBUG
-			TestDataProvider.InitTestDataAsync ();
-#else
 			if (LocationProvider == null) LocationProvider = new LocationProvider ();
 
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 
-			Task.Run (async () => {
+			System.Threading.Tasks.Task.Run (async () => {
 
 				var location = await LocationProvider.GetCurrentLocationCoordnatesAsync ();
 
@@ -188,7 +181,7 @@ namespace XWeather.iOS
 					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 				});
 			});
-#endif
 		}
+#endif
 	}
 }

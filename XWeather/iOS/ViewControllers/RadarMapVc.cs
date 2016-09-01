@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-using CoreGraphics;
 using CoreLocation;
 using Foundation;
 using MapKit;
@@ -192,101 +190,6 @@ namespace XWeather.iOS
 					render?.RefreshRenderer ();
 				});
 			});
-		}
-	}
-
-
-	public class RadarOverlay : MKOverlay
-	{
-		readonly MKMapRect MapRect;
-
-		public List<CGImage> Images { get; set; }
-
-		public RadarOverlay (MKMapRect mapRect, List<CGImage> images)
-		{
-			MapRect = mapRect;
-			Images = images;
-		}
-
-		public override CLLocationCoordinate2D Coordinate => new CLLocationCoordinate2D ();
-
-		public override MKMapRect BoundingMapRect => MapRect;
-	}
-
-
-	public class RadarOverlayRenderer : MKOverlayRenderer
-	{
-		nint index;
-
-		CGRect cachedRect;
-
-		List<CGImage> cachedImages;
-
-
-		public RadarOverlayRenderer (IMKOverlay overlay) : base (overlay) { }
-
-
-		public void RefreshRenderer ()
-		{
-			var radar = Overlay as RadarOverlay;
-
-			if (radar != null) {
-				cachedRect = RectForMapRect (radar.BoundingMapRect);
-				cachedImages = radar.Images;
-				index = 0;
-			}
-		}
-
-
-		public void UpdateDisplay ()
-		{
-			index++;
-
-			if (index >= cachedImages.Count) index = 0;
-
-			SetNeedsDisplay ();
-		}
-
-
-		public override bool CanDrawMapRect (MKMapRect mapRect, nfloat zoomScale) => cachedImages?.Count > index;
-
-
-		public override void DrawMapRect (MKMapRect mapRect, nfloat zoomScale, CGContext context)
-		{
-			if (cachedImages?.Count > index)
-				context.DrawImage (cachedRect, cachedImages [Convert.ToInt32 (index)]);
-		}
-	}
-
-
-	public static class RadarOverlayExtensions
-	{
-		public static RadarBounds GetRadarBounds (this MKMapView map)
-		{
-			CLLocationCoordinate2D center = map.CenterCoordinate;
-
-			var topLeft = MKMapPoint.FromCoordinate (new CLLocationCoordinate2D (center.Latitude + (map.Region.Span.LatitudeDelta / 2.0), center.Longitude - (map.Region.Span.LongitudeDelta / 2.0)));
-			var bottomRight = MKMapPoint.FromCoordinate (new CLLocationCoordinate2D (center.Latitude - (map.Region.Span.LatitudeDelta / 2.0), center.Longitude + (map.Region.Span.LongitudeDelta / 2.0)));
-
-			var bounds = new RadarBounds {
-				MinLat = center.Latitude + (map.Region.Span.LatitudeDelta / 2.0),
-				MaxLat = center.Latitude - (map.Region.Span.LatitudeDelta / 2.0),
-				MinLon = center.Longitude - (map.Region.Span.LongitudeDelta / 2.0),
-				MaxLon = center.Longitude + (map.Region.Span.LongitudeDelta / 2.0),
-
-				Height = Math.Abs (topLeft.Y - bottomRight.Y),
-				Width = Math.Abs (topLeft.X - bottomRight.X)
-			};
-
-			return bounds;
-		}
-
-		public static RadarBounds GetRadarBoundsForScreen (this MKMapView map)
-		{
-			RadarBounds bounds = map.GetRadarBounds ();
-			bounds.Width = map.Frame.Size.Width;
-			bounds.Height = map.Frame.Size.Height;
-			return bounds;
 		}
 	}
 }
