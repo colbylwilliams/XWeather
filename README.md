@@ -8,7 +8,7 @@ XWeather is a weather app for iOS and Android built with Xamarin.
 #### Android
 ![android-daily](/images/xweather-android-daily.png?raw=true "android-daily") | ![android-hourly](/images/xweather-android-hourly.png?raw=true "android-hourly") | ![android-details](/images/xweather-android-details.png?raw=true "android-details") | ![android-locations](/images/xweather-android-locations.png?raw=true "android-locations") | ![android-search](/images/xweather-android-search.png?raw=true "android-search")
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-   
+
 
 ## Xamarin Test Cloud
 
@@ -70,7 +70,6 @@ Setting up HockeyApp is completely optional.  You can set it up by following the
 |---------|------------------|-----------------------|----------------------|
 | iOS     | ![iOS CI][0]     | ![iOS Nightly][1]     | ![iOS Weekly][2]     |
 | Android | ![Android CI][3] | ![Android Nightly][4] | ![Android Weekly][5] |
-| macOS   | n/a              | n/a                   | n/a                  |
 
 
 
