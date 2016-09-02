@@ -3,19 +3,19 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="@dimen/weather_header_height">
+    <TextView
+        android:text="San Francisco"
+        android:gravity="center_horizontal|bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/HourlyHeader_locationLabel"
+        android:textSize="@dimen/weather_location_title"
+        android:layout_weight="1.7" />
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:gravity="bottom">
-        <TextView
-            android:text="San Francisco"
-            android:gravity="center_horizontal|bottom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/HourlyHeader_locationLabel"
-            android:textSize="@dimen/weather_location_title" />
         <TextView
             android:text="Cloudy"
             android:layout_width="match_parent"
@@ -27,7 +27,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight=".8"
+        android:layout_weight="1"
         android:layout_gravity="center_horizontal"
         android:gravity="center">
         <TextView
@@ -45,7 +45,8 @@
             android:layout_height="match_parent"
             android:id="@+id/HourlyHeader_tempLabel"
             android:textSize="100dp"
-            style="@style/themeFontThin" />
+            style="@style/themeFontThin"
+            android:gravity="bottom" />
         <TextView
             android:text="70"
             style="@style/secondaryText"
@@ -60,11 +61,10 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingRight="12dp"
         android:paddingBottom="8dp"
-        android:paddingLeft="12dp"
-        android:layout_weight="1.2">
+        android:paddingLeft="12dp">
         <LinearLayout
             android:orientation="horizontal"
             android:layout_weight="1"

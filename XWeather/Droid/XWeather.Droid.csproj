@@ -37,7 +37,7 @@
       </CustomCommands>
     </CustomCommands>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
-    <AndroidSupportedAbis>armeabi-v7a;x86_64;armeabi;x86;arm64-v8a</AndroidSupportedAbis>
+    <AndroidSupportedAbis>x86_64</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -187,6 +187,8 @@
     <Compile Include="Widgets\ScrollAwareFABBehavior.cs" />
     <Compile Include="Utilities\AnalyticsManager.cs" />
     <Compile Include="Providers\TestDataProvider.cs" />
+    <Compile Include="View\DailyGraphView.cs" />
+    <Compile Include="Extensions\PathExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -292,6 +294,7 @@
     <Folder Include="Adapters\Filters\" />
     <Folder Include="Adapters\Base\" />
     <Folder Include="Widgets\" />
+    <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Atlanta.json" />
