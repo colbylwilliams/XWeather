@@ -4,6 +4,8 @@ using ServiceStack;
 
 using ModernHttpClient;
 
+using Plugin.VersionTracking;
+
 
 #if __IOS__
 
@@ -22,6 +24,8 @@ namespace XWeather.Unified
 	{
 		public static void Run ()
 		{
+			CrossVersionTracking.Current.Track ();
+
 			AnalyticsManager.Shared.ConfigureHockeyApp ();
 
 			XWeather.Bootstrap.Run ();

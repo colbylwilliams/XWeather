@@ -1,7 +1,8 @@
 ﻿using Android.App;
-using Android.Content;
 
 using SettingsStudio;
+
+using Plugin.VersionTracking;
 
 namespace XWeather.Droid
 {
@@ -9,6 +10,8 @@ namespace XWeather.Droid
 	{
 		public static void Run (Activity context, Application application)
 		{
+			CrossVersionTracking.Current.Track ();
+
 			AnalyticsManager.Shared.ConfigureHockeyApp (context, application);
 
 			XWeather.Bootstrap.Run ();
@@ -17,11 +20,9 @@ namespace XWeather.Droid
 
 			ServiceStack.JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new ModernHttpClient.NativeMessageHandler ();
 
-			Settings.VersionNumber = application.PackageManager.GetPackageInfo (application.PackageName, 0).VersionName;
+			Settings.VersionNumber = CrossVersionTracking.Current.CurrentVersion;
 
-			Settings.BuildNumber = application.PackageManager.GetPackageInfo (application.PackageName, 0).VersionCode.ToString ();
-
-			//Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init ();
+			Settings.BuildNumber = CrossVersionTracking.Current.CurrentBuild;
 		}
 	}
 }

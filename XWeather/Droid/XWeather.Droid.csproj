@@ -128,6 +128,12 @@
     <Reference Include="ServiceStack.HttpClient">
       <HintPath>..\packages\ServiceStack.HttpClient.4.0.62\lib\portable-net45+win8+monotouch+monoandroid+xamarin.ios10\ServiceStack.HttpClient.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.VersionTracking.Abstractions">
+      <HintPath>..\packages\Plugin.VersionTracking.1.0.1\lib\MonoAndroid10\Plugin.VersionTracking.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.VersionTracking">
+      <HintPath>..\packages\Plugin.VersionTracking.1.0.1\lib\MonoAndroid10\Plugin.VersionTracking.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XWeather\XWeather.csproj">
