@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="16A304a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oe7-ll-mI6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A320" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oe7-ll-mI6">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -22,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bQv-zw-GTU" id="H52-E4-Cae">
-                                    <frame key="frameInset" width="375" height="59"/>
+                                    <frame key="frameInset" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOM-5S-aMs">
@@ -108,7 +107,7 @@
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="116" y="1111"/>
+            <point key="canvasLocation" x="297" y="1082"/>
         </scene>
         <!--Location Search Tvc-->
         <scene sceneID="w9C-3w-Egx">
@@ -123,11 +122,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dV1-Nq-EOp" id="pQv-cL-bf2">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="imR-wC-MMQ">
-                                            <frame key="frameInset" minX="15" width="345" height="43"/>
+                                            <frame key="frameInset" minX="15" width="345" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -185,7 +184,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="887" y="1112"/>
+            <point key="canvasLocation" x="1066" y="1083"/>
         </scene>
         <!--Hourly Tvc-->
         <scene sceneID="48i-E8-EiL">
@@ -201,7 +200,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bdX-4p-XJe" id="QAq-AN-bIs">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZt-O3-zT7">
@@ -391,7 +390,7 @@
                     </connections>
                 </view>
             </objects>
-            <point key="canvasLocation" x="886" y="-399"/>
+            <point key="canvasLocation" x="1066" y="-429"/>
         </scene>
         <!--Daily Tvc-->
         <scene sceneID="fDc-Xw-gpK">
@@ -407,7 +406,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jq1-EC-whh" id="PcV-bg-Tse">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZr-GY-Lvt">
@@ -530,7 +529,7 @@
                     </connections>
                 </view>
             </objects>
-            <point key="canvasLocation" x="116" y="-399"/>
+            <point key="canvasLocation" x="297" y="-429"/>
         </scene>
         <!--Details Tvc-->
         <scene sceneID="Xfb-oD-lXk">
@@ -645,7 +644,7 @@
                     </connections>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1673" y="-400"/>
+            <point key="canvasLocation" x="1854" y="-430"/>
         </scene>
         <!--Weather Nc-->
         <scene sceneID="vyZ-5e-Kva">
@@ -666,7 +665,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EwU-Ai-uXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="349"/>
+            <point key="canvasLocation" x="297" y="320"/>
         </scene>
         <!--Weather Pvc-->
         <scene sceneID="AMb-9y-bPh">
@@ -821,7 +820,7 @@
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="888" y="349"/>
+            <point key="canvasLocation" x="1068" y="320"/>
         </scene>
         <!--Radar Map Vc-->
         <scene sceneID="ZbU-NN-7Ak">
@@ -871,7 +870,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEH-qV-WTp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1673" y="349"/>
+            <point key="canvasLocation" x="1854" y="320"/>
         </scene>
     </scenes>
     <resources>
