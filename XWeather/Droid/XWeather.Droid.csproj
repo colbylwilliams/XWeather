@@ -161,7 +161,6 @@
     <Compile Include="Fragments\HourlyRecyclerFragment.cs" />
     <Compile Include="Fragments\DailyRecyclerFragment.cs" />
     <Compile Include="Fragments\DetailsRecyclerFragment.cs" />
-    <Compile Include="Utilities\ImageCacheUtility.cs" />
     <Compile Include="Providers\ImageProvider.cs" />
     <Compile Include="Fragments\DailyHeaderFragment.cs" />
     <Compile Include="Fragments\HourlyHeaderFragment.cs" />

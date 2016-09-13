@@ -64,7 +64,12 @@ Setting up HockeyApp is completely optional.  You can set it up by following the
 * In `PrivateKeys.cs` set the value of `HockeyApiKey_iOS` and `HockeyApiKey_Droid` to your new HockeyApp iOS and Android API keys respectively.
 
 
-# Build Status
+# About
+
+Created by [Colby Williams][19].  Thanks to [@charlieyllobre][18] for the awesome (free) [weather icons][17]. 
+
+
+## Build Status
 
 | Project | CI (master)      | Nightly (master)      | Weekly (master)      |
 |---------|------------------|-----------------------|----------------------|
@@ -74,8 +79,8 @@ Setting up HockeyApp is completely optional.  You can set it up by following the
 
 
 ## License
-The MIT License (MIT)
-Copyright (c) 2016 Colby Williams
+
+Licensed under the MIT License (MIT).  See [LICENSE][20] for details.
 
 
 [0]:https://xamarin-partners.visualstudio.com/_apis/public/build/definitions/3b9eb138-c0a3-4290-b1af-21afab9de1ce/9/badge
@@ -100,3 +105,10 @@ Copyright (c) 2016 Colby Williams
 [15]:http://bit.ly/xweather-xtc-android
 
 [16]:http://bit.ly/xweather-vsts
+
+[17]:http://charlieyllobre.com/portfolio/free-weather-icons/
+[18]:https://twitter.com/charlieyllobre
+
+[19]:https://github.com/colbylwilliams
+
+[20]:https://github.com/colbylwilliams/XWeather/blob/master/LICENSE
