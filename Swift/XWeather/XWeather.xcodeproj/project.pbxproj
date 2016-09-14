@@ -1,1451 +1,682 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>50FD5D885B34857DB04BF178</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E0B9FA838774C877C872F630</string>
-				<string>730C13AA7E4868105287CF2E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5F314C24115BC4135AD50177</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_XWeather.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>61C4035CAF093A9F7286D415</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>5F314C24115BC4135AD50177</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>730C13AA7E4868105287CF2E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-XWeather.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-XWeather/Pods-XWeather.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>ACC0CA904A7D300430AF9F6F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-XWeather/Pods-XWeather-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>B53C93E29186EFB5952FE564</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-XWeather/Pods-XWeather-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>B5401D3D1D8807FD0015160F</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>ViewExtensions.swift</string>
-			<key>path</key>
-			<string>Extensions/ViewExtensions.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B5401D3E1D8807FD0015160F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B5401D3D1D8807FD0015160F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B5401D3F1D88148B0015160F</key>
-		<dict>
-			<key>children</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Clients</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B5401D401D88149D0015160F</key>
-		<dict>
-			<key>children</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Constants</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B5401D411D8814AA0015160F</key>
-		<dict>
-			<key>children</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Domain</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B5401D421D8814B50015160F</key>
-		<dict>
-			<key>children</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Utilities</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B5401D431D8814CA0015160F</key>
-		<dict>
-			<key>children</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Settings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B543357B1D87B9CF00701050</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B54335861D87B9CF00701050</string>
-				<string>B54335851D87B9CF00701050</string>
-				<string>50FD5D885B34857DB04BF178</string>
-				<string>61C4035CAF093A9F7286D415</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B543357C1D87B9CF00701050</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0800</string>
-				<key>LastUpgradeCheck</key>
-				<string>0800</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Colby Williams</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>B54335831D87B9CF00701050</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>8.0</string>
-						<key>ProvisioningStyle</key>
-						<string>Automatic</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>B543357F1D87B9CF00701050</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>B543357B1D87B9CF00701050</string>
-			<key>productRefGroup</key>
-			<string>B54335851D87B9CF00701050</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>B54335831D87B9CF00701050</string>
-			</array>
-		</dict>
-		<key>B543357F1D87B9CF00701050</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>B54335941D87B9CF00701050</string>
-				<string>B54335951D87B9CF00701050</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>B54335801D87B9CF00701050</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B54335B01D87BCD100701050</string>
-				<string>B54335A81D87BC2B00701050</string>
-				<string>B54335BA1D87BD2E00701050</string>
-				<string>B54335A21D87BBEF00701050</string>
-				<string>B54335B21D87BCF900701050</string>
-				<string>B54335B41D87BD0400701050</string>
-				<string>B54335D01D87C24200701050</string>
-				<string>B54335C71D87BD9D00701050</string>
-				<string>B543359D1D87BBA400701050</string>
-				<string>B54335C91D87BDAB00701050</string>
-				<string>B54335C21D87BD6A00701050</string>
-				<string>B54335B61D87BD1200701050</string>
-				<string>B54335C01D87BD5C00701050</string>
-				<string>B543359B1D87BB7F00701050</string>
-				<string>B54335A41D87BC0700701050</string>
-				<string>B54335C51D87BD8D00701050</string>
-				<string>B54335881D87B9CF00701050</string>
-				<string>B54335BE1D87BD4F00701050</string>
-				<string>B54335A61D87BC1B00701050</string>
-				<string>B54335AC1D87BC5800701050</string>
-				<string>B5401D3E1D8807FD0015160F</string>
-				<string>B54335AA1D87BC3F00701050</string>
-				<string>B54335B81D87BD2000701050</string>
-				<string>B543359F1D87BBC800701050</string>
-				<string>B54335CB1D87BDC200701050</string>
-				<string>B54335BC1D87BD3F00701050</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B54335811D87B9CF00701050</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>ED22760AA7CB1FBBD6B2B9B2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B54335821D87B9CF00701050</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B54335921D87B9CF00701050</string>
-				<string>B543358F1D87B9CF00701050</string>
-				<string>B543358D1D87B9CF00701050</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>B54335831D87B9CF00701050</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>B54335961D87B9D000701050</string>
-			<key>buildPhases</key>
-			<array>
-				<string>D5E93C78DFA125283540E8F8</string>
-				<string>B54335801D87B9CF00701050</string>
-				<string>B54335811D87B9CF00701050</string>
-				<string>B54335821D87B9CF00701050</string>
-				<string>B53C93E29186EFB5952FE564</string>
-				<string>ACC0CA904A7D300430AF9F6F</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>XWeather</string>
-			<key>productName</key>
-			<string>XWeather</string>
-			<key>productReference</key>
-			<string>B54335841D87B9CF00701050</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>B54335841D87B9CF00701050</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>XWeather.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>B54335851D87B9CF00701050</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B54335841D87B9CF00701050</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335861D87B9CF00701050</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B5401D431D8814CA0015160F</string>
-				<string>B5401D421D8814B50015160F</string>
-				<string>B5401D411D8814AA0015160F</string>
-				<string>B5401D401D88149D0015160F</string>
-				<string>B5401D3F1D88148B0015160F</string>
-				<string>B54335CC1D87C21100701050</string>
-				<string>B54335991D87BB4800701050</string>
-				<string>B54335871D87B9CF00701050</string>
-				<string>B543358B1D87B9CF00701050</string>
-				<string>B543358E1D87B9CF00701050</string>
-				<string>B54335901D87B9CF00701050</string>
-				<string>B54335931D87B9CF00701050</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>XWeather</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335871D87B9CF00701050</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AppDelegate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335881D87B9CF00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335871D87B9CF00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B543358B1D87B9CF00701050</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B543358C1D87B9CF00701050</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B543358C1D87B9CF00701050</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B543358D1D87B9CF00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B543358B1D87B9CF00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B543358E1D87B9CF00701050</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Assets.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B543358F1D87B9CF00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B543358E1D87B9CF00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335901D87B9CF00701050</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B54335911D87B9CF00701050</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335911D87B9CF00701050</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335921D87B9CF00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335901D87B9CF00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335931D87B9CF00701050</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335941D87B9CF00701050</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INFINITE_RECURSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_SUSPICIOUS_MOVES</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>10.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SWIFT_ACTIVE_COMPILATION_CONDITIONS</key>
-				<string>DEBUG</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>B54335951D87B9CF00701050</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INFINITE_RECURSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_SUSPICIOUS_MOVES</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>10.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Owholemodule</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>B54335961D87B9D000701050</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>B54335971D87B9D000701050</string>
-				<string>B54335981D87B9D000701050</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>B54335971D87B9D000701050</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>E0B9FA838774C877C872F630</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>INFOPLIST_FILE</key>
-				<string>XWeather/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.xamarin.xweather</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>B54335981D87B9D000701050</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>730C13AA7E4868105287CF2E</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>INFOPLIST_FILE</key>
-				<string>XWeather/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.xamarin.xweather</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>B54335991D87BB4800701050</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B54335C31D87BD7900701050</string>
-				<string>B54335A01D87BBD400701050</string>
-				<string>B543359A1D87BB7F00701050</string>
-				<string>B543359C1D87BBA400701050</string>
-				<string>B543359E1D87BBC800701050</string>
-				<string>B54335CA1D87BDC200701050</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>ViewControllers</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B543359A1D87BB7F00701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>WeatherNc.swift</string>
-			<key>path</key>
-			<string>ViewControllers/WeatherNc.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B543359B1D87BB7F00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B543359A1D87BB7F00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B543359C1D87BBA400701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>WeatherPvc.swift</string>
-			<key>path</key>
-			<string>ViewControllers/WeatherPvc.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B543359D1D87BBA400701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B543359C1D87BBA400701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B543359E1D87BBC800701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>RadarMapVc.swift</string>
-			<key>path</key>
-			<string>ViewControllers/RadarMapVc.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B543359F1D87BBC800701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B543359E1D87BBC800701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335A01D87BBD400701050</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B54335A11D87BBEF00701050</string>
-				<string>B54335A31D87BC0700701050</string>
-				<string>B54335A51D87BC1B00701050</string>
-				<string>B54335A71D87BC2B00701050</string>
-				<string>B54335A91D87BC3F00701050</string>
-				<string>B54335AB1D87BC5800701050</string>
-				<string>B54335AE1D87BCAE00701050</string>
-				<string>B54335AD1D87BCA000701050</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>TableViewControllers</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335A11D87BBEF00701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>BaseTvc.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/BaseTvc.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335A21D87BBEF00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335A11D87BBEF00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335A31D87BC0700701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DailyTvc.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/DailyTvc.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335A41D87BC0700701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335A31D87BC0700701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335A51D87BC1B00701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DetailsTvc.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/DetailsTvc.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335A61D87BC1B00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335A51D87BC1B00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335A71D87BC2B00701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>HourlyTvc.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/HourlyTvc.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335A81D87BC2B00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335A71D87BC2B00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335A91D87BC3F00701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>LocationSearchTvc.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/LocationSearchTvc.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335AA1D87BC3F00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335A91D87BC3F00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335AB1D87BC5800701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>LocationTvc.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/LocationTvc.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335AC1D87BC5800701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335AB1D87BC5800701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335AD1D87BCA000701050</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B54335BB1D87BD3F00701050</string>
-				<string>B54335BD1D87BD4F00701050</string>
-				<string>B54335BF1D87BD5B00701050</string>
-				<string>B54335C11D87BD6A00701050</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>TableViewHeaders</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335AE1D87BCAE00701050</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B54335AF1D87BCD100701050</string>
-				<string>B54335B11D87BCF900701050</string>
-				<string>B54335B31D87BD0400701050</string>
-				<string>B54335B51D87BD1200701050</string>
-				<string>B54335B71D87BD2000701050</string>
-				<string>B54335B91D87BD2E00701050</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>TableViewCells</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335AF1D87BCD100701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>BaseTvCell.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/TableViewCells/BaseTvCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335B01D87BCD100701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335AF1D87BCD100701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335B11D87BCF900701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DailyTvCell.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/TableViewCells/DailyTvCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335B21D87BCF900701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335B11D87BCF900701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335B31D87BD0400701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DetailsTvCell.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/TableViewCells/DetailsTvCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335B41D87BD0400701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335B31D87BD0400701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335B51D87BD1200701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>HourlyTvCell.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/TableViewCells/HourlyTvCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335B61D87BD1200701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335B51D87BD1200701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335B71D87BD2000701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>LocationSearchTvCell.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/TableViewCells/LocationSearchTvCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335B81D87BD2000701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335B71D87BD2000701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335B91D87BD2E00701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>LocationTvCell.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/TableViewCells/LocationTvCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335BA1D87BD2E00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335B91D87BD2E00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335BB1D87BD3F00701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>BaseTvHeader.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/TableViewHeaders/BaseTvHeader.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335BC1D87BD3F00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335BB1D87BD3F00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335BD1D87BD4F00701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DailyTvHeader.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/TableViewHeaders/DailyTvHeader.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335BE1D87BD4F00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335BD1D87BD4F00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335BF1D87BD5B00701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DetailsTvHeader.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/TableViewHeaders/DetailsTvHeader.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335C01D87BD5C00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335BF1D87BD5B00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335C11D87BD6A00701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>HourlyTvHeader.swift</string>
-			<key>path</key>
-			<string>ViewControllers/TableViewControllers/TableViewHeaders/HourlyTvHeader.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335C21D87BD6A00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335C11D87BD6A00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335C31D87BD7900701050</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B54335C41D87BD8D00701050</string>
-				<string>B54335C61D87BD9D00701050</string>
-				<string>B54335C81D87BDAB00701050</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>RadarOverlay</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335C41D87BD8D00701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>RadarOverlay.swift</string>
-			<key>path</key>
-			<string>ViewControllers/RadarOverlay/RadarOverlay.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335C51D87BD8D00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335C41D87BD8D00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335C61D87BD9D00701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>RadarOverlayExtensions.swift</string>
-			<key>path</key>
-			<string>ViewControllers/RadarOverlay/RadarOverlayExtensions.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335C71D87BD9D00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335C61D87BD9D00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335C81D87BDAB00701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>RadarOverlayRenderer.swift</string>
-			<key>path</key>
-			<string>ViewControllers/RadarOverlay/RadarOverlayRenderer.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335C91D87BDAB00701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335C81D87BDAB00701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335CA1D87BDC200701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>DailyGraphView.swift</string>
-			<key>path</key>
-			<string>ViewControllers/DailyGraphView.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335CB1D87BDC200701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335CA1D87BDC200701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B54335CC1D87C21100701050</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B5401D3D1D8807FD0015160F</string>
-				<string>B54335CF1D87C24200701050</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Extensions</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335CF1D87C24200701050</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>ImageExtensions.swift</string>
-			<key>path</key>
-			<string>Extensions/ImageExtensions.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B54335D01D87C24200701050</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B54335CF1D87C24200701050</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D5E93C78DFA125283540E8F8</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>E0B9FA838774C877C872F630</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-XWeather.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-XWeather/Pods-XWeather.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>ED22760AA7CB1FBBD6B2B9B2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5F314C24115BC4135AD50177</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>B543357C1D87B9CF00701050</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B5401D3E1D8807FD0015160F /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5401D3D1D8807FD0015160F /* ViewExtensions.swift */; };
+		B54335881D87B9CF00701050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335871D87B9CF00701050 /* AppDelegate.swift */; };
+		B543358D1D87B9CF00701050 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B543358B1D87B9CF00701050 /* Main.storyboard */; };
+		B543358F1D87B9CF00701050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B543358E1D87B9CF00701050 /* Assets.xcassets */; };
+		B54335921D87B9CF00701050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54335901D87B9CF00701050 /* LaunchScreen.storyboard */; };
+		B543359B1D87BB7F00701050 /* WeatherNc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543359A1D87BB7F00701050 /* WeatherNc.swift */; };
+		B543359D1D87BBA400701050 /* WeatherPvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543359C1D87BBA400701050 /* WeatherPvc.swift */; };
+		B543359F1D87BBC800701050 /* RadarMapVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543359E1D87BBC800701050 /* RadarMapVc.swift */; };
+		B54335A21D87BBEF00701050 /* BaseTvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335A11D87BBEF00701050 /* BaseTvc.swift */; };
+		B54335A41D87BC0700701050 /* DailyTvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335A31D87BC0700701050 /* DailyTvc.swift */; };
+		B54335A61D87BC1B00701050 /* DetailsTvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335A51D87BC1B00701050 /* DetailsTvc.swift */; };
+		B54335A81D87BC2B00701050 /* HourlyTvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335A71D87BC2B00701050 /* HourlyTvc.swift */; };
+		B54335AA1D87BC3F00701050 /* LocationSearchTvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335A91D87BC3F00701050 /* LocationSearchTvc.swift */; };
+		B54335AC1D87BC5800701050 /* LocationTvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335AB1D87BC5800701050 /* LocationTvc.swift */; };
+		B54335B01D87BCD100701050 /* BaseTvCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335AF1D87BCD100701050 /* BaseTvCell.swift */; };
+		B54335B21D87BCF900701050 /* DailyTvCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335B11D87BCF900701050 /* DailyTvCell.swift */; };
+		B54335B41D87BD0400701050 /* DetailsTvCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335B31D87BD0400701050 /* DetailsTvCell.swift */; };
+		B54335B61D87BD1200701050 /* HourlyTvCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335B51D87BD1200701050 /* HourlyTvCell.swift */; };
+		B54335B81D87BD2000701050 /* LocationSearchTvCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335B71D87BD2000701050 /* LocationSearchTvCell.swift */; };
+		B54335BA1D87BD2E00701050 /* LocationTvCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335B91D87BD2E00701050 /* LocationTvCell.swift */; };
+		B54335BC1D87BD3F00701050 /* BaseTvHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335BB1D87BD3F00701050 /* BaseTvHeader.swift */; };
+		B54335BE1D87BD4F00701050 /* DailyTvHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335BD1D87BD4F00701050 /* DailyTvHeader.swift */; };
+		B54335C01D87BD5C00701050 /* DetailsTvHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335BF1D87BD5B00701050 /* DetailsTvHeader.swift */; };
+		B54335C21D87BD6A00701050 /* HourlyTvHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335C11D87BD6A00701050 /* HourlyTvHeader.swift */; };
+		B54335C51D87BD8D00701050 /* RadarOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335C41D87BD8D00701050 /* RadarOverlay.swift */; };
+		B54335C71D87BD9D00701050 /* RadarOverlayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335C61D87BD9D00701050 /* RadarOverlayExtensions.swift */; };
+		B54335C91D87BDAB00701050 /* RadarOverlayRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335C81D87BDAB00701050 /* RadarOverlayRenderer.swift */; };
+		B54335CB1D87BDC200701050 /* DailyGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335CA1D87BDC200701050 /* DailyGraphView.swift */; };
+		B54335D01D87C24200701050 /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54335CF1D87C24200701050 /* ImageExtensions.swift */; };
+		B553F4951D8890E7005E701C /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4811D8890E7005E701C /* Alerts.swift */; };
+		B553F4961D8890E7005E701C /* Almanac.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4821D8890E7005E701C /* Almanac.swift */; };
+		B553F4971D8890E7005E701C /* Astronomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4831D8890E7005E701C /* Astronomy.swift */; };
+		B553F4981D8890E7005E701C /* Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4841D8890E7005E701C /* Conditions.swift */; };
+		B553F4991D8890E7005E701C /* CurrentHurricane.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4851D8890E7005E701C /* CurrentHurricane.swift */; };
+		B553F49A1D8890E7005E701C /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4861D8890E7005E701C /* Forecast.swift */; };
+		B553F49B1D8890E7005E701C /* GeoLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4871D8890E7005E701C /* GeoLookup.swift */; };
+		B553F49C1D8890E7005E701C /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4881D8890E7005E701C /* History.swift */; };
+		B553F49D1D8890E7005E701C /* Hourly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4891D8890E7005E701C /* Hourly.swift */; };
+		B553F49E1D8890E7005E701C /* Planner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F48A1D8890E7005E701C /* Planner.swift */; };
+		B553F49F1D8890E7005E701C /* RadarBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F48B1D8890E7005E701C /* RadarBounds.swift */; };
+		B553F4A01D8890E7005E701C /* RawTide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F48C1D8890E7005E701C /* RawTide.swift */; };
+		B553F4A11D8890E7005E701C /* Satellite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F48D1D8890E7005E701C /* Satellite.swift */; };
+		B553F4A21D8890E7005E701C /* Tide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F48E1D8890E7005E701C /* Tide.swift */; };
+		B553F4A31D8890E7005E701C /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F48F1D8890E7005E701C /* WeatherDetail.swift */; };
+		B553F4A41D8890E7005E701C /* Webcams.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4901D8890E7005E701C /* Webcams.swift */; };
+		B553F4A51D8890E7005E701C /* WuAcResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4911D8890E7005E701C /* WuAcResults.swift */; };
+		B553F4A61D8890E7005E701C /* WuLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4921D8890E7005E701C /* WuLocation.swift */; };
+		B553F4A71D8890E7005E701C /* WuObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4931D8890E7005E701C /* WuObject.swift */; };
+		B553F4A81D8890E7005E701C /* WuWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4941D8890E7005E701C /* WuWeather.swift */; };
+		B553F4AB1D889E71005E701C /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4AA1D889E71005E701C /* NumberExtensions.swift */; };
+		B553F4AD1D889E81005E701C /* WeatherConditionsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4AC1D889E81005E701C /* WeatherConditionsExtensions.swift */; };
+		B553F4AF1D889E92005E701C /* WuAcExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4AE1D889E92005E701C /* WuAcExtensions.swift */; };
+		B553F4B11D889EB4005E701C /* WuLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4B01D889EB4005E701C /* WuLocationExtensions.swift */; };
+		B5EB476C1D897D37007FC27B /* PrivateKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB476B1D897D37007FC27B /* PrivateKeys.swift */; };
+		ED22760AA7CB1FBBD6B2B9B2 /* Pods_XWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F314C24115BC4135AD50177 /* Pods_XWeather.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5F314C24115BC4135AD50177 /* Pods_XWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		730C13AA7E4868105287CF2E /* Pods-XWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-XWeather/Pods-XWeather.release.xcconfig"; sourceTree = "<group>"; };
+		B5401D3D1D8807FD0015160F /* ViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewExtensions.swift; path = Extensions/ViewExtensions.swift; sourceTree = "<group>"; };
+		B54335841D87B9CF00701050 /* XWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B54335871D87B9CF00701050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B543358C1D87B9CF00701050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B543358E1D87B9CF00701050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B54335911D87B9CF00701050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B54335931D87B9CF00701050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B543359A1D87BB7F00701050 /* WeatherNc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherNc.swift; path = ViewControllers/WeatherNc.swift; sourceTree = "<group>"; };
+		B543359C1D87BBA400701050 /* WeatherPvc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherPvc.swift; path = ViewControllers/WeatherPvc.swift; sourceTree = "<group>"; };
+		B543359E1D87BBC800701050 /* RadarMapVc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RadarMapVc.swift; path = ViewControllers/RadarMapVc.swift; sourceTree = "<group>"; };
+		B54335A11D87BBEF00701050 /* BaseTvc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTvc.swift; path = ViewControllers/TableViewControllers/BaseTvc.swift; sourceTree = "<group>"; };
+		B54335A31D87BC0700701050 /* DailyTvc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyTvc.swift; path = ViewControllers/TableViewControllers/DailyTvc.swift; sourceTree = "<group>"; };
+		B54335A51D87BC1B00701050 /* DetailsTvc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsTvc.swift; path = ViewControllers/TableViewControllers/DetailsTvc.swift; sourceTree = "<group>"; };
+		B54335A71D87BC2B00701050 /* HourlyTvc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HourlyTvc.swift; path = ViewControllers/TableViewControllers/HourlyTvc.swift; sourceTree = "<group>"; };
+		B54335A91D87BC3F00701050 /* LocationSearchTvc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationSearchTvc.swift; path = ViewControllers/TableViewControllers/LocationSearchTvc.swift; sourceTree = "<group>"; };
+		B54335AB1D87BC5800701050 /* LocationTvc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationTvc.swift; path = ViewControllers/TableViewControllers/LocationTvc.swift; sourceTree = "<group>"; };
+		B54335AF1D87BCD100701050 /* BaseTvCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTvCell.swift; path = ViewControllers/TableViewControllers/TableViewCells/BaseTvCell.swift; sourceTree = "<group>"; };
+		B54335B11D87BCF900701050 /* DailyTvCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyTvCell.swift; path = ViewControllers/TableViewControllers/TableViewCells/DailyTvCell.swift; sourceTree = "<group>"; };
+		B54335B31D87BD0400701050 /* DetailsTvCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsTvCell.swift; path = ViewControllers/TableViewControllers/TableViewCells/DetailsTvCell.swift; sourceTree = "<group>"; };
+		B54335B51D87BD1200701050 /* HourlyTvCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HourlyTvCell.swift; path = ViewControllers/TableViewControllers/TableViewCells/HourlyTvCell.swift; sourceTree = "<group>"; };
+		B54335B71D87BD2000701050 /* LocationSearchTvCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationSearchTvCell.swift; path = ViewControllers/TableViewControllers/TableViewCells/LocationSearchTvCell.swift; sourceTree = "<group>"; };
+		B54335B91D87BD2E00701050 /* LocationTvCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationTvCell.swift; path = ViewControllers/TableViewControllers/TableViewCells/LocationTvCell.swift; sourceTree = "<group>"; };
+		B54335BB1D87BD3F00701050 /* BaseTvHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTvHeader.swift; path = ViewControllers/TableViewControllers/TableViewHeaders/BaseTvHeader.swift; sourceTree = "<group>"; };
+		B54335BD1D87BD4F00701050 /* DailyTvHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyTvHeader.swift; path = ViewControllers/TableViewControllers/TableViewHeaders/DailyTvHeader.swift; sourceTree = "<group>"; };
+		B54335BF1D87BD5B00701050 /* DetailsTvHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsTvHeader.swift; path = ViewControllers/TableViewControllers/TableViewHeaders/DetailsTvHeader.swift; sourceTree = "<group>"; };
+		B54335C11D87BD6A00701050 /* HourlyTvHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HourlyTvHeader.swift; path = ViewControllers/TableViewControllers/TableViewHeaders/HourlyTvHeader.swift; sourceTree = "<group>"; };
+		B54335C41D87BD8D00701050 /* RadarOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RadarOverlay.swift; path = ViewControllers/RadarOverlay/RadarOverlay.swift; sourceTree = "<group>"; };
+		B54335C61D87BD9D00701050 /* RadarOverlayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RadarOverlayExtensions.swift; path = ViewControllers/RadarOverlay/RadarOverlayExtensions.swift; sourceTree = "<group>"; };
+		B54335C81D87BDAB00701050 /* RadarOverlayRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RadarOverlayRenderer.swift; path = ViewControllers/RadarOverlay/RadarOverlayRenderer.swift; sourceTree = "<group>"; };
+		B54335CA1D87BDC200701050 /* DailyGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DailyGraphView.swift; path = ViewControllers/DailyGraphView.swift; sourceTree = "<group>"; };
+		B54335CF1D87C24200701050 /* ImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageExtensions.swift; path = Extensions/ImageExtensions.swift; sourceTree = "<group>"; };
+		B553F4811D8890E7005E701C /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alerts.swift; path = Domain/Wu/Alerts.swift; sourceTree = "<group>"; };
+		B553F4821D8890E7005E701C /* Almanac.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Almanac.swift; path = Domain/Wu/Almanac.swift; sourceTree = "<group>"; };
+		B553F4831D8890E7005E701C /* Astronomy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Astronomy.swift; path = Domain/Wu/Astronomy.swift; sourceTree = "<group>"; };
+		B553F4841D8890E7005E701C /* Conditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Conditions.swift; path = Domain/Wu/Conditions.swift; sourceTree = "<group>"; };
+		B553F4851D8890E7005E701C /* CurrentHurricane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentHurricane.swift; path = Domain/Wu/CurrentHurricane.swift; sourceTree = "<group>"; };
+		B553F4861D8890E7005E701C /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Forecast.swift; path = Domain/Wu/Forecast.swift; sourceTree = "<group>"; };
+		B553F4871D8890E7005E701C /* GeoLookup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeoLookup.swift; path = Domain/Wu/GeoLookup.swift; sourceTree = "<group>"; };
+		B553F4881D8890E7005E701C /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = History.swift; path = Domain/Wu/History.swift; sourceTree = "<group>"; };
+		B553F4891D8890E7005E701C /* Hourly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hourly.swift; path = Domain/Wu/Hourly.swift; sourceTree = "<group>"; };
+		B553F48A1D8890E7005E701C /* Planner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Planner.swift; path = Domain/Wu/Planner.swift; sourceTree = "<group>"; };
+		B553F48B1D8890E7005E701C /* RadarBounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RadarBounds.swift; path = Domain/Wu/RadarBounds.swift; sourceTree = "<group>"; };
+		B553F48C1D8890E7005E701C /* RawTide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RawTide.swift; path = Domain/Wu/RawTide.swift; sourceTree = "<group>"; };
+		B553F48D1D8890E7005E701C /* Satellite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Satellite.swift; path = Domain/Wu/Satellite.swift; sourceTree = "<group>"; };
+		B553F48E1D8890E7005E701C /* Tide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tide.swift; path = Domain/Wu/Tide.swift; sourceTree = "<group>"; };
+		B553F48F1D8890E7005E701C /* WeatherDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherDetail.swift; path = Domain/Wu/WeatherDetail.swift; sourceTree = "<group>"; };
+		B553F4901D8890E7005E701C /* Webcams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Webcams.swift; path = Domain/Wu/Webcams.swift; sourceTree = "<group>"; };
+		B553F4911D8890E7005E701C /* WuAcResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WuAcResults.swift; path = Domain/Wu/WuAcResults.swift; sourceTree = "<group>"; };
+		B553F4921D8890E7005E701C /* WuLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WuLocation.swift; path = Domain/Wu/WuLocation.swift; sourceTree = "<group>"; };
+		B553F4931D8890E7005E701C /* WuObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WuObject.swift; path = Domain/Wu/WuObject.swift; sourceTree = "<group>"; };
+		B553F4941D8890E7005E701C /* WuWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WuWeather.swift; path = Domain/Wu/WuWeather.swift; sourceTree = "<group>"; };
+		B553F4AA1D889E71005E701C /* NumberExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumberExtensions.swift; path = Domain/Extensions/NumberExtensions.swift; sourceTree = "<group>"; };
+		B553F4AC1D889E81005E701C /* WeatherConditionsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherConditionsExtensions.swift; path = Domain/Extensions/WeatherConditionsExtensions.swift; sourceTree = "<group>"; };
+		B553F4AE1D889E92005E701C /* WuAcExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WuAcExtensions.swift; path = Domain/Extensions/WuAcExtensions.swift; sourceTree = "<group>"; };
+		B553F4B01D889EB4005E701C /* WuLocationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WuLocationExtensions.swift; path = Domain/Extensions/WuLocationExtensions.swift; sourceTree = "<group>"; };
+		B5EB476B1D897D37007FC27B /* PrivateKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrivateKeys.swift; path = Constants/PrivateKeys.swift; sourceTree = "<group>"; };
+		E0B9FA838774C877C872F630 /* Pods-XWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XWeather/Pods-XWeather.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B54335811D87B9CF00701050 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED22760AA7CB1FBBD6B2B9B2 /* Pods_XWeather.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		50FD5D885B34857DB04BF178 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0B9FA838774C877C872F630 /* Pods-XWeather.debug.xcconfig */,
+				730C13AA7E4868105287CF2E /* Pods-XWeather.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		61C4035CAF093A9F7286D415 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F314C24115BC4135AD50177 /* Pods_XWeather.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5401D3F1D88148B0015160F /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		B5401D401D88149D0015160F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B5EB476B1D897D37007FC27B /* PrivateKeys.swift */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		B5401D411D8814AA0015160F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B553F4A91D889E3C005E701C /* Extensions */,
+				B553F4801D8890A1005E701C /* Wu */,
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
+		B5401D421D8814B50015160F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		B5401D431D8814CA0015160F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		B543357B1D87B9CF00701050 = {
+			isa = PBXGroup;
+			children = (
+				B54335861D87B9CF00701050 /* XWeather */,
+				B54335851D87B9CF00701050 /* Products */,
+				50FD5D885B34857DB04BF178 /* Pods */,
+				61C4035CAF093A9F7286D415 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B54335851D87B9CF00701050 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B54335841D87B9CF00701050 /* XWeather.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B54335861D87B9CF00701050 /* XWeather */ = {
+			isa = PBXGroup;
+			children = (
+				B54335931D87B9CF00701050 /* Info.plist */,
+				B54335871D87B9CF00701050 /* AppDelegate.swift */,
+				B543358E1D87B9CF00701050 /* Assets.xcassets */,
+				B5401D3F1D88148B0015160F /* Clients */,
+				B5401D401D88149D0015160F /* Constants */,
+				B5401D411D8814AA0015160F /* Domain */,
+				B54335CC1D87C21100701050 /* Extensions */,
+				B54335901D87B9CF00701050 /* LaunchScreen.storyboard */,
+				B543358B1D87B9CF00701050 /* Main.storyboard */,
+				B5401D431D8814CA0015160F /* Settings */,
+				B5401D421D8814B50015160F /* Utilities */,
+				B54335991D87BB4800701050 /* ViewControllers */,
+			);
+			path = XWeather;
+			sourceTree = "<group>";
+		};
+		B54335991D87BB4800701050 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B54335C31D87BD7900701050 /* RadarOverlay */,
+				B54335A01D87BBD400701050 /* TableViewControllers */,
+				B543359A1D87BB7F00701050 /* WeatherNc.swift */,
+				B543359C1D87BBA400701050 /* WeatherPvc.swift */,
+				B543359E1D87BBC800701050 /* RadarMapVc.swift */,
+				B54335CA1D87BDC200701050 /* DailyGraphView.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B54335A01D87BBD400701050 /* TableViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B54335A11D87BBEF00701050 /* BaseTvc.swift */,
+				B54335A31D87BC0700701050 /* DailyTvc.swift */,
+				B54335A51D87BC1B00701050 /* DetailsTvc.swift */,
+				B54335A71D87BC2B00701050 /* HourlyTvc.swift */,
+				B54335A91D87BC3F00701050 /* LocationSearchTvc.swift */,
+				B54335AB1D87BC5800701050 /* LocationTvc.swift */,
+				B54335AE1D87BCAE00701050 /* TableViewCells */,
+				B54335AD1D87BCA000701050 /* TableViewHeaders */,
+			);
+			name = TableViewControllers;
+			sourceTree = "<group>";
+		};
+		B54335AD1D87BCA000701050 /* TableViewHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				B54335BB1D87BD3F00701050 /* BaseTvHeader.swift */,
+				B54335BD1D87BD4F00701050 /* DailyTvHeader.swift */,
+				B54335BF1D87BD5B00701050 /* DetailsTvHeader.swift */,
+				B54335C11D87BD6A00701050 /* HourlyTvHeader.swift */,
+			);
+			name = TableViewHeaders;
+			sourceTree = "<group>";
+		};
+		B54335AE1D87BCAE00701050 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				B54335AF1D87BCD100701050 /* BaseTvCell.swift */,
+				B54335B11D87BCF900701050 /* DailyTvCell.swift */,
+				B54335B31D87BD0400701050 /* DetailsTvCell.swift */,
+				B54335B51D87BD1200701050 /* HourlyTvCell.swift */,
+				B54335B71D87BD2000701050 /* LocationSearchTvCell.swift */,
+				B54335B91D87BD2E00701050 /* LocationTvCell.swift */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		B54335C31D87BD7900701050 /* RadarOverlay */ = {
+			isa = PBXGroup;
+			children = (
+				B54335C41D87BD8D00701050 /* RadarOverlay.swift */,
+				B54335C61D87BD9D00701050 /* RadarOverlayExtensions.swift */,
+				B54335C81D87BDAB00701050 /* RadarOverlayRenderer.swift */,
+			);
+			name = RadarOverlay;
+			sourceTree = "<group>";
+		};
+		B54335CC1D87C21100701050 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B5401D3D1D8807FD0015160F /* ViewExtensions.swift */,
+				B54335CF1D87C24200701050 /* ImageExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		B553F4801D8890A1005E701C /* Wu */ = {
+			isa = PBXGroup;
+			children = (
+				B553F4811D8890E7005E701C /* Alerts.swift */,
+				B553F4821D8890E7005E701C /* Almanac.swift */,
+				B553F4831D8890E7005E701C /* Astronomy.swift */,
+				B553F4841D8890E7005E701C /* Conditions.swift */,
+				B553F4851D8890E7005E701C /* CurrentHurricane.swift */,
+				B553F4861D8890E7005E701C /* Forecast.swift */,
+				B553F4871D8890E7005E701C /* GeoLookup.swift */,
+				B553F4881D8890E7005E701C /* History.swift */,
+				B553F4891D8890E7005E701C /* Hourly.swift */,
+				B553F48A1D8890E7005E701C /* Planner.swift */,
+				B553F48B1D8890E7005E701C /* RadarBounds.swift */,
+				B553F48C1D8890E7005E701C /* RawTide.swift */,
+				B553F48D1D8890E7005E701C /* Satellite.swift */,
+				B553F48E1D8890E7005E701C /* Tide.swift */,
+				B553F48F1D8890E7005E701C /* WeatherDetail.swift */,
+				B553F4901D8890E7005E701C /* Webcams.swift */,
+				B553F4911D8890E7005E701C /* WuAcResults.swift */,
+				B553F4921D8890E7005E701C /* WuLocation.swift */,
+				B553F4931D8890E7005E701C /* WuObject.swift */,
+				B553F4941D8890E7005E701C /* WuWeather.swift */,
+			);
+			name = Wu;
+			sourceTree = "<group>";
+		};
+		B553F4A91D889E3C005E701C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B553F4AA1D889E71005E701C /* NumberExtensions.swift */,
+				B553F4AC1D889E81005E701C /* WeatherConditionsExtensions.swift */,
+				B553F4AE1D889E92005E701C /* WuAcExtensions.swift */,
+				B553F4B01D889EB4005E701C /* WuLocationExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B54335831D87B9CF00701050 /* XWeather */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B54335961D87B9D000701050 /* Build configuration list for PBXNativeTarget "XWeather" */;
+			buildPhases = (
+				D5E93C78DFA125283540E8F8 /* [CP] Check Pods Manifest.lock */,
+				B54335801D87B9CF00701050 /* Sources */,
+				B54335811D87B9CF00701050 /* Frameworks */,
+				B54335821D87B9CF00701050 /* Resources */,
+				B53C93E29186EFB5952FE564 /* [CP] Embed Pods Frameworks */,
+				ACC0CA904A7D300430AF9F6F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XWeather;
+			productName = XWeather;
+			productReference = B54335841D87B9CF00701050 /* XWeather.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B543357C1D87B9CF00701050 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Colby Williams";
+				TargetAttributes = {
+					B54335831D87B9CF00701050 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B543357F1D87B9CF00701050 /* Build configuration list for PBXProject "XWeather" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B543357B1D87B9CF00701050;
+			productRefGroup = B54335851D87B9CF00701050 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B54335831D87B9CF00701050 /* XWeather */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B54335821D87B9CF00701050 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B54335921D87B9CF00701050 /* LaunchScreen.storyboard in Resources */,
+				B543358F1D87B9CF00701050 /* Assets.xcassets in Resources */,
+				B543358D1D87B9CF00701050 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ACC0CA904A7D300430AF9F6F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XWeather/Pods-XWeather-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B53C93E29186EFB5952FE564 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XWeather/Pods-XWeather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5E93C78DFA125283540E8F8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B54335801D87B9CF00701050 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B553F49C1D8890E7005E701C /* History.swift in Sources */,
+				B553F4AB1D889E71005E701C /* NumberExtensions.swift in Sources */,
+				B553F4AF1D889E92005E701C /* WuAcExtensions.swift in Sources */,
+				B553F4AD1D889E81005E701C /* WeatherConditionsExtensions.swift in Sources */,
+				B553F4A31D8890E7005E701C /* WeatherDetail.swift in Sources */,
+				B553F49A1D8890E7005E701C /* Forecast.swift in Sources */,
+				B54335B01D87BCD100701050 /* BaseTvCell.swift in Sources */,
+				B553F49F1D8890E7005E701C /* RadarBounds.swift in Sources */,
+				B553F4A71D8890E7005E701C /* WuObject.swift in Sources */,
+				B54335A81D87BC2B00701050 /* HourlyTvc.swift in Sources */,
+				B54335BA1D87BD2E00701050 /* LocationTvCell.swift in Sources */,
+				B54335A21D87BBEF00701050 /* BaseTvc.swift in Sources */,
+				B553F4A51D8890E7005E701C /* WuAcResults.swift in Sources */,
+				B553F49D1D8890E7005E701C /* Hourly.swift in Sources */,
+				B553F4A11D8890E7005E701C /* Satellite.swift in Sources */,
+				B54335B21D87BCF900701050 /* DailyTvCell.swift in Sources */,
+				B553F49E1D8890E7005E701C /* Planner.swift in Sources */,
+				B553F49B1D8890E7005E701C /* GeoLookup.swift in Sources */,
+				B553F4991D8890E7005E701C /* CurrentHurricane.swift in Sources */,
+				B54335B41D87BD0400701050 /* DetailsTvCell.swift in Sources */,
+				B553F4971D8890E7005E701C /* Astronomy.swift in Sources */,
+				B553F4A41D8890E7005E701C /* Webcams.swift in Sources */,
+				B54335D01D87C24200701050 /* ImageExtensions.swift in Sources */,
+				B553F4A81D8890E7005E701C /* WuWeather.swift in Sources */,
+				B54335C71D87BD9D00701050 /* RadarOverlayExtensions.swift in Sources */,
+				B543359D1D87BBA400701050 /* WeatherPvc.swift in Sources */,
+				B54335C91D87BDAB00701050 /* RadarOverlayRenderer.swift in Sources */,
+				B54335C21D87BD6A00701050 /* HourlyTvHeader.swift in Sources */,
+				B54335B61D87BD1200701050 /* HourlyTvCell.swift in Sources */,
+				B553F4A61D8890E7005E701C /* WuLocation.swift in Sources */,
+				B54335C01D87BD5C00701050 /* DetailsTvHeader.swift in Sources */,
+				B543359B1D87BB7F00701050 /* WeatherNc.swift in Sources */,
+				B54335A41D87BC0700701050 /* DailyTvc.swift in Sources */,
+				B54335C51D87BD8D00701050 /* RadarOverlay.swift in Sources */,
+				B553F4981D8890E7005E701C /* Conditions.swift in Sources */,
+				B553F4951D8890E7005E701C /* Alerts.swift in Sources */,
+				B553F4A21D8890E7005E701C /* Tide.swift in Sources */,
+				B553F4961D8890E7005E701C /* Almanac.swift in Sources */,
+				B54335881D87B9CF00701050 /* AppDelegate.swift in Sources */,
+				B54335BE1D87BD4F00701050 /* DailyTvHeader.swift in Sources */,
+				B553F4B11D889EB4005E701C /* WuLocationExtensions.swift in Sources */,
+				B5EB476C1D897D37007FC27B /* PrivateKeys.swift in Sources */,
+				B54335A61D87BC1B00701050 /* DetailsTvc.swift in Sources */,
+				B54335AC1D87BC5800701050 /* LocationTvc.swift in Sources */,
+				B5401D3E1D8807FD0015160F /* ViewExtensions.swift in Sources */,
+				B54335AA1D87BC3F00701050 /* LocationSearchTvc.swift in Sources */,
+				B54335B81D87BD2000701050 /* LocationSearchTvCell.swift in Sources */,
+				B543359F1D87BBC800701050 /* RadarMapVc.swift in Sources */,
+				B54335CB1D87BDC200701050 /* DailyGraphView.swift in Sources */,
+				B553F4A01D8890E7005E701C /* RawTide.swift in Sources */,
+				B54335BC1D87BD3F00701050 /* BaseTvHeader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B543358B1D87B9CF00701050 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B543358C1D87B9CF00701050 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B54335901D87B9CF00701050 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B54335911D87B9CF00701050 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B54335941D87B9CF00701050 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B54335951D87B9CF00701050 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B54335971D87B9D000701050 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0B9FA838774C877C872F630 /* Pods-XWeather.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = XWeather/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xamarin.xweather;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		B54335981D87B9D000701050 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 730C13AA7E4868105287CF2E /* Pods-XWeather.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = XWeather/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xamarin.xweather;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B543357F1D87B9CF00701050 /* Build configuration list for PBXProject "XWeather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B54335941D87B9CF00701050 /* Debug */,
+				B54335951D87B9CF00701050 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B54335961D87B9D000701050 /* Build configuration list for PBXNativeTarget "XWeather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B54335971D87B9D000701050 /* Debug */,
+				B54335981D87B9D000701050 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B543357C1D87B9CF00701050 /* Project object */;
+}
