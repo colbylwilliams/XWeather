@@ -61,6 +61,12 @@
 		B553F4AF1D889E92005E701C /* WuAcExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4AE1D889E92005E701C /* WuAcExtensions.swift */; };
 		B553F4B11D889EB4005E701C /* WuLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B553F4B01D889EB4005E701C /* WuLocationExtensions.swift */; };
 		B5EB476C1D897D37007FC27B /* PrivateKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB476B1D897D37007FC27B /* PrivateKeys.swift */; };
+		B5EB476E1D897EBC007FC27B /* WeatherConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB476D1D897EBC007FC27B /* WeatherConditions.swift */; };
+		B5EB47701D898064007FC27B /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB476F1D898064007FC27B /* ApiKeys.swift */; };
+		B5EB47721D898332007FC27B /* WuClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB47711D898332007FC27B /* WuClient.swift */; };
+		B5EB47741D898342007FC27B /* WuAcClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB47731D898342007FC27B /* WuAcClient.swift */; };
+		B5EB47761D898D1D007FC27B /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB47751D898D1D007FC27B /* Events.swift */; };
+		B5EB47781D899C4C007FC27B /* LocationCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB47771D899C4C007FC27B /* LocationCoordinates.swift */; };
 		ED22760AA7CB1FBBD6B2B9B2 /* Pods_XWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F314C24115BC4135AD50177 /* Pods_XWeather.framework */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +129,12 @@
 		B553F4AE1D889E92005E701C /* WuAcExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WuAcExtensions.swift; path = Domain/Extensions/WuAcExtensions.swift; sourceTree = "<group>"; };
 		B553F4B01D889EB4005E701C /* WuLocationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WuLocationExtensions.swift; path = Domain/Extensions/WuLocationExtensions.swift; sourceTree = "<group>"; };
 		B5EB476B1D897D37007FC27B /* PrivateKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrivateKeys.swift; path = Constants/PrivateKeys.swift; sourceTree = "<group>"; };
+		B5EB476D1D897EBC007FC27B /* WeatherConditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherConditions.swift; path = Constants/WeatherConditions.swift; sourceTree = "<group>"; };
+		B5EB476F1D898064007FC27B /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiKeys.swift; path = Constants/ApiKeys.swift; sourceTree = "<group>"; };
+		B5EB47711D898332007FC27B /* WuClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WuClient.swift; path = Clients/WuClient.swift; sourceTree = "<group>"; };
+		B5EB47731D898342007FC27B /* WuAcClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WuAcClient.swift; path = Clients/WuAcClient.swift; sourceTree = "<group>"; };
+		B5EB47751D898D1D007FC27B /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Events.swift; path = Utilities/Events.swift; sourceTree = "<group>"; };
+		B5EB47771D899C4C007FC27B /* LocationCoordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationCoordinates.swift; path = Domain/LocationCoordinates.swift; sourceTree = "<group>"; };
 		E0B9FA838774C877C872F630 /* Pods-XWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XWeather/Pods-XWeather.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +170,8 @@
 		B5401D3F1D88148B0015160F /* Clients */ = {
 			isa = PBXGroup;
 			children = (
+				B5EB47711D898332007FC27B /* WuClient.swift */,
+				B5EB47731D898342007FC27B /* WuAcClient.swift */,
 			);
 			name = Clients;
 			sourceTree = "<group>";
@@ -166,6 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				B5EB476B1D897D37007FC27B /* PrivateKeys.swift */,
+				B5EB476D1D897EBC007FC27B /* WeatherConditions.swift */,
+				B5EB476F1D898064007FC27B /* ApiKeys.swift */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -175,6 +191,7 @@
 			children = (
 				B553F4A91D889E3C005E701C /* Extensions */,
 				B553F4801D8890A1005E701C /* Wu */,
+				B5EB47771D899C4C007FC27B /* LocationCoordinates.swift */,
 			);
 			name = Domain;
 			sourceTree = "<group>";
@@ -182,6 +199,7 @@
 		B5401D421D8814B50015160F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B5EB47751D898D1D007FC27B /* Events.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -464,8 +482,11 @@
 			files = (
 				B553F49C1D8890E7005E701C /* History.swift in Sources */,
 				B553F4AB1D889E71005E701C /* NumberExtensions.swift in Sources */,
+				B5EB47701D898064007FC27B /* ApiKeys.swift in Sources */,
 				B553F4AF1D889E92005E701C /* WuAcExtensions.swift in Sources */,
+				B5EB47761D898D1D007FC27B /* Events.swift in Sources */,
 				B553F4AD1D889E81005E701C /* WeatherConditionsExtensions.swift in Sources */,
+				B5EB47741D898342007FC27B /* WuAcClient.swift in Sources */,
 				B553F4A31D8890E7005E701C /* WeatherDetail.swift in Sources */,
 				B553F49A1D8890E7005E701C /* Forecast.swift in Sources */,
 				B54335B01D87BCD100701050 /* BaseTvCell.swift in Sources */,
@@ -486,6 +507,7 @@
 				B553F4A41D8890E7005E701C /* Webcams.swift in Sources */,
 				B54335D01D87C24200701050 /* ImageExtensions.swift in Sources */,
 				B553F4A81D8890E7005E701C /* WuWeather.swift in Sources */,
+				B5EB476E1D897EBC007FC27B /* WeatherConditions.swift in Sources */,
 				B54335C71D87BD9D00701050 /* RadarOverlayExtensions.swift in Sources */,
 				B543359D1D87BBA400701050 /* WeatherPvc.swift in Sources */,
 				B54335C91D87BDAB00701050 /* RadarOverlayRenderer.swift in Sources */,
@@ -502,6 +524,7 @@
 				B553F4961D8890E7005E701C /* Almanac.swift in Sources */,
 				B54335881D87B9CF00701050 /* AppDelegate.swift in Sources */,
 				B54335BE1D87BD4F00701050 /* DailyTvHeader.swift in Sources */,
+				B5EB47781D899C4C007FC27B /* LocationCoordinates.swift in Sources */,
 				B553F4B11D889EB4005E701C /* WuLocationExtensions.swift in Sources */,
 				B5EB476C1D897D37007FC27B /* PrivateKeys.swift in Sources */,
 				B54335A61D87BC1B00701050 /* DetailsTvc.swift in Sources */,
@@ -512,6 +535,7 @@
 				B543359F1D87BBC800701050 /* RadarMapVc.swift in Sources */,
 				B54335CB1D87BDC200701050 /* DailyGraphView.swift in Sources */,
 				B553F4A01D8890E7005E701C /* RawTide.swift in Sources */,
+				B5EB47721D898332007FC27B /* WuClient.swift in Sources */,
 				B54335BC1D87BD3F00701050 /* BaseTvHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

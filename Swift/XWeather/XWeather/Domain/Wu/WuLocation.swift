@@ -8,8 +8,13 @@
 
 import Foundation
 
-public class WuLocation //: IComparable<WuLocation>//, IEquatable<WuLocation>
+public class WuLocation : Equatable //: IComparable<WuLocation>//, IEquatable<WuLocation>
 {
+	public static func ==(lhs: WuLocation, rhs: WuLocation) -> Bool {
+		return lhs.Name == rhs.Name
+	}
+	
+	
 	init (location: WuAcLocation)
 	{
 		Location = location;
