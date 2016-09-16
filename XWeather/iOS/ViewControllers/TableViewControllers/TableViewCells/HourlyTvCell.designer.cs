@@ -19,6 +19,9 @@ namespace XWeather.iOS
 		UIKit.UIImageView iconImageView { get; set; }
 
 		[Outlet]
+		UIKit.UILabel periodLabel { get; set; }
+
+		[Outlet]
 		UIKit.UILabel precipLabel { get; set; }
 
 		[Outlet]
@@ -26,6 +29,11 @@ namespace XWeather.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (periodLabel != null) {
+				periodLabel.Dispose ();
+				periodLabel = null;
+			}
+
 			if (hourLabel != null) {
 				hourLabel.Dispose ();
 				hourLabel = null;
@@ -36,14 +44,14 @@ namespace XWeather.iOS
 				iconImageView = null;
 			}
 
-			if (tempLabel != null) {
-				tempLabel.Dispose ();
-				tempLabel = null;
-			}
-
 			if (precipLabel != null) {
 				precipLabel.Dispose ();
 				precipLabel = null;
+			}
+
+			if (tempLabel != null) {
+				tempLabel.Dispose ();
+				tempLabel = null;
 			}
 		}
 	}

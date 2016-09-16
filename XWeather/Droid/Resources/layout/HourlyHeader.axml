@@ -91,21 +91,6 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="bottom|right">
-                <ImageView
-                    android:src="@drawable/i_drop"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/HourlyHeader_iconImageView"
-                    android:scaleType="center"
-                    android:paddingRight="8dp"
-                    android:layout_marginBottom="2dp" />
-            </LinearLayout>
             <TextView
                 android:text="0%"
                 style="@style/blueTextBright"
@@ -113,8 +98,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/HourlyHeader_precipLabel"
+                android:gravity="bottom|right"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp" />
+            <TextView
+                android:text="Precip"
+                style="@style/secondaryText"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:gravity="bottom|left"
-                android:paddingLeft="4dp" />
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:textSize="12dp" />
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"

@@ -1,6 +1,8 @@
 ﻿using System;
 
 using XWeather.Domain;
+using ServiceStack;
+using System.Linq;
 
 namespace XWeather
 {
@@ -184,8 +186,12 @@ namespace XWeather
 			=> getTemperatureString (forecast.Temp (units, round), degreeSymbol);
 
 
-		public static string HourString (this HourlyForecast forecast, bool lowercase = true)
-			 => lowercase ? forecast.FCTTIME.civil.ToLower () : forecast.FCTTIME.civil;
+		public static string HourString (this HourlyForecast forecast, bool lowercase = true, bool removePeriod = true)
+			=> removePeriod ? forecast.FCTTIME.civil.SplitOnFirst (' ').FirstOrDefault () : lowercase ? forecast.FCTTIME.ampm.ToLower () : forecast.FCTTIME.civil;
+
+
+		public static string PeriodString (this HourlyForecast forecast, bool lowercase = true)
+			=> !forecast.FCTTIME.ampm.IsNullOrEmpty () ? (lowercase ? forecast.FCTTIME.ampm.ToLower () : forecast.FCTTIME.ampm) : forecast.HourString (lowercase, false).SplitOnLast (' ').LastOrDefault ();
 
 
 		public static string ForecastString (this WuLocation location, TemperatureUnits unit)
@@ -205,12 +211,12 @@ namespace XWeather
 		public static string SunsetString (this WuLocation location) => location?.Sunset?.LocalDateTime.ToString ("t").ToLower ();
 
 
-		public static string ProbabilityPercipString (this ForecastDay forecast) => forecast?.pop.ToPercentString ();
+		public static string ProbabilityPercipString (this ForecastDay forecast) => (forecast?.pop ?? 0).ToPercentString ();
 
 
-		public static string ProbabilityPercipString (this WuLocation location) => location?.TodayForecast?.ProbabilityPercipString ();
+		public static string ProbabilityPercipString (this WuLocation location) => location?.TodayForecast.ProbabilityPercipString () ?? 0.ToPercentString ();
 
 
-		public static string ProbabilityPercipString (this HourlyForecast forecast) => forecast?.pop.ToPercentString ();
+		public static string ProbabilityPercipString (this HourlyForecast forecast) => (forecast?.pop ?? 0).ToPercentString ();
 	}
 }

@@ -15,6 +15,7 @@ namespace XWeather.iOS
 		public void SetData (HourlyForecast forecast)
 		{
 			hourLabel.Text = forecast.HourString ();
+			periodLabel.Text = forecast.PeriodString ();
 			tempLabel.Text = forecast.TempString (Settings.UomTemperature, true, true);
 			precipLabel.Text = forecast.ProbabilityPercipString ();
 			iconImageView.Image = UIImage.FromBundle (forecast.icon);

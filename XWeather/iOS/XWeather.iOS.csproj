@@ -298,12 +298,6 @@
     <ImageAsset Include="Assets.xcassets\unknown.imageset\Contents.json">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\i_globe.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\i_globe.imageset\i_globe.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\i_add.imageset\Contents.json">
       <InProject>false</InProject>
     </ImageAsset>
@@ -320,12 +314,6 @@
       <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\i_list.imageset\i_list.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\i_drop.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\i_drop.imageset\i_drop.pdf">
       <InProject>false</InProject>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\chanceflurries.imageset\chanceflurries.pdf">
@@ -509,6 +497,8 @@
     <ImageAsset Include="Assets.xcassets\bg_launch.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\bg_launch.imageset\bg_launch.pdf" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\i_radar.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\i_radar.imageset\i_radar.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -536,6 +526,7 @@
     <Folder Include="Assets.xcassets\logo_wunderground_white.imageset\" />
     <Folder Include="Assets.xcassets\bg_launch.imageset\" />
     <Folder Include="ViewControllers\RadarOverlay\" />
+    <Folder Include="Assets.xcassets\i_radar.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />

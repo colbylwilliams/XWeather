@@ -17,7 +17,7 @@ namespace XWeather.iOS
 			highTempLabel.Text = location?.HighTempString (Settings.UomTemperature);
 			locationLabel.Text = location?.Name;
 			lowTempLabel.Text = location?.LowTempString (Settings.UomTemperature);
-			precipLabel.Text = location?.ProbabilityPercipString ();
+			precipLabel.Text = location.ProbabilityPercipString ();
 			tempLabel.Text = location?.TempString (Settings.UomTemperature, true);
 			todayLabel.Text = "Today";
 

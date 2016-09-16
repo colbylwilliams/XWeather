@@ -18,7 +18,7 @@ namespace XWeather.Unified
 		{
 			if (imageData != null) {
 				NSData data = NSData.FromArray (imageData);
-				return new NSImage (data);//  NSImage.LoadFromData (data);
+				return new NSImage (data);
 			}
 			return null;
 		}
