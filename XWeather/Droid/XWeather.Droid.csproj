@@ -233,8 +233,6 @@
     <AndroidResource Include="Resources\drawable\i_add.xml" />
     <AndroidResource Include="Resources\drawable\i_close.xml" />
     <AndroidResource Include="Resources\drawable\i_cog.xml" />
-    <AndroidResource Include="Resources\drawable\i_drop.xml" />
-    <AndroidResource Include="Resources\drawable\i_globe.xml" />
     <AndroidResource Include="Resources\drawable\mostlycloudy.xml" />
     <AndroidResource Include="Resources\drawable\mostlysunny.xml" />
     <AndroidResource Include="Resources\drawable\nt_chanceflurries.xml" />
