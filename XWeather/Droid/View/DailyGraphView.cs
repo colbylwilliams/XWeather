@@ -1,14 +1,17 @@
 ﻿using System;
-using Android.Content;
-using Android.Views;
-using Android.Util;
-using Android.Graphics;
 using System.Collections.Generic;
-using XWeather.Domain;
-using XWeather.Clients;
 using System.Linq;
-using SettingsStudio;
+
+using Android.Content;
+using Android.Graphics;
 using Android.Text;
+using Android.Util;
+using Android.Views;
+
+using SettingsStudio;
+
+using XWeather.Clients;
+using XWeather.Domain;
 
 namespace XWeather.Droid
 {
@@ -87,18 +90,6 @@ namespace XWeather.Droid
 
 
 			graphRect = new RectF (padding, padding, canvas.Width - padding, canvas.Height - padding);// CGRect (rect.X + padding, rect.Y + padding, rect.Width - (padding * 2), rect.Height - (padding * 2));
-
-			System.Diagnostics.Debug.WriteLine ($"lineWidth = {lineWidth}");
-
-			System.Diagnostics.Debug.WriteLine ($"canvas.Width = {canvas.Width}");
-			System.Diagnostics.Debug.WriteLine ($"canvas.Height = {canvas.Height}");
-			System.Diagnostics.Debug.WriteLine ($"graphRect.Width() = {graphRect.Width ()}");
-			System.Diagnostics.Debug.WriteLine ($"graphRect.Height() = {graphRect.Height ()}");
-
-			System.Diagnostics.Debug.WriteLine ($"graphRect.Left = {graphRect.Left}");
-			System.Diagnostics.Debug.WriteLine ($"graphRect.Top = {graphRect.Top}");
-			System.Diagnostics.Debug.WriteLine ($"graphRect.Right = {graphRect.Right}");
-			System.Diagnostics.Debug.WriteLine ($"graphRect.Bottom = {graphRect.Bottom}");
 
 			var days = Hourly.GroupBy (h => h.FCTTIME.mday).Select (g => g.First ().FCTTIME.weekday_name_abbrev).ToList ();
 

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using Android.Graphics;
 
@@ -18,7 +17,7 @@ namespace XWeather.Droid
 
 
 		public static List<Color []> Gradients = new List<Color []> {
-			new Color[] { Color.Rgb (1, 22, 47), Color.Rgb (22, 19, 76) }, // NIGHT
+			new Color[] { Color.Rgb (1, 22, 47), Color.Rgb (22, 19, 76) },
 			new Color[] { Color.Rgb (1, 22, 47), Color.Rgb (22, 19, 76) },
 			new Color[] { Color.Rgb (1, 32, 64), Color.Rgb (44, 5, 84) },
 			new Color[] { Color.Rgb (22, 19, 76), Color.Rgb (64, 4, 100) },

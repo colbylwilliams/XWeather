@@ -2,7 +2,6 @@
 
 using Android.Text;
 using Android.Text.Style;
-using Android.Graphics;
 
 namespace XWeather.Droid
 {

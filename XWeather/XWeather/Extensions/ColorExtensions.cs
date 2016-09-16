@@ -16,14 +16,6 @@ namespace XWeather
 			if (!location.HasSunTimes) return maxIndex;
 
 
-			/* Assumes that the "full" sunrise:
-			 * - Begins b minutes before the top of the sun breaks the horizon
-			 * - Continues to rise for t minutes
-			 * 
-			 * Assumes that the "full" sunset:
-			 * - Begins t minutes before the top of the sun disappears behind the horizon
-			 * - Continues to rise for b minutes */
-
 			const double t = 90;
 			const double b = 30;
 			const double f = t + b;
