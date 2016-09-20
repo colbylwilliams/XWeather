@@ -20,11 +20,25 @@ namespace XWeather.Droid
 
 				HockeyApp.Android.CrashManager.Register (context, PrivateKeys.HockeyApiKey_Droid);
 
-				// UpdateManager.Register(this, PrivateKeys.HockeyApiKey_Droid);
-
-				HockeyApp.Android.Metrics.MetricsManager.Register (context, application, PrivateKeys.HockeyApiKey_Droid);
+				HockeyApp.Android.Metrics.MetricsManager.Register (application, PrivateKeys.HockeyApiKey_Droid);
 
 				managerStarted = true;
+			}
+		}
+
+
+		public void RegisterForHockeyAppUpdates (Activity context)
+		{
+			if (managerStarted) {
+				HockeyApp.Android.UpdateManager.Register (context, PrivateKeys.HockeyApiKey_Droid);
+			}
+		}
+
+
+		public void UnregisterForHockeyAppUpdates ()
+		{
+			if (managerStarted) {
+				HockeyApp.Android.UpdateManager.Unregister ();
 			}
 		}
 

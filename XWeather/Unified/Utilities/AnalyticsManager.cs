@@ -29,6 +29,8 @@ namespace XWeather.Unified
 
 				manager.StartManager ();
 
+				manager.Authenticator.AuthenticateInstallation ();
+
 				managerStarted = true;
 			}
 #endif

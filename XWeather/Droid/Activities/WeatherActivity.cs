@@ -47,6 +47,8 @@ namespace XWeather.Droid
 			setupViewPager ();
 
 			getData ();
+
+			AnalyticsManager.Shared.RegisterForHockeyAppUpdates (this);
 		}
 
 
@@ -55,6 +57,22 @@ namespace XWeather.Droid
 			base.OnStart ();
 
 			reloadData ();
+		}
+
+
+		protected override void OnPause ()
+		{
+			base.OnPause ();
+
+			AnalyticsManager.Shared.UnregisterForHockeyAppUpdates ();
+		}
+
+
+		protected override void OnStop ()
+		{
+			base.OnStop ();
+
+			AnalyticsManager.Shared.UnregisterForHockeyAppUpdates ();
 		}
 
 
