@@ -61,13 +61,40 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Plugin.VersionTracking.Abstractions">
+      <HintPath>..\packages\Plugin.VersionTracking.1.0.1\lib\MonoAndroid10\Plugin.VersionTracking.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.VersionTracking">
+      <HintPath>..\packages\Plugin.VersionTracking.1.0.1\lib\MonoAndroid10\Plugin.VersionTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="HockeySDK.AndroidBindings">
+      <HintPath>..\packages\HockeySDK.Xamarin.4.1.0\lib\MonoAndroid403\HockeySDK.AndroidBindings.dll</HintPath>
+    </Reference>
+    <Reference Include="HockeySDK">
+      <HintPath>..\packages\HockeySDK.Xamarin.4.1.0\lib\MonoAndroid403\HockeySDK.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http.Extensions">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\monoandroid\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Primitives">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\monoandroid\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http" />
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\packages\ServiceStack.Interfaces.4.5.0\lib\portable-wp80+sl5+net45+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.4.5.0\lib\portable-net45+win8+monotouch+monoandroid+xamarin.ios10\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Client">
+      <HintPath>..\packages\ServiceStack.Client.4.5.0\lib\MonoAndroid\ServiceStack.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Pcl.Android">
+      <HintPath>..\packages\ServiceStack.Client.4.5.0\lib\MonoAndroid\ServiceStack.Pcl.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.HttpClient">
+      <HintPath>..\packages\ServiceStack.HttpClient.4.5.0\lib\portable-net45+win8+monotouch+monoandroid+xamarin.ios10\ServiceStack.HttpClient.dll</HintPath>
+    </Reference>
     <Reference Include="ModernHttpClient">
       <HintPath>..\packages\modernhttpclient.2.4.2\lib\MonoAndroid\ModernHttpClient.dll</HintPath>
     </Reference>
@@ -92,14 +119,11 @@
     <Reference Include="Xamarin.Android.Support.Vector.Drawable">
       <HintPath>..\packages\Xamarin.Android.Support.Vector.Drawable.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.Vector.Drawable.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Android.Support.v7.RecyclerView">
-      <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Android.Support.v7.CardView">
-      <HintPath>..\packages\Xamarin.Android.Support.v7.CardView.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.v7.CardView.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable">
       <HintPath>..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.Animated.Vector.Drawable.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.RecyclerView">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.RecyclerView.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.v7.RecyclerView.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Android.Support.v7.AppCompat">
       <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
@@ -107,32 +131,8 @@
     <Reference Include="Xamarin.Android.Support.Design">
       <HintPath>..\packages\Xamarin.Android.Support.Design.23.4.0.1\lib\MonoAndroid43\Xamarin.Android.Support.Design.dll</HintPath>
     </Reference>
-    <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\packages\ServiceStack.Interfaces.4.0.62\lib\portable-wp80+sl5+net40+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Text">
-      <HintPath>..\packages\ServiceStack.Text.4.0.62\lib\portable-net45+win8+monotouch+monoandroid+xamarin.ios10\ServiceStack.Text.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Client">
-      <HintPath>..\packages\ServiceStack.Client.4.0.62\lib\MonoAndroid\ServiceStack.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Pcl.Android">
-      <HintPath>..\packages\ServiceStack.Client.4.0.62\lib\MonoAndroid\ServiceStack.Pcl.Android.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.HttpClient">
-      <HintPath>..\packages\ServiceStack.HttpClient.4.0.62\lib\portable-net45+win8+monotouch+monoandroid+xamarin.ios10\ServiceStack.HttpClient.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.VersionTracking.Abstractions">
-      <HintPath>..\packages\Plugin.VersionTracking.1.0.1\lib\MonoAndroid10\Plugin.VersionTracking.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.VersionTracking">
-      <HintPath>..\packages\Plugin.VersionTracking.1.0.1\lib\MonoAndroid10\Plugin.VersionTracking.dll</HintPath>
-    </Reference>
-    <Reference Include="HockeySDK.AndroidBindings">
-      <HintPath>..\packages\HockeySDK.Xamarin.4.1.0\lib\MonoAndroid403\HockeySDK.AndroidBindings.dll</HintPath>
-    </Reference>
-    <Reference Include="HockeySDK">
-      <HintPath>..\packages\HockeySDK.Xamarin.4.1.0\lib\MonoAndroid403\HockeySDK.dll</HintPath>
+    <Reference Include="Xamarin.Android.Support.v7.CardView">
+      <HintPath>..\packages\Xamarin.Android.Support.v7.CardView.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.v7.CardView.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
