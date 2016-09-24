@@ -156,7 +156,7 @@ namespace XWeather.iOS
 		}
 
 
-#if DEBUG
+#if !DEBUG
 
 		void getData () => TestDataProvider.InitTestDataAsync ();
 

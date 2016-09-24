@@ -24,6 +24,8 @@ namespace XWeather.iOS
 
 		nfloat searchBarHeight => searchController?.SearchBar?.Frame.Height ?? 0;
 
+		nfloat statusBarHeight = 20;
+
 		nfloat rowHeight = 60;
 
 
@@ -34,11 +36,11 @@ namespace XWeather.iOS
 		{
 			base.ViewDidLoad ();
 
-			TableView.ContentInset = new UIEdgeInsets (20, 0, 0, 0);
+			TableView.ContentInset = new UIEdgeInsets (statusBarHeight, 0, 0, 0);
 
 			setupSearchController ();
 
-			TableView.SetContentOffset (new CGPoint (0, searchBarHeight - 20), false);
+			TableView.SetContentOffset (new CGPoint (0, searchBarHeight - statusBarHeight), false);
 
 			if (!UIAccessibility.IsReduceTransparencyEnabled) {
 
@@ -58,10 +60,12 @@ namespace XWeather.iOS
 			if (TableView?.TableHeaderView != null) {
 
 				var topHiddenHeight = scrollView.ContentOffset.Y - TableView.TableHeaderView.Frame.Y + scrollView.ContentInset.Top;
+
 				TableView.TableHeaderView.SetTransparencyMask (topHiddenHeight, 0);
 			}
 
-			if (searchController != null && !searchController.Active && scrollView.ContentOffset.Y == -21) {
+
+			if (HeaderHeight > 0 && searchController != null && !searchController.Active && scrollView.ContentOffset.Y == -(statusBarHeight + 1)) {
 				searchController.Active = true;
 			}
 		}
@@ -85,7 +89,14 @@ namespace XWeather.iOS
 		}
 
 
-		public override nfloat HeaderHeight => TableView.Frame.Height - ((rowHeight * Locations.Count) + FooterHeight + searchBarHeight) + 20;
+		public override nfloat HeaderHeight {
+			get {
+
+				var headerHeight = TableView.Frame.Height - ((rowHeight * Locations.Count) + FooterHeight + searchBarHeight) + statusBarHeight;
+
+				return headerHeight < 0 ? 0 : headerHeight;
+			}
+		}
 
 
 		public override nint RowsInSection (UITableView tableView, nint section) => Locations?.Count ?? 0;
@@ -142,7 +153,7 @@ namespace XWeather.iOS
 		{
 			if (searchController != null && !searchController.Active) {
 
-				TableView.SetContentOffset (new CGPoint (0, -21), true);
+				TableView.SetContentOffset (new CGPoint (0, -(statusBarHeight + 1)), true);
 			}
 		}
 
@@ -160,8 +171,36 @@ namespace XWeather.iOS
 					AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Added);
 
 					TableView?.ReloadData ();
+
+					if (HeaderHeight == 0) {
+						MaskCells (TableView);
+					}
 				}
 			});
+		}
+
+
+		void setupSearchController ()
+		{
+			resultsController = Storyboard.Instantiate<LocationSearchTvc> ();
+
+			searchController = new UISearchController (resultsController) {
+				DimsBackgroundDuringPresentation = false,
+				SearchResultsUpdater = resultsController,
+				WeakDelegate = this
+			};
+
+			searchController.SearchBar.BarStyle = UIBarStyle.Black;
+			searchController.SearchBar.Translucent = true;
+			searchController.SearchBar.TintColor = Colors.TintGray;
+			searchController.SearchBar.KeyboardAppearance = UIKeyboardAppearance.Dark;
+
+
+			searchController.SearchBar.WeakDelegate = this;
+
+			TableView.TableHeaderView = searchController.SearchBar;
+
+			DefinesPresentationContext = true;
 		}
 
 
@@ -196,34 +235,5 @@ namespace XWeather.iOS
 
 
 		#endregion
-
-
-		void setupSearchController ()
-		{
-			resultsController = Storyboard.Instantiate<LocationSearchTvc> ();
-
-			searchController = new UISearchController (resultsController) {
-				DimsBackgroundDuringPresentation = false,
-				SearchResultsUpdater = resultsController,
-				WeakDelegate = this
-			};
-
-			searchController.SearchBar.BarStyle = UIBarStyle.Black;
-			searchController.SearchBar.Translucent = true;
-			searchController.SearchBar.TintColor = Colors.TintGray;
-			searchController.SearchBar.KeyboardAppearance = UIKeyboardAppearance.Dark;
-
-
-			searchController.SearchBar.WeakDelegate = this;
-
-			TableView.TableHeaderView = searchController.SearchBar;
-
-			//resultsController.TableView.WeakDelegate = this;
-			//resultsController.TableView.WeakDataSource = this;
-
-			//searchController.SearchBar.TintColor = Colors.ElitePartnerColor;
-
-			DefinesPresentationContext = true;
-		}
 	}
 }
