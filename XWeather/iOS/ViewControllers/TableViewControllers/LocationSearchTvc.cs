@@ -142,6 +142,8 @@ namespace XWeather.iOS
 
 				TableView?.ReloadData ();
 
+				MaskCells (TableView);
+
 			} catch (Exception ex) {
 
 				System.Diagnostics.Debug.WriteLine (ex.Message);
