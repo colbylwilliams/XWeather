@@ -24,6 +24,8 @@ namespace XWeather.iOS
 
 		nfloat searchBarHeight => searchController?.SearchBar?.Frame.Height ?? 0;
 
+		nfloat statusBarHeight = 20;
+
 		nfloat rowHeight = 60;
 
 
@@ -34,11 +36,11 @@ namespace XWeather.iOS
 		{
 			base.ViewDidLoad ();
 
-			TableView.ContentInset = new UIEdgeInsets (20, 0, 0, 0);
+			TableView.ContentInset = new UIEdgeInsets (statusBarHeight, 0, 0, 0);
 
 			setupSearchController ();
 
-			TableView.SetContentOffset (new CGPoint (0, searchBarHeight - 20), false);
+			TableView.SetContentOffset (new CGPoint (0, searchBarHeight - statusBarHeight), false);
 
 			if (!UIAccessibility.IsReduceTransparencyEnabled) {
 
@@ -61,7 +63,9 @@ namespace XWeather.iOS
 				TableView.TableHeaderView.SetTransparencyMask (topHiddenHeight, 0);
 			}
 
-			if (searchController != null && !searchController.Active && scrollView.ContentOffset.Y == -21) {
+			//System.Diagnostics.Debug.WriteLine (HeaderHeight);
+
+			if (HeaderHeight > 0 && searchController != null && !searchController.Active && scrollView.ContentOffset.Y == -(statusBarHeight + 1)) {
 				searchController.Active = true;
 			}
 		}
@@ -85,7 +89,7 @@ namespace XWeather.iOS
 		}
 
 
-		public override nfloat HeaderHeight => TableView.Frame.Height - ((rowHeight * Locations.Count) + FooterHeight + searchBarHeight) + 20;
+		public override nfloat HeaderHeight => TableView.Frame.Height - ((rowHeight * Locations.Count) + FooterHeight + searchBarHeight) + statusBarHeight;
 
 
 		public override nint RowsInSection (UITableView tableView, nint section) => Locations?.Count ?? 0;
@@ -142,7 +146,7 @@ namespace XWeather.iOS
 		{
 			if (searchController != null && !searchController.Active) {
 
-				TableView.SetContentOffset (new CGPoint (0, -21), true);
+				TableView.SetContentOffset (new CGPoint (0, -(statusBarHeight + 1)), true);
 			}
 		}
 
@@ -160,6 +164,10 @@ namespace XWeather.iOS
 					AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Added);
 
 					TableView?.ReloadData ();
+
+					if (HeaderHeight <= 0) {
+						MaskCells (TableView);
+					}
 				}
 			});
 		}
