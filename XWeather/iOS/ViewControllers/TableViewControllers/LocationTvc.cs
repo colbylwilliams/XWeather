@@ -60,10 +60,10 @@ namespace XWeather.iOS
 			if (TableView?.TableHeaderView != null) {
 
 				var topHiddenHeight = scrollView.ContentOffset.Y - TableView.TableHeaderView.Frame.Y + scrollView.ContentInset.Top;
+
 				TableView.TableHeaderView.SetTransparencyMask (topHiddenHeight, 0);
 			}
 
-			//System.Diagnostics.Debug.WriteLine (HeaderHeight);
 
 			if (HeaderHeight > 0 && searchController != null && !searchController.Active && scrollView.ContentOffset.Y == -(statusBarHeight + 1)) {
 				searchController.Active = true;
@@ -89,7 +89,14 @@ namespace XWeather.iOS
 		}
 
 
-		public override nfloat HeaderHeight => TableView.Frame.Height - ((rowHeight * Locations.Count) + FooterHeight + searchBarHeight) + statusBarHeight;
+		public override nfloat HeaderHeight {
+			get {
+
+				var headerHeight = TableView.Frame.Height - ((rowHeight * Locations.Count) + FooterHeight + searchBarHeight) + statusBarHeight;
+
+				return headerHeight < 0 ? 0 : headerHeight;
+			}
+		}
 
 
 		public override nint RowsInSection (UITableView tableView, nint section) => Locations?.Count ?? 0;
@@ -165,7 +172,7 @@ namespace XWeather.iOS
 
 					TableView?.ReloadData ();
 
-					if (HeaderHeight <= 0) {
+					if (HeaderHeight == 0) {
 						MaskCells (TableView);
 					}
 				}
