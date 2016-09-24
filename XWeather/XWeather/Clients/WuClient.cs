@@ -104,15 +104,16 @@ namespace XWeather.Clients
 
 		public async Task GetLocations (List<WuAcLocation> locations)
 		{
-			var tasks = locations.Select (l => getWuLocation (l)).ToArray ();
+			var selected = locations.FirstOrDefault (l => l.Selected) ?? locations.FirstOrDefault (l => l.Current) ?? locations.FirstOrDefault ();
 
-			var wuLocations = await Task.WhenAll (tasks);
+			Selected = await getWuLocation (selected);
 
-			Locations = new List<WuLocation> (wuLocations);
+			Locations = new List<WuLocation> { Selected };
 
-			Locations.Sort ();
 
-			Selected = Locations.FirstOrDefault (l => l.Selected) ?? Locations [0];
+			var tasks = locations.Where (l => l != selected).Select (l => AddLocation (l)).ToArray ();
+
+			await Task.WhenAll (tasks);
 		}
 
 
@@ -122,7 +123,7 @@ namespace XWeather.Clients
 
 			location.Weather = await GetAsync<WuWeather> (acLocation.l);
 
-			System.Diagnostics.Debug.WriteLine (location.Weather.ToJson ());
+			//System.Diagnostics.Debug.WriteLine (location.Weather.ToJson ());
 
 			location.Updated = DateTime.UtcNow;
 
@@ -137,7 +138,7 @@ namespace XWeather.Clients
 
 				var url = ApiKeys.WuApiKeyedQueryJsonFmt.Fmt (new T ().WuKey, location);
 
-				System.Diagnostics.Debug.WriteLine (url);
+				//System.Diagnostics.Debug.WriteLine (url);
 
 				return client.GetAsync<T> (url);
 
@@ -162,7 +163,7 @@ namespace XWeather.Clients
 
 				var url = ApiKeys.WuApiKeyedQueryFmt.Fmt ("animatedradar", query);
 
-				System.Diagnostics.Debug.WriteLine (url);
+				//System.Diagnostics.Debug.WriteLine (url);
 
 				return client.GetAsync<byte []> (url);
 
