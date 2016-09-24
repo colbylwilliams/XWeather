@@ -120,7 +120,7 @@ namespace XWeather.iOS
 
 				if (!string.IsNullOrWhiteSpace (searchString)) {
 
-					LocationResults = await WuAcClient.GetAsync (searchString, true);
+					LocationResults = await WuAcClient.GetAsync (searchString);
 
 					foreach (var result in LocationResults) {
 						ResultStrings.Add (result.name.GetSearchResultAttributedString (searchString));

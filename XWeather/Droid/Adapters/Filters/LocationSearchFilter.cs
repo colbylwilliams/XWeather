@@ -48,13 +48,11 @@ namespace XWeather.Droid
 
 		async Task SearchWithStringAsync (ICharSequence constraint)
 		{
-			//var searchString = searchController.SearchBar?.Text;
 			var searchString = constraint?.ToString ();
 
 			if (searchString == null) {
 				LocationResults = new List<WuAcLocation> ();
 				ResultStrings = new List<SpannableString> ();
-				//context.RunOnUiThread (adapter.NotifyDataSetInvalidated);
 				return;
 			}
 
@@ -66,7 +64,7 @@ namespace XWeather.Droid
 
 				if (!string.IsNullOrWhiteSpace (searchString)) {
 
-					LocationResults = await WuAcClient.GetAsync (searchString, true);
+					LocationResults = await WuAcClient.GetAsync (searchString);
 
 					Java.Lang.Object [] matchObjects = new Java.Lang.Object [LocationResults.Count];
 

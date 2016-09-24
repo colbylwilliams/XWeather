@@ -17,21 +17,8 @@ namespace XWeather.Clients
 		static JsonServiceClient client => _client ?? (_client = new JsonServiceClient ());
 
 
-		public static async Task<List<WuAcLocation>> GetAsync (string searchString, bool cancel = false)
+		public static async Task<List<WuAcLocation>> GetAsync (string searchString)
 		{
-			if (cancel) {
-
-				try {
-
-					client?.CancelAsync ();
-
-				} catch (Exception ex) {
-
-					// System.Net.WebConnection is throwing exceptions here. I think it's there bug, but we're trying to cancel anyway, so just ignore
-					System.Diagnostics.Debug.WriteLine ($"Exception Cancelling Service Request with type AutoCompleteResults (not fatal)\n{ex.Message}");
-				}
-			}
-
 			try {
 
 				var results = await client?.GetAsync<WuAcResults> (ApiKeys.WuAcQueryFmt.Fmt (searchString));

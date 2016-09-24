@@ -165,6 +165,30 @@ namespace XWeather.iOS
 		}
 
 
+		void setupSearchController ()
+		{
+			resultsController = Storyboard.Instantiate<LocationSearchTvc> ();
+
+			searchController = new UISearchController (resultsController) {
+				DimsBackgroundDuringPresentation = false,
+				SearchResultsUpdater = resultsController,
+				WeakDelegate = this
+			};
+
+			searchController.SearchBar.BarStyle = UIBarStyle.Black;
+			searchController.SearchBar.Translucent = true;
+			searchController.SearchBar.TintColor = Colors.TintGray;
+			searchController.SearchBar.KeyboardAppearance = UIKeyboardAppearance.Dark;
+
+
+			searchController.SearchBar.WeakDelegate = this;
+
+			TableView.TableHeaderView = searchController.SearchBar;
+
+			DefinesPresentationContext = true;
+		}
+
+
 		#region IUISearchControllerDelegate
 
 
@@ -196,34 +220,5 @@ namespace XWeather.iOS
 
 
 		#endregion
-
-
-		void setupSearchController ()
-		{
-			resultsController = Storyboard.Instantiate<LocationSearchTvc> ();
-
-			searchController = new UISearchController (resultsController) {
-				DimsBackgroundDuringPresentation = false,
-				SearchResultsUpdater = resultsController,
-				WeakDelegate = this
-			};
-
-			searchController.SearchBar.BarStyle = UIBarStyle.Black;
-			searchController.SearchBar.Translucent = true;
-			searchController.SearchBar.TintColor = Colors.TintGray;
-			searchController.SearchBar.KeyboardAppearance = UIKeyboardAppearance.Dark;
-
-
-			searchController.SearchBar.WeakDelegate = this;
-
-			TableView.TableHeaderView = searchController.SearchBar;
-
-			//resultsController.TableView.WeakDelegate = this;
-			//resultsController.TableView.WeakDataSource = this;
-
-			//searchController.SearchBar.TintColor = Colors.ElitePartnerColor;
-
-			DefinesPresentationContext = true;
-		}
 	}
 }
