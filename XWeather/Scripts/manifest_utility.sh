@@ -11,7 +11,7 @@ while getopts "p:" o; do
 done
 shift $((OPTIND-1))
 
-buildNumber=$(/usr/bin/git rev-list HEAD --count)
+buildNumber=$(/usr/bin/git rev-list HEAD --count 2>/dev/null || printf "0")
 
 manifestXml="$projectDir/Properties/AndroidManifest.xml"
 

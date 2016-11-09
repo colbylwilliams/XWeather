@@ -28,12 +28,11 @@ XWeather uses [HockeyApp][10] to deploy pre-release versions to beta testers and
 
 # Getting Started
 
-You'll need to obtain a few API Keys and add them to a `PrivateKeys.cs` file in order to build and run app locally.  You'll find instructions for obtaining and adding each key below.
-
-
 ## PrivateKeys.cs
 
-First, move (or copy) the template private keys file `extras/PrivateKeys.cs` into the constants directory `XWeather/XWeather/Constants`.
+There is a `PrivateKeys.cs` file the Constants directory located at `XWeather/XWeather/Constants` that contains four `const string` keys.   
+
+All keys can be left as empty strings and the app will build/run just fine, however it will display static 'testing' weather data.  In order to set up the live weather API and use GPS services on Android, you'll need to follow the instructions below to obtain the appropriate API keys.
 
 
 ## Weather Underground
