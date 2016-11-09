@@ -37,7 +37,7 @@
       </CustomCommands>
     </CustomCommands>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
-    <AndroidSupportedAbis>x86_64</AndroidSupportedAbis>
+    <AndroidSupportedAbis>x86_64;x86;arm64-v8a;armeabi-v7a;armeabi</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,6 +55,7 @@
         </Command>
       </CustomCommands>
     </CustomCommands>
+    <AndroidSupportedAbis>armeabi-v7a;x86_64;arm64-v8a;x86;armeabi</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
