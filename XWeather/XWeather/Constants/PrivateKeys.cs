@@ -2,16 +2,12 @@
 {
 	public static class PrivateKeys
 	{
-		// get an Weather Underground API Key at: bit.ly/xweather-api-wu
-		public const string WuApiKey = @"";
+		public const string WuApiKey = @"";              // https://github.com/colbylwilliams/XWeather#weather-underground
 
-		// create an app by following the instructions at: http://bit.ly/xweather-ha-create-app
-		public const string HockeyApiKey_iOS = @"";
+		public const string HockeyApiKey_iOS = @"";      // https://github.com/colbylwilliams/XWeather#hockeyapp-optional
 
-		// create an app by following the instructions at: http://bit.ly/xweather-ha-create-app
-		public const string HockeyApiKey_Droid = @"";
+		public const string HockeyApiKey_Droid = @"";    // https://github.com/colbylwilliams/XWeather#hockeyapp-optional
 
-		// docs for getting your API Key can be found at: bit.ly/google-api-key
-		public const string GoogleMapsApiKey = @"";
+		public const string GoogleMapsApiKey = @"";      // https://github.com/colbylwilliams/XWeather#google-maps-api-key-android
 	}
 }
