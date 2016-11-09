@@ -10,7 +10,6 @@ using Plugin.VersionTracking;
 #if __IOS__
 
 using PclExportClient = ServiceStack.IosPclExportClient;
-using LocationProvider = XWeather.iOS.LocationProvider;
 
 #else
 
@@ -27,8 +26,6 @@ namespace XWeather.Unified
 			CrossVersionTracking.Current.Track ();
 
 			AnalyticsManager.Shared.ConfigureHockeyApp ();
-
-			XWeather.Bootstrap.Run ();
 
 			PclExportClient.Configure ();
 

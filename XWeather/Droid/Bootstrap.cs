@@ -1,8 +1,13 @@
 ﻿using Android.App;
 
+using ServiceStack;
+
+using ModernHttpClient;
+
 using SettingsStudio;
 
 using Plugin.VersionTracking;
+
 
 namespace XWeather.Droid
 {
@@ -14,11 +19,9 @@ namespace XWeather.Droid
 
 			AnalyticsManager.Shared.ConfigureHockeyApp (context, application);
 
-			XWeather.Bootstrap.Run ();
+			AndroidPclExportClient.Configure ();
 
-			ServiceStack.AndroidPclExportClient.Configure ();
-
-			ServiceStack.JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new ModernHttpClient.NativeMessageHandler ();
+			JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new NativeMessageHandler ();
 
 			Settings.VersionNumber = CrossVersionTracking.Current.CurrentVersion;
 

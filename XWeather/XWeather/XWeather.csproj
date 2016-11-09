@@ -28,7 +28,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Bootstrap.cs" />
     <Compile Include="Domain\Wu\Alerts.cs" />
     <Compile Include="Domain\Wu\Almanac.cs" />
     <Compile Include="Domain\Wu\Astronomy.cs" />
