@@ -2,7 +2,7 @@
 
 # c0lby:
 
-# BUILD_SOURCESDIRECTORY="/Users/colbywilliams/GitHub/XWeather"
+BUILD_SOURCESDIRECTORY="/Users/colbywilliams/GitHub/XWeather"
 
 mkdir tmp
 
