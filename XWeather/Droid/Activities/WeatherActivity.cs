@@ -2,9 +2,12 @@
 using System.Threading.Tasks;
 
 using Android.App;
+using Android.Animation;
+using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Views;
+using Android.Views.Animations;
 
 using Android.Support.Design.Widget;
 using Android.Support.V4.View;
@@ -157,6 +160,9 @@ namespace XWeather.Droid
 
 					viewPager.Background = gd;
 
+					Window.SetStatusBarColor (gradients.Item1 [0]);
+					Window.SetNavigationBarColor (gradients.Item1 [1]);
+
 				} else {
 
 					var backgrounds = new Drawable [2];
@@ -169,6 +175,37 @@ namespace XWeather.Droid
 					viewPager.Background = crossfader;
 
 					crossfader.StartTransition (1000);
+
+					var statusBarAnimator = ValueAnimator.OfArgb (Window.StatusBarColor, gradients.Item1 [0]);
+
+					statusBarAnimator.SetDuration (1000);
+					statusBarAnimator.SetInterpolator (new AccelerateDecelerateInterpolator ());
+
+					statusBarAnimator.Update += (sender, e) => {
+
+						var val = e.Animation.AnimatedValue as Java.Lang.Integer;
+
+						var color = new Color ((int)val);
+
+						Window.SetStatusBarColor (color);
+					};
+
+					var naviationBarAnimator = ValueAnimator.OfArgb (Window.NavigationBarColor, gradients.Item1 [1]);
+
+					naviationBarAnimator.SetDuration (1000);
+					naviationBarAnimator.SetInterpolator (new AccelerateDecelerateInterpolator ());
+
+					naviationBarAnimator.Update += (sender, e) => {
+
+						var val = e.Animation.AnimatedValue as Java.Lang.Integer;
+
+						var color = new Color ((int)val);
+
+						Window.SetNavigationBarColor (color);
+					};
+
+					statusBarAnimator.Start ();
+					naviationBarAnimator.Start ();
 				}
 			}
 		}
