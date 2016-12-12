@@ -4,10 +4,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-using SettingsStudio;
-
 using XWeather.Clients;
-using XWeather.Unified;
 
 namespace XWeather.iOS
 {
@@ -29,8 +26,6 @@ namespace XWeather.iOS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-
-			//AnalyticsManager.Shared.TrackEvent ("foo");
 
 			View.BackgroundColor = UIColor.Clear;
 

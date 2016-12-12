@@ -2,27 +2,29 @@
 using Microsoft.Azure.Mobile.Analytics;
 using Microsoft.Azure.Mobile.Crashes;
 
-using SettingsStudio;
-
-using ServiceStack;
-
 using ModernHttpClient;
 
 using Plugin.VersionTracking;
 
+using ServiceStack;
+
+using SettingsStudio;
+
 using XWeather.Constants;
+
 
 #if __IOS__
 
 using PclExportClient = ServiceStack.IosPclExportClient;
 
-#else
+#elif __ANDROID__
 
-using PclExportClient = ServiceStack.MacPclExportClient;
+using PclExportClient = ServiceStack.AndroidPclExportClient;
 
 #endif
 
-namespace XWeather.Unified
+
+namespace XWeather.Shared
 {
 	public static class Bootstrap
 	{
@@ -33,13 +35,17 @@ namespace XWeather.Unified
 			if (!string.IsNullOrEmpty (PrivateKeys.HockeyApiKey_iOS))
 				MobileCenter.Start (PrivateKeys.HockeyApiKey_iOS, typeof (Analytics), typeof (Crashes));
 
-			//AnalyticsManager.Shared.ConfigureHockeyApp ();
-
 			PclExportClient.Configure ();
 
 			JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new NativeMessageHandler ();
 
 			Settings.RegisterDefaultSettings ();
+
+#if __ANDROID__
+			Settings.VersionNumber = CrossVersionTracking.Current.CurrentVersion;
+
+			Settings.BuildNumber = CrossVersionTracking.Current.CurrentBuild;
+#endif
 		}
 	}
 }

@@ -35,8 +35,7 @@ namespace XWeather.Droid
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
-			//Bootstrap.Run (this, Application);
-			Bootstrap.Run ();
+			Shared.Bootstrap.Run ();
 
 			base.OnCreate (savedInstanceState);
 

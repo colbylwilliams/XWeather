@@ -5,7 +5,7 @@ using Foundation;
 using UIKit;
 
 using XWeather.Domain;
-using XWeather.Unified;
+//using XWeather.Unified;
 
 namespace XWeather.iOS
 {
@@ -22,7 +22,7 @@ namespace XWeather.iOS
 		{
 			base.ViewDidAppear (animated);
 
-			AnalyticsManager.Shared.TrackEvent (TrackedEvents.WeatherDaily.Opened);
+			//AnalyticsManager.Shared.TrackEvent (TrackedEvents.WeatherDaily.Opened);
 		}
 
 

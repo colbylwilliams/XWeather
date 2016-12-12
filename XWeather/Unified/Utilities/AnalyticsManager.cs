@@ -15,7 +15,7 @@
 
 //		bool managerStarted;
 
-//		public void ConfigureHockeyApp ()
+//		public void Configure ()
 //		{
 //#if __IOS__
 //			if (!string.IsNullOrEmpty (PrivateKeys.HockeyApiKey_iOS)) {

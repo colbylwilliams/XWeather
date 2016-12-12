@@ -14,7 +14,7 @@
 
 //		bool managerStarted;
 
-//		public void ConfigureHockeyApp (Context context, Application application)
+//		public void Configure (Context context, Application application)
 //		{
 //			if (!string.IsNullOrEmpty (PrivateKeys.HockeyApiKey_Droid)) {
 

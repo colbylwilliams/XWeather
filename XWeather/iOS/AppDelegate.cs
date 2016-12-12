@@ -11,7 +11,7 @@ namespace XWeather.iOS
 
 		public AppDelegate ()
 		{
-			Unified.Bootstrap.Run ();
+			Shared.Bootstrap.Run ();
 		}
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)

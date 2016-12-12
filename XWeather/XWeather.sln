@@ -13,6 +13,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XWeather.Unified", "Unified
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9EA8454D-34BF-4B5B-B807-2B463B26ED5D}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XWeather.Shared", "Shared\XWeather.Shared.shproj", "{A42D9C8E-8031-4873-A845-C7F3E05F285F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -552,7 +552,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Bootstrap.cs" />
     <Compile Include="ViewControllers\TableViewControllers\TableViewCells\DailyTvCell.cs" />
     <Compile Include="ViewControllers\TableViewControllers\TableViewCells\DailyTvCell.designer.cs">
       <DependentUpon>DailyTvCell.cs</DependentUpon>
@@ -638,6 +637,7 @@
     <BundleResource Include="Resources\New_Orleans.json" />
     <BundleResource Include="Resources\San_Francisco.json" />
   </ItemGroup>
+  <Import Project="..\Shared\XWeather.Shared.projitems" Label="Shared" Condition="Exists('..\Shared\XWeather.Shared.projitems')" />
   <Import Project="..\Unified\XWeather.Unified.projitems" Label="Shared" Condition="Exists('..\Unified\XWeather.Unified.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
