@@ -9,6 +9,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XWeather.Unified", "..\Unif
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWeather.UITests", "..\UITests\XWeather.UITests.csproj", "{15ED7D76-DC89-4BE7-AF33-D5224EA24531}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XWeather.Shared", "..\Shared\XWeather.Shared.shproj", "{A42D9C8E-8031-4873-A845-C7F3E05F285F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
