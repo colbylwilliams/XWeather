@@ -77,7 +77,7 @@ namespace XWeather.iOS
 
 			WuClient.Shared.LocationAdded += handleLocationAdded;
 
-			AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Opened);
+			//AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Opened);
 		}
 
 
@@ -122,7 +122,7 @@ namespace XWeather.iOS
 			// set location as the selected location
 			WuClient.Shared.Selected = Locations [indexPath.Row];
 
-			AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Selected);
+			//AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Selected);
 
 			DismissViewController (true, null);
 		}
@@ -144,7 +144,7 @@ namespace XWeather.iOS
 
 				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
 
-				AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Removed);
+				//AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Removed);
 			}
 		}
 
@@ -168,7 +168,7 @@ namespace XWeather.iOS
 
 				} else {
 
-					AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Added);
+					//AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Added);
 
 					TableView?.ReloadData ();
 

@@ -43,7 +43,7 @@ namespace XWeather.iOS
 		{
 			base.ViewDidAppear (animated);
 
-			AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationSearch.Opened);
+			//AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationSearch.Opened);
 		}
 
 
@@ -65,7 +65,7 @@ namespace XWeather.iOS
 
 		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 		{
-			AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationSearch.Selected);
+			//AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationSearch.Selected);
 
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 

@@ -62,7 +62,7 @@ namespace XWeather.iOS
 			if (!string.IsNullOrEmpty (settingsString)) {
 				var settingsUrl = NSUrl.FromString (settingsString);
 				if (UIApplication.SharedApplication.OpenUrl (settingsUrl)) {
-					AnalyticsManager.Shared.TrackEvent (TrackedEvents.Settings.Opened);
+					//AnalyticsManager.Shared.TrackEvent (TrackedEvents.Settings.Opened);
 				}
 			}
 		}

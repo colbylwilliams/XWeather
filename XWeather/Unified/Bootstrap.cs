@@ -1,4 +1,8 @@
-﻿using SettingsStudio;
+﻿using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
+
+using SettingsStudio;
 
 using ServiceStack;
 
@@ -6,6 +10,7 @@ using ModernHttpClient;
 
 using Plugin.VersionTracking;
 
+using XWeather.Constants;
 
 #if __IOS__
 
@@ -25,7 +30,10 @@ namespace XWeather.Unified
 		{
 			CrossVersionTracking.Current.Track ();
 
-			AnalyticsManager.Shared.ConfigureHockeyApp ();
+			if (!string.IsNullOrEmpty (PrivateKeys.HockeyApiKey_iOS))
+				MobileCenter.Start (PrivateKeys.HockeyApiKey_iOS, typeof (Analytics), typeof (Crashes));
+
+			//AnalyticsManager.Shared.ConfigureHockeyApp ();
 
 			PclExportClient.Configure ();
 

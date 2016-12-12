@@ -18,7 +18,7 @@ namespace XWeather.iOS
 		{
 			base.ViewDidAppear (animated);
 
-			AnalyticsManager.Shared.TrackEvent (TrackedEvents.WeatherDetails.Opened);
+			//AnalyticsManager.Shared.TrackEvent (TrackedEvents.WeatherDetails.Opened);
 		}
 
 

@@ -41,7 +41,7 @@ namespace XWeather.iOS
 		{
 			base.ViewDidAppear (animated);
 
-			AnalyticsManager.Shared.TrackEvent (TrackedEvents.WeatherRadar.Opened);
+			//AnalyticsManager.Shared.TrackEvent (TrackedEvents.WeatherRadar.Opened);
 
 			animateRadar = true;
 

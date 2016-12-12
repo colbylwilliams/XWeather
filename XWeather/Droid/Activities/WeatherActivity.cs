@@ -35,7 +35,8 @@ namespace XWeather.Droid
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
-			Bootstrap.Run (this, Application);
+			//Bootstrap.Run (this, Application);
+			Bootstrap.Run ();
 
 			base.OnCreate (savedInstanceState);
 
@@ -51,7 +52,7 @@ namespace XWeather.Droid
 
 			getData ();
 
-			AnalyticsManager.Shared.RegisterForHockeyAppUpdates (this);
+			//AnalyticsManager.Shared.RegisterForHockeyAppUpdates (this);
 		}
 
 
@@ -67,7 +68,7 @@ namespace XWeather.Droid
 		{
 			base.OnPause ();
 
-			AnalyticsManager.Shared.UnregisterForHockeyAppUpdates ();
+			//AnalyticsManager.Shared.UnregisterForHockeyAppUpdates ();
 		}
 
 
@@ -75,7 +76,7 @@ namespace XWeather.Droid
 		{
 			base.OnStop ();
 
-			AnalyticsManager.Shared.UnregisterForHockeyAppUpdates ();
+			//AnalyticsManager.Shared.UnregisterForHockeyAppUpdates ();
 		}
 
 

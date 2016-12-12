@@ -1,4 +1,6 @@
-﻿using Android.App;
+﻿using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 
 using ServiceStack;
 
@@ -8,16 +10,20 @@ using SettingsStudio;
 
 using Plugin.VersionTracking;
 
+using XWeather.Constants;
 
 namespace XWeather.Droid
 {
 	public static class Bootstrap
 	{
-		public static void Run (Activity context, Application application)
+		public static void Run ()
 		{
 			CrossVersionTracking.Current.Track ();
 
-			AnalyticsManager.Shared.ConfigureHockeyApp (context, application);
+			if (!string.IsNullOrEmpty (PrivateKeys.HockeyApiKey_Droid))
+				MobileCenter.Start (PrivateKeys.HockeyApiKey_Droid, typeof (Analytics), typeof (Crashes));
+
+			//AnalyticsManager.Shared.ConfigureHockeyApp (context, application);
 
 			AndroidPclExportClient.Configure ();
 

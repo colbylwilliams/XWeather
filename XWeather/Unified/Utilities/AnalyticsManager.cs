@@ -1,49 +1,49 @@
-﻿using XWeather.Constants;
+﻿//using XWeather.Constants;
 
 
-namespace XWeather.Unified
-{
-	public class AnalyticsManager
-	{
-		static AnalyticsManager _shared;
+//namespace XWeather.Unified
+//{
+//	public class AnalyticsManager
+//	{
+//		static AnalyticsManager _shared;
 
-		public static AnalyticsManager Shared => _shared ?? (_shared = new AnalyticsManager ());
+//		public static AnalyticsManager Shared => _shared ?? (_shared = new AnalyticsManager ());
 
-#if __IOS__
-		HockeyApp.iOS.BITHockeyManager manager => HockeyApp.iOS.BITHockeyManager.SharedHockeyManager;
-#endif
+//#if __IOS__
+//		HockeyApp.iOS.BITHockeyManager manager => HockeyApp.iOS.BITHockeyManager.SharedHockeyManager;
+//#endif
 
-		bool managerStarted;
+//		bool managerStarted;
 
-		public void ConfigureHockeyApp ()
-		{
-#if __IOS__
-			if (!string.IsNullOrEmpty (PrivateKeys.HockeyApiKey_iOS)) {
+//		public void ConfigureHockeyApp ()
+//		{
+//#if __IOS__
+//			if (!string.IsNullOrEmpty (PrivateKeys.HockeyApiKey_iOS)) {
 
-				manager.Configure (PrivateKeys.HockeyApiKey_iOS);
+//				manager.Configure (PrivateKeys.HockeyApiKey_iOS);
 
-				manager.DisableCrashManager = false;
-				manager.DisableUpdateManager = false;
-				manager.DisableMetricsManager = false;
-				manager.DisableInstallTracking = false;
+//				manager.DisableCrashManager = false;
+//				manager.DisableUpdateManager = false;
+//				manager.DisableMetricsManager = false;
+//				manager.DisableInstallTracking = false;
 
-				manager.StartManager ();
+//				manager.StartManager ();
 
-				manager.Authenticator.AuthenticateInstallation ();
+//				manager.Authenticator.AuthenticateInstallation ();
 
-				managerStarted = true;
-			}
-#endif
-		}
+//				managerStarted = true;
+//			}
+//#endif
+//		}
 
-		public void TrackEvent (string eventName)
-		{
-#if __IOS__
-			if (managerStarted)
-				manager.MetricsManager.TrackEvent (eventName);
+//		public void TrackEvent (string eventName)
+//		{
+//#if __IOS__
+//			if (managerStarted)
+//				manager.MetricsManager.TrackEvent (eventName);
 
-			System.Diagnostics.Debug.WriteLine ($"[AnalyticsManager] TrackEvent: '{eventName}'");
-#endif
-		}
-	}
-}
+//			System.Diagnostics.Debug.WriteLine ($"[AnalyticsManager] TrackEvent: '{eventName}'");
+//#endif
+//		}
+//	}
+//}

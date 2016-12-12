@@ -16,7 +16,7 @@ namespace XWeather.Droid
 			WuClient.Shared.UpdatedSelected += HandleUpdatedSelectedLocation;
 			WuClient.Shared.LocationAdded += HandleNewLocationAdded;
 
-			AnalyticsManager.Shared.StartUsage (this);
+			//AnalyticsManager.Shared.StartUsage (this);
 		}
 
 
@@ -27,7 +27,7 @@ namespace XWeather.Droid
 			WuClient.Shared.UpdatedSelected -= HandleUpdatedSelectedLocation;
 			WuClient.Shared.LocationAdded -= HandleNewLocationAdded;
 
-			AnalyticsManager.Shared.StopUsage (this);
+			//AnalyticsManager.Shared.StopUsage (this);
 		}
 
 
