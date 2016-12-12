@@ -32,8 +32,8 @@ namespace XWeather.Shared
 		{
 			CrossVersionTracking.Current.Track ();
 
-			if (!string.IsNullOrEmpty (PrivateKeys.HockeyApiKey_iOS))
-				MobileCenter.Start (PrivateKeys.HockeyApiKey_iOS, typeof (Analytics), typeof (Crashes));
+			if (!string.IsNullOrEmpty (PrivateKeys.MobileCenter.AppSecret))
+				MobileCenter.Start (PrivateKeys.MobileCenter.AppSecret, typeof (Analytics), typeof (Crashes));
 
 			PclExportClient.Configure ();
 

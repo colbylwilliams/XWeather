@@ -181,12 +181,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XWeather\XWeather.csproj">
-      <Project>{35B9C6F1-6311-42AC-9DD2-B8377F16EC8B}</Project>
-      <Name>XWeather</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <InProject>false</InProject>
     </ImageAsset>
