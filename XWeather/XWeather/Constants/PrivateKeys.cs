@@ -9,5 +9,9 @@
 		public const string HockeyApiKey_Droid = @"";    // https://github.com/colbylwilliams/XWeather#hockeyapp-optional
 
 		public const string GoogleMapsApiKey = @"";      // https://github.com/colbylwilliams/XWeather#google-maps-api-key-android
+
+		public const string MobileCenter_iOS = @"";
+
+		public const string MobileCenter_Droid = @"";
 	}
 }
