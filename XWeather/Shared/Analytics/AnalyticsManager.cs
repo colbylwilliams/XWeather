@@ -20,6 +20,8 @@ namespace XWeather
 {
 	public static partial class Analytics
 	{
+		static bool _trackPageDuration;
+
 		static int hashCache;
 
 		static ConcurrentDictionary<int, double> pageTime = new ConcurrentDictionary<int, double> ();
@@ -33,9 +35,13 @@ namespace XWeather
 		static NSObject foregroundNotificationToken, backgroundNotificationToken, terminateNotificationToken;
 
 
-		public static void Start ()
+		public static void Start (bool trackPageDuration = false)
 		{
 			log ("Start");
+
+			_trackPageDuration = trackPageDuration;
+
+			//Microsoft.Azure.Mobile.MobileCenter.LogLevel = Microsoft.Azure.Mobile.LogLevel.Verbose;
 
 			if (backgroundNotificationToken == null)
 				backgroundNotificationToken = NSNotificationCenter.DefaultCenter.AddObserver (UIApplication.DidEnterBackgroundNotification, handleBackgroundNotification);
@@ -174,7 +180,12 @@ namespace XWeather
 						allProperties = new Dictionary<string, string> ();
 					}
 
-					allProperties ["duration"] = seconds;
+					// Probably should hold off on tracking this until we can pass a value instead of a string
+					if (_trackPageDuration)
+					{
+						allProperties ["duration"] = seconds;
+					}
+
 
 					trackEvent (name, allProperties);
 				}

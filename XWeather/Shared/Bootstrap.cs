@@ -1,6 +1,4 @@
 ﻿using Microsoft.Azure.Mobile;
-using Microsoft.Azure.Mobile.Analytics;
-using Microsoft.Azure.Mobile.Crashes;
 
 using ModernHttpClient;
 
@@ -33,7 +31,9 @@ namespace XWeather.Shared
 			CrossVersionTracking.Current.Track ();
 
 			if (!string.IsNullOrEmpty (PrivateKeys.MobileCenter.AppSecret))
-				MobileCenter.Start (PrivateKeys.MobileCenter.AppSecret, typeof (Analytics), typeof (Crashes));
+				MobileCenter.Start (PrivateKeys.MobileCenter.AppSecret,
+									typeof (Microsoft.Azure.Mobile.Analytics.Analytics),
+									typeof (Microsoft.Azure.Mobile.Crashes.Crashes));
 
 			PclExportClient.Configure ();
 

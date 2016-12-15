@@ -29,7 +29,7 @@ namespace XWeather
 			where T : TView
 		{
 			TrackPageViewStart (page, pageType.Name (), location == null ? null : new Dictionary<string, string> {
-				{ "location", location.Name },
+				//{ "location", location.Name },
 				{ "current" , location.Current.ToString() }
 			});
 		}
@@ -39,7 +39,7 @@ namespace XWeather
 			where T : TView
 		{
 			TrackPageViewEnd (page, location == null ? null : new Dictionary<string, string> {
-				{ "location", location.Name },
+				//{ "location", location.Name },
 				{ "current" , location.Current.ToString() }
 			});
 		}
