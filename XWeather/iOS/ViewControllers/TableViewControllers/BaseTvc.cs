@@ -42,7 +42,8 @@ namespace XWeather.iOS
 
 		public virtual void MaskCells (UIScrollView scrollView)
 		{
-			foreach (TCell cell in TableView.VisibleCells) {
+			foreach (TCell cell in TableView.VisibleCells)
+			{
 
 				var topHiddenHeight = scrollView.ContentOffset.Y + HeaderHeight - cell.Frame.Y + scrollView.ContentInset.Top;
 				var bottomHiddenHeight = cell.Frame.Bottom - (scrollView.ContentOffset.Y + scrollView.Frame.Height - FooterHeight);

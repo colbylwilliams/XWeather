@@ -53,6 +53,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\WuLocation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\WuObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\WuWeather.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Analytics\AnalyticsManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\Events.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\Pages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Analytics\XWeatherAnalyticsManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Settings\" />
@@ -60,5 +64,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Constants\" />
     <Folder Include="$(MSBuildThisFileDirectory)Clients\" />
     <Folder Include="$(MSBuildThisFileDirectory)Domain\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Analytics\" />
   </ItemGroup>
 </Project>

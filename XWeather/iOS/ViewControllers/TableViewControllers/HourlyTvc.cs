@@ -5,7 +5,6 @@ using Foundation;
 using UIKit;
 
 using XWeather.Domain;
-using XWeather.Unified;
 
 namespace XWeather.iOS
 {
@@ -16,15 +15,23 @@ namespace XWeather.iOS
 		List<HourlyForecast> Forecasts => Location?.HourlyForecast (day);
 
 
+		public HourlyTvc (IntPtr handle) : base (handle) { }
+
+
 		public override void ViewDidAppear (bool animated)
 		{
 			base.ViewDidAppear (animated);
 
-			//AnalyticsManager.Shared.TrackEvent (TrackedEvents.WeatherHourly.Opened);
+			Analytics.TrackPageViewStart (this, Pages.WeatherHourly, Location);
 		}
 
 
-		public HourlyTvc (IntPtr handle) : base (handle) { }
+		public override void ViewDidDisappear (bool animated)
+		{
+			Analytics.TrackPageViewEnd (this, Location);
+
+			base.ViewDidDisappear (animated);
+		}
 
 
 		public override nint RowsInSection (UITableView tableView, nint section) => Forecasts?.Count ?? 0;

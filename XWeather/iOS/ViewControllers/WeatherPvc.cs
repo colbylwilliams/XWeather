@@ -59,10 +59,13 @@ namespace XWeather.iOS
 		{
 			var settingsString = UIApplication.OpenSettingsUrlString?.ToString ();
 
-			if (!string.IsNullOrEmpty (settingsString)) {
+			if (!string.IsNullOrEmpty (settingsString))
+			{
 				var settingsUrl = NSUrl.FromString (settingsString);
-				if (UIApplication.SharedApplication.OpenUrl (settingsUrl)) {
-					//AnalyticsManager.Shared.TrackEvent (TrackedEvents.Settings.Opened);
+
+				if (UIApplication.SharedApplication.OpenUrl (settingsUrl))
+				{
+					Analytics.TrackPageView (Pages.Settings.Name ());
 				}
 			}
 		}
@@ -71,7 +74,9 @@ namespace XWeather.iOS
 		void updateToolbarButtons (bool dismissing)
 		{
 			foreach (var button in toolbarButtons)
+			{
 				button.Hidden = dismissing ? button.Tag > 1 : button.Tag < 2;
+			}
 
 			pageIndicator.Hidden = !dismissing;
 		}
@@ -79,7 +84,8 @@ namespace XWeather.iOS
 
 		void handleUpdatedCurrent (object sender, EventArgs e)
 		{
-			BeginInvokeOnMainThread (() => {
+			BeginInvokeOnMainThread (() =>
+			{
 				updateToolbarButtons (true);
 				reloadData ();
 				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
@@ -103,7 +109,8 @@ namespace XWeather.iOS
 
 			var layer = View.Layer.Sublayers [0] as CAGradientLayer;
 
-			if (layer == null) {
+			if (layer == null)
+			{
 				layer = new CAGradientLayer ();
 				layer.Frame = View.Bounds;
 				View.Layer.InsertSublayer (layer, 0);
@@ -131,7 +138,8 @@ namespace XWeather.iOS
 
 			WillTransition += (s, e) => { updateBackground (); };
 
-			DidFinishAnimating += (s, e) => {
+			DidFinishAnimating += (s, e) =>
+			{
 				var index = Controllers.IndexOf ((UITableViewController)ViewControllers [0]);
 				pageIndicator.CurrentPage = index;
 				Settings.WeatherPage = index;
