@@ -67,6 +67,7 @@
       </CustomCommands>
     </CustomCommands>
 <MtouchUseLlvm>true</MtouchUseLlvm>
+<MtouchDebug>false</MtouchDebug>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>pdbonly</DebugType>
