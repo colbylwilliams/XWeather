@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWeather.iOS", "XWeather.iOS.csproj", "{3B22D06D-E502-470F-8565-F0D8FC93624D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWeather", "..\XWeather\XWeather.csproj", "{35B9C6F1-6311-42AC-9DD2-B8377F16EC8B}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XWeather.Unified", "..\Unified\XWeather.Unified.shproj", "{8226D00B-19CF-4B54-945C-B13C1AE855A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWeather.UITests", "..\UITests\XWeather.UITests.csproj", "{15ED7D76-DC89-4BE7-AF33-D5224EA24531}"
@@ -27,14 +25,6 @@ Global
 		{3B22D06D-E502-470F-8565-F0D8FC93624D}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{3B22D06D-E502-470F-8565-F0D8FC93624D}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{3B22D06D-E502-470F-8565-F0D8FC93624D}.Debug|iPhone.Build.0 = Debug|iPhone
-		{35B9C6F1-6311-42AC-9DD2-B8377F16EC8B}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{35B9C6F1-6311-42AC-9DD2-B8377F16EC8B}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{35B9C6F1-6311-42AC-9DD2-B8377F16EC8B}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{35B9C6F1-6311-42AC-9DD2-B8377F16EC8B}.Release|iPhone.Build.0 = Release|Any CPU
-		{35B9C6F1-6311-42AC-9DD2-B8377F16EC8B}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{35B9C6F1-6311-42AC-9DD2-B8377F16EC8B}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{35B9C6F1-6311-42AC-9DD2-B8377F16EC8B}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{35B9C6F1-6311-42AC-9DD2-B8377F16EC8B}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Release|iPhone.ActiveCfg = Release|Any CPU
