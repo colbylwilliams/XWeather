@@ -22,6 +22,10 @@ namespace XWeather
 	{
 		static int hashCache;
 
+		static ConcurrentDictionary<int, double> pausedPages = new ConcurrentDictionary<int, double> ();
+
+		static ConcurrentDictionary<int, double> pausedPageDurations = new ConcurrentDictionary<int, double> ();
+
 		static ConcurrentDictionary<int, double> pageTime = new ConcurrentDictionary<int, double> ();
 
 		static ConcurrentDictionary<int, string> pageNames = new ConcurrentDictionary<int, string> ();
@@ -37,7 +41,7 @@ namespace XWeather
 		{
 			log ("Start");
 
-			//Microsoft.Azure.Mobile.MobileCenter.LogLevel = Microsoft.Azure.Mobile.LogLevel.Verbose;
+			//Microsoft.Azure.Mobile.MobileCenter.LogLevel = Microsoft.Azure.Mobile.LogLevel.Debug;
 
 			if (backgroundNotificationToken == null)
 				backgroundNotificationToken = NSNotificationCenter.DefaultCenter.AddObserver (UIApplication.DidEnterBackgroundNotification, handleBackgroundNotification);
@@ -150,21 +154,34 @@ namespace XWeather
 			{
 				var viewName = viewString (name);
 
-				double start, duration = 0;
+				double start, duration, pauseDuration = 0;
 
 				if (pageTime.TryGetValue (hash, out start) && start > 0)
 				{
 					duration = Environment.TickCount - start;
 
+					// if the page was paused by the user, update the duration
+					if (pausedPageDurations.TryGetValue (hash, out pauseDuration) && pauseDuration > 0)
+					{
+						duration -= pauseDuration;
+
+						// then clear the value
+						pausedPageDurations [hash] = 0;
+					}
+
+					// convert the duration to seconds
 					var seconds = Math.Round ((duration / 1000), 7);
+
 
 					IDictionary<string, string> allProperties;
 
+					// get the properties passed in when we started tracking the page view
 					if (pageProperties.TryGetValue (hash, out allProperties) && allProperties.Any ())
 					{
 						if (properties?.Count > 0)
 						{
-							// Override the values in the existing dictionary with values passed in here
+							// override values in the dictionary passed in when we started 
+							// tracking the page view with values passed in here
 							properties.ToList ().ForEach (p => allProperties [p.Key] = p.Value);
 						}
 					}
@@ -177,13 +194,16 @@ namespace XWeather
 						allProperties = new Dictionary<string, string> ();
 					}
 
+					// add the duration property
 					allProperties ["duration"] = durationString (seconds);
 
-					// Probably should hold off on tracking this until we can pass a value instead of a string
-					//allProperties ["duration"] = seconds.ToString ();
+					// start actually tracking the duration value onec we can pass a value instead of a string
+					// allProperties ["duration"] = seconds.ToString ();
 
+					// track the detailed page view
 					trackEvent (viewName, allProperties);
 
+					// track a generic page view so we can compare the page views a single event's properties
 					trackBasicPageView (name);
 				}
 				else
@@ -244,6 +264,32 @@ namespace XWeather
 			hashCache = mostRecent;
 
 			trackPageViewEnd (mostRecent);
+		}
+
+
+
+		public static void PausePageTracking<T> (T page)
+			where T : TView
+		{
+			var hash = page.GetHashCode ();
+
+			pausedPages [hash] = Environment.TickCount;
+		}
+
+
+		public static void ResumePageTracking<T> (T page)
+			where T : TView
+		{
+			var hash = page.GetHashCode ();
+
+			double ticks;
+
+			if (pausedPages.TryGetValue (hash, out ticks) && ticks > 0)
+			{
+				pausedPageDurations [hash] = Environment.TickCount - ticks;
+
+				pausedPages [hash] = 0;
+			}
 		}
 
 
