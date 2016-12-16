@@ -20,8 +20,6 @@ namespace XWeather
 {
 	public static partial class Analytics
 	{
-		static bool _trackPageDuration;
-
 		static int hashCache;
 
 		static ConcurrentDictionary<int, double> pageTime = new ConcurrentDictionary<int, double> ();
@@ -35,11 +33,9 @@ namespace XWeather
 		static NSObject foregroundNotificationToken, backgroundNotificationToken, terminateNotificationToken;
 
 
-		public static void Start (bool trackPageDuration = false)
+		public static void Start ()
 		{
 			log ("Start");
-
-			_trackPageDuration = trackPageDuration;
 
 			//Microsoft.Azure.Mobile.MobileCenter.LogLevel = Microsoft.Azure.Mobile.LogLevel.Verbose;
 
@@ -99,9 +95,10 @@ namespace XWeather
 #endif
 
 
-		public static void TrackPageView (string pageNmae, IDictionary<string, string> properties = null)
+		public static void TrackPageView (string pageName, IDictionary<string, string> properties = null)
 		{
-			trackEvent (viewString (pageNmae), properties);
+			trackEvent (viewString (pageName), properties);
+			trackBasicPageView (pageName);
 		}
 
 
@@ -151,7 +148,7 @@ namespace XWeather
 
 			if (pageNames.TryGetValue (hash, out name))
 			{
-				name = viewString (name);
+				var viewName = viewString (name);
 
 				double start, duration = 0;
 
@@ -159,7 +156,7 @@ namespace XWeather
 				{
 					duration = Environment.TickCount - start;
 
-					var seconds = Math.Round ((duration / 1000), 7).ToString ();
+					var seconds = Math.Round ((duration / 1000), 7);
 
 					IDictionary<string, string> allProperties;
 
@@ -180,18 +177,18 @@ namespace XWeather
 						allProperties = new Dictionary<string, string> ();
 					}
 
+					allProperties ["duration"] = durationString (seconds);
+
 					// Probably should hold off on tracking this until we can pass a value instead of a string
-					if (_trackPageDuration)
-					{
-						allProperties ["duration"] = seconds;
-					}
+					//allProperties ["duration"] = seconds.ToString ();
 
+					trackEvent (viewName, allProperties);
 
-					trackEvent (name, allProperties);
+					trackBasicPageView (name);
 				}
 				else
 				{
-					log ($"TrackEvent :: name: {name} - 'TrackPageViewStart' was not called on this page.  Make sure you're calling 'TrackPageViewStart' in 'ViewDidAppear' and 'TrackPageViewEnd' in 'ViewDidDisappear'");
+					log ($"TrackEvent :: name: {viewName} - 'TrackPageViewStart' was not called on this page.  Make sure you're calling 'TrackPageViewStart' in 'ViewDidAppear' and 'TrackPageViewEnd' in 'ViewDidDisappear'");
 					//throw new InvalidOperationException ("'TrackPageViewStart' was not called on this page.  Make sure you're calling 'TrackPageViewStart' in 'ViewDidAppear' and 'TrackPageViewEnd' in 'ViewDidDisappear'");
 				}
 			}
@@ -202,6 +199,12 @@ namespace XWeather
 			}
 
 			pageTime [hash] = 0;
+		}
+
+
+		static void trackBasicPageView (string pageName)
+		{
+			trackEvent ("Page View", new Dictionary<string, string> { { "page", pageName } });
 		}
 
 
@@ -235,6 +238,7 @@ namespace XWeather
 
 		public static void EndLastPageStart ()
 		{
+			//var mostRecent = pageTime.FirstOrDefault (x => Math.Abs (x.Value - pageTime.Values.Max ()) < double.Epsilon).Key;
 			var mostRecent = pageTime.FirstOrDefault (x => x.Value == pageTime.Values.Max ()).Key;
 
 			hashCache = mostRecent;
@@ -261,7 +265,34 @@ namespace XWeather
 		static string viewString (string pageName) => $"Page View: {pageName}";
 
 
+		static string durationString (double seconds)
+		{
+			if (seconds >= 60)
+			{
+				return "60+ Seconds";
+			}
+			if (seconds >= 30)
+			{
+				return "30 - 60 Seconds";
+			}
+			if (seconds >= 15)
+			{
+				return "15 - 30 Seconds";
+			}
+			if (seconds >= 10)
+			{
+				return "10 - 15 Seconds";
+			}
+			if (seconds >= 5)
+			{
+				return "5 - 10 Seconds";
+			}
+			return "0 - 5 Seconds";
+		}
+
+
 #if DEBUG
+
 		public static void GenerateTestCrash ()
 		{
 			Crashes.GenerateTestCrash ();
