@@ -24,22 +24,8 @@
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.UITest">
-      <HintPath>..\packages\Xamarin.UITest.2.0.0\lib\Xamarin.UITest.dll</HintPath>
+      <HintPath>..\packages\Xamarin.UITest.2.0.4\lib\Xamarin.UITest.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\iOS\XWeather.iOS.csproj">
-      <Project>{3B22D06D-E502-470F-8565-F0D8FC93624D}</Project>
-      <Name>XWeather.iOS</Name>
-      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Droid\XWeather.Droid.csproj">
-      <Project>{F61CFA34-47FF-4168-81FA-B9C3E3C6A2DB}</Project>
-      <Name>XWeather.Droid</Name>
-      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tests.cs" />
