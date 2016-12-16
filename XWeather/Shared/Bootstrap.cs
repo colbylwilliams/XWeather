@@ -1,4 +1,5 @@
 ﻿using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Crashes;
 
 using ModernHttpClient;
 
@@ -29,6 +30,8 @@ namespace XWeather.Shared
 		public static void Run ()
 		{
 			CrossVersionTracking.Current.Track ();
+
+			Crashes.GetErrorAttachment = (report) => ErrorAttachment.AttachmentWithText (CrossVersionTracking.Current.ToString ());
 
 			if (!string.IsNullOrEmpty (PrivateKeys.MobileCenter.AppSecret))
 				MobileCenter.Start (PrivateKeys.MobileCenter.AppSecret,
