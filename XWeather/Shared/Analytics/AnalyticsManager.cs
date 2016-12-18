@@ -2,9 +2,9 @@
 using Microsoft.Azure.Mobile.Crashes;
 
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Collections.Concurrent;
 
 
 #if __IOS__
@@ -12,7 +12,8 @@ using Foundation;
 using UIKit;
 using TView = UIKit.UIViewController;
 #elif __ANDROID__
-using TView = Android.App.Activity;
+// something random that includes both Activity and Fragment
+using TView = Android.Views.View.IOnCreateContextMenuListener;
 #endif
 
 
@@ -22,17 +23,22 @@ namespace XWeather
 	{
 		static int hashCache;
 
-		static ConcurrentDictionary<int, double> pausedPages = new ConcurrentDictionary<int, double> ();
-
-		static ConcurrentDictionary<int, double> pausedPageDurations = new ConcurrentDictionary<int, double> ();
 
 		static ConcurrentDictionary<int, double> pageTime = new ConcurrentDictionary<int, double> ();
 
 		static ConcurrentDictionary<int, string> pageNames = new ConcurrentDictionary<int, string> ();
 
+
+		static ConcurrentDictionary<int, double> pausedPages = new ConcurrentDictionary<int, double> ();
+
+		static ConcurrentDictionary<int, double> pausedPageDurations = new ConcurrentDictionary<int, double> ();
+
+
 		static ConcurrentDictionary<int, IDictionary<string, string>> pageProperties = new ConcurrentDictionary<int, IDictionary<string, string>> ();
 
+
 #if __IOS__
+
 
 		static NSObject foregroundNotificationToken, backgroundNotificationToken, terminateNotificationToken;
 
@@ -44,13 +50,12 @@ namespace XWeather
 			//Microsoft.Azure.Mobile.MobileCenter.LogLevel = Microsoft.Azure.Mobile.LogLevel.Debug;
 
 			if (backgroundNotificationToken == null)
-				backgroundNotificationToken = NSNotificationCenter.DefaultCenter.AddObserver (UIApplication.DidEnterBackgroundNotification, handleBackgroundNotification);
-
-			//if (foregroundNotificationToken == null)
-			//	foregroundNotificationToken = NSNotificationCenter.DefaultCenter.AddObserver (UIApplication.WillEnterForegroundNotification, handleForegroundNotification);
+				backgroundNotificationToken = NSNotificationCenter.DefaultCenter.AddObserver (
+					UIApplication.DidEnterBackgroundNotification, handleBackgroundNotification);
 
 			if (terminateNotificationToken == null)
-				terminateNotificationToken = NSNotificationCenter.DefaultCenter.AddObserver (UIApplication.WillTerminateNotification, handleTerminatNotitication);
+				terminateNotificationToken = NSNotificationCenter.DefaultCenter.AddObserver (
+					UIApplication.WillTerminateNotification, handleTerminatNotitication);
 		}
 
 
@@ -62,7 +67,8 @@ namespace XWeather
 			foregroundNotificationToken = null;
 
 			if (backgroundNotificationToken == null)
-				backgroundNotificationToken = NSNotificationCenter.DefaultCenter.AddObserver (UIApplication.DidEnterBackgroundNotification, handleBackgroundNotification);
+				backgroundNotificationToken = NSNotificationCenter.DefaultCenter.AddObserver (
+					UIApplication.DidEnterBackgroundNotification, handleBackgroundNotification);
 
 			StartLastPageEnd ();
 		}
@@ -76,7 +82,8 @@ namespace XWeather
 			backgroundNotificationToken = null;
 
 			if (foregroundNotificationToken == null)
-				foregroundNotificationToken = NSNotificationCenter.DefaultCenter.AddObserver (UIApplication.WillEnterForegroundNotification, handleForegroundNotification);
+				foregroundNotificationToken = NSNotificationCenter.DefaultCenter.AddObserver (
+					UIApplication.WillEnterForegroundNotification, handleForegroundNotification);
 
 			EndLastPageStart ();
 		}
@@ -96,7 +103,11 @@ namespace XWeather
 			terminateNotificationToken = null;
 		}
 
+
 #endif
+
+
+		#region Track Page Views & Duration
 
 
 		public static void TrackPageView (string pageName, IDictionary<string, string> properties = null)
@@ -104,6 +115,9 @@ namespace XWeather
 			trackEvent (viewString (pageName), properties);
 			trackBasicPageView (pageName);
 		}
+
+
+		#region Track Page View Start
 
 
 		public static void TrackPageViewStart<T> (T page, string pageName, IDictionary<string, string> properties = null)
@@ -115,7 +129,7 @@ namespace XWeather
 		}
 
 
-		public static void trackPageViewStart (int hash, string pageName, IDictionary<string, string> properties = null)
+		static void trackPageViewStart (int hash, string pageName, IDictionary<string, string> properties = null)
 		{
 			double time = 0;
 
@@ -135,6 +149,12 @@ namespace XWeather
 
 			pageTime [hash] = Environment.TickCount;
 		}
+
+
+		#endregion
+
+
+		#region Track Page View End
 
 
 		public static void TrackPageViewEnd<T> (T page, IDictionary<string, string> properties = null)
@@ -222,10 +242,10 @@ namespace XWeather
 		}
 
 
-		static void trackBasicPageView (string pageName)
-		{
-			trackEvent ("Page View", new Dictionary<string, string> { { "page", pageName } });
-		}
+		#endregion
+
+
+		#region Start / End Tracking on Last Page
 
 
 		public static void StartLastPageEnd ()
@@ -267,6 +287,11 @@ namespace XWeather
 		}
 
 
+		#endregion
+
+
+		#region Pause / Resume Page View Tracking
+
 
 		public static void PausePageTracking<T> (T page)
 			where T : TView
@@ -293,9 +318,25 @@ namespace XWeather
 		}
 
 
+		#endregion
+
+
+		static void trackBasicPageView (string pageName)
+		{
+			trackEvent ("Page View", new Dictionary<string, string> { { "page", pageName } });
+		}
+
+
+		#endregion
+
+
+
+		#region Utilities
+
+
 		static void trackEvent (string name, IDictionary<string, string> properties = null)
 		{
-			if (MobileAnalytics.Enabled)
+			if (!string.IsNullOrEmpty (Constants.PrivateKeys.MobileCenter.AppSecret) && MobileAnalytics.Enabled)
 			{
 				MobileAnalytics.TrackEvent (name, properties);
 			}
@@ -339,10 +380,8 @@ namespace XWeather
 
 #if DEBUG
 
-		public static void GenerateTestCrash ()
-		{
-			Crashes.GenerateTestCrash ();
-		}
+		public static void GenerateTestCrash () => Crashes.GenerateTestCrash ();
+
 #endif
 
 		static bool verboseLogging = false;
@@ -354,5 +393,7 @@ namespace XWeather
 				System.Diagnostics.Debug.WriteLine ($"[Analytics] {message}");
 			}
 		}
+
+		#endregion
 	}
 }

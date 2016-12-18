@@ -3,7 +3,8 @@
 #if __IOS__
 using TView = UIKit.UIViewController;
 #elif __ANDROID__
-using TView = Android.App.Activity;
+// something random that includes both Activity and Fragment
+using TView = Android.Views.View.IOnCreateContextMenuListener;
 #endif
 
 

@@ -216,7 +216,6 @@
     <Compile Include="Adapters\Base\BaseSelectableRecyclerAdapter.cs" />
     <Compile Include="Widgets\DividerItemDecoration.cs" />
     <Compile Include="Widgets\ScrollAwareFABBehavior.cs" />
-    <Compile Include="Utilities\AnalyticsManager.cs" />
     <Compile Include="Providers\TestDataProvider.cs" />
     <Compile Include="View\DailyGraphView.cs" />
     <Compile Include="Extensions\PathExtensions.cs" />
@@ -308,7 +307,6 @@
     <AndroidResource Include="Resources\drawable\logo_wunderground_white.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Utilities\" />
     <Folder Include="Settings\" />
     <Folder Include="Activities\" />
     <Folder Include="Adapters\" />

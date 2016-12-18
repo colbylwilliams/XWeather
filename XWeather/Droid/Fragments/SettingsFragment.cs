@@ -1,6 +1,7 @@
 ﻿using Android.OS;
 using Android.Preferences;
 using Android.Views;
+
 using SettingsStudio;
 
 namespace XWeather.Droid
@@ -37,8 +38,10 @@ namespace XWeather.Droid
 		{
 			base.OnResume ();
 
-			foreach (var item in UomPreferences) {
+			Analytics.TrackPageViewStart (this, Pages.Settings);
 
+			foreach (var item in UomPreferences)
+			{
 				var preference = (ListPreference)FindPreference (item);
 
 				preference.PreferenceChange += handlePreferenceChange;
@@ -50,10 +53,12 @@ namespace XWeather.Droid
 
 		public override void OnPause ()
 		{
+			Analytics.TrackPageViewEnd (this);
+
 			base.OnPause ();
 
-			foreach (var item in UomPreferences) {
-
+			foreach (var item in UomPreferences)
+			{
 				var preference = (ListPreference)FindPreference (item);
 
 				preference.PreferenceChange -= handlePreferenceChange;
@@ -67,9 +72,12 @@ namespace XWeather.Droid
 
 			int val = 0;
 
-			if (listPreference != null && int.TryParse (e.NewValue.ToString (), out val)) {
+			if (listPreference != null && int.TryParse (e.NewValue.ToString (), out val))
+			{
 				listPreference.Summary = listPreference.GetEntries () [val];
-			} else {
+			}
+			else
+			{
 				e.Preference.Summary = e.NewValue.ToString ();
 			}
 		}

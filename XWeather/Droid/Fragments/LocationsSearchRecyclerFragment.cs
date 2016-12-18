@@ -29,26 +29,32 @@ namespace XWeather.Droid
 		{
 			base.OnCreate (savedInstanceState);
 
-			//SetHasOptionsMenu (true);
-
 			ListAdapter = FilterAdapter;
 		}
 
 
-		//public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
-		//{
-		//	base.OnCreateOptionsMenu (menu, inflater);
+		public override void OnResume ()
+		{
+			base.OnResume ();
 
-		//	//menu.GetItem (Resource.Id.action_settings).SetEnabled (false);
-		//}
+			Analytics.TrackPageViewStart (this, Pages.LocationSearch);
+		}
+
+
+		public override void OnPause ()
+		{
+			Analytics.TrackPageViewEnd (this);
+
+			base.OnPause ();
+		}
 
 
 		public override void OnListItemClick (ListView l, View v, int position, long id)
 		{
 			var location = FilterAdapter [position];
 
-			Task.Run (async () => {
-
+			Task.Run (async () =>
+			{
 				await WuClient.Shared.AddLocation (location);
 
 				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
