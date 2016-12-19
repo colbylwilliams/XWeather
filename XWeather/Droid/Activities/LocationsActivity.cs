@@ -51,14 +51,14 @@ namespace XWeather.Droid
 
 		protected override void HandleNewLocationAdded (object sender, EventArgs e)
 		{
-			RunOnUiThread (() => {
-
-				if (searchMenuItem.IsActionViewExpanded) {
-
+			RunOnUiThread (() =>
+			{
+				if (searchMenuItem.IsActionViewExpanded)
+				{
 					searchMenuItem.CollapseActionView ();
-
-				} else {
-
+				}
+				else
+				{
 					LocationsFragment.Adapter.NotifyDataSetChanged ();
 				}
 			});
@@ -96,7 +96,8 @@ namespace XWeather.Droid
 
 		public override bool OnOptionsItemSelected (IMenuItem item)
 		{
-			switch (item.ItemId) {
+			switch (item.ItemId)
+			{
 				case Resource.Id.action_search:
 
 					return true;
@@ -115,7 +116,6 @@ namespace XWeather.Droid
 								   .Commit ();
 
 					return true;
-
 
 				default: return base.OnOptionsItemSelected (item);
 			}

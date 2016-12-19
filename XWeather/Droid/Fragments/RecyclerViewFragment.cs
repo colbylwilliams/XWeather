@@ -42,7 +42,8 @@ namespace XWeather.Droid
 
 			RecyclerView.SetLayoutManager (new LinearLayoutManager (Activity));
 
-			if (ShowDividers) {
+			if (ShowDividers)
+			{
 				RecyclerView.AddItemDecoration (new DividerItemDecoration (Activity, DividerItemDecoration.VerticalList));
 			}
 
@@ -87,7 +88,8 @@ namespace XWeather.Droid
 		{
 			WuClient.Shared.UpdatedSelected -= handleUpdatedCurrent;
 
-			if (Adapter != null) {
+			if (Adapter != null)
+			{
 				((BaseHeadRecyclerAdapter<TCellData, TCellViewHolder, THeadData, THeadViewHolder>)Adapter).ItemClick -= handleItemClick;
 				((BaseHeadRecyclerAdapter<TCellData, TCellViewHolder, THeadData, THeadViewHolder>)Adapter).ItemLongClick -= handleItemLongClick;
 			}

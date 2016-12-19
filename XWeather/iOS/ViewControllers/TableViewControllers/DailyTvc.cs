@@ -5,7 +5,6 @@ using Foundation;
 using UIKit;
 
 using XWeather.Domain;
-using XWeather.Unified;
 
 namespace XWeather.iOS
 {
@@ -22,7 +21,15 @@ namespace XWeather.iOS
 		{
 			base.ViewDidAppear (animated);
 
-			AnalyticsManager.Shared.TrackEvent (TrackedEvents.WeatherDaily.Opened);
+			Analytics.TrackPageViewStart (this, Pages.WeatherDaily);
+		}
+
+
+		public override void ViewDidDisappear (bool animated)
+		{
+			Analytics.TrackPageViewEnd (this, Location);
+
+			base.ViewDidDisappear (animated);
 		}
 
 

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{A42D9C8E-8031-4873-A845-C7F3E05F285F}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>XWeather.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Bootstrap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Settings\SettingKeys.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\CollectionExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ColorExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\DateExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\TaskExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\ApiKeys.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\ConditionStrings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\PrivateKeys.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\TestData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\TrackedEvents.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\UnitsOfMeasurement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\WeatherConditions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\WeatherDetails.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\WindDirections.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Clients\WuAcClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Clients\WuClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\LocationCoordinates.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\Alerts.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\Almanac.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\Astronomy.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\Conditions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\CurrentHurricane.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\Extensions\NumberExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\Extensions\RadarBoundsExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\Extensions\WeatherConditionsExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\Extensions\WuAcExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\Extensions\WuLocationExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\Forecast.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\GeoLookup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\History.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\Hourly.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\Planner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\RadarBounds.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\RawTide.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\Satellite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\Tide.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\WeatherDetail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\Webcams.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\WuAcResults.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\WuLocation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\WuObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\Wu\WuWeather.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Analytics\AnalyticsManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\Events.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Constants\Pages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Analytics\XWeatherAnalyticsManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Settings\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Extensions\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Constants\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Clients\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Domain\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Analytics\" />
+  </ItemGroup>
+</Project>

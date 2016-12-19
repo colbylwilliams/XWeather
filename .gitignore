@@ -219,7 +219,7 @@ Thumbs.db
 .vscode*
 
 [Ll]ocal/
-[Pp]rivateKeys.cs
+#[Pp]rivateKeys.cs
 [Pp]rivateKeys.swift
 
 

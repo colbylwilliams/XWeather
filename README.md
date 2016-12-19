@@ -10,21 +10,6 @@ XWeather is a weather app for iOS and Android built with Xamarin.
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 
 
-## Xamarin Test Cloud
-
-Each time a code change is commit to this repo, the app is built with [Visual Studio Team Services][16] and deployed to be test on a plethora of apps in Xamarin Test Cloud. You can view results for both [iOS][14] and [Android][15].
-
-![Screenshots](/images/xweather-xtc-overview.png?raw=true "XWeather XTC overview")
-
-![Screenshots](/images/xweather-xtc-details.png?raw=true "XWeather XTC details")
-
-
-## HockeyApp
-
-XWeather uses [HockeyApp][10] to deploy pre-release versions to beta testers and record crash reports in production app.
-
-![Screenshots](/images/xweather-ha.png?raw=true "XWeather on HockeyApp")
-
 
 # Getting Started
 
@@ -52,42 +37,79 @@ To use location services in the Android version of XWeather, you'll need to [obt
 * In `PrivateKeys.cs` set the value of `GoogleMapsApiKey` to your Weather Underground API Key.
 
 
-## HockeyApp (optional)
+## Visual Studio Mobile Center (optional)
 
-[HockeyApp][10] is a platform to collect live crash reports, get feedback from your users, distribute your betas, recruit new testers, and analyze your test coverage.
+[Mobile Center][16] is the amalgamation of [HockeyApp][10], [Xamarin Test Cloud][5], [Xamarin Insights][4], and a bunch of new services like automated builds.  It is a single platform to manage all aspects of continuous integration and continuous deployment, including [build](#build), [test](#test), [distribution](#distribution), [crash reporting](#crashes), and [analytics](#analytics).
 
-Setting up HockeyApp is completely optional.  You can set it up by following the steps listed below.  However, if you'd rather skip this step for now, simply leave the values of `HockeyApiKey_iOS` and `HockeyApiKey_Droid` as empty strings.
+Setting up Mobile Center is completely optional.  If you'd like to use it, you can set it up by following the steps listed below.  However, if you'd rather skip this step for now, simply leave the two values of `AppSecret` as empty strings.
 
-* [Sign up][12] for new a HockeyApp account (or [login][13] to an existing one)
-* Follow the [How to create a new app][11] tutorial to create an iOS and Android app.
-* In `PrivateKeys.cs` set the value of `HockeyApiKey_iOS` and `HockeyApiKey_Droid` to your new HockeyApp iOS and Android API keys respectively.
+* [Register][12] for new a Mobile Center account (or [login][13] using GitHub, Microsoft, or an existing Mobile Center account)
+* [Create a new app][11] for both iOS and Android
+* In `PrivateKeys.cs` set the two values of `AppSecret` your new iOS and Android app's respective App Secrets.
+
+
+
+# Visual Studio Mobile Center
+
+This app uses [Mobile Center][16] for Continuous Integration and Continuous Deployment, by taking advantage of the functionality provided by each of the following "beacons":
+
+
+## Build
+
+Each time someone commits new code to this repo, Mobile Center's Build beacon automatically builds and [distributes](#distribute) a new version for iOS and Android:
+
+![Screenshots](/images/xweather_mc_build.png?raw=true "XWeather Build")
+
+
+## Test
+
+Mobile Center's Test beacon moves the power of [Xamarin Test Cloud][5] to run UI tests on real devices into a single dashboard:
+
+![Screenshots](/images/xweather_mc_test_overview.png?raw=true "XWeather UI Test Overview")
+   
+![Screenshots](/images/xweather_mc_test_details.png?raw=true "XWeather UI Test Details")
+
+
+## Distribute
+
+Once a new version of XWeather successfully [builds](#build) and passes all [tests](#test), Mobile Center's Distribute beacon deploys the pre-release version a selected group of beta testers.
+
+![Screenshots](/images/xweather_mc_distribute.png?raw=true "XWeather Distribute")
+
+
+## Crash Reporting
+
+All of HockeyApp's crash reporting features were included in Mobile Center's Crashes beacon, including real-time details and stack-traces from crashes that happen "in the wild":
+
+![Screenshots](/images/xweather_mc_crashes.png?raw=true "XWeather Crashes")
+
+
+
+## Analytics
+
+Finally, the app uses Mobile Center's Analytics beacon to monitor and record information about the app's user base as well as custom events:
+
+![Screenshots](/images/xweather_mc_audience.png?raw=true "XWeather Audience")
+
+   
+
+![Screenshots](/images/xweather_mc_events.png?raw=true "XWeather Event")
+
+
 
 
 # About
 
-Created by [Colby Williams][19].  Thanks to [@charlieyllobre][18] for the awesome (free) [weather icons][17]. 
-
-
-## Build Status
-
-| Project | CI (master)      | Nightly (master)      | Weekly (master)      |
-|---------|------------------|-----------------------|----------------------|
-| iOS     | ![iOS CI][0]     | ![iOS Nightly][1]     | ![iOS Weekly][2]     |
-| Android | ![Android CI][3] | ![Android Nightly][4] | ![Android Weekly][5] |
-
+XWeather was created by [Colby Williams][19].  Thanks to [@charlieyllobre][18] for the awesome (free) [weather icons][17]. 
 
 
 ## License
 
 Licensed under the MIT License (MIT).  See [LICENSE][20] for details.
 
+[4]:https://www.xamarin.com/insights
 
-[0]:https://xamarin-partners.visualstudio.com/_apis/public/build/definitions/3b9eb138-c0a3-4290-b1af-21afab9de1ce/9/badge
-[1]:https://xamarin-partners.visualstudio.com/_apis/public/build/definitions/3b9eb138-c0a3-4290-b1af-21afab9de1ce/7/badge
-[2]:https://xamarin-partners.visualstudio.com/_apis/public/build/definitions/3b9eb138-c0a3-4290-b1af-21afab9de1ce/11/badge
-[3]:https://xamarin-partners.visualstudio.com/_apis/public/build/definitions/3b9eb138-c0a3-4290-b1af-21afab9de1ce/10/badge
-[4]:https://xamarin-partners.visualstudio.com/_apis/public/build/definitions/3b9eb138-c0a3-4290-b1af-21afab9de1ce/8/badge
-[5]:https://xamarin-partners.visualstudio.com/_apis/public/build/definitions/3b9eb138-c0a3-4290-b1af-21afab9de1ce/12/badge
+[5]:http://bit.ly/xweather-xtc
 
 [6]:http://bit.ly/xweather-api-wu-register
 [7]:http://bit.ly/xweather-api-wu
@@ -96,14 +118,15 @@ Licensed under the MIT License (MIT).  See [LICENSE][20] for details.
 [9]:http://bit.ly/google-api-key
 
 [10]:http://bit.ly/xweather-ha
-[11]:http://bit.ly/xweather-ha-create-app
-[12]:http://bit.ly/xweather-ha-signup
-[13]:http://bit.ly/xweather-ha-signin
+
+[11]:http://bit.ly/xweather-vsmc-create
+[12]:http://bit.ly/xweather-vsmc-signup
+[13]:http://bit.ly/xweather-vsmc-signin
 
 [14]:http://bit.ly/xweather-xtc-ios
 [15]:http://bit.ly/xweather-xtc-android
 
-[16]:http://bit.ly/xweather-vsts
+[16]:http://bit.ly/xweather-vsmc
 
 [17]:http://charlieyllobre.com/portfolio/free-weather-icons/
 [18]:https://twitter.com/charlieyllobre

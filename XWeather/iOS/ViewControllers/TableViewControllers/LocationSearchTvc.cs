@@ -16,6 +16,7 @@ namespace XWeather.iOS
 {
 	public partial class LocationSearchTvc : BaseTvc<LocationSearchTvCell>, IUISearchResultsUpdating
 	{
+		bool selectedLocation;
 
 		public List<WuAcLocation> LocationResults = new List<WuAcLocation> ();
 
@@ -29,8 +30,8 @@ namespace XWeather.iOS
 		{
 			base.ViewDidLoad ();
 
-			if (!UIAccessibility.IsReduceTransparencyEnabled) {
-
+			if (!UIAccessibility.IsReduceTransparencyEnabled)
+			{
 				TableView.BackgroundColor = UIColor.Clear;
 
 				var blur = UIBlurEffect.FromStyle (UIBlurEffectStyle.Dark);
@@ -39,11 +40,25 @@ namespace XWeather.iOS
 			}
 		}
 
+
 		public override void ViewDidAppear (bool animated)
 		{
 			base.ViewDidAppear (animated);
 
-			AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationSearch.Opened);
+			Analytics.TrackPageViewStart (this, Pages.LocationSearch);
+		}
+
+
+		public override void ViewDidDisappear (bool animated)
+		{
+			Analytics.TrackPageViewEnd (this, new Dictionary<string, string> {
+				{ "selected", selectedLocation.ToString() },
+				{ "canceled", (!selectedLocation).ToString() }
+			});
+
+			selectedLocation = false;
+
+			base.ViewDidDisappear (animated);
 		}
 
 
@@ -65,20 +80,20 @@ namespace XWeather.iOS
 
 		public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 		{
-			AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationSearch.Selected);
+			selectedLocation = true;
 
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 
 			var location = LocationResults [indexPath.Row];
 
-			Task.Run (async () => {
-
+			Task.Run (async () =>
+			{
 				await WuClient.Shared.AddLocation (location);
 
 				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
 
-				BeginInvokeOnMainThread (() => {
-
+				BeginInvokeOnMainThread (() =>
+				{
 					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 
 					TableView.ReloadData ();
@@ -114,38 +129,39 @@ namespace XWeather.iOS
 		{
 			var searchString = searchController.SearchBar?.Text;
 
-			try {
-
+			try
+			{
 				ResultStrings = new List<NSAttributedString> ();
 
-				if (!string.IsNullOrWhiteSpace (searchString)) {
-
+				if (!string.IsNullOrWhiteSpace (searchString))
+				{
 					LocationResults = await WuAcClient.GetAsync (searchString);
 
-					foreach (var result in LocationResults) {
+					foreach (var result in LocationResults)
+					{
 						ResultStrings.Add (result.name.GetSearchResultAttributedString (searchString));
 					}
-
-				} else {
-
+				}
+				else
+				{
 					LocationResults = new List<WuAcLocation> ();
 				}
 
-				if (LocationResults.Any ()) {
-
+				if (LocationResults.Any ())
+				{
 					emptyView.RemoveFromSuperview ();
-
-				} else if (!emptyView.IsDescendantOfView (ParentViewController.View)) {
-
+				}
+				else if (!emptyView.IsDescendantOfView (ParentViewController.View))
+				{
 					initEmptyView ();
 				}
 
 				TableView?.ReloadData ();
 
 				MaskCells (TableView);
-
-			} catch (Exception ex) {
-
+			}
+			catch (Exception ex)
+			{
 				System.Diagnostics.Debug.WriteLine (ex.Message);
 			}
 		}

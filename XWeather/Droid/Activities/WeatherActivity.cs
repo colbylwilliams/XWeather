@@ -24,6 +24,8 @@ namespace XWeather.Droid
 			   ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
 	public class WeatherActivity : BaseActivity, FloatingActionButton.IOnClickListener
 	{
+		bool analyticsStarted;
+
 		int viewPagerCache;
 
 		ViewPager viewPager;
@@ -35,7 +37,7 @@ namespace XWeather.Droid
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
-			Bootstrap.Run (this, Application);
+			Shared.Bootstrap.Run ();
 
 			base.OnCreate (savedInstanceState);
 
@@ -51,7 +53,7 @@ namespace XWeather.Droid
 
 			getData ();
 
-			AnalyticsManager.Shared.RegisterForHockeyAppUpdates (this);
+			//AnalyticsManager.Shared.RegisterForHockeyAppUpdates (this);
 		}
 
 
@@ -63,19 +65,19 @@ namespace XWeather.Droid
 		}
 
 
-		protected override void OnPause ()
+		protected override void OnResume ()
 		{
-			base.OnPause ();
+			base.OnResume ();
 
-			AnalyticsManager.Shared.UnregisterForHockeyAppUpdates ();
+			startPageTracking ();
 		}
 
 
-		protected override void OnStop ()
+		protected override void OnPause ()
 		{
-			base.OnStop ();
+			Analytics.TrackPageViewEnd (pagerAdapter.GetFragmentAtPosition (viewPager.CurrentItem), WuClient.Shared.Selected);
 
-			AnalyticsManager.Shared.UnregisterForHockeyAppUpdates ();
+			base.OnPause ();
 		}
 
 
@@ -84,17 +86,26 @@ namespace XWeather.Droid
 
 		protected override void HandleUpdatedSelectedLocation (object sender, EventArgs e)
 		{
-			RunOnUiThread (() => {
+			RunOnUiThread (() =>
+			{
 				reloadData ();
+
 				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
+
+				if (!analyticsStarted)
+				{
+					analyticsStarted = true;
+
+					startPageTracking ();
+				}
 			});
 		}
 
 
 		void reloadData ()
 		{
-			for (int i = 0; i < 3; i++) {
-
+			for (int i = 0; i < 3; i++)
+			{
 				var fragment = pagerAdapter.GetFragmentAtPosition (i) as IRecyclerViewFragment;
 
 				fragment?.Adapter?.NotifyDataSetChanged ();
@@ -113,8 +124,11 @@ namespace XWeather.Droid
 
 			updateBackground ();
 
+			viewPager.PageSelected += (sender, e) =>
+			{
+				Analytics.TrackPageViewEnd (pagerAdapter.GetFragmentAtPosition (viewPagerCache), WuClient.Shared.Selected);
 
-			viewPager.PageSelected += (sender, e) => {
+				Analytics.TrackPageViewStart (pagerAdapter.GetFragmentAtPosition (viewPager.CurrentItem), childPageName (viewPager.CurrentItem), WuClient.Shared.Selected);
 
 				Settings.WeatherPage = e.Position;
 
@@ -124,9 +138,10 @@ namespace XWeather.Droid
 			};
 
 
-			viewPager.PageScrollStateChanged += (sender, e) => {
-
-				switch (e.State) {
+			viewPager.PageScrollStateChanged += (sender, e) =>
+			{
+				switch (e.State)
+				{
 					case ViewPager.ScrollStateDragging:
 
 						viewPagerCache = viewPager.CurrentItem;
@@ -152,19 +167,19 @@ namespace XWeather.Droid
 
 			var gradients = location.GetTimeOfDayGradient (random);
 
-			using (var gd = new GradientDrawable (GradientDrawable.Orientation.TopBottom, gradients.Item1.ToArray ())) {
-
+			using (var gd = new GradientDrawable (GradientDrawable.Orientation.TopBottom, gradients.Item1.ToArray ()))
+			{
 				gd.SetCornerRadius (0f);
 
-				if (viewPager.Background == null) {
-
+				if (viewPager.Background == null)
+				{
 					viewPager.Background = gd;
 
 					Window.SetStatusBarColor (gradients.Item1 [0]);
 					Window.SetNavigationBarColor (gradients.Item1 [1]);
-
-				} else {
-
+				}
+				else
+				{
 					var backgrounds = new Drawable [2];
 
 					backgrounds [0] = viewPager.Background;
@@ -181,8 +196,8 @@ namespace XWeather.Droid
 					statusBarAnimator.SetDuration (1000);
 					statusBarAnimator.SetInterpolator (new AccelerateDecelerateInterpolator ());
 
-					statusBarAnimator.Update += (sender, e) => {
-
+					statusBarAnimator.Update += (sender, e) =>
+					{
 						var val = e.Animation.AnimatedValue as Java.Lang.Integer;
 
 						var color = new Color ((int)val);
@@ -195,8 +210,8 @@ namespace XWeather.Droid
 					naviationBarAnimator.SetDuration (1000);
 					naviationBarAnimator.SetInterpolator (new AccelerateDecelerateInterpolator ());
 
-					naviationBarAnimator.Update += (sender, e) => {
-
+					naviationBarAnimator.Update += (sender, e) =>
+					{
 						var val = e.Animation.AnimatedValue as Java.Lang.Integer;
 
 						var color = new Color ((int)val);
@@ -208,6 +223,27 @@ namespace XWeather.Droid
 					naviationBarAnimator.Start ();
 				}
 			}
+		}
+
+
+		void startPageTracking ()
+		{
+			var current = pagerAdapter.GetFragmentAtPosition (viewPager.CurrentItem);
+
+			if (current != null)
+			{
+				Analytics.TrackPageViewStart (current, childPageName (viewPager.CurrentItem), WuClient.Shared.Selected);
+			}
+		}
+
+
+		Pages childPageName (int index)
+		{
+			if (index == 0) return Pages.WeatherDaily;
+			if (index == 1) return Pages.WeatherHourly;
+			if (index == 2) return Pages.WeatherDetails;
+
+			return Pages.Unknown;
 		}
 
 

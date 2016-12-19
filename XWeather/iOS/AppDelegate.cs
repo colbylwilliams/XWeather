@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+
 using SettingsStudio;
 
 namespace XWeather.iOS
@@ -11,11 +12,14 @@ namespace XWeather.iOS
 
 		public AppDelegate ()
 		{
-			Unified.Bootstrap.Run ();
+			Shared.Bootstrap.Run ();
+
+			Analytics.Start ();
 		}
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
+
 #if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start ();
 #endif
