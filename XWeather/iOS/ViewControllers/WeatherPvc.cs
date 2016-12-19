@@ -212,7 +212,7 @@ namespace XWeather.iOS
 			return Pages.Unknown;
 		}
 
-#if !DEBUG
+#if DEBUG
 
 		void getData () => TestDataProvider.InitTestDataAsync ();
 
