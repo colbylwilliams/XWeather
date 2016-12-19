@@ -57,7 +57,7 @@
         </Command>
       </CustomCommands>
     </CustomCommands>
-    <AndroidSupportedAbis>armeabi-v7a;x86_64;arm64-v8a;x86;armeabi</AndroidSupportedAbis>
+    <AndroidSupportedAbis>armeabi-v7a;arm64-v8a;armeabi</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
