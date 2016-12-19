@@ -39,11 +39,11 @@ To use location services in the Android version of XWeather, you'll need to [obt
 
 ## Visual Studio Mobile Center (optional)
 
-[Mobile Center][16] is an amalgamation of [HockeyApp][10], [Xamarin Test Cloud][5], [Xamarin Insights][4], and a bunch of new services like automated builds.  It is a single platform to manage all aspects of continuous integration and continuous deployment, [build](#build), [test](#test), [distribution](#distribution), [crash reporting](#crashes), and [analytics](#analytics).
+[Mobile Center][16] is the amalgamation of [HockeyApp][10], [Xamarin Test Cloud][5], [Xamarin Insights][4], and a bunch of new services like automated builds.  It is a single platform to manage all aspects of continuous integration and continuous deployment, including [build](#build), [test](#test), [distribution](#distribution), [crash reporting](#crashes), and [analytics](#analytics).
 
 Setting up Mobile Center is completely optional.  If you'd like to use it, you can set it up by following the steps listed below.  However, if you'd rather skip this step for now, simply leave the two values of `AppSecret` as empty strings.
 
-* [Register][12] for new a Mobile Center account (or [login][13] using GitHub, Microsoft, or an existing account)
+* [Register][12] for new a Mobile Center account (or [login][13] using GitHub, Microsoft, or an existing Mobile Center account)
 * [Create a new app][11] for both iOS and Android
 * In `PrivateKeys.cs` set the two values of `AppSecret` your new iOS and Android app's respective App Secrets.
 
@@ -72,9 +72,9 @@ Mobile Center's Test beacon moves the power of [Xamarin Test Cloud][5] to run UI
 
 ## Distribute
 
-Once a new version of XWeather successfully [builds](#build) and passes all [UI Tests](#test), Mobile Center's Distribute beacon deploys the pre-release version a selected group of beta testers.
+Once a new version of XWeather successfully [builds](#build) and passes all [tests](#test), Mobile Center's Distribute beacon deploys the pre-release version a selected group of beta testers.
 
-![Screenshots](/images/xweather_mc_distribute?raw=true "XWeather Distribute")
+![Screenshots](/images/xweather_mc_distribute.png?raw=true "XWeather Distribute")
 
 
 ## Crash Reporting
@@ -100,7 +100,7 @@ Finally, the app uses Mobile Center's Analytics beacon to monitor and record inf
 
 # About
 
-Created by [Colby Williams][19].  Thanks to [@charlieyllobre][18] for the awesome (free) [weather icons][17]. 
+XWeather was created by [Colby Williams][19].  Thanks to [@charlieyllobre][18] for the awesome (free) [weather icons][17]. 
 
 
 ## License
