@@ -1,9 +1,4 @@
-﻿using Microsoft.Azure.Mobile;
-using Microsoft.Azure.Mobile.Crashes;
-
-using ModernHttpClient;
-
-using Plugin.VersionTracking;
+﻿using Plugin.VersionTracking;
 
 using ServiceStack;
 
@@ -20,8 +15,11 @@ using PclExportClient = ServiceStack.IosPclExportClient;
 
 using PclExportClient = ServiceStack.AndroidPclExportClient;
 
-#endif
+#elif WINDOWS_UWP
 
+using PclExportClient = ServiceStack.WinStorePclExportClient;
+
+#endif
 
 namespace XWeather.Shared
 {
@@ -31,23 +29,30 @@ namespace XWeather.Shared
 		{
 			CrossVersionTracking.Current.Track ();
 
-			Crashes.GetErrorAttachment = (report) => ErrorAttachment.AttachmentWithText (CrossVersionTracking.Current.ToString ());
+			PclExportClient.Configure ();
+
+#if !WINDOWS_UWP
+
+			Microsoft.Azure.Mobile.Crashes.Crashes.GetErrorAttachment = (report) =>
+				Microsoft.Azure.Mobile.Crashes.ErrorAttachment.AttachmentWithText (CrossVersionTracking.Current.ToString ());
 
 			if (!string.IsNullOrEmpty (PrivateKeys.MobileCenter.AppSecret))
-				MobileCenter.Start (PrivateKeys.MobileCenter.AppSecret,
+				Microsoft.Azure.Mobile.MobileCenter.Start (PrivateKeys.MobileCenter.AppSecret,
 									typeof (Microsoft.Azure.Mobile.Analytics.Analytics),
 									typeof (Microsoft.Azure.Mobile.Crashes.Crashes));
 
-			PclExportClient.Configure ();
-
-			JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new NativeMessageHandler ();
+			JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new ModernHttpClient.NativeMessageHandler ();
 
 			Settings.RegisterDefaultSettings ();
 
+#endif
+
 #if __ANDROID__
+
 			Settings.VersionNumber = CrossVersionTracking.Current.CurrentVersion;
 
 			Settings.BuildNumber = CrossVersionTracking.Current.CurrentBuild;
+
 #endif
 		}
 	}

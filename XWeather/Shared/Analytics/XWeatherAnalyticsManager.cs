@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿#if !WINDOWS_UWP // for now just kill all this for UWP
+
+using System.Collections.Generic;
 
 #if __IOS__
 using TView = UIKit.UIViewController;
@@ -46,3 +48,5 @@ namespace XWeather
 		}
 	}
 }
+
+#endif

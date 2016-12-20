@@ -1,4 +1,6 @@
-﻿using MobileAnalytics = Microsoft.Azure.Mobile.Analytics.Analytics;
+﻿#if !WINDOWS_UWP // for now just kill all this for UWP
+
+using MobileAnalytics = Microsoft.Azure.Mobile.Analytics.Analytics;
 using Microsoft.Azure.Mobile.Crashes;
 
 using System;
@@ -397,3 +399,5 @@ namespace XWeather
 		#endregion
 	}
 }
+
+#endif
