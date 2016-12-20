@@ -38,11 +38,13 @@
         </Command>
       </CustomCommands>
     </CustomCommands>
-    <CodesignProvision></CodesignProvision>
+    <CodesignProvision>
+    </CodesignProvision>
     <DeviceSpecificBuild>false</DeviceSpecificBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
-    <DebugType></DebugType>
+    <DebugType>
+    </DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
@@ -57,7 +59,8 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision></CodesignProvision>
+    <CodesignProvision>
+    </CodesignProvision>
     <CustomCommands>
       <CustomCommands>
         <Command>
@@ -66,8 +69,8 @@
         </Command>
       </CustomCommands>
     </CustomCommands>
-<MtouchUseLlvm>true</MtouchUseLlvm>
-<MtouchDebug>false</MtouchDebug>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <MtouchDebug>false</MtouchDebug>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>pdbonly</DebugType>
@@ -114,7 +117,8 @@
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision></CodesignProvision>
+    <CodesignProvision>
+    </CodesignProvision>
     <CustomCommands>
       <CustomCommands>
         <Command>
@@ -498,15 +502,33 @@
     <ImageAsset Include="Assets.xcassets\i_add_sm.imageset\i_add_sm.pdf">
       <InProject>false</InProject>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\logo_wunderground_rev.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\logo_wunderground_rev.imageset\logo_wunderground_rev.pdf" />
-    <ImageAsset Include="Assets.xcassets\logo_wunderground_white.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\logo_wunderground_white.imageset\logo_wunderground_white.pdf" />
-    <ImageAsset Include="Assets.xcassets\bg_launch.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\bg_launch.imageset\bg_launch.pdf" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\i_radar.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\i_radar.imageset\i_radar.pdf" />
+    <ImageAsset Include="Assets.xcassets\logo_wunderground_rev.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_wunderground_rev.imageset\logo_wunderground_rev.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_wunderground_white.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\logo_wunderground_white.imageset\logo_wunderground_white.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bg_launch.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bg_launch.imageset\bg_launch.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_radar.imageset\Contents.json">
+      <InProject>false</InProject>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\i_radar.imageset\i_radar.pdf">
+      <InProject>false</InProject>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
