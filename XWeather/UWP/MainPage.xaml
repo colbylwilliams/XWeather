@@ -1,0 +1,247 @@
+﻿<Page
+    x:Class="XWeather.UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XWeather.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:XWeather.UWP.ViewModels"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+
+        <CollectionViewSource x:Name="DailyForecastCVS" />
+
+        <DataTemplate x:Name="DailyTemplate" x:DataType="data:DailyForecastItem">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                           Text="{x:Bind Day}"
+                           Style="{ThemeResource BaseTextBlockStyle}"
+                           Margin="12,6,0,0"/>
+                <TextBlock Grid.Column="1"
+                           Text="{x:Bind Pop}"
+                           Style="{ThemeResource BaseTextBlockStyle}"
+                           Margin="12,6,0,0"/>
+                <Image Grid.Column="2"
+                       Width ="32"
+                       Height="32"
+                       Margin="6"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                <TextBlock Grid.Column="3"
+                           Text="{x:Bind High}"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           Margin="12,6,0,0"/>
+                <TextBlock Grid.Column="4"
+                           Text="{x:Bind Low}"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           Margin="12,6,0,0"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Name="HourlyTemplate" x:DataType="data:HourlyForecastItem">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                           Text="{x:Bind Hour}"
+                           Style="{ThemeResource BaseTextBlockStyle}"
+                           Margin="12,6,0,0"/>
+                <TextBlock Grid.Column="1"
+                           Text="{x:Bind Period}"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           Margin="12,6,0,0"/>
+                <TextBlock Grid.Column="2"
+                           Text="{x:Bind Pop}"
+                           Style="{ThemeResource BaseTextBlockStyle}"
+                           Margin="12,6,0,0"/>
+                <Image Grid.Column="3"
+                       Width ="32"
+                       Height="32"
+                       Margin="6"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                <TextBlock Grid.Column="4"
+                           Text="{x:Bind Temp}"
+                           Style="{ThemeResource BodyTextBlockStyle}"
+                           Margin="12,6,0,0"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Name="DetailsTemplate" x:DataType="data:ForecastDetailsItem">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                           Text="{x:Bind Label}"
+                           Style="{ThemeResource BaseTextBlockStyle}"
+                           Margin="12,6,0,0"/>
+                <TextBlock Grid.Column="1"
+                           Text="{x:Bind Value}" 
+                           Style="{ThemeResource BaseTextBlockStyle}"
+                           Margin="12,6,0,0"/>
+            </Grid>
+        </DataTemplate>
+
+
+    </Page.Resources>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="locationButton" Label="Locations"/>
+            <AppBarButton x:Name="radarButton" Label="Radar"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Pivot Title=""
+               HorizontalContentAlignment="Center">
+            <PivotItem Header="Daily Forecast">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0"
+                                   Text="San Francisco"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{ThemeResource HeaderTextBlockStyle}" />
+                        <Canvas Grid.Row="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" />
+                    </Grid>
+                    <ListView x:Name="DailyLv"
+                              Grid.Row="1"
+                              ItemTemplate="{StaticResource DailyTemplate}"
+                              SelectionMode="None">
+                        <!--ItemsSource="{x:Bind DailyForecast.View}">-->
+                    </ListView>
+                </Grid>
+            </PivotItem>
+            
+            <PivotItem Header="Hourly Forecast">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0"
+                                   Grid.ColumnSpan="3"
+                                   Text="San Francisco"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{ThemeResource  HeaderTextBlockStyle}" />
+                        <TextBlock Grid.Row="1"
+                                   Grid.ColumnSpan="3"
+                                   Text="Scattered Clouds"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{ThemeResource CaptionTextBlockStyle}" />
+                        <TextBlock Grid.Row="2"
+                                   Grid.Column="0"
+                                   Text="65"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Bottom"
+                                   Style="{ThemeResource TitleTextBlockStyle}"
+                                   Margin="10" />
+                        <TextBlock Grid.Row="2"
+                                   Grid.Column="1"
+                                   Text="62"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Bottom"
+                                   Style="{ThemeResource HeaderTextBlockStyle}"
+                                   FontSize="82" />
+                        <TextBlock Grid.Row="2"
+                                   Grid.Column="2"
+                                   Text="53"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Bottom"
+                                   Style="{ThemeResource TitleTextBlockStyle}"
+                                   Margin="10" />
+
+                        <Canvas Grid.Row="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" />
+                    </Grid>
+                    <ListView x:Name="HourlyLv"
+                              Grid.Row="1"
+                              ItemTemplate="{StaticResource HourlyTemplate}"
+                              SelectionMode="None">
+                        <!--ItemsSource="{x:Bind DailyForecast.View}">-->
+                    </ListView>
+                </Grid>
+            </PivotItem>
+            
+            <PivotItem Header="Forecast Details">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0"
+                                   Text="San Francisco"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Style="{ThemeResource HeaderTextBlockStyle}" />
+                        <TextBlock Grid.Row="2"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" />
+                    </Grid>
+                    <ListView x:Name="DetailsLv"
+                              Grid.Row="1"
+                              ItemTemplate="{StaticResource DetailsTemplate}"
+                              SelectionMode="None">
+                        <!--ItemsSource="{x:Bind DailyForecast.View}">-->
+                    </ListView>
+                </Grid>
+            </PivotItem>
+            
+        </Pivot>
+
+    </Grid>
+</Page>
