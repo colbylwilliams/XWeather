@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -16,7 +16,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\NullableExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\UnifiedExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StoryboardExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Settings\SettingAccessors.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Settings\SettingUtilities.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ColorExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\AttributedStringExtensions.cs" />

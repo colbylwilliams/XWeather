@@ -172,7 +172,6 @@
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings\SettingAccessors.cs" />
     <Compile Include="Settings\SettingUtilities.cs" />
     <Compile Include="Activities\BaseActivity.cs" />
     <Compile Include="Activities\WeatherActivity.cs" />
@@ -307,23 +306,7 @@
     <AndroidResource Include="Resources\drawable\i_list.xml" />
     <AndroidResource Include="Resources\drawable\logo_wunderground_white.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Settings\" />
-    <Folder Include="Activities\" />
-    <Folder Include="Adapters\" />
-    <Folder Include="Fragments\" />
-    <Folder Include="ViewHolders\" />
-    <Folder Include="Resources\menu\" />
-    <Folder Include="Providers\" />
-    <Folder Include="Resources\drawable\" />
-    <Folder Include="Constants\" />
-    <Folder Include="Extensions\" />
-    <Folder Include="Resources\xml\" />
-    <Folder Include="Adapters\Filters\" />
-    <Folder Include="Adapters\Base\" />
-    <Folder Include="Widgets\" />
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <AndroidAsset Include="Assets\Atlanta.json" />
     <AndroidAsset Include="Assets\Dallas.json" />
