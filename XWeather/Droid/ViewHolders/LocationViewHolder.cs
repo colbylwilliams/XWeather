@@ -1,8 +1,8 @@
-﻿using Android.Views;
+﻿using Android.Graphics.Drawables;
+using Android.Views;
 using Android.Widget;
 
 using SettingsStudio;
-using Android.Graphics.Drawables;
 
 namespace XWeather.Droid
 {
@@ -40,17 +40,21 @@ namespace XWeather.Droid
 
 		public override void SetSelected (bool selected)
 		{
-			if (defaultDrawable == null) {
+			if (defaultDrawable == null)
+			{
 				defaultDrawable = container.Background;
 			}
 
-			if (selected) {
+			if (selected)
+			{
 				container.SetBackgroundResource (Resource.Color.theme_white_30);
-			} else {
+			}
+			else
+			{
 				container.Background = defaultDrawable;
 			}
 
-			System.Diagnostics.Debug.WriteLine (selected ? "Selected" : "Deselected");
+			//System.Diagnostics.Debug.WriteLine (selected ? "Selected" : "Deselected");
 		}
 	}
 }

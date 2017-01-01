@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 using CoreGraphics;
 using Foundation;
@@ -42,8 +41,8 @@ namespace XWeather.iOS
 
 			TableView.SetContentOffset (new CGPoint (0, searchBarHeight - statusBarHeight), false);
 
-			if (!UIAccessibility.IsReduceTransparencyEnabled) {
-
+			if (!UIAccessibility.IsReduceTransparencyEnabled)
+			{
 				TableView.BackgroundColor = UIColor.Clear;
 
 				var blur = UIBlurEffect.FromStyle (UIBlurEffectStyle.Dark);
@@ -57,15 +56,16 @@ namespace XWeather.iOS
 		{
 			base.MaskCells (scrollView);
 
-			if (TableView?.TableHeaderView != null) {
-
+			if (TableView?.TableHeaderView != null)
+			{
 				var topHiddenHeight = scrollView.ContentOffset.Y - TableView.TableHeaderView.Frame.Y + scrollView.ContentInset.Top;
 
 				TableView.TableHeaderView.SetTransparencyMask (topHiddenHeight, 0);
 			}
 
 
-			if (HeaderHeight > 0 && searchController != null && !searchController.Active && scrollView.ContentOffset.Y == -(statusBarHeight + 1)) {
+			if (HeaderHeight > 0 && searchController != null && !searchController.Active && scrollView.ContentOffset.Y == -(statusBarHeight + 1))
+			{
 				searchController.Active = true;
 			}
 		}
@@ -77,7 +77,7 @@ namespace XWeather.iOS
 
 			WuClient.Shared.LocationAdded += handleLocationAdded;
 
-			AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Opened);
+			Analytics.TrackPageViewStart (this, Pages.LocationList);
 		}
 
 
@@ -85,13 +85,14 @@ namespace XWeather.iOS
 		{
 			WuClient.Shared.LocationAdded -= handleLocationAdded;
 
+			Analytics.TrackPageViewEnd (this);
+
 			base.ViewDidDisappear (animated);
 		}
 
 
 		public override nfloat HeaderHeight {
 			get {
-
 				var headerHeight = TableView.Frame.Height - ((rowHeight * Locations.Count) + FooterHeight + searchBarHeight) + statusBarHeight;
 
 				return headerHeight < 0 ? 0 : headerHeight;
@@ -122,7 +123,7 @@ namespace XWeather.iOS
 			// set location as the selected location
 			WuClient.Shared.Selected = Locations [indexPath.Row];
 
-			AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Selected);
+			//AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Selected);
 
 			DismissViewController (true, null);
 		}
@@ -134,8 +135,8 @@ namespace XWeather.iOS
 
 		public override void CommitEditingStyle (UITableView tableView, UITableViewCellEditingStyle editingStyle, NSIndexPath indexPath)
 		{
-			if (editingStyle == UITableViewCellEditingStyle.Delete) {
-
+			if (editingStyle == UITableViewCellEditingStyle.Delete)
+			{
 				var location = Locations [indexPath.Row];
 
 				WuClient.Shared.RemoveLocation (location);
@@ -144,15 +145,15 @@ namespace XWeather.iOS
 
 				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
 
-				AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Removed);
+				Analytics.TrackEvent (Events.LocaitonDeleted);
 			}
 		}
 
 
 		partial void addButtonClicked (NSObject sender)
 		{
-			if (searchController != null && !searchController.Active) {
-
+			if (searchController != null && !searchController.Active)
+			{
 				TableView.SetContentOffset (new CGPoint (0, -(statusBarHeight + 1)), true);
 			}
 		}
@@ -160,19 +161,20 @@ namespace XWeather.iOS
 
 		void handleLocationAdded (object sender, EventArgs e)
 		{
-			BeginInvokeOnMainThread (() => {
-
-				if (searchController.Active) {
-
+			BeginInvokeOnMainThread (() =>
+			{
+				if (searchController.Active)
+				{
 					searchController.Active = false;
-
-				} else {
-
-					AnalyticsManager.Shared.TrackEvent (TrackedEvents.LocationList.Added);
+				}
+				else
+				{
+					Analytics.TrackEvent (Events.LocationAdded);
 
 					TableView?.ReloadData ();
 
-					if (HeaderHeight == 0) {
+					if (HeaderHeight == 0)
+					{
 						MaskCells (TableView);
 					}
 				}
@@ -184,7 +186,8 @@ namespace XWeather.iOS
 		{
 			resultsController = Storyboard.Instantiate<LocationSearchTvc> ();
 
-			searchController = new UISearchController (resultsController) {
+			searchController = new UISearchController (resultsController)
+			{
 				DimsBackgroundDuringPresentation = false,
 				SearchResultsUpdater = resultsController,
 				WeakDelegate = this

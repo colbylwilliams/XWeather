@@ -8,7 +8,6 @@ using MapKit;
 using UIKit;
 
 using XWeather.Clients;
-using XWeather.Unified;
 
 namespace XWeather.iOS
 {
@@ -41,11 +40,19 @@ namespace XWeather.iOS
 		{
 			base.ViewDidAppear (animated);
 
-			AnalyticsManager.Shared.TrackEvent (TrackedEvents.WeatherRadar.Opened);
+			Analytics.TrackPageViewStart (this, Pages.WeatherRadar);
 
 			animateRadar = true;
 
 			refreshRadarOverlay ();
+		}
+
+
+		public override void ViewDidDisappear (bool animated)
+		{
+			Analytics.TrackPageViewEnd (this);
+
+			base.ViewDidDisappear (animated);
 		}
 
 
@@ -83,8 +90,10 @@ namespace XWeather.iOS
 
 		void updateRendererDisplayOnMainThread ()
 		{
-			BeginInvokeOnMainThread (() => {
-				if (radarOverlay != null) {
+			BeginInvokeOnMainThread (() =>
+			{
+				if (radarOverlay != null)
+				{
 					var render = mapView?.RendererForOverlay (radarOverlay) as RadarOverlayRenderer;
 					render?.UpdateDisplay ();
 				}
@@ -94,24 +103,25 @@ namespace XWeather.iOS
 
 		void initTimer ()
 		{
-			Task.Run (async () => {
-
-				try {
-
+			Task.Run (async () =>
+			{
+				try
+				{
 					KillTimer ();
 
 					refreshTimerCts = new CancellationTokenSource ();
 
 					updateRendererDisplayOnMainThread ();
 
-					while (animateRadar) {
-
+					while (animateRadar)
+					{
 						await Task.Delay (500, refreshTimerCts.Token);
 
 						updateRendererDisplayOnMainThread ();
 					}
-
-				} catch (OperationCanceledException) {
+				}
+				catch (OperationCanceledException)
+				{
 					return;
 				}
 			});
@@ -123,8 +133,8 @@ namespace XWeather.iOS
 
 		void refreshRadarOverlay ()
 		{
-			try {
-
+			try
+			{
 				refreshOverlayCts?.Cancel ();
 
 				refreshOverlayCts = new CancellationTokenSource ();
@@ -136,14 +146,14 @@ namespace XWeather.iOS
 				refreshOverlayCts.Token.ThrowIfCancellationRequested ();
 
 				initTimer ();
-
-			} catch (OperationCanceledException) {
-
+			}
+			catch (OperationCanceledException)
+			{
 				System.Diagnostics.Debug.WriteLine ("Canceled Radar Request");
 				return;
-
-			} catch (Exception ex) {
-
+			}
+			catch (Exception ex)
+			{
 				System.Diagnostics.Debug.WriteLine ($"Error During Radar Request\n{ex.Message}");
 				throw;
 			}
@@ -158,12 +168,11 @@ namespace XWeather.iOS
 
 			var bounds = mapView.GetRadarBoundsForScreen ();
 
-			Task.Run (async () => {
-
+			Task.Run (async () =>
+			{
 				var radar = await WuClient.Shared.GetRadarImageAsync (bounds);
 
 				if (radar == null) refreshOverlayCts?.Cancel ();
-
 
 				token.ThrowIfCancellationRequested ();
 
@@ -173,15 +182,13 @@ namespace XWeather.iOS
 
 				token.ThrowIfCancellationRequested ();
 
-				BeginInvokeOnMainThread (() => {
-
+				BeginInvokeOnMainThread (() =>
+				{
 					if (radarOverlay != null) mapView.RemoveOverlay (radarOverlay);
-
 
 					radarOverlay = new RadarOverlay (mapView.VisibleMapRect, images);
 
 					mapView.AddOverlay (radarOverlay);
-
 
 					token.ThrowIfCancellationRequested ();
 

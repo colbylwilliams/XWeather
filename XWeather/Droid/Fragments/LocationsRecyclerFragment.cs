@@ -55,6 +55,22 @@ namespace XWeather.Droid
 		}
 
 
+		public override void OnResume ()
+		{
+			base.OnResume ();
+
+			Analytics.TrackPageViewStart (this, Pages.LocationList);
+		}
+
+
+		public override void OnPause ()
+		{
+			Analytics.TrackPageViewEnd (this);
+
+			base.OnPause ();
+		}
+
+
 		public override void OnStop ()
 		{
 			detachEvents ();
@@ -86,7 +102,8 @@ namespace XWeather.Droid
 		{
 			WuClient.Shared.UpdatedSelected -= handleUpdatedCurrent;
 
-			if (Adapter != null) {
+			if (Adapter != null)
+			{
 				Adapter.ItemClick -= handleItemClick;
 				Adapter.ItemLongClick -= handleItemLongClick;
 			}
@@ -95,11 +112,14 @@ namespace XWeather.Droid
 
 		void handleItemClick (object sender, int position)
 		{
-			if (Editing) {
+			if (Editing)
+			{
 
 				Adapter.ToggleItemSelection (position);
 
-			} else {
+			}
+			else
+			{
 
 				// set location as the selected location
 				WuClient.Shared.Selected = WuClient.Shared.Locations [position];
@@ -109,7 +129,8 @@ namespace XWeather.Droid
 
 		void handleItemLongClick (object sender, int position)
 		{
-			if (!Editing) {
+			if (!Editing)
+			{
 
 				Editing = true;
 
@@ -129,7 +150,8 @@ namespace XWeather.Droid
 		// Called when the user selects a contextual menu item
 		public bool OnActionItemClicked (ActionMode mode, IMenuItem item)
 		{
-			switch (item.ItemId) {
+			switch (item.ItemId)
+			{
 
 				case Resource.Id.context_action_share:
 					Toast.MakeText (Activity, "Sharing coming soon...", ToastLength.Short).Show ();

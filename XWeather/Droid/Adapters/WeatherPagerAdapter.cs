@@ -5,8 +5,6 @@ namespace XWeather.Droid
 	public class WeatherPagerAdapter : BasePagerAdapter
 	{
 
-
-
 		public WeatherPagerAdapter (FragmentManager manager) : base (manager) { }
 
 
@@ -15,7 +13,8 @@ namespace XWeather.Droid
 
 		public override Fragment GetItem (int position)
 		{
-			switch (position) {
+			switch (position)
+			{
 				case 0: return DailyRecyclerFragment.Create ();
 				case 1: return HourlyRecyclerFragment.Create ();
 				case 2: return DetailsRecyclerFragment.Create ();

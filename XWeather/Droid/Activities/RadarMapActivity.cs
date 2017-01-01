@@ -8,7 +8,6 @@ using Android.Gms.Maps.Model;
 
 using XWeather.Clients;
 
-
 namespace XWeather.Droid
 {
 	public class RadarMapActivity : BaseActivity, IOnMapReadyCallback
@@ -27,8 +26,20 @@ namespace XWeather.Droid
 		}
 
 
+		protected override void OnResume ()
+		{
+			base.OnResume ();
+
+			Analytics.TrackPageViewStart (this, Pages.WeatherRadar);
+
+			setupMapIfNeeded ();
+		}
+
+
 		protected override void OnPause ()
 		{
+			Analytics.TrackPageViewEnd (this);
+
 			base.OnPause ();
 
 			map.MyLocationEnabled = false;
@@ -36,18 +47,12 @@ namespace XWeather.Droid
 		}
 
 
-		protected override void OnResume ()
-		{
-			base.OnResume ();
-
-			setupMapIfNeeded ();
-		}
-
-
 		void initMapFragment ()
 		{
 			mapFragment = FragmentManager.FindFragmentByTag ("map") as MapFragment;
-			if (mapFragment == null) {
+
+			if (mapFragment == null)
+			{
 				GoogleMapOptions mapOptions = new GoogleMapOptions ()
 					.InvokeMapType (GoogleMap.MapTypeSatellite)
 					.InvokeZoomControlsEnabled (false)
@@ -64,12 +69,12 @@ namespace XWeather.Droid
 
 		void setupMapIfNeeded ()
 		{
-			if (map == null) {
-
+			if (map == null)
+			{
 				mapFragment.GetMapAsync (this);
-
-			} else {
-
+			}
+			else
+			{
 				//map.MyLocationEnabled = true;
 			}
 		}
@@ -77,7 +82,8 @@ namespace XWeather.Droid
 
 		public void OnMapReady (GoogleMap googleMap)
 		{
-			if (map != null) {
+			if (map != null)
+			{
 				// Animate the move on the map so that it is showing the markers we added above.
 				map.AnimateCamera (CameraUpdateFactory.NewLatLngZoom (new LatLng (Location.Location.lat, Location.Location.lon), 2));
 
@@ -86,4 +92,3 @@ namespace XWeather.Droid
 		}
 	}
 }
-

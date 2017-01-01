@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using CoreAnimation;
 using Foundation;
@@ -24,7 +25,7 @@ namespace XWeather.iOS
 
 		public override void ViewDidLoad ()
 		{
-			WuClient.Shared.UpdatedSelected += handleUpdatedCurrent;
+			WuClient.Shared.UpdatedSelected += handleFirstUpdatedSelected;
 
 			base.ViewDidLoad ();
 
@@ -42,16 +43,33 @@ namespace XWeather.iOS
 		}
 
 
-		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender) => updateToolbarButtons (false);
+		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
+		{
+			updateToolbarButtons (false);
+
+			if (segue.Identifier.Equals ("locationsSegue", StringComparison.OrdinalIgnoreCase))
+			{
+				var current = ViewControllers.FirstOrDefault ();
+
+				if (current != null)
+					Analytics.TrackPageViewEnd (ViewControllers.FirstOrDefault (), WuClient.Shared.Selected);
+			}
+		}
 
 
 		public override UIStatusBarStyle PreferredStatusBarStyle () => UIStatusBarStyle.LightContent;
 
 
-		partial void closeClicked (NSObject sender)
+		async partial void closeClicked (NSObject sender)
 		{
 			updateToolbarButtons (true);
-			DismissViewController (true, null);
+
+			await DismissViewControllerAsync (true);
+
+			var current = ViewControllers.FirstOrDefault ();
+
+			if (current != null)
+				Analytics.TrackPageViewStart (current, childPageName (current), WuClient.Shared.Selected);
 		}
 
 
@@ -59,10 +77,13 @@ namespace XWeather.iOS
 		{
 			var settingsString = UIApplication.OpenSettingsUrlString?.ToString ();
 
-			if (!string.IsNullOrEmpty (settingsString)) {
+			if (!string.IsNullOrEmpty (settingsString))
+			{
 				var settingsUrl = NSUrl.FromString (settingsString);
-				if (UIApplication.SharedApplication.OpenUrl (settingsUrl)) {
-					AnalyticsManager.Shared.TrackEvent (TrackedEvents.Settings.Opened);
+
+				if (UIApplication.SharedApplication.OpenUrl (settingsUrl))
+				{
+					Analytics.TrackPageView (Pages.Settings.Name ());
 				}
 			}
 		}
@@ -71,21 +92,43 @@ namespace XWeather.iOS
 		void updateToolbarButtons (bool dismissing)
 		{
 			foreach (var button in toolbarButtons)
+			{
 				button.Hidden = dismissing ? button.Tag > 1 : button.Tag < 2;
+			}
 
 			pageIndicator.Hidden = !dismissing;
 		}
 
 
-		void handleUpdatedCurrent (object sender, EventArgs e)
+		void handleFirstUpdatedSelected (object sender, EventArgs e)
 		{
-			BeginInvokeOnMainThread (() => {
+			WuClient.Shared.UpdatedSelected -= handleFirstUpdatedSelected;
+			WuClient.Shared.UpdatedSelected += handleUpdatedSelected;
+
+			refreshForUpdatedSelected ();
+		}
+
+
+		void handleUpdatedSelected (object sender, EventArgs e)
+		{
+			refreshForUpdatedSelected ();
+
+			var current = ViewControllers.FirstOrDefault ();
+
+			if (current != null)
+				Analytics.TrackPageViewStart (current, childPageName (current), WuClient.Shared.Selected);
+		}
+
+
+		void refreshForUpdatedSelected ()
+		{
+			BeginInvokeOnMainThread (() =>
+			{
 				updateToolbarButtons (true);
 				reloadData ();
 				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
 			});
 		}
-
 
 		void reloadData ()
 		{
@@ -103,7 +146,8 @@ namespace XWeather.iOS
 
 			var layer = View.Layer.Sublayers [0] as CAGradientLayer;
 
-			if (layer == null) {
+			if (layer == null)
+			{
 				layer = new CAGradientLayer ();
 				layer.Frame = View.Bounds;
 				View.Layer.InsertSublayer (layer, 0);
@@ -131,7 +175,8 @@ namespace XWeather.iOS
 
 			WillTransition += (s, e) => { updateBackground (); };
 
-			DidFinishAnimating += (s, e) => {
+			DidFinishAnimating += (s, e) =>
+			{
 				var index = Controllers.IndexOf ((UITableViewController)ViewControllers [0]);
 				pageIndicator.CurrentPage = index;
 				Settings.WeatherPage = index;
@@ -155,6 +200,17 @@ namespace XWeather.iOS
 			NavigationController.View.AddConstraints (NSLayoutConstraint.FromVisualFormat (@"V:[toolbarView(44.0)]|", 0, "toolbarView", toolbarView));
 		}
 
+
+		Pages childPageName (UIViewController page)
+		{
+			if (page != null)
+			{
+				if (page.Equals (Controllers [0])) return Pages.WeatherDaily;
+				if (page.Equals (Controllers [1])) return Pages.WeatherHourly;
+				if (page.Equals (Controllers [2])) return Pages.WeatherDetails;
+			}
+			return Pages.Unknown;
+		}
 
 #if DEBUG
 

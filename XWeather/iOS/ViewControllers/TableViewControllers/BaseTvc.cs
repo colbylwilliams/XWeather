@@ -4,10 +4,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-using SettingsStudio;
-
 using XWeather.Clients;
-using XWeather.Unified;
 
 namespace XWeather.iOS
 {
@@ -30,8 +27,6 @@ namespace XWeather.iOS
 		{
 			base.ViewDidLoad ();
 
-			//AnalyticsManager.Shared.TrackEvent ("foo");
-
 			View.BackgroundColor = UIColor.Clear;
 
 			TableView.BackgroundColor = UIColor.Clear;
@@ -47,7 +42,8 @@ namespace XWeather.iOS
 
 		public virtual void MaskCells (UIScrollView scrollView)
 		{
-			foreach (TCell cell in TableView.VisibleCells) {
+			foreach (TCell cell in TableView.VisibleCells)
+			{
 
 				var topHiddenHeight = scrollView.ContentOffset.Y + HeaderHeight - cell.Frame.Y + scrollView.ContentInset.Top;
 				var bottomHiddenHeight = cell.Frame.Bottom - (scrollView.ContentOffset.Y + scrollView.Frame.Height - FooterHeight);
