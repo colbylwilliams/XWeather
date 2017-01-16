@@ -10,8 +10,12 @@
 		{
 #if __IOS__
 			public const string AppSecret = @"";
+
+			public const string ServiceUrl = @"";
 #elif __ANDROID__
 			public const string AppSecret = @"";
+
+			public const string ServiceUrl = @"";
 #endif
 		}
 	}
