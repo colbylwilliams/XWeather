@@ -57,6 +57,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Constants\Events.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Constants\Pages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Analytics\XWeatherAnalyticsManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Providers\TestDataProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Settings\SettingAccessors.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Settings\" />

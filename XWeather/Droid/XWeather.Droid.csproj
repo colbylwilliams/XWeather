@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>XWeather.Droid</RootNamespace>
     <AssemblyName>XWeather.Droid</AssemblyName>
-    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -171,7 +171,6 @@
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings\SettingAccessors.cs" />
     <Compile Include="Settings\SettingUtilities.cs" />
     <Compile Include="Activities\BaseActivity.cs" />
     <Compile Include="Activities\WeatherActivity.cs" />
@@ -216,7 +215,6 @@
     <Compile Include="Adapters\Base\BaseSelectableRecyclerAdapter.cs" />
     <Compile Include="Widgets\DividerItemDecoration.cs" />
     <Compile Include="Widgets\ScrollAwareFABBehavior.cs" />
-    <Compile Include="Providers\TestDataProvider.cs" />
     <Compile Include="View\DailyGraphView.cs" />
     <Compile Include="Extensions\PathExtensions.cs" />
   </ItemGroup>
