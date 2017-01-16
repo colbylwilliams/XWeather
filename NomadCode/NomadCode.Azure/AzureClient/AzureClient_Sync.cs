@@ -36,10 +36,16 @@ namespace NomadCode.Azure
 						performingFullRefresh = false;
 					}
 				}
-				catch (Exception ex)
+#if !DEBUG
+				catch (Exception)
 				{
-					logDebug<T> (ex);
+#else
+				catch (Exception e)
+				{
+					logDebug<T> (e);
+#endif
 					lastRefresh = default (DateTime);
+					throw;
 				}
 			});
 		}
