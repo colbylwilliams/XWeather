@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9EA8454D
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XWeather.Shared", "Shared\XWeather.Shared.shproj", "{A42D9C8E-8031-4873-A845-C7F3E05F285F}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "NomadCode.Azure", "..\NomadCode\NomadCode.Azure\NomadCode.Azure.shproj", "{049FF267-02CB-4168-9EC5-0768D053EF77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
