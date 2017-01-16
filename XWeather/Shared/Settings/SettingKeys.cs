@@ -38,6 +38,7 @@ namespace SettingsStudio
 
 		#region Hidden Settings
 
+		public const string AzureStoreEnabled = "AzureStoreEnabled";
 
 		public const string LocationsJson = "LocationsJson";
 
