@@ -16,6 +16,7 @@ using SettingsStudio;
 
 using XWeather.Clients;
 using XWeather.Domain;
+using XWeather.Shared;
 
 namespace XWeather.Droid
 {
@@ -89,8 +90,6 @@ namespace XWeather.Droid
 			RunOnUiThread (() =>
 			{
 				reloadData ();
-
-				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
 
 				if (!analyticsStarted)
 				{
@@ -249,7 +248,11 @@ namespace XWeather.Droid
 
 #if DEBUG
 
-		void getData () => Task.Run (async () => await TestDataProvider.InitTestDataAsync (this));
+		void getData () => Task.Run (async () =>
+		{
+			await Bootstrap.InitializeDataStore ();
+			await TestDataProvider.InitTestDataAsync (this);
+		});
 
 #else
 
@@ -259,11 +262,13 @@ namespace XWeather.Droid
 		{
 			if (LocationProvider == null) LocationProvider = new LocationProvider (this);
 
-			Task.Run (async () => {
+			Task.Run (async () =>
+			{
+				await Bootstrap.InitializeDataStore ();
 
 				var location = await LocationProvider.GetCurrentLocationCoordnatesAsync ();
 
-				await WuClient.Shared.GetLocations (Settings.LocationsJson, location);
+				await WuClient.Shared.GetLocations (location);
 			});
 		}
 #endif

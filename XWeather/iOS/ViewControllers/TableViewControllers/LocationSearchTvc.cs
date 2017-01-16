@@ -90,8 +90,6 @@ namespace XWeather.iOS
 			{
 				await WuClient.Shared.AddLocation (location);
 
-				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
-
 				BeginInvokeOnMainThread (() =>
 				{
 					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;

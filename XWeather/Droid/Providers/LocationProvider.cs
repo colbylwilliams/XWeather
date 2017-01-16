@@ -12,7 +12,6 @@ using XWeather.Domain;
 
 #if DEBUG
 using static System.Diagnostics.Debug;
-using Android.Content;
 #else
 using static System.Console;
 #endif
@@ -67,7 +66,8 @@ namespace XWeather.Droid
 
 		public async Task<Location> GetCurrentLocationAsync ()
 		{
-			if (!LocationTcs.IsNullFinishCanceledOrFaulted ()) {
+			if (!LocationTcs.IsNullFinishCanceledOrFaulted ())
+			{
 				return await LocationTcs.Task;
 			}
 
@@ -75,12 +75,12 @@ namespace XWeather.Droid
 
 			var connected = apiClient.IsConnected ? apiClient.IsConnected : await connect ();
 
-			if (connected) {
-
+			if (connected)
+			{
 				var lastLocation = LocationServices.FusedLocationApi.GetLastLocation (apiClient);
 
-				if (lastLocation?.CheckLocationTime (15) ?? false) {
-
+				if (lastLocation?.CheckLocationTime (15) ?? false)
+				{
 					LocationTcs.SetResult (lastLocation);
 
 					//return await Task.FromResult (lastLocation);
@@ -88,9 +88,9 @@ namespace XWeather.Droid
 
 				// pass in a location request and LocationListener
 				Context.RunOnUiThread (async () => await LocationServices.FusedLocationApi.RequestLocationUpdates (apiClient, locRequest, this));
-
-			} else {
-
+			}
+			else
+			{
 				LocationTcs.SetResult (null);
 
 				WriteLine ("Unable to connect, returning null");
@@ -102,18 +102,19 @@ namespace XWeather.Droid
 
 		Task<bool> connect ()
 		{
-			if (!ConnectTcs.IsNullFinishCanceledOrFaulted ()) {
+			if (!ConnectTcs.IsNullFinishCanceledOrFaulted ())
+			{
 				return ConnectTcs.Task;
 			}
 
 			ConnectTcs = new TaskCompletionSource<bool> ();
 
-			if (apiClient.IsConnected) {
-
+			if (apiClient.IsConnected)
+			{
 				ConnectTcs.SetResult (true);
-
-			} else {
-
+			}
+			else
+			{
 				apiClient.Connect ();
 			}
 
@@ -142,34 +143,34 @@ namespace XWeather.Droid
 		}
 
 
-
-
 		public void OnLocationChanged (Location location)
 		{
 			WriteLine ("Location changed");
 
-			if (location != null) {
-
+			if (location != null)
+			{
 				// location was retrieved less than 15 seconds ago
-				if (location.CheckLocationTime (15)) {
-
+				if (location.CheckLocationTime (15))
+				{
 					Location = location;
 
-					if (!LocationTcs.IsNullFinishCanceledOrFaulted ()) {
-
-						if (!LocationTcs.TrySetResult (location)) {
-
+					if (!LocationTcs.IsNullFinishCanceledOrFaulted ())
+					{
+						if (!LocationTcs.TrySetResult (location))
+						{
 							WriteLine ("LocationTcs Failed to Set Result");
-
-						} else {
-
+						}
+						else
+						{
 							WriteLine ("LocationTcs Set Result");
 						}
 					}
 
-					if (apiClient.IsConnected) {
+					if (apiClient.IsConnected)
+					{
 						// stop location updates, passing in the LocationListener
-						Task.Run (async () => {
+						Task.Run (async () =>
+						{
 							await LocationServices.FusedLocationApi.RemoveLocationUpdates (apiClient, this);
 							apiClient.Disconnect ();
 						});

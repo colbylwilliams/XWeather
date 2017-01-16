@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 using CoreAnimation;
 using Foundation;
@@ -126,7 +127,6 @@ namespace XWeather.iOS
 			{
 				updateToolbarButtons (true);
 				reloadData ();
-				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
 			});
 		}
 
@@ -214,7 +214,11 @@ namespace XWeather.iOS
 
 #if DEBUG
 
-		void getData () => TestDataProvider.InitTestDataAsync ();
+		void getData () => Task.Run (async () =>
+		{
+			await Shared.Bootstrap.InitializeDataStore ();
+			await TestDataProvider.InitTestDataAsync ();
+		});
 
 #else
 
@@ -226,14 +230,16 @@ namespace XWeather.iOS
 
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 
-			System.Threading.Tasks.Task.Run (async () => {
+			Task.Run (async () =>
+			{
+				await Shared.Bootstrap.InitializeDataStore ();
 
 				var location = await LocationProvider.GetCurrentLocationCoordnatesAsync ();
 
-				await WuClient.Shared.GetLocations (Settings.LocationsJson, location);
+				await WuClient.Shared.GetLocations (location);
 
-				BeginInvokeOnMainThread (() => {
-
+				BeginInvokeOnMainThread (() =>
+				{
 					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 				});
 			});
