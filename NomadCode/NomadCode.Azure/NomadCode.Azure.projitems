@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{049FF267-02CB-4168-9EC5-0768D053EF77}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>NomadCode.Azure</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AzureEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureClient\AzureClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureClient\AzureClient_Auth.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureClient\AzureClient_Delete.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureClient\AzureClient_Sync.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureClient\Keychain.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureClient\AzureClient_Get.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureClient\AzureClient_Save.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureClient\PreferenceStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureClient\AzureClient_CRUD.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureClient\Log.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)AzureClient\" />
+  </ItemGroup>
+</Project>
