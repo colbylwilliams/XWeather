@@ -7,7 +7,7 @@ namespace XWeather.Domain
 		public List<WuAcLocation> Results { get; set; }
 	}
 
-	public class WuAcLocation : NomadCode.Azure.AzureEntity
+	public class WuAcLocation
 	{
 		public string name { get; set; }
 		public string type { get; set; }

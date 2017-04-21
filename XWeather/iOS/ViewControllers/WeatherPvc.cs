@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -61,16 +61,17 @@ namespace XWeather.iOS
 		public override UIStatusBarStyle PreferredStatusBarStyle () => UIStatusBarStyle.LightContent;
 
 
-		async partial void closeClicked (NSObject sender)
+		partial void closeClicked (NSObject sender)
 		{
 			updateToolbarButtons (true);
 
-			await DismissViewControllerAsync (true);
+            DismissViewController(true, () =>
+            {
+                var current = ViewControllers.FirstOrDefault();
 
-			var current = ViewControllers.FirstOrDefault ();
-
-			if (current != null)
-				Analytics.TrackPageViewStart (current, childPageName (current), WuClient.Shared.Selected);
+                if (current != null)
+                    Analytics.TrackPageViewStart(current, childPageName(current), WuClient.Shared.Selected);
+            });
 		}
 
 
@@ -214,12 +215,7 @@ namespace XWeather.iOS
 
 #if DEBUG
 
-		void getData () => Task.Run (async () =>
-		{
-			await Shared.Bootstrap.InitializeDataStore ();
-			await TestDataProvider.InitTestDataAsync ();
-		});
-
+		void getData () => TestDataProvider.InitTestDataAsync ();
 #else
 
 		LocationProvider LocationProvider;
@@ -232,8 +228,6 @@ namespace XWeather.iOS
 
 			Task.Run (async () =>
 			{
-				await Shared.Bootstrap.InitializeDataStore ();
-
 				var location = await LocationProvider.GetCurrentLocationCoordnatesAsync ();
 
 				await WuClient.Shared.GetLocations (location);

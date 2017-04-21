@@ -73,12 +73,6 @@ namespace SettingsStudio
 		#region Hidden Settings
 
 
-		public static bool AzureStoreEnabled {
-			get { return BoolForKey (SettingsKeys.AzureStoreEnabled); }
-			set { SetSetting (SettingsKeys.AzureStoreEnabled, value); }
-		}
-
-
 		public static string LocationsJson {
 			get { return StringForKey (SettingsKeys.LocationsJson); }
 			set { SetSetting (SettingsKeys.LocationsJson, value ?? string.Empty); }

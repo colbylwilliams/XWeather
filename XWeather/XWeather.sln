@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9EA8454D
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "XWeather.Shared", "Shared\XWeather.Shared.shproj", "{A42D9C8E-8031-4873-A845-C7F3E05F285F}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "NomadCode.Azure", "..\NomadCode\NomadCode.Azure\NomadCode.Azure.shproj", "{049FF267-02CB-4168-9EC5-0768D053EF77}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,9 +72,27 @@ Global
 		$2.scope = application/android+xml
 		$0.TextStylePolicy = $4
 		$4.inheritsSet = null
-		$4.scope = application/android+xml
+		$4.scope = text/x-csharp
 		$0.XmlFormattingPolicy = $5
 		$5.inheritsSet = null
-		$5.scope = application/android+xml
+		$5.scope = application/config+xml
+		$0.CSharpFormattingPolicy = $6
+		$6.SpacingAfterMethodDeclarationName = True
+		$6.SpaceAfterMethodCallName = True
+		$6.SpaceBeforeOpenSquareBracket = True
+		$6.scope = text/x-csharp
+		$0.TextStylePolicy = $7
+		$7.scope = text/plain
+		$0.TextStylePolicy = $8
+		$8.inheritsSet = null
+		$8.scope = application/config+xml
+		$0.TextStylePolicy = $9
+		$9.inheritsSet = null
+		$9.scope = text/x-json
+		$0.JSONFormattingPolicy = $10
+		$10.AutoStructureCompletion = True
+		$10.BracePositions = SemiExpanded
+		$10.FormatOnPaste = True
+		$10.scope = text/x-json
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
-
 using Android.App;
 using Android.Animation;
 using Android.Graphics;
@@ -15,8 +13,6 @@ using Android.Support.V4.View;
 using SettingsStudio;
 
 using XWeather.Clients;
-using XWeather.Domain;
-using XWeather.Shared;
 
 namespace XWeather.Droid
 {
@@ -247,13 +243,7 @@ namespace XWeather.Droid
 
 
 #if DEBUG
-
-		void getData () => Task.Run (async () =>
-		{
-			await Bootstrap.InitializeDataStore ();
-			await TestDataProvider.InitTestDataAsync (this);
-		});
-
+		void getData () => TestDataProvider.InitTestDataAsync (this);
 #else
 
 		LocationProvider LocationProvider;
@@ -262,10 +252,8 @@ namespace XWeather.Droid
 		{
 			if (LocationProvider == null) LocationProvider = new LocationProvider (this);
 
-			Task.Run (async () =>
+			System.Threading.Tasks.Task.Run (async () =>
 			{
-				await Bootstrap.InitializeDataStore ();
-
 				var location = await LocationProvider.GetCurrentLocationCoordnatesAsync ();
 
 				await WuClient.Shared.GetLocations (location);

@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 
 using ServiceStack;
 
-using NomadCode.Azure;
-
 using XWeather.Domain;
 using XWeather.Constants;
 
@@ -41,14 +39,7 @@ namespace XWeather.Clients
 
 				UpdatedSelected?.Invoke (this, EventArgs.Empty);
 
-				if (SettingsStudio.Settings.AzureStoreEnabled)
-				{
-					Task.Run (async () => await AzureClient.Shared.SaveAsync (Locations.Select (l => l.Location).ToList ()));
-				}
-				else
-				{
-					SettingsStudio.Settings.LocationsJson = Locations.GetLocationsJson ();
-				}
+				SettingsStudio.Settings.LocationsJson = Locations.GetLocationsJson ();
 			}
 		}
 
@@ -66,7 +57,7 @@ namespace XWeather.Clients
 
 			var wuLocation = await getWuLocation (wuAcLocation);
 
-			await AddLocation (wuLocation);
+			AddLocation (wuLocation);
 		}
 
 
@@ -78,7 +69,7 @@ namespace XWeather.Clients
 
 			var wuLocation = await getWuLocation (wuAcLocation);
 
-			await AddLocation (wuLocation);
+			AddLocation (wuLocation);
 		}
 
 
@@ -88,11 +79,11 @@ namespace XWeather.Clients
 
 			var wuLocation = await getWuLocation (location);
 
-			await AddLocation (wuLocation);
+			AddLocation (wuLocation);
 		}
 
 
-		public async Task AddLocation (WuLocation location, bool preventNotification = false)
+		public void AddLocation (WuLocation location, bool preventNotification = false)
 		{
 			Locations.Add (location);
 
@@ -102,14 +93,7 @@ namespace XWeather.Clients
 			{
 				LocationAdded?.Invoke (this, EventArgs.Empty);
 
-				if (SettingsStudio.Settings.AzureStoreEnabled)
-				{
-					await AzureClient.Shared.SaveAsync (location.Location);
-				}
-				else
-				{
-					SettingsStudio.Settings.LocationsJson = Locations.GetLocationsJson ();
-				}
+				SettingsStudio.Settings.LocationsJson = Locations.GetLocationsJson ();
 			}
 		}
 
@@ -122,14 +106,7 @@ namespace XWeather.Clients
 
 			LocationRemoved?.Invoke (this, EventArgs.Empty);
 
-			if (SettingsStudio.Settings.AzureStoreEnabled)
-			{
-				Task.Run (async () => await AzureClient.Shared.DeleteAsync (location.Location));
-			}
-			else
-			{
-				SettingsStudio.Settings.LocationsJson = Locations.GetLocationsJson ();
-			}
+			SettingsStudio.Settings.LocationsJson = Locations.GetLocationsJson ();
 		}
 
 
@@ -191,14 +168,7 @@ namespace XWeather.Clients
 
 		public Task GetLocations (LocationCoordinates coordnates)
 		{
-			if (SettingsStudio.Settings.AzureStoreEnabled)
-			{
-				return getLocationsFromAzureStore (coordnates);
-			}
-			else
-			{
-				return getLocationsFromSettingsStore (coordnates);
-			}
+			return getLocationsFromSettingsStore (coordnates);
 		}
 
 
@@ -220,21 +190,6 @@ namespace XWeather.Clients
 				// if the previous current was selected, or theres not one selected, select this one
 				newCurrent.Selected |= oldCurrent?.Selected ?? false || !locations.Any (l => l.Selected);
 			}
-
-			await getLocations (locations);
-		}
-
-
-		async Task getLocationsFromAzureStore (LocationCoordinates coordnates)
-		{
-			// delete the old current location
-			await AzureClient.Shared.DeleteAsync<WuAcLocation> (l => l.Current);
-
-			var current = await lookupLocation (coordnates);
-
-			if (current != null) await AzureClient.Shared.SaveAsync (current);
-
-			var locations = await AzureClient.Shared.GetAsync<WuAcLocation> ();
 
 			await getLocations (locations);
 		}
