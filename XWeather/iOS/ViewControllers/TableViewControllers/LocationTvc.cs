@@ -143,8 +143,6 @@ namespace XWeather.iOS
 
 				tableView.DeleteRows (new [] { indexPath }, UITableViewRowAnimation.Automatic);
 
-				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
-
 				Analytics.TrackEvent (Events.LocaitonDeleted);
 			}
 		}

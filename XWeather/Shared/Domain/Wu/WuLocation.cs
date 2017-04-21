@@ -1,8 +1,9 @@
 ﻿using System;
 
-using XWeather.Domain;
 using System.Collections.Generic;
 using System.Linq;
+
+using XWeather.Domain;
 
 namespace XWeather
 {
@@ -29,7 +30,7 @@ namespace XWeather
 		public WuAcLocation Location { get; set; }
 
 
-		public bool Current { get { return Location.Current; } set { Location.Current = value; } }
+		public bool Current => Location.Current;
 
 		public bool Selected { get { return Location.Selected; } set { Location.Selected = value; } }
 

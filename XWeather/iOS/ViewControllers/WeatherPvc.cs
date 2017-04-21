@@ -1,6 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 using CoreAnimation;
 using Foundation;
@@ -60,16 +61,17 @@ namespace XWeather.iOS
 		public override UIStatusBarStyle PreferredStatusBarStyle () => UIStatusBarStyle.LightContent;
 
 
-		async partial void closeClicked (NSObject sender)
+		partial void closeClicked (NSObject sender)
 		{
 			updateToolbarButtons (true);
 
-			await DismissViewControllerAsync (true);
+            DismissViewController(true, () =>
+            {
+                var current = ViewControllers.FirstOrDefault();
 
-			var current = ViewControllers.FirstOrDefault ();
-
-			if (current != null)
-				Analytics.TrackPageViewStart (current, childPageName (current), WuClient.Shared.Selected);
+                if (current != null)
+                    Analytics.TrackPageViewStart(current, childPageName(current), WuClient.Shared.Selected);
+            });
 		}
 
 
@@ -126,7 +128,6 @@ namespace XWeather.iOS
 			{
 				updateToolbarButtons (true);
 				reloadData ();
-				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
 			});
 		}
 
@@ -215,7 +216,6 @@ namespace XWeather.iOS
 #if DEBUG
 
 		void getData () => TestDataProvider.InitTestDataAsync ();
-
 #else
 
 		LocationProvider LocationProvider;
@@ -226,14 +226,14 @@ namespace XWeather.iOS
 
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 
-			System.Threading.Tasks.Task.Run (async () => {
-
+			Task.Run (async () =>
+			{
 				var location = await LocationProvider.GetCurrentLocationCoordnatesAsync ();
 
-				await WuClient.Shared.GetLocations (Settings.LocationsJson, location);
+				await WuClient.Shared.GetLocations (location);
 
-				BeginInvokeOnMainThread (() => {
-
+				BeginInvokeOnMainThread (() =>
+				{
 					UIApplication.SharedApplication.NetworkActivityIndicatorVisible = false;
 				});
 			});

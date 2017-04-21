@@ -1,11 +1,6 @@
 ﻿using Microsoft.Azure.Mobile;
-using Microsoft.Azure.Mobile.Crashes;
-
-using ModernHttpClient;
 
 using Plugin.VersionTracking;
-
-using ServiceStack;
 
 using SettingsStudio;
 
@@ -31,7 +26,7 @@ namespace XWeather.Shared
 		{
 			CrossVersionTracking.Current.Track ();
 
-			Crashes.GetErrorAttachment = (report) => ErrorAttachment.AttachmentWithText (CrossVersionTracking.Current.ToString ());
+			// Crashes.GetErrorAttachment = (report) => ErrorAttachment.AttachmentWithText (CrossVersionTracking.Current.ToString ());
 
 			if (!string.IsNullOrEmpty (PrivateKeys.MobileCenter.AppSecret))
 				MobileCenter.Start (PrivateKeys.MobileCenter.AppSecret,
@@ -40,7 +35,7 @@ namespace XWeather.Shared
 
 			PclExportClient.Configure ();
 
-			JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new NativeMessageHandler ();
+			// JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new NativeMessageHandler ();
 
 			Settings.RegisterDefaultSettings ();
 
@@ -48,6 +43,8 @@ namespace XWeather.Shared
 			Settings.VersionNumber = CrossVersionTracking.Current.CurrentVersion;
 
 			Settings.BuildNumber = CrossVersionTracking.Current.CurrentBuild;
+
+			Settings.RandomBackgrounds |= CrossVersionTracking.Current.IsFirstLaunchEver;
 #endif
 		}
 	}
