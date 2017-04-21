@@ -27,11 +27,15 @@ namespace XWeather.Shared
 			CrossVersionTracking.Current.Track ();
 
 			// Crashes.GetErrorAttachment = (report) => ErrorAttachment.AttachmentWithText (CrossVersionTracking.Current.ToString ());
+#if __IOS__
+			Microsoft.Azure.Mobile.Distribute.Distribute.DontCheckForUpdatesInDebug ();
+#endif
 
 			if (!string.IsNullOrEmpty (PrivateKeys.MobileCenter.AppSecret))
 				MobileCenter.Start (PrivateKeys.MobileCenter.AppSecret,
-									typeof (Microsoft.Azure.Mobile.Analytics.Analytics),
-									typeof (Microsoft.Azure.Mobile.Crashes.Crashes));
+					typeof (Microsoft.Azure.Mobile.Analytics.Analytics),
+					typeof (Microsoft.Azure.Mobile.Crashes.Crashes),
+					typeof (Microsoft.Azure.Mobile.Distribute.Distribute));
 
 			PclExportClient.Configure ();
 
