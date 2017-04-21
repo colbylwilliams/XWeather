@@ -15,7 +15,7 @@ namespace XWeather
 		public static void InitTestDataAsync (Android.App.Activity context)
 		{
 #else
-        public static void InitTestDataAsync ()
+        public static void InitTestDataAsync () 
         {
 #endif
             try
