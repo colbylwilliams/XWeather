@@ -1,6 +1,6 @@
 // WARNING
 //
-// This file has been generated automatically by Xamarin Studio to store outlets and
+// This file has been generated automatically by Visual Studio to store outlets and
 // actions made in the UI designer. If it is removed, they will be lost.
 // Manual changes to this file may not be handled correctly.
 //
@@ -16,6 +16,9 @@ namespace XWeather.iOS
 		UIKit.UIButton closeButton { get; set; }
 
 		[Outlet]
+		UIKit.UIVisualEffectView closeVisualEffectView { get; set; }
+
+		[Outlet]
 		MapKit.MKMapView mapView { get; set; }
 
 		[Action ("closeClicked:")]
@@ -23,14 +26,19 @@ namespace XWeather.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (closeButton != null) {
+				closeButton.Dispose ();
+				closeButton = null;
+			}
+
 			if (mapView != null) {
 				mapView.Dispose ();
 				mapView = null;
 			}
 
-			if (closeButton != null) {
-				closeButton.Dispose ();
-				closeButton = null;
+			if (closeVisualEffectView != null) {
+				closeVisualEffectView.Dispose ();
+				closeVisualEffectView = null;
 			}
 		}
 	}

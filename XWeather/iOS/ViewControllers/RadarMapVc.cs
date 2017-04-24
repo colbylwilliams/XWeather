@@ -24,6 +24,15 @@ namespace XWeather.iOS
 		public RadarMapVc (IntPtr handle) : base (handle) { }
 
 
+		public override void ViewDidLoad ()
+		{
+			base.ViewDidLoad ();
+
+			closeVisualEffectView.Layer.CornerRadius = closeVisualEffectView.Frame.Width / 4;
+			closeVisualEffectView.Layer.MasksToBounds = true;
+		}
+
+
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
@@ -54,6 +63,9 @@ namespace XWeather.iOS
 
 			base.ViewDidDisappear (animated);
 		}
+
+
+		public override UIStatusBarStyle PreferredStatusBarStyle () => UIStatusBarStyle.LightContent;
 
 
 		partial void closeClicked (NSObject sender)
