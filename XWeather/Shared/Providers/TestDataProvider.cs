@@ -14,6 +14,7 @@ namespace XWeather
 #if __ANDROID__
 		public static void InitTestDataAsync (Android.App.Activity context)
 		{
+			var assetList = context.Assets.List ("").ToList ();
 #else
         public static void InitTestDataAsync () 
         {
@@ -39,24 +40,29 @@ namespace XWeather
 #if __IOS__
                     var path = Foundation.NSBundle.MainBundle.PathForResource (name, "json");
 
-                    using (var data = Foundation.NSData.FromFile (path))
-                    {
-                        var json = Foundation.NSString.FromData (data, Foundation.NSStringEncoding.ASCIIStringEncoding).ToString ();
+					if (!string.IsNullOrEmpty(path))
+					{
+						using (var data = Foundation.NSData.FromFile (path))
+						{
+							var json = Foundation.NSString.FromData (data, Foundation.NSStringEncoding.ASCIIStringEncoding).ToString ();
 #elif __ANDROID__
 					var path = $"{name}.json";
 
-					using (var sr = new System.IO.StreamReader (context.Assets.Open (path)))
+					if (assetList.Contains(path))
 					{
-						var json = sr.ReadToEnd ();
+						using (var sr = new System.IO.StreamReader (context.Assets.Open (path)))
+						{
+							var json = sr.ReadToEnd ();
 #endif
-                        var weather = json?.FromJson<WuWeather> ();
+							var weather = json?.FromJson<WuWeather> ();
 
-                        if (weather != null)
-                        {
-                            WuClient.Shared.AddLocation (new WuLocation (location, weather), true);
-                        }
-                    }
-                }
+							if (weather != null)
+							{
+								WuClient.Shared.AddLocation (new WuLocation (location, weather), true);
+							}
+						}
+					}
+				}
 
                 var lastSelected = WuClient.Shared.Locations.FirstOrDefault (l => l.Location.name.CompareIgnoreCase (selected?.name) == 0);
 
