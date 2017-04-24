@@ -1,6 +1,6 @@
 // WARNING
 //
-// This file has been generated automatically by Xamarin Studio to store outlets and
+// This file has been generated automatically by Visual Studio to store outlets and
 // actions made in the UI designer. If it is removed, they will be lost.
 // Manual changes to this file may not be handled correctly.
 //
@@ -12,6 +12,9 @@ namespace XWeather.iOS
 	[Register ("LocationTvCell")]
 	partial class LocationTvCell
 	{
+		[Outlet]
+		UIKit.UIImageView currentImage { get; set; }
+
 		[Outlet]
 		UIKit.UILabel nameLabel { get; set; }
 
@@ -36,6 +39,11 @@ namespace XWeather.iOS
 			if (timeLabel != null) {
 				timeLabel.Dispose ();
 				timeLabel = null;
+			}
+
+			if (currentImage != null) {
+				currentImage.Dispose ();
+				currentImage = null;
 			}
 		}
 	}

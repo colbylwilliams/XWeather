@@ -507,6 +507,8 @@
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
     <ImageAsset Include="Assets.xcassets\i_radar.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\i_radar.imageset\i_radar.pdf" />
+    <ImageAsset Include="Assets.xcassets\i_current.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\i_current.imageset\i_current.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -535,6 +537,7 @@
     <Folder Include="Assets.xcassets\bg_launch.imageset\" />
     <Folder Include="ViewControllers\RadarOverlay\" />
     <Folder Include="Assets.xcassets\i_radar.imageset\" />
+    <Folder Include="Assets.xcassets\i_current.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />

@@ -55,17 +55,23 @@
                                                 <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="LocationTvCell_nameLabel"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="i_current" translatesAutoresizingMaskIntoConstraints="NO" id="O0k-Tu-GBA">
+                                            <rect key="frame" x="3" y="33" width="11" height="11"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Meu-54-esM" firstAttribute="leading" secondItem="4pS-Lx-vCx" secondAttribute="leading" id="4cX-wf-Pa6"/>
                                         <constraint firstItem="FOM-5S-aMs" firstAttribute="centerY" secondItem="H52-E4-Cae" secondAttribute="centerY" id="4kU-j0-lYX"/>
                                         <constraint firstItem="Meu-54-esM" firstAttribute="leading" secondItem="H52-E4-Cae" secondAttribute="leadingMargin" constant="10" id="5J7-py-IKO"/>
                                         <constraint firstItem="Meu-54-esM" firstAttribute="bottom" secondItem="H52-E4-Cae" secondAttribute="bottomMargin" id="9wk-sN-F6O"/>
+                                        <constraint firstItem="O0k-Tu-GBA" firstAttribute="centerY" secondItem="Meu-54-esM" secondAttribute="centerY" id="E5D-rP-dPL"/>
+                                        <constraint firstItem="Meu-54-esM" firstAttribute="leading" secondItem="O0k-Tu-GBA" secondAttribute="trailing" constant="4" id="FmQ-Oo-Qoe"/>
                                         <constraint firstItem="Meu-54-esM" firstAttribute="top" secondItem="4pS-Lx-vCx" secondAttribute="bottom" id="XCL-3w-ndZ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="FOM-5S-aMs" secondAttribute="trailing" constant="10" id="gfU-Y6-gri"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="currentImage" destination="O0k-Tu-GBA" id="8eJ-XT-rCg"/>
                                     <outlet property="nameLabel" destination="Meu-54-esM" id="YqY-ov-g9f"/>
                                     <outlet property="tempLabel" destination="FOM-5S-aMs" id="vda-LN-5H5"/>
                                     <outlet property="timeLabel" destination="4pS-Lx-vCx" id="8Mn-ZF-tmE"/>
@@ -964,6 +970,7 @@
         <image name="i_add_sm" width="19" height="19"/>
         <image name="i_close" width="25" height="25"/>
         <image name="i_cog" width="25" height="25"/>
+        <image name="i_current" width="11" height="11"/>
         <image name="i_list" width="25" height="25"/>
         <image name="i_radar" width="25" height="25"/>
         <image name="logo_wunderground_rev" width="40" height="32"/>
