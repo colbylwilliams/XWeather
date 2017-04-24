@@ -28,7 +28,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOM-5S-aMs">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="251" horizontalCompressionResistancePriority="755" text="00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOM-5S-aMs">
                                             <rect key="frame" x="298" y="-0.5" width="59" height="60.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="50"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -47,7 +47,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location, Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Meu-54-esM">
-                                            <rect key="frame" x="18" y="25" width="154" height="26.5"/>
+                                            <rect key="frame" x="18" y="25" width="276" height="26.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -66,6 +66,7 @@
                                         <constraint firstItem="Meu-54-esM" firstAttribute="bottom" secondItem="H52-E4-Cae" secondAttribute="bottomMargin" id="9wk-sN-F6O"/>
                                         <constraint firstItem="O0k-Tu-GBA" firstAttribute="centerY" secondItem="Meu-54-esM" secondAttribute="centerY" id="E5D-rP-dPL"/>
                                         <constraint firstItem="Meu-54-esM" firstAttribute="leading" secondItem="O0k-Tu-GBA" secondAttribute="trailing" constant="4" id="FmQ-Oo-Qoe"/>
+                                        <constraint firstItem="FOM-5S-aMs" firstAttribute="leading" secondItem="Meu-54-esM" secondAttribute="trailing" constant="4" id="LqX-3d-J7w"/>
                                         <constraint firstItem="Meu-54-esM" firstAttribute="top" secondItem="4pS-Lx-vCx" secondAttribute="bottom" id="XCL-3w-ndZ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="FOM-5S-aMs" secondAttribute="trailing" constant="10" id="gfU-Y6-gri"/>
                                     </constraints>
@@ -296,8 +297,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yim-a1-FBg">
-                            <rect key="frame" x="88" y="38" width="200" height="39"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco - San Francisco" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yim-a1-FBg">
+                            <rect key="frame" x="8" y="16" width="360" height="76.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="77" id="r8M-hu-Hoc"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -306,7 +310,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mostly Sunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpN-92-0tT">
-                            <rect key="frame" x="136" y="77" width="104" height="21"/>
+                            <rect key="frame" x="136" y="90" width="104" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -398,14 +402,14 @@
                         <constraint firstAttribute="trailing" secondItem="hVx-gz-kH8" secondAttribute="trailing" id="FAV-DB-gNQ"/>
                         <constraint firstItem="5bV-xC-KVc" firstAttribute="trailing" secondItem="duP-6z-5UV" secondAttribute="centerX" id="HyW-Ch-Ggw"/>
                         <constraint firstAttribute="bottom" secondItem="ceq-Hh-VhS" secondAttribute="bottom" constant="8" id="IZa-y5-R0k"/>
+                        <constraint firstItem="Yim-a1-FBg" firstAttribute="top" secondItem="duP-6z-5UV" secondAttribute="top" constant="16" id="KOc-8g-HL8"/>
                         <constraint firstAttribute="bottom" secondItem="hVx-gz-kH8" secondAttribute="bottom" id="PSb-6f-1Ve"/>
+                        <constraint firstItem="Yim-a1-FBg" firstAttribute="leading" secondItem="duP-6z-5UV" secondAttribute="leadingMargin" id="Sty-by-pAY"/>
                         <constraint firstAttribute="bottom" secondItem="lgx-OA-KCL" secondAttribute="bottom" constant="8" id="T2p-wk-b0n"/>
                         <constraint firstItem="ceq-Hh-VhS" firstAttribute="leading" secondItem="duP-6z-5UV" secondAttribute="leading" constant="19" id="TyL-Oh-Pp7"/>
                         <constraint firstItem="9Og-WS-rTu" firstAttribute="baseline" secondItem="ceq-Hh-VhS" secondAttribute="baseline" id="V0B-L5-Jev"/>
                         <constraint firstItem="PpN-92-0tT" firstAttribute="centerX" secondItem="duP-6z-5UV" secondAttribute="centerX" id="asD-8V-4fc"/>
                         <constraint firstItem="bH1-bN-Cgb" firstAttribute="leading" secondItem="E8W-sn-8R5" secondAttribute="trailing" constant="40" id="b8d-LX-Rmx"/>
-                        <constraint firstItem="Yim-a1-FBg" firstAttribute="top" secondItem="duP-6z-5UV" secondAttribute="top" constant="38" id="e7j-Ww-l6o"/>
-                        <constraint firstItem="PpN-92-0tT" firstAttribute="top" secondItem="Yim-a1-FBg" secondAttribute="bottom" id="gCR-Vl-t54"/>
                         <constraint firstItem="nra-NM-3b9" firstAttribute="baseline" secondItem="ceq-Hh-VhS" secondAttribute="baseline" id="kxL-sW-LQB"/>
                         <constraint firstItem="E8W-sn-8R5" firstAttribute="baseline" secondItem="gLx-VC-Kfc" secondAttribute="baseline" id="lE4-cB-2d9"/>
                         <constraint firstItem="bH1-bN-Cgb" firstAttribute="baseline" secondItem="gLx-VC-Kfc" secondAttribute="baseline" id="m8F-S8-g8y"/>
@@ -413,6 +417,7 @@
                         <constraint firstItem="9Og-WS-rTu" firstAttribute="leading" secondItem="5bV-xC-KVc" secondAttribute="trailing" constant="5.5" id="qlt-fn-83L"/>
                         <constraint firstAttribute="bottom" secondItem="E8W-sn-8R5" secondAttribute="bottom" constant="38" id="tyH-hr-0Ow"/>
                         <constraint firstItem="5bV-xC-KVc" firstAttribute="baseline" secondItem="ceq-Hh-VhS" secondAttribute="baseline" id="vMe-fU-eHj"/>
+                        <constraint firstItem="PpN-92-0tT" firstAttribute="top" secondItem="duP-6z-5UV" secondAttribute="top" constant="90" id="xeL-fO-CA8"/>
                         <constraint firstItem="nra-NM-3b9" firstAttribute="leading" secondItem="ceq-Hh-VhS" secondAttribute="trailing" constant="4" id="zEK-z5-20t"/>
                     </constraints>
                     <connections>
@@ -527,8 +532,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igN-xf-d2h">
-                            <rect key="frame" x="88" y="38" width="200" height="39"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco San Francisco" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igN-xf-d2h">
+                            <rect key="frame" x="8" y="16" width="360" height="76.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="77" id="WJF-Np-feX"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -555,11 +563,12 @@
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="PsC-xK-zRo" firstAttribute="top" secondItem="igN-xf-d2h" secondAttribute="bottom" id="1KD-ij-lXd"/>
-                        <constraint firstItem="igN-xf-d2h" firstAttribute="top" secondItem="BMz-PU-SYC" secondAttribute="top" constant="38" id="5ea-V8-ghn"/>
+                        <constraint firstItem="igN-xf-d2h" firstAttribute="top" secondItem="BMz-PU-SYC" secondAttribute="top" constant="16" id="5ea-V8-ghn"/>
+                        <constraint firstItem="PsC-xK-zRo" firstAttribute="top" secondItem="BMz-PU-SYC" secondAttribute="top" constant="77" id="7Ao-VR-VuY"/>
                         <constraint firstItem="PsC-xK-zRo" firstAttribute="leading" secondItem="BMz-PU-SYC" secondAttribute="leading" constant="8" id="8dW-RQ-SA8"/>
+                        <constraint firstItem="igN-xf-d2h" firstAttribute="leading" secondItem="BMz-PU-SYC" secondAttribute="leadingMargin" id="BpT-Vx-GsK"/>
                         <constraint firstItem="bxD-Ud-ggv" firstAttribute="leading" secondItem="BMz-PU-SYC" secondAttribute="leading" id="CrW-8A-CoV"/>
                         <constraint firstAttribute="trailing" secondItem="bxD-Ud-ggv" secondAttribute="trailing" id="F0v-Rb-vWo"/>
                         <constraint firstAttribute="bottom" secondItem="bxD-Ud-ggv" secondAttribute="bottom" id="Hnw-pn-XtG"/>
@@ -641,8 +650,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cts-EF-dQ0">
-                            <rect key="frame" x="88" y="38" width="200" height="39"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cts-EF-dQ0">
+                            <rect key="frame" x="8" y="16" width="360" height="77"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="77" id="Pjl-Sm-UQh"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -681,13 +693,14 @@
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="SI2-7n-VVS" secondAttribute="bottom" id="0fQ-Rr-is1"/>
                         <constraint firstItem="jje-Ah-nTF" firstAttribute="leading" secondItem="8Ne-KP-hyz" secondAttribute="leading" constant="20" id="4UF-wz-jX8"/>
-                        <constraint firstItem="Cts-EF-dQ0" firstAttribute="top" secondItem="8Ne-KP-hyz" secondAttribute="top" constant="38" id="5Lq-gz-kfw"/>
+                        <constraint firstItem="Cts-EF-dQ0" firstAttribute="top" secondItem="8Ne-KP-hyz" secondAttribute="top" constant="16" id="5Lq-gz-kfw"/>
                         <constraint firstItem="SI2-7n-VVS" firstAttribute="leading" secondItem="8Ne-KP-hyz" secondAttribute="leading" id="FbO-e3-0Ry"/>
-                        <constraint firstItem="jje-Ah-nTF" firstAttribute="top" secondItem="Cts-EF-dQ0" secondAttribute="bottom" constant="12" id="Gzc-6I-6E5"/>
                         <constraint firstAttribute="trailing" secondItem="jje-Ah-nTF" secondAttribute="trailing" constant="20" id="LtQ-3E-RIa"/>
                         <constraint firstAttribute="trailing" secondItem="zg3-c6-Ybj" secondAttribute="trailing" constant="12" id="P2X-JC-cov"/>
                         <constraint firstItem="Cts-EF-dQ0" firstAttribute="centerX" secondItem="8Ne-KP-hyz" secondAttribute="centerX" id="Sek-i2-yeK"/>
                         <constraint firstAttribute="bottom" secondItem="zg3-c6-Ybj" secondAttribute="bottom" constant="8" id="Z9H-dM-3IZ"/>
+                        <constraint firstItem="jje-Ah-nTF" firstAttribute="top" secondItem="8Ne-KP-hyz" secondAttribute="top" constant="89" id="dcG-mY-fwH"/>
+                        <constraint firstItem="Cts-EF-dQ0" firstAttribute="leading" secondItem="8Ne-KP-hyz" secondAttribute="leadingMargin" id="jBO-rY-ryz"/>
                         <constraint firstAttribute="trailing" secondItem="SI2-7n-VVS" secondAttribute="trailing" id="oRx-8J-h9y"/>
                     </constraints>
                     <connections>
