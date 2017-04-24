@@ -2,6 +2,7 @@
 
 using CoreLocation;
 using MapKit;
+using UIKit;
 
 namespace XWeather.iOS
 {
@@ -9,7 +10,7 @@ namespace XWeather.iOS
 	{
 		public static RadarBounds GetRadarBounds (this MKMapView map)
 		{
-			CLLocationCoordinate2D center = map.CenterCoordinate;
+			CLLocationCoordinate2D center = map.Region.Center;
 
 			var topLeft = MKMapPoint.FromCoordinate (new CLLocationCoordinate2D (center.Latitude + (map.Region.Span.LatitudeDelta / 2.0), center.Longitude - (map.Region.Span.LongitudeDelta / 2.0)));
 			var bottomRight = MKMapPoint.FromCoordinate (new CLLocationCoordinate2D (center.Latitude - (map.Region.Span.LatitudeDelta / 2.0), center.Longitude + (map.Region.Span.LongitudeDelta / 2.0)));
@@ -31,8 +32,12 @@ namespace XWeather.iOS
 		public static RadarBounds GetRadarBoundsForScreen (this MKMapView map)
 		{
 			RadarBounds bounds = map.GetRadarBounds ();
-			bounds.Width = map.Frame.Size.Width;
-			bounds.Height = map.Frame.Size.Height;
+
+			var rect = map.ConvertRegion (map.Region, map.Superview);
+
+			bounds.Width = rect.Width * UIScreen.MainScreen.Scale;
+			bounds.Height = rect.Height * UIScreen.MainScreen.Scale;
+
 			return bounds;
 		}
 	}
