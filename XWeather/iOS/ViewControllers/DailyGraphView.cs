@@ -232,13 +232,7 @@ namespace XWeather.iOS
 
 
 			// Draw curved graph line
-			using (UIColor color = UIColor.White.ColorWithAlpha (0.25f), dotColor = UIColor.White.ColorWithAlpha (0.70f)) {
-
-				//color.SetStroke ();
-
-				//dotColor.SetFill ();
-
-				//ctx.SetLineWidth (lineWidth);
+			using (UIColor color = UIColor.White.ColorWithAlpha (0.25f), dotColor = UIColor.Clear) {
 
 				using (CGPath path = new CGPath ()) {
 
@@ -284,8 +278,6 @@ namespace XWeather.iOS
 							dot.Y = end.Y - (lineWidth / 2);
 
 							path.AddEllipseInRect (dot);
-
-							//ctx.AddEllipseInRect (dot);
 						}
 
 
@@ -312,15 +304,8 @@ namespace XWeather.iOS
 						start = end;
 					}
 
-					// draw all dots to context
-					//if (!hourly) ctx.DrawPath (CGPathDrawingMode.Fill);
-
 					// add line path to context
 					layer.Path = path;
-					//ctx.AddPath (path);
-
-					// draw lines
-					//ctx.DrawPath (CGPathDrawingMode.Stroke);
 
 					layer.LineWidth = lineWidth;
 					layer.StrokeColor = color.CGColor;
