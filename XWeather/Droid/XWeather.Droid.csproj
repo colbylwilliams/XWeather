@@ -230,6 +230,7 @@
     <Compile Include="Widgets\ScrollAwareFABBehavior.cs" />
     <Compile Include="View\DailyGraphView.cs" />
     <Compile Include="Extensions\PathExtensions.cs" />
+    <Compile Include="Settings\SettingsUomUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

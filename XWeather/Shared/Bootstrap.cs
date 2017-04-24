@@ -33,15 +33,16 @@ namespace XWeather.Shared
 
 			if (!string.IsNullOrEmpty (PrivateKeys.MobileCenter.AppSecret))
 				MobileCenter.Start (PrivateKeys.MobileCenter.AppSecret,
-					typeof (Microsoft.Azure.Mobile.Analytics.Analytics),
-					typeof (Microsoft.Azure.Mobile.Crashes.Crashes),
-					typeof (Microsoft.Azure.Mobile.Distribute.Distribute));
+									typeof (Microsoft.Azure.Mobile.Analytics.Analytics),
+									typeof (Microsoft.Azure.Mobile.Crashes.Crashes),
+									typeof (Microsoft.Azure.Mobile.Distribute.Distribute));
 
 			PclExportClient.Configure ();
 
 			// JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new NativeMessageHandler ();
 
 			Settings.RegisterDefaultSettings ();
+			Settings.SetUomDefaults (CrossVersionTracking.Current.IsFirstLaunchEver);
 
 #if __ANDROID__
 			Settings.VersionNumber = CrossVersionTracking.Current.CurrentVersion;

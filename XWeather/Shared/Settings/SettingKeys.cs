@@ -39,6 +39,8 @@ namespace SettingsStudio
 		#region Hidden Settings
 
 
+		public const string DidSetUomDefaults = "DidSetUomDefaults";
+
 		public const string LocationsJson = "LocationsJson";
 
 		public const string WeatherPage = "WeatherPage";

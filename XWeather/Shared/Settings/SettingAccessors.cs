@@ -73,6 +73,12 @@ namespace SettingsStudio
 		#region Hidden Settings
 
 
+		public static bool DidSetUomDefaults {
+			get { return BoolForKey (SettingsKeys.DidSetUomDefaults); }
+			set { SetSetting (SettingsKeys.DidSetUomDefaults, value); }
+		}
+
+
 		public static string LocationsJson {
 			get { return StringForKey (SettingsKeys.LocationsJson); }
 			set { SetSetting (SettingsKeys.LocationsJson, value ?? string.Empty); }
