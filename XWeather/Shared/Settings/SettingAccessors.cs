@@ -28,7 +28,10 @@ namespace SettingsStudio
 
 		public static string GitHash => StringForKey (SettingsKeys.GitCommitHash);
 
-		public static string UserReferenceKey => StringForKey (SettingsKeys.UserReferenceKey);
+		public static string UserReferenceKey {
+			get { return StringForKey (SettingsKeys.UserReferenceKey); }
+			set { SetSetting (SettingsKeys.UserReferenceKey, value ?? "anonymous"); }
+		}
 
 
 		public static bool RandomBackgrounds {

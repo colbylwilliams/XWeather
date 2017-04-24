@@ -44,6 +44,8 @@ namespace XWeather.Shared
 			Settings.RegisterDefaultSettings ();
 			Settings.SetUomDefaults (CrossVersionTracking.Current.IsFirstLaunchEver);
 
+			Settings.UserReferenceKey = MobileCenter.InstallId?.ToString ("N");
+
 #if __ANDROID__
 			Settings.VersionNumber = CrossVersionTracking.Current.CurrentVersion;
 

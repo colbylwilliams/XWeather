@@ -1,7 +1,6 @@
 ﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 using CoreAnimation;
 using Foundation;
@@ -10,7 +9,6 @@ using UIKit;
 using SettingsStudio;
 
 using XWeather.Clients;
-using XWeather.Domain;
 using XWeather.Unified;
 
 namespace XWeather.iOS
@@ -226,7 +224,7 @@ namespace XWeather.iOS
 
 			UIApplication.SharedApplication.NetworkActivityIndicatorVisible = true;
 
-			Task.Run (async () =>
+			System.Threading.Tasks.Task.Run (async () =>
 			{
 				var location = await LocationProvider.GetCurrentLocationCoordnatesAsync ();
 

@@ -32,7 +32,7 @@
       <CustomCommands>
         <Command>
           <type>BeforeBuild</type>
-          <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2016 Colby Williams"</command>
+          <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2017 Colby Williams"</command>
         </Command>
       </CustomCommands>
     </CustomCommands>
@@ -59,7 +59,7 @@
       <CustomCommands>
         <Command>
           <type>BeforeBuild</type>
-          <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2016 Colby Williams" -r true</command>
+          <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2017 Colby Williams" -r true</command>
         </Command>
       </CustomCommands>
     </CustomCommands>
@@ -83,7 +83,7 @@
       <CustomCommands>
         <Command>
           <type>BeforeBuild</type>
-          <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2016 Colby Williams"</command>
+          <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2017 Colby Williams"</command>
         </Command>
       </CustomCommands>
     </CustomCommands>
@@ -113,7 +113,7 @@
       <CustomCommands>
         <Command>
           <type>BeforeBuild</type>
-          <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2016 Colby Williams"</command>
+          <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2017 Colby Williams"</command>
         </Command>
       </CustomCommands>
     </CustomCommands>
