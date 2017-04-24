@@ -37,11 +37,15 @@ namespace XWeather.iOS
 		{
 			base.ViewWillAppear (animated);
 
+			mapView.UserTrackingMode = MKUserTrackingMode.None;
+			mapView.Camera.Altitude = 500000;
+
 			var location = WuClient.Shared.Selected;
 
-			mapView.UserTrackingMode = MKUserTrackingMode.None;
-			mapView.CenterCoordinate = new CLLocationCoordinate2D (location.Location.lat, location.Location.lon);
-			mapView.Camera.Altitude = 500000;
+			if (location?.Location != null)
+			{
+				mapView.CenterCoordinate = new CLLocationCoordinate2D (location.Location.lat, location.Location.lon);
+			}
 		}
 
 
