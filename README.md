@@ -1,4 +1,4 @@
-[![apple-app-store](/images/apple_app_store.svg?raw=true "apple-app-store")][21]
+[![apple-app-store](https://cdn.rawgit.com/colbylwilliams/XWeather/master/images/apple_app_store.svg "apple-app-store")][21]
 
 # XWeather
 XWeather is a weather app for iOS and Android built with Xamarin.
