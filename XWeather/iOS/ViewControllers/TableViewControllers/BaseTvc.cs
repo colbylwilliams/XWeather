@@ -12,9 +12,10 @@ namespace XWeather.iOS
 		where TCell : BaseTvCell
 	{
 
-		public virtual nfloat HeaderHeight => 280;
-
 		internal nfloat FooterHeight = 44;
+
+
+		public virtual nfloat HeaderHeight => 280;
 
 
 		public WuLocation Location => WuClient.Shared.Selected;
@@ -44,7 +45,6 @@ namespace XWeather.iOS
 		{
 			foreach (TCell cell in TableView.VisibleCells)
 			{
-
 				var topHiddenHeight = scrollView.ContentOffset.Y + HeaderHeight - cell.Frame.Y + scrollView.ContentInset.Top;
 				var bottomHiddenHeight = cell.Frame.Bottom - (scrollView.ContentOffset.Y + scrollView.Frame.Height - FooterHeight);
 
@@ -89,7 +89,6 @@ namespace XWeather.iOS
 			if (footer?.TextLabel != null)
 				footer.TextLabel.TextColor = UIColor.White;
 		}
-
 
 
 		public TCell DequeCell (UITableView tableView, NSIndexPath indexPath)

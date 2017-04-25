@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>DefaultValue</key>
-			<string>0.8.2 (216)</string>
+			<string>0.8.5 (217)</string>
 			<key>Key</key>
 			<string>VersionNumber</string>
 			<key>Title</key>
@@ -140,7 +140,7 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>Copyright © 2016 Colby Williams</string>
+			<string>Copyright © 2017 Colby Williams</string>
 			<key>Title</key>
 			<string>Diagnostics Key</string>
 			<key>Type</key>
@@ -148,7 +148,7 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>DEBUG</string>
+			<string>anonymous</string>
 			<key>Key</key>
 			<string>UserReferenceKey</string>
 			<key>Title</key>

@@ -27,10 +27,11 @@ namespace XWeather.Clients
 
 
 		WuLocation _selected;
+
 		public WuLocation Selected {
 			get { return _selected; }
-			set {
-
+			set 
+			{
 				foreach (var location in Locations) location.Selected = false;
 
 				_selected = value;
