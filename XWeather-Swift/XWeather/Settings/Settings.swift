@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class Settings {
+class Settings {
 	
-	public func registerDefaultSettings() {
+	static func registerDefaultSettings() {
 		
 		if let path = Bundle.main.url(forResource: "Root", withExtension: "plist", subdirectory: "Settings.bundle"),
 		   let settings = NSDictionary(contentsOf: path) as? [String: [[String: AnyObject]]],
@@ -29,82 +29,82 @@ public class Settings {
 	}
 	
 	
-	public func synchronize() {
+	static func synchronize() {
 		UserDefaults.standard.synchronize()
 	}
 	
 	
-	func setSetting (_ key: String, val: Any?) {
+	static func setSetting (_ key: String, val: Any?) {
 		UserDefaults.standard.set(val, forKey: key)
 	}
 	
 	
-	func stringForKey(_ key: String) -> String {
+	static func stringForKey(_ key: String) -> String {
 		return UserDefaults.standard.string(forKey: key) ?? ""
 	}
 	
 	
-	func boolForKey(_ key: String) -> Bool {
+	static func boolForKey(_ key: String) -> Bool {
 		return UserDefaults.standard.bool(forKey: key)
 	}
 	
 	
-	func intForKey(_ key: String) -> Int {
+	static func intForKey(_ key: String) -> Int {
 		return UserDefaults.standard.integer(forKey: key)
 	}
 	
 	
 	// Visible Settings
 	
-	var versionNumber: String {
+	static var versionNumber: String {
 		get { return stringForKey (SettingsKeys.versionNumber) }
 	}
 	
-	var buildNumber: String {
+	static var buildNumber: String {
 		get { return stringForKey(SettingsKeys.buildNumber) }
 	}
 	
-	var gitHash: String {
+	static var gitHash: String {
 		get { return stringForKey(SettingsKeys.gitCommitHash) }
 	}
 	
-	var userReferenceKey: String {
+	static var userReferenceKey: String {
 		get { return stringForKey (SettingsKeys.userReferenceKey) }
 		set(newValue) { setSetting (SettingsKeys.userReferenceKey, val: newValue) }
 	}
 	
 	
-	var randomBackgrounds: Bool {
+	static var randomBackgrounds: Bool {
 		get { return boolForKey (SettingsKeys.randomBackgrounds) }
 		set(newValue) { setSetting (SettingsKeys.randomBackgrounds, val: newValue) }
 	}
 	
 	
-	var uomTemperature: TemperatureUnit {
+	static var uomTemperature: TemperatureUnit {
 		get { return TemperatureUnit(rawValue: intForKey (SettingsKeys.uomTemperature))! }
 		set(newValue) { setSetting (SettingsKeys.uomTemperature, val: newValue.rawValue) }
 	}
 	
 	
-	var uomDistance: DistanceUnit {
+	static var uomDistance: DistanceUnit {
 		get { return DistanceUnit(rawValue: intForKey (SettingsKeys.uomDistance))! }
 		set(newValue) { setSetting (SettingsKeys.uomDistance, val: newValue.rawValue) }
 	}
 	
 	
-	var uomPressure: PressureUnit {
+	static var uomPressure: PressureUnit {
 		get { return PressureUnit(rawValue: intForKey (SettingsKeys.uomPressure))! }
 		set(newValue) { setSetting (SettingsKeys.uomPressure, val: newValue.rawValue) }
 	}
 	
 	
-	var uomLength: LengthUnit {
+	static var uomLength: LengthUnit {
 		get { return LengthUnit(rawValue: intForKey (SettingsKeys.uomLength))! }
 		set(newValue) { setSetting (SettingsKeys.uomLength, val: newValue.rawValue) }
 	}
 	
 	
-	var uomSpeed: SpeedUnit {
+	static var uomSpeed: SpeedUnit {
 		get { return SpeedUnit(rawValue: intForKey (SettingsKeys.uomSpeed))! }
 		set(newValue) { setSetting (SettingsKeys.uomSpeed, val: newValue.rawValue) }
 	}
@@ -112,27 +112,26 @@ public class Settings {
 	
 	// Hidden Settings
 	
-	var didSetUomDefaults: Bool {
+	static var didSetUomDefaults: Bool {
 		get { return boolForKey (SettingsKeys.didSetUomDefaults) }
 		set(newValue) { setSetting (SettingsKeys.didSetUomDefaults, val: newValue) }
 	}
 	
 	
-	var locationsJson: String {
+	static var locationsJson: String {
 		get { return stringForKey (SettingsKeys.locationsJson) }
 		set(newValue) { setSetting (SettingsKeys.locationsJson, val: newValue); }
 	}
 	
 	
-	var weatherPage: Int {
+	static var weatherPage: Int {
 		get { return intForKey (SettingsKeys.weatherPage) }
 		set(newValue) { setSetting (SettingsKeys.weatherPage, val: newValue) }
 	}
 	
 	
-	var highLowGraph: Bool {
+	static var highLowGraph: Bool {
 		get { return boolForKey (SettingsKeys.highLowGraph) }
 		set(newValue) { setSetting (SettingsKeys.highLowGraph, val: newValue) }
 	}
-	
 }
