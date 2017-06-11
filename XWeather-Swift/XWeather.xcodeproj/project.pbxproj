@@ -12,6 +12,10 @@
 		B573313C1EEDBDDC0091CAB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B573313A1EEDBDDC0091CAB8 /* Main.storyboard */; };
 		B573313E1EEDBDDC0091CAB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B573313D1EEDBDDC0091CAB8 /* Assets.xcassets */; };
 		B57331411EEDBDDC0091CAB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B573313F1EEDBDDC0091CAB8 /* LaunchScreen.storyboard */; };
+		B5B7C40F1EEDC4A700AFC29B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7C40E1EEDC4A700AFC29B /* Settings.swift */; };
+		B5B7C4111EEDC69000AFC29B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B5B7C4101EEDC69000AFC29B /* Settings.bundle */; };
+		B5B7C4131EEDD41C00AFC29B /* SettingsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7C4121EEDD41C00AFC29B /* SettingsKeys.swift */; };
+		B5B7C4161EEDDC1500AFC29B /* UnitsOfMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7C4151EEDDC1500AFC29B /* UnitsOfMeasurement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		B573313D1EEDBDDC0091CAB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B57331401EEDBDDC0091CAB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B57331421EEDBDDC0091CAB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5B7C40E1EEDC4A700AFC29B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		B5B7C4101EEDC69000AFC29B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		B5B7C4121EEDD41C00AFC29B /* SettingsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsKeys.swift; sourceTree = "<group>"; };
+		B5B7C4151EEDDC1500AFC29B /* UnitsOfMeasurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsOfMeasurement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,34 @@
 		B57331351EEDBDDC0091CAB8 /* XWeather */ = {
 			isa = PBXGroup;
 			children = (
+				B5B7C4141EEDDBF800AFC29B /* Constants */,
+				B5B7C40D1EEDC49800AFC29B /* Settings */,
 				B57331361EEDBDDC0091CAB8 /* AppDelegate.swift */,
 				B57331381EEDBDDC0091CAB8 /* ViewController.swift */,
 				B573313A1EEDBDDC0091CAB8 /* Main.storyboard */,
 				B573313D1EEDBDDC0091CAB8 /* Assets.xcassets */,
 				B573313F1EEDBDDC0091CAB8 /* LaunchScreen.storyboard */,
 				B57331421EEDBDDC0091CAB8 /* Info.plist */,
+				B5B7C4101EEDC69000AFC29B /* Settings.bundle */,
 			);
 			path = XWeather;
+			sourceTree = "<group>";
+		};
+		B5B7C40D1EEDC49800AFC29B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B5B7C40E1EEDC4A700AFC29B /* Settings.swift */,
+				B5B7C4121EEDD41C00AFC29B /* SettingsKeys.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		B5B7C4141EEDDBF800AFC29B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B5B7C4151EEDDC1500AFC29B /* UnitsOfMeasurement.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5B7C4111EEDC69000AFC29B /* Settings.bundle in Resources */,
 				B57331411EEDBDDC0091CAB8 /* LaunchScreen.storyboard in Resources */,
 				B573313E1EEDBDDC0091CAB8 /* Assets.xcassets in Resources */,
 				B573313C1EEDBDDC0091CAB8 /* Main.storyboard in Resources */,
@@ -135,7 +164,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5B7C40F1EEDC4A700AFC29B /* Settings.swift in Sources */,
 				B57331391EEDBDDC0091CAB8 /* ViewController.swift in Sources */,
+				B5B7C4161EEDDC1500AFC29B /* UnitsOfMeasurement.swift in Sources */,
+				B5B7C4131EEDD41C00AFC29B /* SettingsKeys.swift in Sources */,
 				B57331371EEDBDDC0091CAB8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +342,7 @@
 				B57331471EEDBDDC0091CAB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
