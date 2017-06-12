@@ -19,6 +19,27 @@ class WeatherPvc: UIPageViewController, UIPageViewControllerDataSource, UIPageVi
 	
 	var controllers = [UITableViewController]()
 	
+	
+	override func viewDidLoad() {
+        super.viewDidLoad()
+
+        initToolbar()
+		
+		initControllers()
+    }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		updateToolbarButtons(true)
+	}
+	
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+	
+	
 	@IBAction func closeClicked(_ sender: Any) {
 	}
 	
@@ -26,21 +47,29 @@ class WeatherPvc: UIPageViewController, UIPageViewControllerDataSource, UIPageVi
 	}
 	
 	
-	override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+	func updateToolbarButtons (_ dismissing: Bool) {
+		
+		for button in toolbarButtons {
+			button.isHidden = dismissing ? button.tag > 1 : button.tag < 2
+		}
+		
+		pageIndicator.isHidden = !dismissing
+	}
+	
+	
+	func reloadData () {
+		
+		updateBackground()
+		
+		for controller in controllers {
+			controller.tableView.reloadData()
+		}
+	}
 	
 	
 	func updateBackground() {
 		
-		let location = ""
+		let location = WuClient.Shared.selected
 		
 		let random = location == nil || Settings.randomBackgrounds
 		
@@ -52,15 +81,21 @@ class WeatherPvc: UIPageViewController, UIPageViewControllerDataSource, UIPageVi
 			view.layer.insertSublayer(layer!, at: 0)
 		}
 		
-		var gradients = location.GetTimeOfDayGradient (random);
+		let gradients = location?.timeOfDayIndex (random);
 		
-		if (layer?.Colors?.Length > 0 && layer.Colors [0] == gradients.Item1 [0] && layer.Colors [1] == gradients.Item1 [1])
-		return;
-		
-		CATransaction.begin()
-		CATransaction.setAnimationDuration(1.5)
-		layer?.colors = gradients.Item1
-		CATransaction.commit ()
+		if let colors = gradients?.colors {
+			
+			if let oldColor0 = layer?.colors?[0], let oldColor1 = layer?.colors?[1] {
+				if oldColor0 as! CGColor == colors[0] && oldColor1 as! CGColor == colors[1] {
+					return
+				}
+			}
+			
+			CATransaction.begin()
+			CATransaction.setAnimationDuration(1.5)
+			layer?.colors = colors
+			CATransaction.commit ()
+		}
 	}
 	
 	

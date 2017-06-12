@@ -14,7 +14,7 @@ public class WuObject
 	
 	public var WuKey: String { return "" }
 	
-	public var response: WuObjectDetail
+	public var response: WuObjectDetail?
 }
 
 

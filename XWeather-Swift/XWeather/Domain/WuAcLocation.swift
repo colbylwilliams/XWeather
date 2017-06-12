@@ -22,6 +22,6 @@ public class WuAcLocation {
 	public var ll: String?
 	public var lat: Double?
 	public var lon: Double?
-	public var current: Bool
-	public var selected: Bool
+	public var current: Bool?
+	public var selected: Bool?
 }

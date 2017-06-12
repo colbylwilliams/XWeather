@@ -20,6 +20,9 @@
 		B5556AE71EEE1F3E00C8D49D /* RadarBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5556AE61EEE1F3E00C8D49D /* RadarBounds.swift */; };
 		B5556AE91EEE1F4B00C8D49D /* Satellite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5556AE81EEE1F4B00C8D49D /* Satellite.swift */; };
 		B5556AEC1EEE27DF00C8D49D /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5556AEB1EEE27DF00C8D49D /* NumberExtensions.swift */; };
+		B5556AEF1EEE3A2000C8D49D /* WuClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5556AEE1EEE3A2000C8D49D /* WuClient.swift */; };
+		B5556AF11EEE425000C8D49D /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5556AF01EEE425000C8D49D /* ColorExtensions.swift */; };
+		B5556AF31EEE44FC00C8D49D /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5556AF21EEE44FC00C8D49D /* DateExtensions.swift */; };
 		B57331371EEDBDDC0091CAB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57331361EEDBDDC0091CAB8 /* AppDelegate.swift */; };
 		B573313C1EEDBDDC0091CAB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B573313A1EEDBDDC0091CAB8 /* Main.storyboard */; };
 		B573313E1EEDBDDC0091CAB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B573313D1EEDBDDC0091CAB8 /* Assets.xcassets */; };
@@ -63,6 +66,9 @@
 		B5556AE61EEE1F3E00C8D49D /* RadarBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarBounds.swift; sourceTree = "<group>"; };
 		B5556AE81EEE1F4B00C8D49D /* Satellite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Satellite.swift; sourceTree = "<group>"; };
 		B5556AEB1EEE27DF00C8D49D /* NumberExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
+		B5556AEE1EEE3A2000C8D49D /* WuClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WuClient.swift; sourceTree = "<group>"; };
+		B5556AF01EEE425000C8D49D /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		B5556AF21EEE44FC00C8D49D /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		B57331331EEDBDDC0091CAB8 /* XWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B57331361EEDBDDC0091CAB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B573313B1EEDBDDC0091CAB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -128,8 +134,18 @@
 			isa = PBXGroup;
 			children = (
 				B5556AEB1EEE27DF00C8D49D /* NumberExtensions.swift */,
+				B5556AF01EEE425000C8D49D /* ColorExtensions.swift */,
+				B5556AF21EEE44FC00C8D49D /* DateExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B5556AED1EEE3A0200C8D49D /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				B5556AEE1EEE3A2000C8D49D /* WuClient.swift */,
+			);
+			path = Clients;
 			sourceTree = "<group>";
 		};
 		B573312A1EEDBDDC0091CAB8 = {
@@ -151,6 +167,7 @@
 		B57331351EEDBDDC0091CAB8 /* XWeather */ = {
 			isa = PBXGroup;
 			children = (
+				B5556AED1EEE3A0200C8D49D /* Clients */,
 				B5556AEA1EEE27C400C8D49D /* Extensions */,
 				B5556AD11EEE1E1800C8D49D /* Domain */,
 				B57331361EEDBDDC0091CAB8 /* AppDelegate.swift */,
@@ -323,6 +340,8 @@
 				B5556ADB1EEE1ECC00C8D49D /* WuWeather.swift in Sources */,
 				B5556AD31EEE1E6B00C8D49D /* WuLocation.swift in Sources */,
 				B5B7C4351EEDE1C800AFC29B /* HourlyTvCell.swift in Sources */,
+				B5556AEF1EEE3A2000C8D49D /* WuClient.swift in Sources */,
+				B5556AF11EEE425000C8D49D /* ColorExtensions.swift in Sources */,
 				B5B7C42A1EEDE15600AFC29B /* LocationTvc.swift in Sources */,
 				B5B7C42F1EEDE19800AFC29B /* BaseTvCell.swift in Sources */,
 				B5556AD91EEE1EBF00C8D49D /* WuObject.swift in Sources */,
@@ -341,6 +360,7 @@
 				B57331371EEDBDDC0091CAB8 /* AppDelegate.swift in Sources */,
 				B5B7C4421EEDE25300AFC29B /* DailyGraphView.swift in Sources */,
 				B5556AE31EEE1F2300C8D49D /* GeoLookup.swift in Sources */,
+				B5556AF31EEE44FC00C8D49D /* DateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
