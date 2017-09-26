@@ -176,7 +176,7 @@ namespace XWeather
 
 				double start, duration, pauseDuration = 0;
 
-				if (pageTime.TryGetValue (hash, out start) && start > 0)
+				if (pageTime.TryGetValue (hash, out start))
 				{
 					duration = Environment.TickCount - start;
 
