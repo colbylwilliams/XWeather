@@ -1,4 +1,8 @@
+[![apple-app-store](https://cdn.rawgit.com/colbylwilliams/XWeather/master/images/apple_app_store.svg "apple-app-store")][21]
+
 # XWeather
+![Build status](https://build.mobile.azure.com/v0.1/apps/f607644f-cef8-48a0-818f-f2fa7adb4760/branches/master/badge)
+
 XWeather is a weather app for iOS and Android built with Xamarin.
 
 #### iOS
@@ -134,3 +138,5 @@ Licensed under the MIT License (MIT).  See [LICENSE][20] for details.
 [19]:https://github.com/colbylwilliams
 
 [20]:https://github.com/colbylwilliams/XWeather/blob/master/LICENSE
+
+[21]:https://itunes.apple.com/us/app/xweather-oss-weather-app/id1229497627?mt=8

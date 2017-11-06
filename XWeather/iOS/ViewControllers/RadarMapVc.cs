@@ -24,15 +24,28 @@ namespace XWeather.iOS
 		public RadarMapVc (IntPtr handle) : base (handle) { }
 
 
+		public override void ViewDidLoad ()
+		{
+			base.ViewDidLoad ();
+
+			closeVisualEffectView.Layer.CornerRadius = closeVisualEffectView.Frame.Width / 4;
+			closeVisualEffectView.Layer.MasksToBounds = true;
+		}
+
+
 		public override void ViewWillAppear (bool animated)
 		{
 			base.ViewWillAppear (animated);
 
+			mapView.UserTrackingMode = MKUserTrackingMode.None;
+			mapView.Camera.Altitude = 500000;
+
 			var location = WuClient.Shared.Selected;
 
-			mapView.UserTrackingMode = MKUserTrackingMode.None;
-			mapView.CenterCoordinate = new CLLocationCoordinate2D (location.Location.lat, location.Location.lon);
-			mapView.Camera.Altitude = 500000;
+			if (location?.Location != null)
+			{
+				mapView.CenterCoordinate = new CLLocationCoordinate2D (location.Location.lat, location.Location.lon);
+			}
 		}
 
 
@@ -54,6 +67,9 @@ namespace XWeather.iOS
 
 			base.ViewDidDisappear (animated);
 		}
+
+
+		public override UIStatusBarStyle PreferredStatusBarStyle () => UIStatusBarStyle.LightContent;
 
 
 		partial void closeClicked (NSObject sender)

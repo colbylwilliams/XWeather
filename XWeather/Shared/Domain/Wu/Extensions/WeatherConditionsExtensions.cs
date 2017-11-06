@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Linq;
+
+using ServiceStack;
 
 using XWeather.Domain;
-using ServiceStack;
-using System.Linq;
 
 namespace XWeather
 {
@@ -194,15 +195,27 @@ namespace XWeather
 			=> !forecast.FCTTIME.ampm.IsNullOrEmpty () ? (lowercase ? forecast.FCTTIME.ampm.ToLower () : forecast.FCTTIME.ampm) : forecast.HourString (lowercase, false).SplitOnLast (' ').LastOrDefault ();
 
 
-		public static string ForecastString (this WuLocation location, TemperatureUnits unit)
+		public static string ForecastString (this WuLocation location, TemperatureUnits unit, DateTime? date = null)
 		{
-			var today = location?.TxtForecasts? [0];
-			var tonight = location?.TxtForecasts? [1];
+			var period = date.HasValue ? (date.Value.Day - DateTime.Now.Day) * 2 : 0;
 
-			var todayString = unit.IsImperial () ? today?.fcttext : today.fcttext_metric;
-			var tonightString = unit.IsImperial () ? tonight?.fcttext : tonight.fcttext_metric;
+			var day = location?.TxtForecasts?.FirstOrDefault (f => f.period == period);
+			var night = location?.TxtForecasts?.FirstOrDefault (f => f.period == (period + 1));
 
-			return $"{todayString}\n\nTonight: {tonightString}";
+			var dayString = unit.IsImperial () ? day?.fcttext : day.fcttext_metric;
+			var nightString = unit.IsImperial () ? night?.fcttext : night.fcttext_metric;
+
+			var dayTitle = (period == 0) ? "Today" : day?.title;
+			var nightTitle = (period == 0) ? "Tonight" : night?.title;
+
+			var forecastString = string.IsNullOrEmpty (dayString) ? string.Empty : $"{dayTitle} expect {dayString}";
+
+			if (!string.IsNullOrEmpty (nightString))
+			{
+				forecastString += $"\n\n{nightTitle} expect {nightString}";
+			}
+
+			return forecastString;
 		}
 
 

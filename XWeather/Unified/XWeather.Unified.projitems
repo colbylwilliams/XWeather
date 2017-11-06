@@ -16,19 +16,17 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\NullableExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\UnifiedExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StoryboardExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Settings\SettingAccessors.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Settings\SettingUtilities.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ColorExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\AttributedStringExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\WuLocationExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\AnalyticsManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Providers\TestDataProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Settings\SettingsUomUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Constants\" />
     <Folder Include="$(MSBuildThisFileDirectory)Extensions\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utilities\" />
     <Folder Include="$(MSBuildThisFileDirectory)Settings\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Providers\" />
   </ItemGroup>
 </Project>

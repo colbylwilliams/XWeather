@@ -57,8 +57,6 @@ namespace XWeather.Droid
 			{
 				await WuClient.Shared.AddLocation (location);
 
-				Settings.LocationsJson = WuClient.Shared.Locations.GetLocationsJson ();
-
 				Activity?.RunOnUiThread (() => { });
 			});
 

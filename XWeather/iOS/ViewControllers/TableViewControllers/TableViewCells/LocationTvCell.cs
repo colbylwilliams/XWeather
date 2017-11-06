@@ -12,6 +12,7 @@ namespace XWeather.iOS
 
 		public void SetData (WuLocation location)
 		{
+			currentImage.Hidden = !location.Current;
 			nameLabel.Text = location.Name;
 			timeLabel.Text = location?.LocalTimeString ();
 			tempLabel.Text = location?.TempString (Settings.UomTemperature, true);

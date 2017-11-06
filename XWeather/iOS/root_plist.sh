@@ -43,4 +43,4 @@ PreparePreferenceFile
 		AddNewStringNode 	-e "FooterText" 	-v "$copyright"
 
 
-	AddNewTitleValuePreference  -k "UserReferenceKey" 	-d "DEBUG"  	-t ""
+	AddNewTitleValuePreference  -k "UserReferenceKey" 	-d "anonymous"  	-t ""
