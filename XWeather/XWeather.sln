@@ -44,13 +44,10 @@ Global
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Release|Any CPU.Build.0 = Release|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Release|iPhone.Build.0 = Release|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{15ED7D76-DC89-4BE7-AF33-D5224EA24531}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
