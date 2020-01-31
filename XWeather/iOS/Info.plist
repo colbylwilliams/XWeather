@@ -18,13 +18,13 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>217</string>
+	<string>226</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
-	<string>9.0</string>
+	<string>12.0</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Your location is used to provide local weather.</string>
 	<key>UIDeviceFamily</key>

@@ -1,10 +1,11 @@
-﻿using MobileAnalytics = Microsoft.Azure.Mobile.Analytics.Analytics;
-using Microsoft.Azure.Mobile.Crashes;
+﻿using MobileAnalytics = Microsoft.AppCenter.Analytics.Analytics;
 
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AppCenter.Crashes;
 
 
 #if __IOS__
@@ -336,7 +337,7 @@ namespace XWeather
 
 		static void trackEvent (string name, IDictionary<string, string> properties = null)
 		{
-			if (!string.IsNullOrEmpty (Constants.PrivateKeys.MobileCenter.AppSecret) && MobileAnalytics.Enabled)
+			if (!string.IsNullOrEmpty (Constants.PrivateKeys.MobileCenter.AppSecret))
 			{
 				MobileAnalytics.TrackEvent (name, properties);
 			}
