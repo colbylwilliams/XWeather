@@ -32,7 +32,6 @@
 		<Compile Include="TestExtensions.cs" />
 	</ItemGroup>
 	<ItemGroup>
-		<None Include="packages.config" />
 	</ItemGroup>
 	<Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
