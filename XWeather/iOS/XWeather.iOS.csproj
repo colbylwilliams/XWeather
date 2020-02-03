@@ -1,643 +1,601 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{3B22D06D-E502-470F-8565-F0D8FC93624D}</ProjectGuid>
-    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>XWeather.iOS</RootNamespace>
-    <AssemblyName>XWeatheriOS</AssemblyName>
-    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
-    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer</CodesignKey>
-    <MtouchDebug>true</MtouchDebug>
-    <MtouchFastDev>false</MtouchFastDev>
-    <MtouchProfiling>true</MtouchProfiling>
-    <MtouchLink>None</MtouchLink>
-    <MtouchArch>i386, x86_64</MtouchArch>
-    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
-    <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
-    <XamarinInspectorDisabled>True</XamarinInspectorDisabled>
-    <CustomCommands>
-      <CustomCommands>
-        <Command>
-          <type>BeforeBuild</type>
-          <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2017 Colby Williams"</command>
-        </Command>
-      </CustomCommands>
-    </CustomCommands>
-    <CodesignProvision></CodesignProvision>
-    <DeviceSpecificBuild>false</DeviceSpecificBuild>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
-    <DebugType></DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\iPhone\Release</OutputPath>
-    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Distribution</CodesignKey>
-    <MtouchFloat32>true</MtouchFloat32>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
-    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
-    <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision></CodesignProvision>
-    <CustomCommands>
-      <CustomCommands>
-        <Command>
-          <type>BeforeBuild</type>
-          <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2017 Colby Williams" -r true</command>
-        </Command>
-      </CustomCommands>
-    </CustomCommands>
-<MtouchUseLlvm>true</MtouchUseLlvm>
-<MtouchDebug>false</MtouchDebug>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
-    <DebugType></DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
-    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer</CodesignKey>
-    <MtouchLink>None</MtouchLink>
-    <MtouchArch>i386</MtouchArch>
-    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
-    <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
-    <CustomCommands>
-      <CustomCommands>
-        <Command>
-          <type>BeforeBuild</type>
-          <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2017 Colby Williams"</command>
-        </Command>
-      </CustomCommands>
-    </CustomCommands>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\iPhone\Debug</OutputPath>
-    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodesignKey>iPhone Developer</CodesignKey>
-    <DeviceSpecificBuild>true</DeviceSpecificBuild>
-    <MtouchDebug>true</MtouchDebug>
-    <MtouchFastDev>true</MtouchFastDev>
-    <MtouchProfiling>true</MtouchProfiling>
-    <MtouchFloat32>true</MtouchFloat32>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchLink>SdkOnly</MtouchLink>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
-    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
-    <MtouchTlsProvider>Default</MtouchTlsProvider>
-    <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision></CodesignProvision>
-    <CustomCommands>
-      <CustomCommands>
-        <Command>
-          <type>BeforeBuild</type>
-          <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2017 Colby Williams"</command>
-        </Command>
-      </CustomCommands>
-    </CustomCommands>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="Xamarin.iOS" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="Plugin.VersionTracking.Abstractions">
-      <HintPath>..\packages\Plugin.VersionTracking.1.0.1\lib\Xamarin.iOS10\Plugin.VersionTracking.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.VersionTracking">
-      <HintPath>..\packages\Plugin.VersionTracking.1.0.1\lib\Xamarin.iOS10\Plugin.VersionTracking.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Extensions">
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Primitives">
-      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Primitives.dll</HintPath>
-    </Reference>
-    <Reference Include="Calabash">
-      <HintPath>..\packages\Xamarin.TestCloud.Agent.0.20.3\lib\Xamarin.iOS10\Calabash.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Interfaces">
-      <HintPath>..\packages\ServiceStack.Interfaces.4.5.8\lib\portable-wp80+sl5+net45+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Text">
-      <HintPath>..\packages\ServiceStack.Text.4.5.8\lib\portable-net45+win8+monotouch+monoandroid+xamarin.ios10\ServiceStack.Text.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Client">
-      <HintPath>..\packages\ServiceStack.Client.4.5.8\lib\Xamarin.iOS10\ServiceStack.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Pcl.iOS">
-      <HintPath>..\packages\ServiceStack.Client.4.5.8\lib\Xamarin.iOS10\ServiceStack.Pcl.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.HttpClient">
-      <HintPath>..\packages\ServiceStack.HttpClient.4.5.8\lib\portable-net45+win8+monotouch+monoandroid+xamarin.ios10\ServiceStack.HttpClient.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Azure.Mobile">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.0.12.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Azure.Mobile.iOS.Bindings">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.0.12.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.iOS.Bindings.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Azure.Mobile.Analytics">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Analytics.0.12.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Azure.Mobile.Analytics.iOS.Bindings">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Analytics.0.12.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Analytics.iOS.Bindings.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Azure.Mobile.Crashes">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Crashes.0.12.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Crashes.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Azure.Mobile.Crashes.iOS.Bindings">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Crashes.0.12.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Crashes.iOS.Bindings.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Azure.Mobile.Distribute">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Distribute.0.12.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Distribute.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Azure.Mobile.Distribute.iOS.Bindings">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Distribute.0.12.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Distribute.iOS.Bindings.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\chanceflurries.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\chancerain.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\chancesleet.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\chancesnow.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\chancetstorms.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\clear.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\cloudy.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\flurries.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\fog.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\hazy.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\mostlycloudy.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\mostlysunny.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_chanceflurries.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_chancerain.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_chancesleet.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_chancesnow.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_chancetstorms.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_clear.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_cloudy.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_flurries.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_fog.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_hazy.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_mostlycloudy.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_mostlysunny.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_partlycloudy.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_partlysunny.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_rain.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_sleet.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_snow.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_sunny.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_tstorms.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\partlycloudy.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\partlysunny.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\rain.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\sleet.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\snow.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\sunny.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\tstorms.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\unknown.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\i_add.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\i_close.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\i_close.imageset\i_close.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\i_add.imageset\i_add.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\i_list.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\i_list.imageset\i_list.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\chanceflurries.imageset\chanceflurries.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\chancerain.imageset\chancerain.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\chancesleet.imageset\chancesleet.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\chancesnow.imageset\chancesnow.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\chancetstorms.imageset\chancetstorms.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\clear.imageset\clear.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\cloudy.imageset\cloudy.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\flurries.imageset\flurries.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\fog.imageset\fog.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\hazy.imageset\hazy.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\mostlycloudy.imageset\mostlycloudy.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\mostlysunny.imageset\mostlysunny.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_chanceflurries.imageset\nt_chanceflurries.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_chancerain.imageset\nt_chancerain.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_chancesleet.imageset\nt_chancesleet.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_chancesnow.imageset\nt_chancesnow.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_chancetstorms.imageset\nt_chancetstorms.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_clear.imageset\nt_clear.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_cloudy.imageset\nt_cloudy.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_flurries.imageset\nt_flurries.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_fog.imageset\nt_fog.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_hazy.imageset\nt_hazy.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_mostlycloudy.imageset\nt_mostlycloudy.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_mostlysunny.imageset\nt_mostlysunny.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_partlycloudy.imageset\nt_partlycloudy.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_partlysunny.imageset\nt_partlysunny.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_rain.imageset\nt_rain.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_sleet.imageset\nt_sleet.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_snow.imageset\nt_snow.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_sunny.imageset\nt_sunny.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\nt_tstorms.imageset\nt_tstorms.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\partlycloudy.imageset\partlycloudy.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\partlysunny.imageset\partlysunny.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\rain.imageset\rain.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\sleet.imageset\sleet.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\snow.imageset\snow.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\sunny.imageset\sunny.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\tstorms.imageset\tstorms.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\unknown.imageset\cloudy.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\i_cog.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\i_cog.imageset\i_cog.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _29.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _58.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _87.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _80.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _120.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _180.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _40.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _76.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _152.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _167.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _48.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _55.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _88.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _172.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _196.png">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\i_add_sm.imageset\Contents.json">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\i_add_sm.imageset\i_add_sm.pdf">
-      <InProject>false</InProject>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\logo_wunderground_rev.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\logo_wunderground_rev.imageset\logo_wunderground_rev.pdf" />
-    <ImageAsset Include="Assets.xcassets\logo_wunderground_white.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\logo_wunderground_white.imageset\logo_wunderground_white.pdf" />
-    <ImageAsset Include="Assets.xcassets\bg_launch.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\bg_launch.imageset\bg_launch.pdf" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\i_radar.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\i_radar.imageset\i_radar.pdf" />
-    <ImageAsset Include="Assets.xcassets\i_current.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\i_current.imageset\i_current.pdf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="ViewControllers\" />
-    <Folder Include="ViewControllers\TableViewControllers\" />
-    <Folder Include="ViewControllers\TableViewControllers\TableViewCells\" />
-    <Folder Include="ViewControllers\TableViewControllers\TableViewHeaders\" />
-    <Folder Include="Assets.xcassets\Atlanta.dataset\" />
-    <Folder Include="Assets.xcassets\Miami.dataset\" />
-    <Folder Include="Assets.xcassets\New_Orleans.dataset\" />
-    <Folder Include="Assets.xcassets\Denver.dataset\" />
-    <Folder Include="Assets.xcassets\Las_Vegas.dataset\" />
-    <Folder Include="Assets.xcassets\San_Francisco.dataset\" />
-    <Folder Include="Providers\" />
-    <Folder Include="Extensions\" />
-    <Folder Include="Assets.xcassets\chanceflurries.imageset\" />
-    <Folder Include="Assets.xcassets\i_globe.imageset\" />
-    <Folder Include="Assets.xcassets\i_add.imageset\" />
-    <Folder Include="Assets.xcassets\i_close.imageset\" />
-    <Folder Include="Assets.xcassets\i_list.imageset\" />
-    <Folder Include="Assets.xcassets\i_drop.imageset\" />
-    <Folder Include="Assets.xcassets\i_cog.imageset\" />
-    <Folder Include="Assets.xcassets\i_add_sm.imageset\" />
-    <Folder Include="Assets.xcassets\logo_wunderground_rev.imageset\" />
-    <Folder Include="Assets.xcassets\logo_wunderground_white.imageset\" />
-    <Folder Include="Assets.xcassets\bg_launch.imageset\" />
-    <Folder Include="ViewControllers\RadarOverlay\" />
-    <Folder Include="Assets.xcassets\i_radar.imageset\" />
-    <Folder Include="Assets.xcassets\i_current.imageset\" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Main.storyboard" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Info.plist" />
-    <None Include="Entitlements.plist" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\DailyTvCell.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\DailyTvCell.designer.cs">
-      <DependentUpon>DailyTvCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\DetailsTvCell.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\DetailsTvCell.designer.cs">
-      <DependentUpon>DetailsTvCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\HourlyTvCell.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\HourlyTvCell.designer.cs">
-      <DependentUpon>HourlyTvCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationSearchTvCell.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationSearchTvCell.designer.cs">
-      <DependentUpon>LocationSearchTvCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationTvCell.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationTvCell.designer.cs">
-      <DependentUpon>LocationTvCell.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\TableViewControllers\DailyTvc.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\DailyTvc.designer.cs">
-      <DependentUpon>DailyTvc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\TableViewControllers\DetailsTvc.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\DetailsTvc.designer.cs">
-      <DependentUpon>DetailsTvc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\TableViewControllers\HourlyTvc.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\HourlyTvc.designer.cs">
-      <DependentUpon>HourlyTvc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\TableViewControllers\LocationSearchTvc.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\LocationSearchTvc.designer.cs">
-      <DependentUpon>LocationSearchTvc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\TableViewControllers\LocationTvc.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\LocationTvc.designer.cs">
-      <DependentUpon>LocationTvc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\TableViewControllers\BaseTvc.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\TableViewCells\BaseTvCell.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\BaseTvHeader.cs" />
-    <Compile Include="ViewControllers\WeatherPvc.cs" />
-    <Compile Include="ViewControllers\WeatherPvc.designer.cs">
-      <DependentUpon>WeatherPvc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\HourlyTvHeader.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\HourlyTvHeader.designer.cs">
-      <DependentUpon>HourlyTvHeader.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DailyTvHeader.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DailyTvHeader.designer.cs">
-      <DependentUpon>DailyTvHeader.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DetailsTvHeader.cs" />
-    <Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DetailsTvHeader.designer.cs">
-      <DependentUpon>DetailsTvHeader.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\WeatherNc.cs" />
-    <Compile Include="ViewControllers\WeatherNc.designer.cs">
-      <DependentUpon>WeatherNc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Extensions\ViewExtensions.cs" />
-    <Compile Include="ViewControllers\RadarMapVc.cs" />
-    <Compile Include="ViewControllers\RadarMapVc.designer.cs">
-      <DependentUpon>RadarMapVc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Extensions\ImageExtensions.cs" />
-    <Compile Include="Providers\LocationProvider.cs" />
-    <Compile Include="ViewControllers\DailyGraphView.cs" />
-    <Compile Include="ViewControllers\RadarOverlay\RadarOverlay.cs" />
-    <Compile Include="ViewControllers\RadarOverlay\RadarOverlayRenderer.cs" />
-    <Compile Include="ViewControllers\RadarOverlay\RadarOverlayExtensions.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Settings.bundle\Root.plist" />
-    <BundleResource Include="Resources\Atlanta.json" />
-    <BundleResource Include="Resources\Dallas.json" />
-    <BundleResource Include="Resources\Denver.json" />
-    <BundleResource Include="Resources\Las_Vegas.json" />
-    <BundleResource Include="Resources\Miami.json" />
-    <BundleResource Include="Resources\New_Orleans.json" />
-    <BundleResource Include="Resources\San_Francisco.json" />
-  </ItemGroup>
-  <Import Project="..\Shared\XWeather.Shared.projitems" Label="Shared" Condition="Exists('..\Shared\XWeather.Shared.projitems')" />
-  <Import Project="..\Unified\XWeather.Unified.projitems" Label="Shared" Condition="Exists('..\Unified\XWeather.Unified.projitems')" />
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+		<ProjectGuid>{3B22D06D-E502-470F-8565-F0D8FC93624D}</ProjectGuid>
+		<ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>XWeather.iOS</RootNamespace>
+		<AssemblyName>XWeatheriOS</AssemblyName>
+		<IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+		<DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;DEBUG;</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<CodesignKey>iPhone Developer</CodesignKey>
+		<MtouchDebug>true</MtouchDebug>
+		<MtouchFastDev>false</MtouchFastDev>
+		<MtouchProfiling>true</MtouchProfiling>
+		<MtouchLink>None</MtouchLink>
+		<MtouchArch>x86_64</MtouchArch>
+		<MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+		<MtouchTlsProvider>Default</MtouchTlsProvider>
+		<PlatformTarget>x86</PlatformTarget>
+		<XamarinInspectorDisabled>True</XamarinInspectorDisabled>
+		<CustomCommands>
+		  <CustomCommands>
+		    <Command>
+		      <type>BeforeBuild</type>
+		      <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2017 Colby Williams"</command>
+		    </Command>
+		  </CustomCommands>
+		</CustomCommands>
+		<CodesignProvision>
+		</CodesignProvision>
+		<DeviceSpecificBuild>false</DeviceSpecificBuild>
+		<MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+		<DebugType>
+		</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\iPhone\Release</OutputPath>
+		<DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<CodesignKey>iPhone Distribution</CodesignKey>
+		<MtouchFloat32>true</MtouchFloat32>
+		<CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+		<MtouchLink>SdkOnly</MtouchLink>
+		<MtouchArch>ARM64</MtouchArch>
+		<MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+		<MtouchTlsProvider>Default</MtouchTlsProvider>
+		<PlatformTarget>x86</PlatformTarget>
+		<CodesignProvision>
+		</CodesignProvision>
+		<CustomCommands>
+		  <CustomCommands>
+		    <Command>
+		      <type>BeforeBuild</type>
+		      <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2017 Colby Williams" -r true</command>
+		    </Command>
+		  </CustomCommands>
+		</CustomCommands>
+		<MtouchUseLlvm>true</MtouchUseLlvm>
+		<MtouchDebug>false</MtouchDebug>
+		<MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+		<DebugType>
+		</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+		<DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<CodesignKey>iPhone Developer</CodesignKey>
+		<MtouchLink>None</MtouchLink>
+		<MtouchArch>x86_64</MtouchArch>
+		<MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+		<MtouchTlsProvider>Default</MtouchTlsProvider>
+		<PlatformTarget>x86</PlatformTarget>
+		<CustomCommands>
+		  <CustomCommands>
+		    <Command>
+		      <type>BeforeBuild</type>
+		      <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2017 Colby Williams"</command>
+		    </Command>
+		  </CustomCommands>
+		</CustomCommands>
+		<MtouchUseLlvm>true</MtouchUseLlvm>
+		<MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\iPhone\Debug</OutputPath>
+		<DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;DEBUG;</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<CodesignKey>iPhone Developer</CodesignKey>
+		<DeviceSpecificBuild>true</DeviceSpecificBuild>
+		<MtouchDebug>true</MtouchDebug>
+		<MtouchFastDev>true</MtouchFastDev>
+		<MtouchProfiling>true</MtouchProfiling>
+		<MtouchFloat32>true</MtouchFloat32>
+		<CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+		<MtouchLink>SdkOnly</MtouchLink>
+		<MtouchArch>ARM64</MtouchArch>
+		<MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+		<MtouchTlsProvider>Default</MtouchTlsProvider>
+		<PlatformTarget>x86</PlatformTarget>
+		<CodesignProvision>
+		</CodesignProvision>
+		<CustomCommands>
+		  <CustomCommands>
+		    <Command>
+		      <type>BeforeBuild</type>
+		      <command>/bin/bash ../Scripts/plist_utility.sh -p ${ProjectDir} -c "Copyright © 2017 Colby Williams"</command>
+		    </Command>
+		  </CustomCommands>
+		</CustomCommands>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="System" />
+		<Reference Include="System.Xml" />
+		<Reference Include="System.Core" />
+		<Reference Include="Xamarin.iOS" />
+		<Reference Include="System.Net.Http" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="ServiceStack.HttpClient" Version="5.8.0" />
+		<PackageReference Include="Microsoft.AppCenter.Distribute" Version="2.6.4" />
+		<PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.6.4" />
+		<PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.6.4" />
+		<PackageReference Include="Plugin.VersionTracking" Version="2.1.0" />
+		<PackageReference Include="Xamarin.TestCloud.Agent" Version="0.21.9" />
+	</ItemGroup>
+	<ItemGroup>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\chanceflurries.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\chancerain.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\chancesleet.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\chancesnow.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\chancetstorms.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\clear.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\cloudy.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\flurries.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\fog.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\hazy.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\mostlycloudy.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\mostlysunny.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_chanceflurries.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_chancerain.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_chancesleet.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_chancesnow.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_chancetstorms.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_clear.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_cloudy.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_flurries.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_fog.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_hazy.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_mostlycloudy.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_mostlysunny.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_partlycloudy.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_partlysunny.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_rain.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_sleet.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_snow.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_sunny.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_tstorms.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\partlycloudy.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\partlysunny.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\rain.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\sleet.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\snow.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\sunny.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\tstorms.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\unknown.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\i_add.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\i_close.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\i_close.imageset\i_close.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\i_add.imageset\i_add.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\i_list.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\i_list.imageset\i_list.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\chanceflurries.imageset\chanceflurries.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\chancerain.imageset\chancerain.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\chancesleet.imageset\chancesleet.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\chancesnow.imageset\chancesnow.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\chancetstorms.imageset\chancetstorms.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\clear.imageset\clear.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\cloudy.imageset\cloudy.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\flurries.imageset\flurries.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\fog.imageset\fog.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\hazy.imageset\hazy.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\mostlycloudy.imageset\mostlycloudy.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\mostlysunny.imageset\mostlysunny.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_chanceflurries.imageset\nt_chanceflurries.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_chancerain.imageset\nt_chancerain.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_chancesleet.imageset\nt_chancesleet.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_chancesnow.imageset\nt_chancesnow.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_chancetstorms.imageset\nt_chancetstorms.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_clear.imageset\nt_clear.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_cloudy.imageset\nt_cloudy.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_flurries.imageset\nt_flurries.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_fog.imageset\nt_fog.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_hazy.imageset\nt_hazy.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_mostlycloudy.imageset\nt_mostlycloudy.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_mostlysunny.imageset\nt_mostlysunny.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_partlycloudy.imageset\nt_partlycloudy.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_partlysunny.imageset\nt_partlysunny.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_rain.imageset\nt_rain.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_sleet.imageset\nt_sleet.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_snow.imageset\nt_snow.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_sunny.imageset\nt_sunny.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\nt_tstorms.imageset\nt_tstorms.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\partlycloudy.imageset\partlycloudy.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\partlysunny.imageset\partlysunny.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\rain.imageset\rain.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\sleet.imageset\sleet.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\snow.imageset\snow.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\sunny.imageset\sunny.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\tstorms.imageset\tstorms.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\unknown.imageset\cloudy.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\i_cog.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\i_cog.imageset\i_cog.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _29.png">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _58.png">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _87.png">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _80.png">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _120.png">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _180.png">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _40.png">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _76.png">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _152.png">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _167.png">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _48.png">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _55.png">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _88.png">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _172.png">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon _196.png">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\i_add_sm.imageset\Contents.json">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\i_add_sm.imageset\i_add_sm.pdf">
+			<InProject>false</InProject>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\logo_wunderground_rev.imageset\Contents.json" />
+		<ImageAsset Include="Assets.xcassets\logo_wunderground_rev.imageset\logo_wunderground_rev.pdf" />
+		<ImageAsset Include="Assets.xcassets\logo_wunderground_white.imageset\Contents.json" />
+		<ImageAsset Include="Assets.xcassets\logo_wunderground_white.imageset\logo_wunderground_white.pdf" />
+		<ImageAsset Include="Assets.xcassets\bg_launch.imageset\Contents.json" />
+		<ImageAsset Include="Assets.xcassets\bg_launch.imageset\bg_launch.pdf" />
+		<ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
+		<ImageAsset Include="Assets.xcassets\i_radar.imageset\Contents.json" />
+		<ImageAsset Include="Assets.xcassets\i_radar.imageset\i_radar.pdf" />
+		<ImageAsset Include="Assets.xcassets\i_current.imageset\Contents.json" />
+		<ImageAsset Include="Assets.xcassets\i_current.imageset\i_current.pdf" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Resources\" />
+		<Folder Include="ViewControllers\" />
+		<Folder Include="ViewControllers\TableViewControllers\" />
+		<Folder Include="ViewControllers\TableViewControllers\TableViewCells\" />
+		<Folder Include="ViewControllers\TableViewControllers\TableViewHeaders\" />
+		<Folder Include="Assets.xcassets\Atlanta.dataset\" />
+		<Folder Include="Assets.xcassets\Miami.dataset\" />
+		<Folder Include="Assets.xcassets\New_Orleans.dataset\" />
+		<Folder Include="Assets.xcassets\Denver.dataset\" />
+		<Folder Include="Assets.xcassets\Las_Vegas.dataset\" />
+		<Folder Include="Assets.xcassets\San_Francisco.dataset\" />
+		<Folder Include="Providers\" />
+		<Folder Include="Extensions\" />
+		<Folder Include="Assets.xcassets\chanceflurries.imageset\" />
+		<Folder Include="Assets.xcassets\i_globe.imageset\" />
+		<Folder Include="Assets.xcassets\i_add.imageset\" />
+		<Folder Include="Assets.xcassets\i_close.imageset\" />
+		<Folder Include="Assets.xcassets\i_list.imageset\" />
+		<Folder Include="Assets.xcassets\i_drop.imageset\" />
+		<Folder Include="Assets.xcassets\i_cog.imageset\" />
+		<Folder Include="Assets.xcassets\i_add_sm.imageset\" />
+		<Folder Include="Assets.xcassets\logo_wunderground_rev.imageset\" />
+		<Folder Include="Assets.xcassets\logo_wunderground_white.imageset\" />
+		<Folder Include="Assets.xcassets\bg_launch.imageset\" />
+		<Folder Include="ViewControllers\RadarOverlay\" />
+		<Folder Include="Assets.xcassets\i_radar.imageset\" />
+		<Folder Include="Assets.xcassets\i_current.imageset\" />
+	</ItemGroup>
+	<ItemGroup>
+		<InterfaceDefinition Include="LaunchScreen.storyboard" />
+		<InterfaceDefinition Include="Main.storyboard" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="Info.plist" />
+		<None Include="Entitlements.plist" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="Main.cs" />
+		<Compile Include="AppDelegate.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\TableViewCells\DailyTvCell.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\TableViewCells\DailyTvCell.designer.cs">
+			<DependentUpon>DailyTvCell.cs</DependentUpon>
+		</Compile>
+		<Compile Include="ViewControllers\TableViewControllers\TableViewCells\DetailsTvCell.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\TableViewCells\DetailsTvCell.designer.cs">
+			<DependentUpon>DetailsTvCell.cs</DependentUpon>
+		</Compile>
+		<Compile Include="ViewControllers\TableViewControllers\TableViewCells\HourlyTvCell.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\TableViewCells\HourlyTvCell.designer.cs">
+			<DependentUpon>HourlyTvCell.cs</DependentUpon>
+		</Compile>
+		<Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationSearchTvCell.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationSearchTvCell.designer.cs">
+			<DependentUpon>LocationSearchTvCell.cs</DependentUpon>
+		</Compile>
+		<Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationTvCell.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\TableViewCells\LocationTvCell.designer.cs">
+			<DependentUpon>LocationTvCell.cs</DependentUpon>
+		</Compile>
+		<Compile Include="ViewControllers\TableViewControllers\DailyTvc.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\DailyTvc.designer.cs">
+			<DependentUpon>DailyTvc.cs</DependentUpon>
+		</Compile>
+		<Compile Include="ViewControllers\TableViewControllers\DetailsTvc.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\DetailsTvc.designer.cs">
+			<DependentUpon>DetailsTvc.cs</DependentUpon>
+		</Compile>
+		<Compile Include="ViewControllers\TableViewControllers\HourlyTvc.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\HourlyTvc.designer.cs">
+			<DependentUpon>HourlyTvc.cs</DependentUpon>
+		</Compile>
+		<Compile Include="ViewControllers\TableViewControllers\LocationSearchTvc.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\LocationSearchTvc.designer.cs">
+			<DependentUpon>LocationSearchTvc.cs</DependentUpon>
+		</Compile>
+		<Compile Include="ViewControllers\TableViewControllers\LocationTvc.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\LocationTvc.designer.cs">
+			<DependentUpon>LocationTvc.cs</DependentUpon>
+		</Compile>
+		<Compile Include="ViewControllers\TableViewControllers\BaseTvc.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\TableViewCells\BaseTvCell.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\BaseTvHeader.cs" />
+		<Compile Include="ViewControllers\WeatherPvc.cs" />
+		<Compile Include="ViewControllers\WeatherPvc.designer.cs">
+			<DependentUpon>WeatherPvc.cs</DependentUpon>
+		</Compile>
+		<Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\HourlyTvHeader.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\HourlyTvHeader.designer.cs">
+			<DependentUpon>HourlyTvHeader.cs</DependentUpon>
+		</Compile>
+		<Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DailyTvHeader.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DailyTvHeader.designer.cs">
+			<DependentUpon>DailyTvHeader.cs</DependentUpon>
+		</Compile>
+		<Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DetailsTvHeader.cs" />
+		<Compile Include="ViewControllers\TableViewControllers\TableViewHeaders\DetailsTvHeader.designer.cs">
+			<DependentUpon>DetailsTvHeader.cs</DependentUpon>
+		</Compile>
+		<Compile Include="ViewControllers\WeatherNc.cs" />
+		<Compile Include="ViewControllers\WeatherNc.designer.cs">
+			<DependentUpon>WeatherNc.cs</DependentUpon>
+		</Compile>
+		<Compile Include="Extensions\ViewExtensions.cs" />
+		<Compile Include="ViewControllers\RadarMapVc.cs" />
+		<Compile Include="ViewControllers\RadarMapVc.designer.cs">
+			<DependentUpon>RadarMapVc.cs</DependentUpon>
+		</Compile>
+		<Compile Include="Extensions\ImageExtensions.cs" />
+		<Compile Include="Providers\LocationProvider.cs" />
+		<Compile Include="ViewControllers\DailyGraphView.cs" />
+		<Compile Include="ViewControllers\RadarOverlay\RadarOverlay.cs" />
+		<Compile Include="ViewControllers\RadarOverlay\RadarOverlayRenderer.cs" />
+		<Compile Include="ViewControllers\RadarOverlay\RadarOverlayExtensions.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<BundleResource Include="Settings.bundle\Root.plist" />
+		<BundleResource Include="Resources\Atlanta.json" />
+		<BundleResource Include="Resources\Dallas.json" />
+		<BundleResource Include="Resources\Denver.json" />
+		<BundleResource Include="Resources\Las_Vegas.json" />
+		<BundleResource Include="Resources\Miami.json" />
+		<BundleResource Include="Resources\New_Orleans.json" />
+		<BundleResource Include="Resources\San_Francisco.json" />
+	</ItemGroup>
+	<Import Project="..\Shared\XWeather.Shared.projitems" Label="Shared" Condition="Exists('..\Shared\XWeather.Shared.projitems')" />
+	<Import Project="..\Unified\XWeather.Unified.projitems" Label="Shared" Condition="Exists('..\Unified\XWeather.Unified.projitems')" />
+	<Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

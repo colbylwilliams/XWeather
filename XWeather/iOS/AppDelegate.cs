@@ -1,7 +1,6 @@
 ﻿using Foundation;
+using Microsoft.AppCenter.Distribute;
 using UIKit;
-
-using Microsoft.Azure.Mobile.Distribute;
 
 namespace XWeather.iOS
 {
@@ -20,7 +19,7 @@ namespace XWeather.iOS
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
 
-#if ENABLE_TEST_CLOUD
+#if DEBUG
 			Xamarin.Calabash.Start ();
 #endif
 			return true;
@@ -33,7 +32,7 @@ namespace XWeather.iOS
 			return true;
 		}
 
-#if ENABLE_TEST_CLOUD
+#if DEBUG
 		[Export ("updateSettingsToImperial")]
 		public NSString UpdateSettingsToImperial ()
 		{

@@ -1,39 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{15ED7D76-DC89-4BE7-AF33-D5224EA24531}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>XWeather.UITests</RootNamespace>
-    <AssemblyName>XWeather.UITests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.UITest">
-      <HintPath>..\packages\Xamarin.UITest.2.0.4\lib\Xamarin.UITest.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Tests.cs" />
-    <Compile Include="AppInitializer.cs" />
-    <Compile Include="TestExtensions.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+	<Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+		<ProjectGuid>{15ED7D76-DC89-4BE7-AF33-D5224EA24531}</ProjectGuid>
+		<OutputType>Library</OutputType>
+		<RootNamespace>XWeather.UITests</RootNamespace>
+		<AssemblyName>XWeather.UITests</AssemblyName>
+		<TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\Debug</OutputPath>
+		<DefineConstants>DEBUG;</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="System" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Xamarin.UITest" Version="3.0.6-dev1" />
+		<PackageReference Include="NUnit" Version="3.12.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="Tests.cs" />
+		<Compile Include="AppInitializer.cs" />
+		<Compile Include="TestExtensions.cs" />
+	</ItemGroup>
+	<ItemGroup>
+	</ItemGroup>
+	<Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
